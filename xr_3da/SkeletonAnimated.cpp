@@ -526,7 +526,7 @@ void CSkeletonAnimated::Load(const char* N, IReader *data, u32 dwFlags)
         	_GetItem	(items_nm,k,nm);
             strcat		(nm,".omf");
             string_path	fn;
-            if (!FS.exist(fn, "$level$", nm)){
+            if (!FS.exist(fn, "content\\levels\\", nm)){
                 if (!FS.exist(fn, "$game_meshes$", nm)){
 #ifdef _EDITOR
                     Msg			("!Can't find motion file '%s'.",nm);

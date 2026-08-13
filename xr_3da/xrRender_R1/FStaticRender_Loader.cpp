@@ -54,7 +54,7 @@ void CRender::level_Load(IReader* fs)
 	if	(!g_pGamePersistent->bDedicatedServer)	{
 		// VB,IB,SWI
 		pApp->LoadTitle				("Loading geometry...");
-		IReader*	geom			= FS.r_open	("$level$","level.geom");
+		IReader*	geom			= FS.r_open	("content\\levels\\","level.geom");
 		LoadBuffers					(geom);
 		LoadSWIs					(geom);
 		FS.r_close					(geom);

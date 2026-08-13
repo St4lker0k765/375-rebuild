@@ -52,7 +52,7 @@ void CHOM::Load			()
 {
 	// Find and open file
 	string256		fName;
-	FS.update_path	(fName,"$level$","level.hom");
+	FS.update_path	(fName,"content\\levels\\","level.hom");
 	if (!FS.exist(fName))
 	{
 		Msg		("! WARNING: Occlusion map '%s' not found.",fName);

@@ -16,12 +16,6 @@
 
 CLocatorAPI*	xr_FS	= NULL;
 
-#ifdef _EDITOR
-#define FSLTX	"fs.ltx"
-#else
-#define FSLTX	"fsgame.ltx"
-#endif
-
 //////////////////////////////////////////////////////////////////////
 // FS_Path
 //////////////////////////////////////////////////////////////////////
@@ -312,53 +306,7 @@ void CLocatorAPI::_initialize	(u32 flags, LPCSTR target_folder)
     }
 	if (m_Flags.is(flTargetFolderOnly)){
 		append_path		("$target_folder$",target_folder,0,TRUE);
-	}else{
-		// scan root directory
-		bNoRecurse		= TRUE;
-		string_path		buf;
-		IReader* F		= 0;
-		Recurse			("");
-		F				= r_open(FSLTX); 
-		if (!F&&m_Flags.is(flScanAppRoot))
-			F			= r_open("$app_root$",FSLTX); 
-		R_ASSERT3		(F,"Can't open file:", FSLTX);
-		// append all pathes    
-		string_path		id, temp, root, add, def, capt;
-		LPCSTR			lp_add, lp_def, lp_capt;
-		string16		b_v;
-		while(!F->eof()){
-			F->r_string	(buf,sizeof(buf));
-			_GetItem(buf,0,id,'=');
-			if (id[0]==';') continue;
-			_GetItem(buf,1,temp,'=');
-			int cnt		= _GetItemCount(temp);  R_ASSERT(cnt>=3);
-			u32 fl		= 0;
-			_GetItem	(temp,0,b_v);	if (CInifile::IsBOOL(b_v)) fl |= FS_Path::flRecurse;
-			_GetItem	(temp,1,b_v);	if (CInifile::IsBOOL(b_v)) fl |= FS_Path::flNotif;
-			_GetItem	(temp,2,root);
-			_GetItem	(temp,3,add);
-			_GetItem	(temp,4,def);
-			_GetItem	(temp,5,capt);
-			xr_strlwr	(id);			if (!m_Flags.is(flBuildCopy)&&(0==xr_strcmp(id,"$build_copy$"))) continue;
-			xr_strlwr	(root);
-			lp_add		=(cnt>=4)?xr_strlwr(add):0;
-			lp_def		=(cnt>=5)?def:0;
-			lp_capt		=(cnt>=6)?capt:0;
-			PathPairIt p_it = pathes.find(root);
-			std::pair<PathPairIt, bool> I;
-			FS_Path* P	= xr_new<FS_Path>((p_it!=pathes.end())?p_it->second->m_Path:root,lp_add,lp_def,lp_capt,fl);
-			bNoRecurse	= !(fl&FS_Path::flRecurse);
-			Recurse		(P->m_Path);
-			I			= pathes.insert(mk_pair(xr_strdup(id),P));
-			
-			//disable file caching if no network drive ($server_root$ begins with \\x-ray)
-			if(0==xr_strcmp(id,"$server_root$") && root!=strstr(root,"\\\\x-ray") )
-				m_Flags.set(flCacheFiles,FALSE);
-			
-			R_ASSERT	(I.second);
-		}
-		r_close			(F);
-	};
+	}
 
 	if(strstr(Core.Params,"-pack ")){
 			string512 pack_name;
@@ -955,12 +903,13 @@ FS_Path* CLocatorAPI::get_path(LPCSTR path)
 
 LPCSTR CLocatorAPI::update_path(LPSTR dest, LPCSTR initial, LPCSTR src)
 {
-    return get_path(initial)->_update(dest,src);
+	return xr_strlwr(strconcat(dest, initial, src));
 }
 
 void CLocatorAPI::update_path(xr_string& dest, LPCSTR initial, LPCSTR src)
 {
-    return get_path(initial)->_update(dest,src);
+	dest = xr_string(initial) + src;
+	xr_strlwr(dest);
 }
 
 u32 CLocatorAPI::get_file_age(LPCSTR nm)

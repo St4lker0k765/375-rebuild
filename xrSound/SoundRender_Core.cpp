@@ -120,7 +120,7 @@ void CSoundRender_Core::env_load	()
 {
 	// Load environment
 	string_path					fn;
-	if (FS.exist(fn,"$game_data$",SNDENV_FILENAME))
+	if (FS.exist(fn,"content\\",SNDENV_FILENAME))
 	{
 		s_environment				= xr_new<SoundEnvironment_LIB>();
 		s_environment->Load			(fn);

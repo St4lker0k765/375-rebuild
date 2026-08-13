@@ -127,7 +127,7 @@ static void __stdcall	build_callback	(Fvector* V, int Vcnt, CDB::TRI* T, int Tcn
 }
 void CObjectSpace::Load	()
 {
-	IReader *F					= FS.r_open	("$level$", "level.cform");
+	IReader *F					= FS.r_open	("content\\levels\\", "level.cform");
 	R_ASSERT					(F);
 
 	hdrCFORM					H;

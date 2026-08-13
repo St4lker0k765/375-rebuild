@@ -48,7 +48,7 @@ void CRender::level_Load(IReader* fs)
 		// VB,IB,SWI
 		pApp->LoadTitle				("Loading geometry...");
 		{
-			IReader*	geom			= FS.r_open	("$level$","level.geom");
+			IReader*	geom			= FS.r_open	("content\\levels\\","level.geom");
 			LoadBuffers					(geom,FALSE);
 			LoadSWIs					(geom);
 			FS.r_close					(geom);
@@ -56,7 +56,7 @@ void CRender::level_Load(IReader* fs)
 
 		//...and alternate/fast geometry
 		{
-			IReader*	geom			= FS.r_open	("$level$","level.geomx");
+			IReader*	geom			= FS.r_open	("content\\levels\\","level.geomx");
 			LoadBuffers					(geom,TRUE);
 			FS.r_close					(geom);
 		}

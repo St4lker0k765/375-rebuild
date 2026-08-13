@@ -89,7 +89,7 @@ void CRenderDevice::Create	()
 	fASPECT		= 1.f;
 
 	string256		fname; 
-	FS.update_path	(fname,"$game_data$","shaders.xr");
+	FS.update_path	(fname,"content\\","shaders.xr");
 
 	//////////////////////////////////////////////////////////////////////////
 	Resources		= xr_new<CResourceManager>		();

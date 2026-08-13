@@ -16,7 +16,7 @@ IC CGameLevelCrossTable::CGameLevelCrossTable()
 {
 #ifndef AI_COMPILER
 	string256							fName;
-	FS.update_path						(fName,"$level$",CROSS_TABLE_NAME);
+	FS.update_path						(fName,"content\\levels\\",CROSS_TABLE_NAME);
 #endif
 	m_tpCrossTableVFS					= FS.r_open(fName);
 	R_ASSERT2							(m_tpCrossTableVFS,"Can't open cross table!");

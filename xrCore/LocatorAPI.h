@@ -21,7 +21,8 @@ enum FS_List
 class XRCORE_API FS_Path
 {
 public:
-	enum{
+	enum
+	{
     	flRecurse	= (1<<0),
     	flNotif		= (1<<1),
     	flNeedRescan= (1<<2),

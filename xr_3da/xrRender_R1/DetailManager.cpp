@@ -103,14 +103,14 @@ void dump	(CDetailManager::vis_list& lst)
 void CDetailManager::Load		()
 {
 	// Open file stream
-	if (!FS.exist("$level$","level.details"))
+	if (!FS.exist("content\\levels\\","level.details"))
 	{
 		dtFS	= NULL;
 		return;
 	}
 
 	string256			fn;
-	FS.update_path		(fn,"$level$","level.details");
+	FS.update_path		(fn,"content\\levels\\","level.details");
 	dtFS				= FS.r_open(fn);
 
 	// Header

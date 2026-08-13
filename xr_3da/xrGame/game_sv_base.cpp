@@ -253,7 +253,7 @@ void game_sv_GameState::OnPlayerDisconnect		(ClientID /**id_who/**/, LPSTR, u16 
 void game_sv_GameState::Create					(shared_str &options)
 {
 	string256	fn_game;	
-	if (FS.exist(fn_game, "$level$", "level.game")) 
+	if (FS.exist(fn_game, "content\\levels\\", "level.game")) 
 	{
 		IReader *F = FS.r_open	(fn_game);
 		IReader *O = 0;

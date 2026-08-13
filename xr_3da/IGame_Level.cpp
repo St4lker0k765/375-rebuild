@@ -57,13 +57,13 @@ BOOL IGame_Level::Load			(u32 dwNum)
 	// Initialize level data
 	pApp->Level_Set				( dwNum );
 	string256					temp;
-	if (!FS.exist(temp, "$level$", "level.ltx"))
+	if (!FS.exist(temp, "content\\levels\\", "level.ltx"))
 		Debug.fatal	("Can't find level configuration file '%s'.",temp);
 	pLevel						= xr_new<CInifile>	( temp );
 
 	// Open
 	pApp->LoadTitle				("Opening stream...");
-	IReader* LL_Stream			= FS.r_open	("$level$","level");
+	IReader* LL_Stream			= FS.r_open	("content\\levels\\","level");
 	IReader	&fs					= *LL_Stream;
 
 	// Header

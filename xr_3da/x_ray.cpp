@@ -568,7 +568,7 @@ void CApplication::Level_Set(u32 L)
 {
 	if (L>=Levels.size())	return;
 	Level_Current = L;
-	FS.get_path	("$level$")->_set	(Levels[L].folder);
+	FS.get_path	("content\\levels\\")->_set	(Levels[L].folder);
 	CheckCopyProtection		();
 }
 

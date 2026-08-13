@@ -438,7 +438,7 @@ void CLevelNavigationGraph::generate	(LPCSTR filename)
 {
 #ifndef AI_COMPILER
 	string256			file_name;
-	FS.update_path		(file_name,"$level$","level_sectors.ai");
+	FS.update_path		(file_name,"content\\levels\\","level_sectors.ai");
 #	ifndef DEBUG
 		R_ASSERT		(valid(file_name));
 #	endif

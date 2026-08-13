@@ -42,10 +42,10 @@ BOOL CLevel::Load_GameSpecific_Before()
 	pApp->LoadTitle						("Loading AI objects...");
 	string256							fn_game;
 	
-	if (!ai().get_alife() && FS.exist(fn_game,"$level$","level.ai"))
+	if (!ai().get_alife() && FS.exist(fn_game,"content\\levels\\","level.ai"))
 		ai().load						(net_SessionName());
 
-	if (FS.exist(fn_game, "$level$", "level.game")) {
+	if (FS.exist(fn_game, "content\\levels\\", "level.game")) {
 		IReader							*stream = FS.r_open		(fn_game);
 		VERIFY							(m_patrol_path_storage);
 		m_patrol_path_storage->load		(*stream);
@@ -59,7 +59,7 @@ BOOL CLevel::Load_GameSpecific_After()
 {
 	// loading static particles
 	string256		fn_game;
-	if (FS.exist(fn_game, "$level$", "level.ps_static")) {
+	if (FS.exist(fn_game, "content\\levels\\", "level.ps_static")) {
 		IReader *F = FS.r_open	(fn_game);
 		IRender_Sector* S;
 		CParticlesObject* pStaticParticles;
@@ -79,7 +79,7 @@ BOOL CLevel::Load_GameSpecific_After()
 		FS.r_close		(F);
 	}
 	// loading static sounds
-	if (FS.exist(fn_game, "$level$", "level.sound_static")) {
+	if (FS.exist(fn_game, "content\\levels\\", "level.sound_static")) {
 		IReader *F		= FS.r_open	(fn_game);
 		u32				chunk = 0;
 		string256		wav_name;
@@ -101,13 +101,13 @@ BOOL CLevel::Load_GameSpecific_After()
 		FS.r_close				(F);
 	}
 	// loading sound environment
-	if (FS.exist(fn_game, "$level$", "level.sound_environment")) {
+	if (FS.exist(fn_game, "content\\levels\\", "level.sound_environment")) {
 		IReader *F				= FS.r_open	(fn_game);
 		::Sound->set_geometry_env(F);
 		FS.r_close				(F);
 	}
 	// loading SOM
-	if (FS.exist(fn_game, "$level$", "level.som")) {
+	if (FS.exist(fn_game, "content\\levels\\", "level.som")) {
 		IReader *F				= FS.r_open	(fn_game);
 		::Sound->set_geometry_som(F);
 		FS.r_close				(F);

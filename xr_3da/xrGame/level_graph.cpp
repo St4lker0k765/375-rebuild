@@ -24,7 +24,7 @@ CLevelGraph::CLevelGraph		()
 	m_best_point				= 0;
 #endif
 	string256					file_name;
-	FS.update_path				(file_name,"$level$",LEVEL_GRAPH_NAME);
+	FS.update_path				(file_name,"content\\levels\\",LEVEL_GRAPH_NAME);
 #else
 	string256					file_name;
 	strconcat					(file_name,filename,LEVEL_GRAPH_NAME);

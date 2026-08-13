@@ -41,7 +41,7 @@ ENGINE_API extern	u32			psCurrentBPP		;
 ENGINE_API extern	Flags32		psDeviceFlags		;
 
 // game path definition
-#define _game_data_				"$game_data$"
+#define _game_data_				"content\\"
 #define _game_textures_			"$game_textures$"
 #define _game_levels_			"$game_levels$"
 #define _game_sounds_			"$game_sounds$"

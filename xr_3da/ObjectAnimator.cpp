@@ -40,8 +40,8 @@ void CObjectAnimator::SetActiveMotion(COMotion* mot)
 void CObjectAnimator::LoadMotions(const char* fname)
 {
 	string256			full_path;
-	if (!FS.exist( full_path, "$level$", fname ))
-		if (!FS.exist( full_path, "$game_anims$", fname ))
+	if (!FS.exist( full_path, "content\\maps\\", fname ))
+		if (!FS.exist( full_path, "content\\anims\\", fname ))
 			Debug.fatal("Can't find motion file '%s'.",fname);
             
     LPCSTR  ext			= strext(full_path);
