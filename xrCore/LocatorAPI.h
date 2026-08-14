@@ -125,8 +125,7 @@ public:
 		flEBuildCopy			= (1<<3),
 		flEventNotificator      = (1<<4),
 		flTargetFolderOnly		= (1<<5),
-		flCacheFiles			= (1<<6),
-		flScanAppRoot			= (1<<7),
+		flScanAppRoot			= (1<<6),
 	};    
 	Flags32						m_Flags			;
 	u32							dwAllocGranularity;

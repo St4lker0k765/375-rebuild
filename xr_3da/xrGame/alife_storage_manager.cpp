@@ -80,7 +80,7 @@ void CALifeStorageManager::save	(LPCSTR save_name, bool update_name)
 	registry().save				(stream);
 
 	string256					temp;
-	FS.update_path				(temp,"$game_saves$",m_save_name);
+	FS.update_path				(temp,"savedgames\\",m_save_name);
 	stream.save_to				(temp);
 	Msg							("* Game %s is successfully saved to file '%s' (%d bytes)",m_save_name,temp,stream.size());
 	if (!update_name)
@@ -99,7 +99,7 @@ bool CALifeStorageManager::load	(LPCSTR save_name)
 	else
 		strconcat				(m_save_name,save_name,SAVE_EXTENSION);
 	string256					file_name;
-	FS.update_path				(file_name,"$game_saves$",m_save_name);
+	FS.update_path				(file_name,"savedgames\\",m_save_name);
 
 	IReader						*stream;
 	stream						= FS.r_open(file_name);

@@ -588,64 +588,6 @@ IReader* CLocatorAPI::r_open	(LPCSTR path, LPCSTR _fname)
 	// OK, analyse
 	if (0xffffffff == desc.vfs)
 	{
-		// Normal file, 100% full path - check cache
-		// Release don't need this at all
-#ifdef	DEBUG
-		if (m_Flags.is(flCacheFiles)){
-			string_path	fname_copy;
-			if (pathes.size()>1)
-			{
-				LPCSTR		path_base		= get_path	("$server_root$")->m_Path;
-				u32			len_base		= xr_strlen	(path_base);
-				LPCSTR		path_file		= fname;
-				u32			len_file		= xr_strlen	(path_file);
-				if (len_file>len_base)		
-				{
-					if (0==memcmp(path_base,fname,len_base))	{
-						BOOL		bCopy	= FALSE;
-
-						string_path	fname_in_cache	;
-						update_path	(fname_in_cache,"$cache$",path_file+len_base);
-						files_it	fit	= file_find_it(fname_in_cache);
-						if (fit!=files.end())	
-						{
-							// use
-							const file&	fc	= *fit;
-							if ((fc.size_real == desc.size_real)&&(fc.modif==desc.modif))	{
-								// use
-							} else {
-								// copy & use
-								Msg			("copy: db[%X],cache[%X] - '%s', ",desc.modif,fc.modif,fname);
-								bCopy		= TRUE;
-							}
-						} else {
-							// copy & use
-							bCopy	= TRUE;
-						}
-
-						// copy if need
-						if (bCopy)			
-						{
-							IReader*	_src;
-							if (desc.size_real<256*1024)	_src = xr_new<CFileReader>			(fname);
-							else							_src = xr_new<CVirtualFileReader>	(fname);
-							IWriter*	_dst	= xr_new<CFileWriter>			(fname_in_cache);
-							_dst->w				(_src->pointer(),_src->length());
-							xr_delete			(_dst);
-							xr_delete			(_src);
-							set_file_age		(fname_in_cache,desc.modif);
-							Register			(fname_in_cache,0xffffffff,0,desc.size_real,desc.size_real,desc.modif);
-						}
-
-						// Use
-						source_name	= &fname_copy[0];
-						strcpy		(fname_copy,fname);
-						strcpy		(fname,fname_in_cache);
-					}
-				}
-			}
-		}
-#endif
 		if (desc.size_real<256*1024)	R = xr_new<CFileReader>			(fname);
 		else							R = xr_new<CVirtualFileReader>	(fname);
 	} else {

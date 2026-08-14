@@ -224,7 +224,6 @@ IDirect3DBaseTexture9*	CRender::texture_load(LPCSTR fRName, u32& msize)
 	//if (FS.exist(fn,"$game_textures$",fname,	".dds")	&& strstr(fname,"_bump"))	goto _BUMP;
 	if (!FS.exist(fn,"$game_textures$",	fname,	".dds")	&& strstr(fname,"_bump"))	goto _BUMP_from_base;
 	if (FS.exist(fn,"content\\levels\\",			fname,	".dds"))							goto _DDS;
-	if (FS.exist(fn,"$game_saves$",		fname,	".dds"))							goto _DDS;
 	if (FS.exist(fn,"$game_textures$",	fname,	".dds"))							goto _DDS;
 
 #ifdef _EDITOR

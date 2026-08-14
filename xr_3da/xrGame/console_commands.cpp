@@ -745,7 +745,7 @@ public:
 #endif
 
 		strcat					(S,".dds");
-		FS.update_path			(S1,"$game_saves$",S);
+		FS.update_path			(S1,"savedgames\\",S);
 		
 #ifdef DEBUG
 		start					= CPU::GetCycleCount();

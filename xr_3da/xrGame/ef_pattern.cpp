@@ -43,19 +43,18 @@ CPatternFunction::~CPatternFunction()
 void CPatternFunction::vfLoadEF(LPCSTR caFileName)
 {
 	string256		caPath;
-	if (!FS.exist(caPath,"$game_ai$",caFileName)) {
+	if (!FS.exist(caPath,"content\\deprecated\\ai\\",caFileName)) {
 		Msg			("! Evaluation function : File not found \"%s\"",caPath);
-		R_ASSERT	(false);
 		return;
 	}
 	
 	IReader			*F = FS.r_open(caPath);
 	F->r			(&m_tEFHeader,sizeof(SEFHeader));
 
-	if (EFC_VERSION != m_tEFHeader.dwBuilderVersion) {
+	if (EFC_VERSION != m_tEFHeader.dwBuilderVersion) 
+	{
 		FS.r_close	(F);
 		Msg			("! Evaluation function (%s) : Not supported version of the Evaluation Function Contructor",caPath);
-		R_ASSERT	(false);
 		return;
 	}
 
