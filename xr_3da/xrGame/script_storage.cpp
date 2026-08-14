@@ -546,6 +546,6 @@ void CScriptStorage::flush_log()
 {
 	string256			log_file_name;
 	strconcat           (log_file_name,Core.ApplicationName,"_",Core.UserName,"_lua.log");
-	FS.update_path      (log_file_name,"$logs$",log_file_name);
+	FS.update_path      (log_file_name,"logs\\",log_file_name);
 	m_output.save_to	(log_file_name);
 }

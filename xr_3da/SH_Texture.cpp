@@ -139,7 +139,7 @@ void CTexture::Load		()
 
 	// Check for AVI
 	string256 fn;
-	if (FS.exist(fn,"$game_textures$",*cName,".avi")){
+	if (FS.exist(fn,"content\\textures\\",*cName,".avi")){
 		// AVI
 		pAVI = xr_new<CAviPlayerCustom>();
 
@@ -166,7 +166,7 @@ void CTexture::Load		()
 
 		}
 	} else
-    if (FS.exist(fn,"$game_textures$",*cName,".seq")){
+    if (FS.exist(fn,"content\\textures\\",*cName,".seq")){
 		// Sequence
 		string256 buffer;
 		destructor<IReader>	fs(FS.r_open(fn));

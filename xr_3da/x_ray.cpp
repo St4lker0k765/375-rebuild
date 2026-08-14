@@ -108,52 +108,15 @@ void destroyEngine	()
 void execUserScript				( )
 {
 // Execute script
-	strcpy						(Console->ConfigFile,"user.ltx");
-	if (strstr(Core.Params,"-ltx ")) {
+	strcpy						(Console->ConfigFile,"user.cfg");
+	if (strstr(Core.Params,"-cfg ")) {
 		string64				c_name;
-		sscanf					(strstr(Core.Params,"-ltx ")+5,"%[^ ] ",c_name);
+		sscanf					(strstr(Core.Params,"-cfg ")+5,"%[^ ] ",c_name);
 		strcpy					(Console->ConfigFile,c_name);
 	}
 	if (!FS.exist(Console->ConfigFile))
-		strcpy					(Console->ConfigFile,"user.ltx");
+		strcpy					(Console->ConfigFile,"user.cfg");
 	Console->ExecuteScript		(Console->ConfigFile);
-}
-void slowdownthread	( void* )
-{
-	Sleep	(30*1000);
-	for (;;)	{
-		if (Device.Statistic.fFPS<30) Sleep(1);
-		if (Device.mt_bMustExit)	return;
-		if (0==pSettings)			return;
-		if (0==Console)				return;
-		if (0==pInput)				return;
-		if (0==pApp)				return;
-	}
-}
-void CheckPrivilegySlowdown		( )
-{
-	//u32		crc_dima_ai	= 0x574b9c29;	//shared_str("dima-ai")._get()->dwCRC;	//Msg("%x",crc_dima_ai);	// 0x574b9c29
-	//u32		crc_dima	= 0x38e00bc3;	//shared_str("dima")._get()->dwCRC;		//Msg("%x",crc_dima);		// 0x38e00bc3
-	//u32		crc_shuttle	= 0xd64cb17b;	//shared_str("shuttle")._get()->dwCRC;	//Msg("%x",crc_shuttle);	// 0xd64cb17b
-	//u32		crc_jim		= 0x3d3d5aef;	//shared_str("jim")._get()->dwCRC;		//Msg("%x",crc_jim);		// 0x3d3d5aef
-	//u32		crc_london	= 0x09de56e5;	//shared_str("london")._get()->dwCRC;	//Msg("%x",crc_london);		// 0x09de56e5
-	//u32		crc_dandy	= 0x430b37e7;	//shared_str("dandy")._get()->dwCRC;	//Msg("%x",crc_dandy);		// 0x430b37e7
-#ifdef DEBUG
-	BOOL	bDima	=	(shared_str(Core.CompName)._get()->dwCRC == 0x574b9c29) && (shared_str(Core.UserName)._get()->dwCRC==0x38e00bc3) ;
-	BOOL	bJim	=	(shared_str(Core.CompName)._get()->dwCRC == 0xd64cb17b) && (shared_str(Core.UserName)._get()->dwCRC==0x3d3d5aef) ;
-	BOOL	bDandy	=	(shared_str(Core.CompName)._get()->dwCRC == 0x09de56e5) && (shared_str(Core.UserName)._get()->dwCRC==0x430b37e7) ;
-	if	(bDima || bJim || bDandy)	{
-		Log			("! slowdown enabled for your pleasure :)");
-		thread_spawn(slowdownthread,"slowdown",0,0);
-	}
-	if	(strstr(Core.Params,"-slowdown"))	{
-		thread_spawn(slowdownthread,"slowdown",0,0);
-	}
-	if	(strstr(Core.Params,"-slowdown2x"))	{
-		thread_spawn(slowdownthread,"slowdown",0,0);
-		thread_spawn(slowdownthread,"slowdown",0,0);
-	}
-#endif
 }
 
 void Startup					( )
@@ -357,7 +320,6 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 			return 0;
 	};
 	Engine.External.Initialize	( );
-	CheckPrivilegySlowdown		( );
 	Startup	 					( );
 	Core._destroy				( );
 	return						0;
@@ -537,7 +499,7 @@ void CApplication::OnFrame	( )
 
 void CApplication::Level_Scan()
 {
-	xr_vector<char*>*	folder	= FS.file_list_open	("$game_levels$",FS_ListFolders|FS_RootOnly);
+	xr_vector<char*>*	folder	= FS.file_list_open	("content\\maps\\",FS_ListFolders|FS_RootOnly);
 	R_ASSERT			(folder&&folder->size());
 	for (u32 i=0; i<folder->size(); i++)
 	{
@@ -547,10 +509,10 @@ void CApplication::Level_Scan()
 		strconcat	(N3,(*folder)[i],"level.game");
 		strconcat	(N4,(*folder)[i],"level.cform");
 		if	(
-			FS.exist("$game_levels$",N1)		&&
-			FS.exist("$game_levels$",N2)		&&
-			FS.exist("$game_levels$",N3)		&&
-			FS.exist("$game_levels$",N4)	
+			FS.exist("content\\maps\\",N1)		&&
+			FS.exist("content\\maps\\",N2)		&&
+			FS.exist("content\\maps\\",N3)		&&
+			FS.exist("content\\maps\\",N4)	
 			)
 		{
 			sLevelInfo			LI;

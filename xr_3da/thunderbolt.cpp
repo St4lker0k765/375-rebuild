@@ -33,7 +33,7 @@ CThunderboltDesc::CThunderboltDesc(CInifile* pIni, LPCSTR sect)
     IReader* F			= 0;
     LPCSTR m_name;
 	m_name				= pSettings->r_string(sect,"lightning_model");
-	F					= FS.r_open("$game_meshes$",m_name); R_ASSERT2(F,"Empty 'lightning_model'.");
+	F					= FS.r_open("content\\meshes\\",m_name); R_ASSERT2(F,"Empty 'lightning_model'.");
 	l_model				= ::Render->model_CreateDM(F);
     FS.r_close			(F);
 

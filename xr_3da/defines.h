@@ -42,10 +42,10 @@ ENGINE_API extern	Flags32		psDeviceFlags		;
 
 // game path definition
 #define _game_data_				"content\\"
-#define _game_textures_			"$game_textures$"
-#define _game_levels_			"$game_levels$"
-#define _game_sounds_			"$game_sounds$"
-#define _game_meshes_			"$game_meshes$"
+#define _game_textures_			"content\\textures\\"
+#define _game_levels_			"content\\maps\\"
+#define _game_sounds_			"content\\sounds\\"
+#define _game_meshes_			"content\\meshes\\"
 #define _game_shaders_			"$game_shaders$"
 #define _game_config_			"$game_congif$"
 

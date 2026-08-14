@@ -437,7 +437,7 @@ HRESULT	CRender::shader_compile			(
 		D3DXDisassembleShader		(LPDWORD(code->GetBufferPointer()), FALSE, 0, &disasm );
 		string_path			dname;
 		strconcat			(dname,"disasm\\",name,('v'==pTarget[0])?".vs":".ps" );
-		IWriter*			W		= FS.w_open("$logs$",dname);
+		IWriter*			W		= FS.w_open("logs\\",dname);
 		W->w				(disasm->GetBufferPointer(),disasm->GetBufferSize());
 		FS.w_close			(W);
 		_RELEASE			(disasm);

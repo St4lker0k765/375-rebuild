@@ -632,7 +632,7 @@ IReader* CLocatorAPI::r_open	(LPCSTR path, LPCSTR _fname)
                     if (ext){
                         IReader* R		= 0;
                         if (0==xr_strcmp(ext,".dds")){
-                            P			= get_path("$game_textures$");               
+                            P			= get_path("content\\textures\\");               
                             update_path	(e_cpy_name,"$textures$",source_name+xr_strlen(P->m_Path));
                             // tga
                             *strext		(e_cpy_name) = 0;
@@ -643,7 +643,7 @@ IReader* CLocatorAPI::r_open	(LPCSTR path, LPCSTR _fname)
                             strcat		(e_cpy_name,".thm");
                             r_close		(R=r_open(e_cpy_name));
                         }else if (0==xr_strcmp(ext,".ogg")){
-                            P			= get_path("$game_sounds$");                               
+                            P			= get_path("content\\sounds\\");                               
                             update_path	(e_cpy_name,"$sounds$",source_name+xr_strlen(P->m_Path));
                             // wav
                             *strext		(e_cpy_name) = 0;

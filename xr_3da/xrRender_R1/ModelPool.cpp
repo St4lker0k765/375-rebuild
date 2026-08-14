@@ -109,7 +109,7 @@ IRender_Visual*	CModelPool::Instance_Load		(const char* N, BOOL allow_register)
 	// Load data from MESHES or LEVEL
 	if (!FS.exist(N))	{
 		if (!FS.exist(fn, "content\\levels\\", name))
-			if (!FS.exist(fn, "$game_meshes$", name)){
+			if (!FS.exist(fn, "content\\meshes\\", name)){
 #ifdef _EDITOR
 				Msg("!Can't find model file '%s'.",name);
                 return 0;

@@ -221,10 +221,10 @@ IDirect3DBaseTexture9*	CRender::texture_load(LPCSTR fRName, u32& msize)
 	// make file name
 	string_path				fname;
 	strcpy(fname,fRName); if (strext(fname)) *strext(fname)=0;
-	//if (FS.exist(fn,"$game_textures$",fname,	".dds")	&& strstr(fname,"_bump"))	goto _BUMP;
-	if (!FS.exist(fn,"$game_textures$",	fname,	".dds")	&& strstr(fname,"_bump"))	goto _BUMP_from_base;
+	//if (FS.exist(fn,"content\\textures\\",fname,	".dds")	&& strstr(fname,"_bump"))	goto _BUMP;
+	if (!FS.exist(fn,"content\\textures\\",	fname,	".dds")	&& strstr(fname,"_bump"))	goto _BUMP_from_base;
 	if (FS.exist(fn,"content\\levels\\",			fname,	".dds"))							goto _DDS;
-	if (FS.exist(fn,"$game_textures$",	fname,	".dds"))							goto _DDS;
+	if (FS.exist(fn,"content\\textures\\",	fname,	".dds"))							goto _DDS;
 
 #ifdef _EDITOR
 	ELog.Msg(mtError,"Can't find texture '%s'",fname);
@@ -367,7 +367,7 @@ _BUMP:
 _BUMP_from_base:
 	{
 		*strstr		(fname,"_bump")	= 0;
-		R_ASSERT	(FS.exist(fn,"$game_textures$",	fname,	".dds"));
+		R_ASSERT	(FS.exist(fn,"content\\textures\\",	fname,	".dds"));
 
 		// Load   SYS-MEM-surface, bound to device restrictions
 		D3DXIMAGE_INFO			IMG;

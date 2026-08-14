@@ -127,11 +127,11 @@ void CSoundRender_Source::load(LPCSTR name)
 	fname				= N;
 
 	strconcat			(fn,N,".ogg");
-	if (!FS.exist("content\\levels\\",fn))	FS.update_path	(fn,"$game_sounds$",fn);
+	if (!FS.exist("content\\levels\\",fn))	FS.update_path	(fn,"content\\sounds\\",fn);
 
 #ifdef _EDITOR
 	if (!FS.exist(fn)){ 
-		FS.update_path	(fn,"$game_sounds$","$no_sound.ogg");
+		FS.update_path	(fn,"content\\sounds\\","$no_sound.ogg");
     }
 #endif
 	LoadWave			(fn);		//.R_ASSERT(wave);

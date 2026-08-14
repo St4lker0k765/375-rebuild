@@ -41,7 +41,7 @@ void CGameFont::Initialize		(LPCSTR cShader, LPCSTR cTexture)
 	// check ini exist
 	string256 fn,buf;
 	strcpy		(buf,cTexture); if (strext(buf)) *strext(buf)=0;
-	R_ASSERT2	(FS.exist(fn,"$game_textures$",buf,".ini"),fn);
+	R_ASSERT2	(FS.exist(fn,"content\\textures\\",buf,".ini"),fn);
 	CInifile* ini				= CInifile::Create(fn);
 	if (ini->section_exist("symbol_coords")){
 		for (int i=0; i<256; i++){
