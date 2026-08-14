@@ -701,8 +701,3 @@ void	IPureClient::net_Syncronize	()
 	net_DeltaArray.clear();
 	thread_spawn		(sync_thread,"network-time-sync",0,this);
 }
-
-void	IPureClient::ClearStatistic()
-{
-	net_Statistic.Clear();
-}

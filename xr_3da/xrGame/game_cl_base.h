@@ -2,7 +2,7 @@
 
 #include "game_base.h"
 #include "UIDynamicItem.h"
-#include "client_id.h"
+#include "../../xrNetServer/client_id.h"
 
 class	NET_Packet;
 class	CGameObject;

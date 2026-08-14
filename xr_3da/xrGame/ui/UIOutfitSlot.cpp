@@ -8,7 +8,6 @@
 #include "../CustomOutfit.h"
 #include "../game_cl_base.h"
 #include "../Level.h"
-#include "UISkinSelector.h"
 
 #include "UIInventoryUtilities.h"
 using namespace InventoryUtilities;
@@ -183,6 +182,6 @@ void CUIOutfitSlot::SetMPOutfit()
 		sscanf(pSettings->r_string("multiplayer_skins", a.c_str()), "%i,%i", &m_iSkinX, &m_iSkinY);
 
 		UIOutfitIcon.GetUIStaticItem().SetOriginalRect(
-			m_iSkinX, m_iSkinY, SKIN_TEX_WIDTH, SKIN_TEX_HEIGHT); 
+			m_iSkinX, m_iSkinY, 341, 128); 
 	}
 }

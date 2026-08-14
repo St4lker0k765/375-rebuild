@@ -2,10 +2,7 @@
 
 #include "script_ui_registrator.h"
 #include "UI\UIInventoryWnd.h"
-#include "UI\UIStatsWnd.h"
 #include "UI\UIMultiTextStatic.h"
-#include "UIDMFragList.h"
-#include "UIDMPlayerList.h"
 #include "script_space.h"
 using namespace luabind;
 
@@ -13,15 +10,6 @@ void UIRegistrator::script_register(lua_State *L)
 {
 	module(L)
 	[
-
-		class_<CUIStatsWnd, CUIDialogWnd>("CUIStatsWnd")
-		.def("GetFrameRect",  &CUIStatsWnd::GetFrameRect),
-
-		class_<CUIDMFragList, CUIStatsWnd>("CUIDMFragList")
-		.def(					constructor<>()),
-
-		class_<CUIDMPlayerList, CUIDMFragList>("CUIDMPlayerList")
-		.def(					constructor<>()),
 
 		class_<CUIInventoryWnd, CUIDialogWnd>("CUIInventoryWnd")
 		.def(					constructor<>()),

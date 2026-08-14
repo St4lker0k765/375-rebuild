@@ -5,7 +5,6 @@
 #include "xrserver.h"
 #include "game_cl_base.h"
 #include "xrmessages.h"
-#include "xrGameSpyServer.h"
 #include "../x_ray.h"
 
 BOOL CLevel::net_Start	( LPCSTR op_server, LPCSTR op_client )
@@ -33,8 +32,7 @@ BOOL CLevel::net_Start	( LPCSTR op_server, LPCSTR op_client )
 		pApp->LoadTitle			("SERVER: Starting...");
 
 		// Connect
-//		Server					= xr_new<xrServer>();
-		Server					= xr_new<xrGameSpyServer>();
+		Server					= xr_new<xrServer>();
 
 		if (!strstr(*m_caServerOptions,"/alife")) {
 			string64			l_name = "";

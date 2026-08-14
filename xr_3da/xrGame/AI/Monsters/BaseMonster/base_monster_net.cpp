@@ -3,7 +3,7 @@
 #include "../../../CharacterPhysicsSupport.h"
 #include "../../../ai_object_location.h"
 #include "../../../game_graph.h"
-#include "../../../net_utils.h"
+#include "../../../../../xrNetServer/net_utils.h"
 #include "../../../ai_space.h"
 
 void CBaseMonster::net_Save			(NET_Packet& P)

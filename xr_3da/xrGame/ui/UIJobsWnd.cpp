@@ -10,7 +10,6 @@
 #include "UIXmlInit.h"
 #include "UIPdaWnd.h"
 #include "UIJobItem.h"
-#include "UIStatsWnd.h"
 #include "UIInventoryUtilities.h"
 
 #include "../GameTask.h"

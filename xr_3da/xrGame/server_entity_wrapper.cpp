@@ -10,7 +10,7 @@
 #include "server_entity_wrapper.h"
 #include "xrServer_Objects.h"
 #include "xrmessages.h"
-#include "net_utils.h"
+#include "../../xrNetServer/net_utils.h"
 
 #ifdef AI_COMPILER
 #	include "xrSE_Factory_import_export.h"

@@ -38,9 +38,4 @@ public:
 	CUIDiaryWnd			DiaryMenu;
 	CUITalkWnd			TalkMenu;
 	CUICarBodyWnd		UICarBodyMenu;
-	
-	//!!! temporary
-//	CUIBuyWeaponWnd*	pUIBuyWeaponWnd;
-//	CUISpawnWnd			UISpawnWnd;
-//	CUIStatsWnd			UIStatsWnd;
 };

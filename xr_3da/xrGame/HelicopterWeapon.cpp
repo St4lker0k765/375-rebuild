@@ -2,7 +2,7 @@
 #include "helicopter.h"
 #include "ExplosiveRocket.h"
 #include "xrMessages.h"
-#include "net_utils.h"
+#include "../../xrNetServer/NET_utils.h"
 #include "../skeletoncustom.h"
 #include "Level.h"
 

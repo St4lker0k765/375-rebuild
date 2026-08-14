@@ -7,7 +7,7 @@
 #pragma once
 
 #include "../igame_level.h"
-#include "net_client.h"
+#include "../../xrNetServer/NET_Client.h"
 #include "infoportiondefs.h"
 #include "script_export_space.h"
 #include "StatGraph.h"

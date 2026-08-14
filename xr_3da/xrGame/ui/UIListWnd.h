@@ -24,7 +24,6 @@ class CUIListWnd :public CUIWindow
 {
 private:
 	typedef CUIWindow inherited;
-	friend class CUIGameLog;
 public:
 	CUIListWnd();
 	virtual ~CUIListWnd();

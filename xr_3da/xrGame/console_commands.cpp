@@ -26,7 +26,6 @@
 #include "autosave_manager.h"
 #include "ai_space.h"
 #include "ai/monsters/BaseMonster/base_monster.h"
-#include "game_sv_deathmatch.h"
 #include "date_time.h"
 #include "mt_config.h"
 #ifdef DEBUG
@@ -56,7 +55,6 @@ extern	float	g_fMinReconDist;
 extern	float	g_fMaxReconDist;
 extern	float	g_fMinReconSpeed;
 extern	float	g_fMaxReconSpeed;
-extern	u32		g_dwMaxCorpses;
 extern	int		x_m_x;
 extern	int		x_m_z;
 extern	BOOL	net_cl_inputguaranteed	;
@@ -64,9 +62,6 @@ extern	BOOL	net_sv_control_hit		;
 extern	int		g_dwInputUpdateDelta	;
 extern	BOOL	g_ShowAnimationInfo		;
 extern	BOOL	g_bCalculatePing		;
-extern	BOOL	g_bBearerCantSprint		;
-extern	BOOL	g_bShildedBases			;
-extern	BOOL	g_bAfReturnPlayersToBases;
 extern	BOOL	g_b_COD_PickUpMode		;
 extern	BOOL	g_bShowHitSectors		;
 
@@ -1061,28 +1056,6 @@ public:
 	}
 };
 
-class CCC_AnomalySet : public IConsole_Command {
-public:
-	CCC_AnomalySet(LPCSTR N) : IConsole_Command(N)  { bEmptyArgsHandled = false; };
-	virtual void Execute(LPCSTR args) 
-	{
-		if (!OnServer())	return;
-		if (GameID() == GAME_SINGLE) return;
-
-		game_sv_Deathmatch* gameDM = smart_cast<game_sv_Deathmatch *>(Level().Server->game);
-		if (!gameDM) return;
-
-		char	AnomalySet[256];		
-		sscanf	(args,"%s", AnomalySet);
-		gameDM->StartAnomalies(atol(AnomalySet));
-	};
-
-	virtual void	Info	(TInfo& I)		
-	{
-		strcpy(I,"Activating pointed Anomaly set"); 
-	}
-};
-
 class CCC_SetWeather : public IConsole_Command {
 public:
 	CCC_SetWeather(LPCSTR N) : IConsole_Command(N)  { bEmptyArgsHandled = false; };
@@ -1366,30 +1339,6 @@ public:
 			  Level().Server->game->SetServerControlHits(true);
 			  */
 	  }
-};
-
-class CCC_Net_CL_ClearStats : public IConsole_Command {
-public:
-	CCC_Net_CL_ClearStats(LPCSTR N) : IConsole_Command(N)  { bEmptyArgsHandled = true; };
-	virtual void Execute(LPCSTR /**args/**/) {
-		Level().ClearStatistic();
-	}
-	virtual void	Info	(TInfo& I)		
-	{
-		strcpy(I,"clear client net statistic"); 
-	}
-};
-
-class CCC_Net_SV_ClearStats : public IConsole_Command {
-public:
-	CCC_Net_SV_ClearStats(LPCSTR N) : IConsole_Command(N)  { bEmptyArgsHandled = true; };
-	virtual void Execute(LPCSTR /**args/**/) {
-		Level().Server->ClearStatistic();
-	}
-	virtual void	Info	(TInfo& I)		
-	{
-		strcpy(I,"clear server net statistic"); 
-	}
 };
 
 #ifdef DEBUG
@@ -1858,8 +1807,6 @@ void CCC_RegisterCommands()
 	CMD4(CCC_Integer,				"net_cl_icurvesize",		(int*)&g_cl_InterpolationMaxPoints,	0, 2000)	;
 	
 	CMD1(CCC_Net_CL_Resync,			"net_cl_resync" );
-	CMD1(CCC_Net_CL_ClearStats,		"net_cl_clearstats" );
-	CMD1(CCC_Net_SV_ClearStats,		"net_sv_clearstats" );
 	CMD4(CCC_Integer,				"net_cl_inputguaranteed",	&net_cl_inputguaranteed,	0, 1)	;
 	CMD4(CCC_Net_CL_InputUpdateRate,"net_cl_inputupdaterate",	&net_cl_inputupdaterate,	1, 100)	;
 
@@ -1892,8 +1839,6 @@ void CCC_RegisterCommands()
 
 	CMD4(CCC_Integer,	"g_checktime",			&g_bCheckTime,		0,	1);
 	CMD4(CCC_Integer,	"g_eventdelay",			&g_dwEventDelay,	0,	1000);
-
-	CMD4(CCC_Integer,	"g_corpsenum",			(int*)&g_dwMaxCorpses,		0,	100);
 
 #ifdef DEBUG
 	CMD1(CCC_LuaHelp,				"lua_help");
@@ -1944,7 +1889,6 @@ void CCC_RegisterCommands()
 	CMD1(CCC_AddMap,		"sv_addmap"				);	
 	CMD1(CCC_NextMap,		"sv_nextmap"				);	
 	CMD1(CCC_PrevMap,		"sv_prevmap"				);
-	CMD1(CCC_AnomalySet,	"sv_nextanomalyset"			);
 
 	CMD1(CCC_Vote_Start,	"cl_votestart"				);
 	CMD1(CCC_Vote_Stop,		"sv_votestop"				);
@@ -1964,10 +1908,6 @@ void CCC_RegisterCommands()
 	CMD1(CCC_StartTimeEnvironment,	"sv_setenvtime");
 
 	CMD1(CCC_SetWeather,	"sv_setweather"			);
-
-	CMD4(CCC_Integer,		"sv_bearercantsprint",	&g_bBearerCantSprint,	0, 1)	;
-	CMD4(CCC_Integer,		"sv_shieldedbases",		&g_bShildedBases,		0, 1)	;
-	CMD4(CCC_Integer,		"sv_returnplayers",		&g_bAfReturnPlayersToBases,		0, 1)	;
 
 	CMD4(CCC_Integer,		"cl_cod_pickup_mode",	&g_b_COD_PickUpMode,	0, 1)	;
 	CMD4(CCC_Integer,		"cl_show_hit_sectors",	&g_bShowHitSectors,	0, 1)	;

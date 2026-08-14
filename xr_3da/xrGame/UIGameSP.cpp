@@ -13,12 +13,10 @@ CUIGameSP::CUIGameSP()
 {
 	m_game			= NULL;
 //	m_pUserMenu		= NULL;
-//	pUIBuyWeaponWnd = xr_new<CUIBuyWeaponWnd>	((char*)"artefacthunt_team1", (char*)"artefacthunt_base_cost");
 }
 
 CUIGameSP::~CUIGameSP() 
 {
-//	xr_delete(pUIBuyWeaponWnd);
 }
 
 void CUIGameSP::SetClGame (game_cl_GameState* g)
