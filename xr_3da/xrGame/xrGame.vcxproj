@@ -1395,7 +1395,6 @@
     <ClInclude Include="step_manager_defs.h" />
     <ClInclude Include="string_table.h" />
     <ClInclude Include="string_table_defs.h" />
-    <ClInclude Include="team_base_zone.h" />
     <ClInclude Include="team_hierarchy_holder.h" />
     <ClInclude Include="team_hierarchy_holder_inline.h" />
     <ClInclude Include="TeleWhirlwind.h" />
@@ -2105,7 +2104,6 @@
     <ClCompile Include="Level_bullet_manager_firetrace.cpp" />
     <ClCompile Include="level_changer.cpp" />
     <ClCompile Include="level_debug.cpp" />
-    <ClCompile Include="Level_GameSpy_Funcs.cpp" />
     <ClCompile Include="level_graph.cpp" />
     <ClCompile Include="level_graph_debug.cpp" />
     <ClCompile Include="level_graph_debug2.cpp" />
@@ -2416,7 +2414,6 @@
     </ClCompile>
     <ClCompile Include="step_manager.cpp" />
     <ClCompile Include="string_table.cpp" />
-    <ClCompile Include="team_base_zone.cpp" />
     <ClCompile Include="team_hierarchy_holder.cpp" />
     <ClCompile Include="TeleWhirlwind.cpp" />
     <ClCompile Include="ThornArtifact.cpp" />
@@ -2629,7 +2626,6 @@
     <ClCompile Include="xrServer_Objects_script2.cpp" />
     <ClCompile Include="xrServer_Object_Base.cpp" />
     <ClCompile Include="xrServer_perform_GameExport.cpp" />
-    <ClCompile Include="xrServer_perform_migration.cpp" />
     <ClCompile Include="xrServer_perform_RPgen.cpp" />
     <ClCompile Include="xrServer_perform_sls_default.cpp" />
     <ClCompile Include="xrServer_perform_sls_load.cpp" />

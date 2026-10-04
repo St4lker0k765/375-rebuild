@@ -23,8 +23,6 @@ void	game_sv_Single::Create			(shared_str& options)
 	inherited::Create					(options);
 	if (strstr(*options,"/alife"))
 		m_alife_simulator				= xr_new<CALifeSimulator>(&server(),&options);
-
-	switch_Phase		(GAME_PHASE_INPROGRESS);
 }
 
 CSE_Abstract*		game_sv_Single::get_entity_from_eid		(u16 id)
@@ -150,13 +148,6 @@ BOOL	game_sv_Single::OnDetach		(u16 eid_who, u16 eid_what)
 void	game_sv_Single::Update			()
 {
 	inherited::Update	();
-/*	switch(phase) 	{
-		case GAME_PHASE_PENDING : {
-			OnRoundStart();
-			switch_Phase(GAME_PHASE_INPROGRESS);
-			break;
-		}
-	}*/
 }
 
 

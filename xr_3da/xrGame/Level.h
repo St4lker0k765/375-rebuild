@@ -116,12 +116,8 @@ private:
 
 	BOOL						Connect2Server					(LPCSTR options);
 private:
-	bool						m_bConnectResultReceived;
 	bool						m_bConnectResult;
 	xr_string					m_sConnectResult;
-public:	
-	void						OnGameSpyChallenge				(NET_Packet* P);
-	void						OnConnectResult					(NET_Packet* P);
 public:
 	//////////////////////////////////////////////	
 	// static particles
@@ -268,7 +264,6 @@ protected:
 	u32		m_dwCL_PingDeltaSend;
 	u32		m_dwCL_PingLastSendTime;
 	u32		m_dwRealPing;
-	virtual	void			SendPingMessage();
 public:
 	virtual	u32				GetRealPing() { return m_dwRealPing; };
 

@@ -18,16 +18,11 @@ void xrServer::Process_event_ownership(NET_Packet& P, ClientID sender, u32 time,
 	xrClientData*		c_entity	= e_entity->owner;
 	xrClientData*		c_from		= ID_to_client	(sender);
 	if (c_parent != c_from)					return;	//. hack
-	//R_ASSERT			(c_parent == c_from);		// assure client only send request for local units
 	
 
 	// Game allows ownership of entity
 	if (game->OnTouch	(id_parent,id_entity))
 	{
-
-		// Perform migration if needed
-		if (c_parent != c_entity)		PerformMigration(e_entity,c_entity,c_parent);
-
 		// Rebuild parentness
 		e_entity->ID_Parent			= id_parent;
 		e_parent->children.push_back(id_entity);

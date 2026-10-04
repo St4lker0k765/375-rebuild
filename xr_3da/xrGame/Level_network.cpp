@@ -29,21 +29,18 @@ void CLevel::net_Stop		()
 	}
 }
 
-BOOL	g_bCalculatePing = FALSE;
 void CLevel::ClientSend	()
 {
 	if (GameID() == GAME_SINGLE || OnClient())
 	{
 		if (!net_HasBandwidth()) return;
 	};
-	if (g_bCalculatePing) SendPingMessage();
 
 	NET_Packet				P;
 	u32						start	= 0;
 	//----------- for E3 -----------------------------
 	if (OnClient()) 
 	{
-//		if (!(Game().local_player) || Game().local_player->testFlag(GAME_PLAYER_FLAG_VERY_VERY_DEAD)) return;
 		if (!CurrentControlEntity()) return;
 		CObject* pObj = CurrentControlEntity();
 		if (pObj->getDestroy() || !pObj->net_Relevant()) return;
@@ -153,56 +150,12 @@ pureFrame*	g_pNetProcessor	= &NET_processor;
 BOOL			CLevel::Connect2Server				(LPCSTR options)
 {
 	NET_Packet					P;
-	m_bConnectResultReceived	= false	;
 	m_bConnectResult			= true	;
 	if (!Connect(options))		return	FALSE;
-
-	//---------------------------------------------------------------------------
-	// data-auth
-	P.w_begin				(M_CL_AUTH);
-	P.w_u64					(FS.auth_get());
-	Send					(P);
-
-	//---------------------------------------------------------------------------
-	while	(!m_bConnectResultReceived)		{ 
-		ClientReceive	()	;
-		Sleep			(5)	; 
-		Server->Update	()	;
-	}
-	Msg							("client : connection %s - <%s>", m_bConnectResult ? "accepted" : "rejected", m_sConnectResult.c_str());
-	if		(!m_bConnectResult) 
-	{
-		Disconnect		()	;
-		return FALSE		;
-	};
 
 	//---------------------------------------------------------------------------
 	P.w_begin	(M_CLIENT_REQUEST_CONNECTION_DATA);
 	Send		(P);
 	//---------------------------------------------------------------------------
 	return TRUE;
-};
-
-void			CLevel::OnConnectResult				(NET_Packet*	P)
-{
-	// multiple results can be sent during connection they should be "AND-ed"
-	m_bConnectResultReceived	= true;
-	u8	result					= P->r_u8();
-	if (!result)				m_bConnectResult	= false			;	// and
-	string128 ResultStr			;
-	P->r_stringZ(ResultStr)		;
-	m_sConnectResult			= ResultStr;
-};
-
-void			CLevel::SendPingMessage				()
-{
-	u32 CurTime = timeServer_Async();
-	if (CurTime < (m_dwCL_PingLastSendTime + m_dwCL_PingDeltaSend)) return;
-	u32 m_dwCL_PingLastSendTime = CurTime;
-	NET_Packet P;
-	P.w_begin		(M_CL_PING_CHALLENGE);
-	P.w_u32			(m_dwCL_PingLastSendTime);
-	P.w_u32			(m_dwCL_PingLastSendTime);
-	P.w_u32			(m_dwRealPing);
-	Send	(P, net_flags(FALSE));
 };

@@ -82,14 +82,6 @@ void CLevel::ClientReceive()
 					pStatGraph->AppendItem(float(NumSteps*20), 0xffff00ff, 0);
 				}
 			}break;
-		//------------------------------------------------
-		case M_CL_INPUT:
-			{
-				P->r_u16		(ID);
-				CObject*	O	= Objects.net_Find		(ID);
-				if (0 == O)		break;
-				O->net_ImportInput(*P);
-			}break;
 		//---------------------------------------------------
 		case M_CL_PING_CHALLENGE:
 			{
@@ -149,17 +141,6 @@ void CLevel::ClientReceive()
 				if (bDebug)		Log("! MIGRATE_ACTIVATE",*O->cName());
 			}
 			break;
-		case M_CHAT:
-			{
-				char	buffer[256];
-				P->r_stringZ(buffer);
-				Msg		("- %s",buffer);
-			}
-			break;
-		case M_GAMEMESSAGE:
-			{
-				Game().OnGameMessage(*P);
-			}break;
 		case M_RELOAD_GAME:
 		case M_LOAD_GAME:
 		case M_CHANGE_LEVEL:
@@ -170,18 +151,6 @@ void CLevel::ClientReceive()
 		case M_SAVE_GAME:
 			{
 				ClientSave			();
-			}break;
-		case M_GAMESPY_CDKEY_VALIDATION_CHALLENGE:
-			{
-				OnGameSpyChallenge(P);
-			}break;
-		case M_CLIENT_CONNECT_RESULT:
-			{
-				OnConnectResult(P);
-			}break;
-		case M_CHAT_MESSAGE:
-			{
-				Game().OnChatMessage(P);
 			}break;
 		case M_CHANGE_LEVEL_GAME:
 			{
@@ -212,11 +181,6 @@ void CLevel::ClientReceive()
 					Engine.Event.Defer	("KERNEL:disconnect");
 					Engine.Event.Defer	("KERNEL:start",size_t(xr_strdup(*m_caServerOptions)),size_t(xr_strdup(*m_caClientOptions)));
 				};
-			}break;
-		case M_PAUSE_GAME:
-			{
-				u8 Pause = P->r_u8();
-				Device.Pause(!(Pause == 0));
 			}break;
 		}
 

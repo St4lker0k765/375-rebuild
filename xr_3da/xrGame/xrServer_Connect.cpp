@@ -2,39 +2,13 @@
 #include "xrserver.h"
 #include "game_sv_single.h"
 #include "xrMessages.h"
+#include "clsid_game.h"
 
 BOOL xrServer::Connect(shared_str &session_name)
 {
-#ifdef DEBUG
-	Msg						("* sv_Connect: %s",	*session_name);
-#endif
+	game					= smart_cast<game_sv_GameState*> ( NEW_INSTANCE ( CLSID_SV_GAME_SINGLE ) );
 
-	// Parse options and create game
-	if (0==strchr(*session_name,'/'))
-		return				FALSE;
-
-	string1024				options;
-	R_ASSERT2(xr_strlen(session_name) <= sizeof(options), "session_name too BIIIGGG!!!");
-	strcpy					(options,strchr(*session_name,'/')+1);
-	
-	// Parse game type
-	string1024				type;
-	R_ASSERT2(xr_strlen(options) <= sizeof(type), "session_name too BIIIGGG!!!");
-	strcpy					(type,options);
-	if (strchr(type,'/'))	*strchr(type,'/') = 0;
-	game					= NULL;
-
-	CLASS_ID clsid			= game_GameState::getCLASS_ID(type,true);
-	game					= smart_cast<game_sv_GameState*> ( NEW_INSTANCE ( clsid ) );
-
-
-	// Options
-	if (0==game)			return FALSE;
 	csPlayers.Enter			();
-//	game->type				= type_id;
-#ifdef DEBUG
-	Msg("Created server_game %s",game->type_name());
-#endif
 	game->Create			(session_name);
 	csPlayers.Leave			();
 	

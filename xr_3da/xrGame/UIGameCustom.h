@@ -10,7 +10,6 @@
 #include "script_export_space.h"
 // refs
 class CUI;
-class CTeamBaseZone;
 class game_cl_GameState;
 
 class CUIGameCustom :public DLL_Pure, public ISheduled

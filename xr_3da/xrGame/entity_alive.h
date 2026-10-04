@@ -172,10 +172,6 @@ public:
 	virtual u32					ef_weapon_type				() const;
 	virtual u32					ef_detector_type			() const;
 
-public:
-	virtual	void				OnCriticalHitHealthLoss			() {};	//вызывается если entity умрет от хита 
-	virtual	void				OnCriticalWoundHealthLoss		() {};	//вызывается если entity умрет от потери крови 
-	virtual void				OnCriticalRadiationHealthLoss	() {};	//вызывается если entity умрет от радиации 
 };
 
 #include "entity_alive_inline.h"

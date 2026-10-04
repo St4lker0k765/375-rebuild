@@ -771,8 +771,7 @@ void CActor::UpdateCL	()
 	if (g_Alive() && Level().CurrentEntity() && (this->ID()!=Level().CurrentEntity()->ID()))	{
 		if (g_bEnableMPL)	{
 			// red for enemy
-			if (GameID() == GAME_DEATHMATCH)								_C = color_xrgb(255,127,127);	// red
-			else	{
+			{
 				CEntity*	_me			= smart_cast<CEntity*> (this);
 				CEntity*	_viewer		= smart_cast<CEntity*> (Level().CurrentEntity());
 				if (_me && _viewer && _me->g_Team()!=_viewer->g_Team())		_C = color_xrgb(255,127,127);	// red
@@ -897,17 +896,8 @@ void CActor::shedule_Update	(u32 DT)
 
 	// Check controls, create accel, prelimitary setup "mstate_real"
 	float	Jump	= 0;
-	//----------- for E3 -----------------------------
-//	if (Local() && (OnClient() || Level().CurrentEntity()==this))
 	if (Level().CurrentControlEntity() == this)
-	//------------------------------------------------
-	{
-		//-----------------------------------
-		NetInput_Save			( );
-
-		NetInput_Send			( );
-		//-----------------------------------
-		
+	{		
 		g_cl_CheckControls		(mstate_wishful,NET_SavedAccel,Jump,dt);
 		g_cl_Orientate			(mstate_real,dt);
 		g_Orientate				(mstate_real,dt);
@@ -1281,17 +1271,6 @@ void CActor::OnItemDrop			(CInventoryItem *inventory_item)
 	CArtefact* artefact = smart_cast<CArtefact*>(inventory_item);
 	if(artefact && artefact->m_eItemPlace == eItemPlaceBelt)
 		MoveArtefactBelt(artefact, false);
-/*
-	switch (GameID())
-	{
-	case GAME_DEATHMATCH:
-	case GAME_TEAMDEATHMATCH:
-	case GAME_ARTEFACTHUNT:
-		{
-			RemoveAmmoForWeapon(inventory_item);
-		}break;
-	};
-	*/
 }
 
 

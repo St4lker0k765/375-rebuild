@@ -1594,9 +1594,6 @@
     <Filter Include="Core\Client\Objects\Zones\ScriptZone">
       <UniqueIdentifier>{fc6e21d1-81da-40aa-b1fe-3ab46a43d721}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\Zones\TeamBaseZone">
-      <UniqueIdentifier>{a6a3736f-ae7b-4d0d-b7d1-4ce4b1264ae9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Zones\TorridZone">
       <UniqueIdentifier>{21f1a3f2-9b33-4b4b-a7cf-a999a962fd82}</UniqueIdentifier>
     </Filter>
@@ -4875,9 +4872,6 @@
     <ClInclude Include="script_zone.h">
       <Filter>Core\Client\Objects\Zones\ScriptZone</Filter>
     </ClInclude>
-    <ClInclude Include="team_base_zone.h">
-      <Filter>Core\Client\Objects\Zones\TeamBaseZone</Filter>
-    </ClInclude>
     <ClInclude Include="TorridZone.h">
       <Filter>Core\Client\Objects\Zones\TorridZone</Filter>
     </ClInclude>
@@ -6965,9 +6959,6 @@
     <ClCompile Include="Level.cpp">
       <Filter>Core\Client\Level</Filter>
     </ClCompile>
-    <ClCompile Include="Level_GameSpy_Funcs.cpp">
-      <Filter>Core\Client\Level</Filter>
-    </ClCompile>
     <ClCompile Include="Level_input.cpp">
       <Filter>Core\Client\Level</Filter>
     </ClCompile>
@@ -7520,9 +7511,6 @@
     <ClCompile Include="script_zone_script.cpp">
       <Filter>Core\Client\Objects\Zones\ScriptZone</Filter>
     </ClCompile>
-    <ClCompile Include="team_base_zone.cpp">
-      <Filter>Core\Client\Objects\Zones\TeamBaseZone</Filter>
-    </ClCompile>
     <ClCompile Include="TorridZone.cpp">
       <Filter>Core\Client\Objects\Zones\TorridZone</Filter>
     </ClCompile>
@@ -7797,9 +7785,6 @@
       <Filter>Core\Server\ServerEntities\objects_alife_monsters</Filter>
     </ClCompile>
     <ClCompile Include="xrServer_perform_GameExport.cpp">
-      <Filter>Core\Server\ServerPerform</Filter>
-    </ClCompile>
-    <ClCompile Include="xrServer_perform_migration.cpp">
       <Filter>Core\Server\ServerPerform</Filter>
     </ClCompile>
     <ClCompile Include="xrServer_perform_RPgen.cpp">

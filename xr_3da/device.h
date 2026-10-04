@@ -162,7 +162,6 @@ public:
 };
 
 extern		ENGINE_API		CRenderDevice		Device;
-extern		ENGINE_API		bool				g_bBenchmark;
 
 
 #include	"R_Backend_Runtime.h"

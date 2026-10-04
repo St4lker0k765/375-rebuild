@@ -267,33 +267,14 @@ void CEntityCondition::UpdateConditionTime()
 void CEntityCondition::UpdateCondition()
 {
 	if(GetHealth()<=0) return;
-	//-----------------------------------------
-	bool CriticalHealth = false;
-	if (m_fDeltaHealth+m_fHealth <= 0)
-	{
-		CriticalHealth = true;
-		m_object->OnCriticalHitHealthLoss();
-	};
-	//-----------------------------------------
+
 	UpdateHealth();
-	//-----------------------------------------
-	if (!CriticalHealth && m_fDeltaHealth+m_fHealth <= 0)
-	{
-		CriticalHealth = true;
-		m_object->OnCriticalWoundHealthLoss();
-	};
-	//-----------------------------------------
+
 	UpdatePower();
 	UpdateSatiety();
-	//-----------------------------------------
+
 	UpdateRadiation();
-	//-----------------------------------------
-	if (!CriticalHealth && m_fDeltaHealth+m_fHealth <= 0)
-	{
-		CriticalHealth = true;
-		m_object->OnCriticalRadiationHealthLoss();
-	};
-	//-----------------------------------------
+
 	UpdatePsyHealth();
 
 	UpdateCircumspection();

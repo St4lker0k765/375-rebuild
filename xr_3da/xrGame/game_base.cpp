@@ -17,19 +17,14 @@ game_PlayerState::game_PlayerState()
 	kills				=	0;
 	deaths				=	0;
 	money_total			=	0;
-	money_for_round		=	0;
 	flags				=	0;
 
 	skin				=	0;
 
 	Skip = false;
-	//---------------------------------
-	pItemList.clear();
 
-	LastBuyAcount = 0;
 	m_bClearRun = false;
 	//---------------------------------
-	m_bCurrentVoteAgreed = 0;
 	m_s16LastSRoint = -1;
 	DeathTime = 0;
 	RespawnTime = 0;
@@ -45,10 +40,8 @@ void game_PlayerState::clear()
 	lasthitter		= 0;
 	lasthitweapon		= 0;
 
-	pItemList.clear();
 	pSpawnPointsList.clear();
 	m_s16LastSRoint = -1;
-	LastBuyAcount = 0;
 	m_bClearRun = false;
 
 	DeathTime = 0;
@@ -56,10 +49,8 @@ void game_PlayerState::clear()
 
 game_PlayerState::~game_PlayerState()
 {
-	pItemList.clear();
 	pSpawnPointsList.clear();
 	m_s16LastSRoint = -1;
-	LastBuyAcount = 0;
 };
 
 bool game_PlayerState::testFlag	(u16 f)
@@ -85,14 +76,12 @@ void	game_PlayerState::net_Export		(NET_Packet& P)
 	P.w_s16			(	kills	);
 	P.w_s16			(	deaths	);
 	P.w_s32			(	money_total	);
-	P.w_s32			(	money_for_round	);
 	P.w_u16			(	flags	);
 	P.w_u16			(	ping	);
 	P.w_u16			(	Rping	);
 
 	P.w_u16			(	GameID	);
 	P.w_u8			(	skin	);
-	P.w_u8			(	m_bCurrentVoteAgreed	);
 
 	P.w_u32			(Device.dwTimeGlobal - DeathTime);
 };
@@ -105,14 +94,12 @@ void	game_PlayerState::net_Import		(NET_Packet& P)
 	P.r_s16			(	kills	);
 	P.r_s16			(	deaths	);
 	P.r_s32			(	money_total	);
-	P.r_s32			(	money_for_round	);
 	P.r_u16			(	flags	);
 	P.r_u16			(	ping	);
 	P.r_u16			(	Rping	);
 
 	P.r_u16			(	GameID	);
 	P.r_u8			(	skin	);
-	P.r_u8			(	m_bCurrentVoteAgreed	);
 
 	DeathTime = P.r_u32();
 //	DeathTime = Level().timeServer() - xdt;
@@ -127,10 +114,7 @@ game_TeamState::game_TeamState()
 game_GameState::game_GameState()
 {
 	type				=	-1;
-	phase				=	GAME_PHASE_NONE;
-	round				=	-1;
 
-//	m_qwStartProcessorTime		= CPU::GetCycleCount();
 	m_qwStartProcessorTime		= Level().timeServer_Async();
 	m_qwStartGameTime			= g_qwStartGameTime;
 	m_fTimeFactor				= g_fTimeFactor;
@@ -140,39 +124,6 @@ game_GameState::game_GameState()
 	m_fETimeFactor				= m_fTimeFactor			;
 	//-------------------------------------------------------
 }
-
-CLASS_ID game_GameState::getCLASS_ID(LPCSTR game_type_name, bool isServer)
-{
-	string256		S;
-	FS.update_path	(S,"$game_config$","script.ltx");
-	CInifile		*l_tpIniFile = xr_new<CInifile>(S);
-	R_ASSERT		(l_tpIniFile);
-
-	string256				I;
-	strcpy(I,l_tpIniFile->r_string("common","game_type_clsid_factory"));
-
-	luabind::functor<LPCSTR>	result;
-	R_ASSERT					(ai().script_engine().functor(I,result));
-	shared_str clsid = result		(game_type_name, isServer);
-
-	xr_delete			(l_tpIniFile);
-	if(clsid.size()==0){
-		Debug.fatal("Unknown game type: %s",game_type_name);
-	}
-
-	return TEXT2CLSID(*clsid);
-}
-
-void game_GameState::switch_Phase		(u32 new_phase)
-{
-
-		phase				= u16(new_phase);
-		start_time			= Level().timeServer();//Device.TimerAsync();
-	
-		OnSwitchPhase(phase, new_phase);
-}
-
-
 
 ALife::_TIME_ID game_GameState::GetGameTime()
 {

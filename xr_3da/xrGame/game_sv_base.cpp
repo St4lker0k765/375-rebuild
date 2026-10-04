@@ -54,15 +54,6 @@ LPCSTR				game_sv_GameState::get_name_id				(ClientID id)
 	else				return *C->Name;
 }
 
-LPCSTR				game_sv_GameState::get_player_name_id				(ClientID id)								
-{
-	xrClientData* xrCData	=	m_server->ID_to_client(id);
-	if(xrCData)
-		return get_option_s(*xrCData->Name,"name",*xrCData->Name);
-	else 
-		return "unknown";
-}
-
 u32					game_sv_GameState::get_players_count		()
 {
 	return				m_server->client_Count();
@@ -150,8 +141,6 @@ void game_sv_GameState::net_Export_State						(NET_Packet& P, ClientID to)
 	// Generic
 	P.w_clientID	(to);
 	P.w_s32			(type);
-	P.w_u16			(phase);
-	P.w_s32			(round);
 	P.w_u32			(start_time);
 	P.w_u8			(u8(m_bVotingEnabled));
 	P.w_u8			(u8(m_bFriendlyIndicators));
@@ -253,60 +242,6 @@ void game_sv_GameState::OnPlayerDisconnect		(ClientID /**id_who/**/, LPSTR, u16 
 void game_sv_GameState::Create					(shared_str &options)
 {
 	string256	fn_game;	
-	if (FS.exist(fn_game, "content\\levels\\", "level.game")) 
-	{
-		IReader *F = FS.r_open	(fn_game);
-		IReader *O = 0;
-
-		// Load RPoints
-		if (0!=(O = F->open_chunk	(RPOINT_CHUNK)))
-		{ 
-			for (int id=0; O->find_chunk(id); ++id)
-			{
-				RPoint					R;
-				u8						team;
-				u8						type;
-				u8						GameType;
-
-				O->r_fvector3			(R.P);
-				O->r_fvector3			(R.A);
-				team					= O->r_u8	();	VERIFY(team>=0 && team<4);
-				type					= O->r_u8	();
-				GameType				= O->r_u8	();
-				//u16 res					= 
-				O->r_u8	();
-
-				if (GameType != rpgtGameAny)
-				{
-					if ((GameType == rpgtGameDeathmatch && Type() != GAME_DEATHMATCH) ||
-						(GameType == rpgtGameTeamDeathmatch && Type() != GAME_TEAMDEATHMATCH)	||
-						(GameType == rpgtGameArtefactHunt && Type() != GAME_ARTEFACTHUNT)
-						)
-					{
-						continue;
-					};
-				};
-				switch (type)
-				{
-				case rptActorSpawn:
-					{
-						rpoints[team].push_back	(R);
-						for (int i=0; i<int(rpoints[team].size())-1; i++)
-						{
-							RPoint rp = rpoints[team][i];
-							float dist = R.P.distance_to_xz_sqr(rp.P)/4;
-							if (dist<rpoints_MinDist[team])
-								rpoints_MinDist[team] = dist;
-						};
-					}break;
-				};
-			};
-			O->close();
-		}
-
-		FS.r_close	(F);
-	}
-
 	// loading scripts
 	ai().script_engine().remove_script_process(ScriptEngine::eScriptProcessorGame);
 	string256					S;
@@ -314,20 +249,11 @@ void game_sv_GameState::Create					(shared_str &options)
 	CInifile					*l_tpIniFile = xr_new<CInifile>(S);
 	R_ASSERT					(l_tpIniFile);
 
-	if( l_tpIniFile->section_exist( type_name() ) )
-		if (l_tpIniFile->r_string(type_name(),"script"))
-			ai().script_engine().add_script_process(ScriptEngine::eScriptProcessorGame,xr_new<CScriptProcess>("game",l_tpIniFile->r_string(type_name(),"script")));
-		else
-			ai().script_engine().add_script_process(ScriptEngine::eScriptProcessorGame,xr_new<CScriptProcess>("game",""));
+	ai().script_engine().add_script_process(ScriptEngine::eScriptProcessorGame,xr_new<CScriptProcess>("game",l_tpIniFile->r_string("single", "script")));
 
 	xr_delete					(l_tpIniFile);
 
 	//---------------------------------------------------------------------
-	int iFF = get_option_i(*options,"ffire",0);
-	if (iFF != 0) m_fFriendlyFireModifier	= float(iFF) / 100.0f;
-	else m_fFriendlyFireModifier = 0.000001f;
-
-	m_RPointFreezeTime = get_option_i(*options, "rpfrz", 0) * 1000;
 	
 	strcpy( MAPROT_LIST, get_option_s(*options, "maprot"));
 	if (MAPROT_LIST[0])
@@ -382,54 +308,9 @@ void	game_sv_GameState::assign_RP				(CSE_Abstract* E, game_PlayerState* ps_who)
 	}
 	//-----------------------------------------------------------
 	RPoint&				r	= rp[rpoint];
-	if (!tpSpectator)
-	{
-		r.TimeToUnfreeze	= Level().timeServer() + m_RPointFreezeTime;
-	};
 	E->o_Position.set	(r.P);
 	E->o_Angle.set		(r.A);
 }
-
-bool				game_sv_GameState::IsPointFreezed			(RPoint* rp)
-{
-	return rp->TimeToUnfreeze > Level().timeServer();
-};
-
-void				game_sv_GameState::SetPointFreezed		(RPoint* rp)
-{
-	R_ASSERT(rp);
-	rp->TimeToUnfreeze	= Level().timeServer() + m_RPointFreezeTime;
-}
-
-CSE_Abstract*		game_sv_GameState::spawn_begin				(LPCSTR N)
-{
-	CSE_Abstract*	A	=   F_entity_Create(N);	R_ASSERT(A);	// create SE
-	A->s_name			=   N;							// ltx-def
-	A->s_gameid			=	u8(type);							// game-type
-	A->s_RP				=	0xFE;								// use supplied
-	A->ID				=	0xffff;								// server must generate ID
-	A->ID_Parent		=	0xffff;								// no-parent
-	A->ID_Phantom		=	0xffff;								// no-phantom
-	A->RespawnTime		=	0;									// no-respawn
-	return A;
-}
-
-CSE_Abstract*		game_sv_GameState::spawn_end				(CSE_Abstract* E, ClientID id)
-{
-	NET_Packet						P;
-	u16								skip_header;
-	E->Spawn_Write					(P,TRUE);
-	P.r_begin						(skip_header);
-	CSE_Abstract* N = m_server->Process_spawn	(P,id);
-	F_entity_Destroy				(E);
-
-	return N;
-}
-
-void game_sv_GameState::GenerateGameMessage (NET_Packet &P)
-{ 
-	P.w_begin(M_GAMEMESSAGE); 
-};
 
 void game_sv_GameState::u_EventGen(NET_Packet& P, u16 type, u16 dest)
 {
@@ -461,18 +342,9 @@ void game_sv_GameState::Update		()
 
 game_sv_GameState::game_sv_GameState()
 {
-/*	m_qwStartProcessorTime		= CPU::GetCycleCount();
-	m_qwStartGameTime			= 12*60*60*1000;
-	m_fTimeFactor				= pSettings->r_float("alife","time_factor");
-*/
 	m_server					= Level().Server;
 
 	m_event_queue = xr_new<GameEventQueue>();
-
-	m_bMapRotation = false;
-	m_bMapNeedRotation = false;
-	m_bFastRestart = false;
-	m_pMapRotation_List.clear();
 
 	for (int i=0; i<TEAM_COUNT; i++) rpoints_MinDist[i] = 1000.0f;
 }
@@ -481,34 +353,8 @@ game_sv_GameState::~game_sv_GameState()
 {
 	ai().script_engine().remove_script_process(ScriptEngine::eScriptProcessorGame);
 	xr_delete(m_event_queue);
-
-	SaveMapList();
-
-	m_pMapRotation_List.clear();
-}
-/*
-ALife::_TIME_ID game_sv_GameState::GetGameTime()
-{
-	return			(m_qwStartGameTime + iFloor(m_fTimeFactor*float(CPU::GetCycleCount() - m_qwStartProcessorTime)*CPU::cycles2milisec));
 }
 
-float game_sv_GameState::GetGameTimeFactor()
-{
-	return			(m_fTimeFactor);
-}
-
-void game_sv_GameState::SetGameTimeFactor (const float fTimeFactor)
-{
-	m_qwStartGameTime			= GetGameTime();
-	m_qwStartProcessorTime		= CPU::GetCycleCount();
-	m_fTimeFactor				= fTimeFactor;
-}
-
-void game_sv_GameState::SetGameTime (ALife::_TIME_ID GameTime)
-{
-	m_qwStartGameTime			= GameTime;
-}
-*/
 bool game_sv_GameState::change_level (NET_Packet &net_packet, ClientID sender)
 {
 	return						(true);
@@ -551,26 +397,6 @@ void game_sv_GameState::OnEvent (NET_Packet &tNetPacket, u16 type, u32 time, Cli
 {
 	switch	(type)
 	{	
-	case GAME_EVENT_PLAYER_CONNECTED:
-		{
-			ClientID ID;
-			tNetPacket.r_clientID(ID);
-			OnPlayerConnect(ID);
-		}break;
-
-	case GAME_EVENT_PLAYER_DISCONNECTED:
-		{
-			ClientID ID;
-			tNetPacket.r_clientID(ID);
-			string64 PlayerName;
-			tNetPacket.r_stringZ(PlayerName);
-			u16		GameID = tNetPacket.r_u16();
-			OnPlayerDisconnect(ID, get_option_s(PlayerName,"name",PlayerName), GameID);
-		}break;
-
-	case GAME_EVENT_PLAYER_KILLED:
-		{
-		}break	;
 	case GAME_EVENT_ON_HIT:
 		{
 			u16		id_dest = tNetPacket.r_u16();
@@ -592,28 +418,10 @@ void game_sv_GameState::OnEvent (NET_Packet &tNetPacket, u16 type, u32 time, Cli
 			P->flags.bConnected			= TRUE;
 			m_server->AttachNewClient	(P);
 		}break	;
-	case GAME_EVENT_PLAYER_AUTH:
-		{
-			IClient*	CL	=	m_server->ID_to_client		(sender);
-#ifdef DEBUG
-			m_server->SendConnectResult	(CL, 1, "Everything OK");
-#else
-			u64 _our		=	FS.auth_get			();
-			u64 _him		=	tNetPacket.r_u64	();
-			if (_our != _him)	m_server->SendConnectResult	(CL, 0, "Data verification failed. Cheater?");
-			else				m_server->SendConnectResult	(CL, 1, "Everything OK");
-#endif
-		}break;
 	default:
 		R_ASSERT2	(0,"Game Event not implemented!!!");
 	};
 };
-
-void game_sv_GameState::OnSwitchPhase(u32 old_phase, u32 new_phase)
-{
-	inherited::OnSwitchPhase(old_phase, new_phase);
-	signal_Syncronize	(); 
-}
 
 void game_sv_GameState::AddDelayedEvent(NET_Packet &tNetPacket, u16 type, u32 time, ClientID sender )
 {
@@ -638,14 +446,6 @@ u32 game_sv_GameState::getRPcount (u16 team_idx)
 		return rpoints[team_idx].size();
 }
 
-RPoint game_sv_GameState::getRP (u16 team_idx, u32 rp_idx)
-{
-	if( (team_idx<TEAM_COUNT) && (rp_idx<rpoints[team_idx].size()) )
-	return rpoints[team_idx][rp_idx];
-	else 
-		return RPoint();
-};
-
 void game_sv_GameState::teleport_object	(NET_Packet &packet, u16 id)
 {
 }
@@ -661,45 +461,6 @@ void game_sv_GameState::remove_restriction(NET_Packet &packet, u16 id)
 void game_sv_GameState::remove_all_restrictions	(NET_Packet &packet, u16 id)
 {
 }
-
-void game_sv_GameState::MapRotation_AddMap		(LPCSTR MapName)
-{
-	m_pMapRotation_List.push_back(MapName);
-	m_bMapRotation = true;
-
-};
-
-void game_sv_GameState::OnRoundStart			()
-{ 
-	m_bMapNeedRotation = false;
-	m_bFastRestart = false;
-}// старт раунда
-
-void game_sv_GameState::OnRoundEnd				(LPCSTR reason)						
-{ 
-	m_bFastRestart = false;
-	if (strstr(reason, "GAME_restarted") == NULL)
-		m_bMapNeedRotation = true; 
-	if (!stricmp(reason, "GAME_restarted_fast"))
-	{
-		m_bFastRestart = true;
-	}
-}// конец раунда
-
-void game_sv_GameState::SaveMapList				()
-{
-	if (0==MAPROT_LIST[0])				return;
-	if (m_pMapRotation_List.empty())	return;
-	IWriter*		fs	= FS.w_open(MAPROT_LIST);
-	while(m_pMapRotation_List.size())
-	{
-		xr_string MapName = m_pMapRotation_List.front();
-		m_pMapRotation_List.pop_front();
-
-		fs->w_printf("sv_addmap %s\n", MapName.c_str());
-	};
-	FS.w_close		(fs);
-};
 
 shared_str game_sv_GameState::level_name		(const shared_str &server_options) const
 {

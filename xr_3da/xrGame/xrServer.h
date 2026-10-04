@@ -58,7 +58,6 @@ private:
 	>							m_tID_Generator;
 protected:
 	void						Server_Client_Check (IClient* CL);
-	virtual	void				BannedList_Load		();
 
 public:
 	game_sv_GameState*			game;
@@ -66,7 +65,6 @@ public:
 	void					Export_game_type		(IClient* CL);
 	void					Perform_game_export		();
 	BOOL					PerformRP				(CSE_Abstract* E);
-	void					PerformMigration		(CSE_Abstract* E, xrClientData* from, xrClientData* to);
 	
 	IC u16					PerformIDgen			(u16 ID)
 	{
@@ -94,7 +92,6 @@ protected:
 	virtual void			new_client				(ClientID clientID, LPCSTR name, bool bLocal);
 	virtual bool			NeedToCheckClient		(IClient* CL)	{ return false; };
 	void					SendConnectionData		(IClient* CL);
-	void					OnChatMessage			(NET_Packet* P, xrClientData* CL);
 
 public:
 	// constr / destr

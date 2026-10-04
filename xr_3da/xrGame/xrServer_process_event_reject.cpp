@@ -22,10 +22,6 @@ bool xrServer::Process_event_reject	(NET_Packet& P, ClientID sender, u32 time, u
 	if (!game->OnDetach(id_parent,id_entity))
 		return			(false);
 
-	// Perform migration if needed
-	xrClientData*		c_dest		= SelectBestClientToMigrateTo		(e_entity);
-	if (c_dest	!= c_entity)		PerformMigration					(e_entity,c_parent,c_dest);
-
 	// Rebuild parentness
 	if (0xffff == e_entity->ID_Parent) {
 		Msg				("! ERROR: can't detach independant object. entity[%s:%d], parent[%s:%d], section[%s]",

@@ -6,6 +6,7 @@
 #include "game_cl_base.h"
 #include "xrmessages.h"
 #include "../x_ray.h"
+#include "clsid_game.h"
 
 BOOL CLevel::net_Start	( LPCSTR op_server, LPCSTR op_client )
 {
@@ -60,39 +61,10 @@ BOOL CLevel::net_Start	( LPCSTR op_server, LPCSTR op_client )
 		m_name					= Server->level_name(m_caServerOptions);
 	}
 
-	//=============================================================================
-	//add server port if don't have one in options
-	if (!strstr(m_caClientOptions.c_str(), "port=") && Server)
-	{
-		string64	PortStr;
-		sprintf(PortStr, "/port=%d", Server->GetPort());
-
-		string4096	tmp;
-		strcpy(tmp, m_caClientOptions.c_str());
-		strcat(tmp, PortStr);
-		
-		m_caClientOptions = tmp;
-	}
-	//add password string to client, if don't have one
-	if (strstr(m_caServerOptions.c_str(), "psw=") && !strstr(m_caClientOptions.c_str(), "psw="))
-	{
-		string64	PasswordStr = "";
-		const char* PSW = strstr(m_caServerOptions.c_str(), "psw=") + 4;
-		if (strchr(PSW, '/')) 
-			strncpy(PasswordStr, PSW, strchr(PSW, '/') - PSW);
-		else
-			strcpy(PasswordStr, PSW);
-
-		string4096	tmp;
-		sprintf(tmp, "%s/psw=%s", m_caClientOptions.c_str(), PasswordStr);
-		m_caClientOptions = tmp;
-	};
-	//=============================================================================
-
 	// Start client
 	bResult						= net_Start_client(*m_caClientOptions);
 	// Send Ready message to server
-	if (bResult)// && GameID() != GAME_SINGLE) 
+	if (bResult)
 	{
 		NET_Packet		NP;
 		NP.w_begin		(M_CLIENTREADY);
@@ -104,8 +76,6 @@ BOOL CLevel::net_Start	( LPCSTR op_server, LPCSTR op_client )
 		};
 	};
 
-	//init the fog of war for the current level
-//	FogOfWar().Init();
 	
 	//init bullet manager
 	BulletManager().Clear		();
@@ -117,16 +87,9 @@ BOOL CLevel::net_Start	( LPCSTR op_server, LPCSTR op_client )
 }
 
 void CLevel::InitializeClientGame	(NET_Packet& P)
-{
-	string256 game_type_name;
-	P.r_stringZ(game_type_name);
-	if(game && !xr_strcmp(game_type_name, game->type_name()) )
-		return;
-	
+{	
 	xr_delete(game);
-	CLASS_ID clsid			= game_GameState::getCLASS_ID(game_type_name,false);
-	game					= smart_cast<game_cl_GameState*> ( NEW_INSTANCE ( clsid ) );
-	game->set_type_name(game_type_name);
+	game					= smart_cast<game_cl_GameState*> ( NEW_INSTANCE ( CLSID_CL_GAME_SINGLE ) );
 	game->Init();
 }
 

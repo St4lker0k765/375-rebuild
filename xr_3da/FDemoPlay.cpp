@@ -17,7 +17,6 @@ CDemoPlay::CDemoPlay(const char *name, float ms, u32 cycles, float life_time) : 
 {
 	Msg					("! Playing demo: %s",name);
 	Console->Execute	("hud_weapon 0");
-	if(g_bBenchmark)	Console->Execute	("hud_draw 0");
 
 	fSpeed				= ms;
 	dwCyclesLeft		= cycles?1:cycles;
@@ -62,7 +61,6 @@ CDemoPlay::~CDemoPlay		()
 	xr_delete				(m_pMotion	);
 	xr_delete				(m_MParam	);
 	Console->Execute		("hud_weapon 1");
-	if(g_bBenchmark)		Console->Execute	("hud_draw 1");
 }
 
 void CDemoPlay::stat_Start	()
@@ -104,29 +102,6 @@ void CDemoPlay::stat_Stop	()
 	rfps_middlepoint		/= float(stat_table.size()-1);
 
 	Msg("* [DEMO] FPS: average[%f], min[%f], max[%f], middle[%f]",rfps_average,rfps_min,rfps_max,rfps_middlepoint);
-
-	if(g_bBenchmark)		{
-		string_path			fname;
-		pcstr	param		= strstr(Core.Params,"-benchmark ");
-		if (0==param)		strcpy	(fname,"benchmark.result");
-		else				sscanf	(param+xr_strlen("-benchmark "),"%s",fname);
-		FS.update_path		(fname,"$server_root$",fname);
-		CInifile			res		(fname,FALSE,FALSE,TRUE);
-		res.w_float			("general","renderer",	float(::Render->get_generation())/10.f,	"dx-level required"		);
-		res.w_float			("general","min",		rfps_min,								"absolute minimum"		);
-		res.w_float			("general","max",		rfps_max,								"absolute maximum"		);
-		res.w_float			("general","average",	rfps_average,							"average for this run"	);
-		res.w_float			("general","middle",	rfps_middlepoint,						"per-frame middle-point");
-		for (u32	it=1; it<stat_table.size(); it++)
-		{
-			string32		id;
-			sprintf			(id,"%7d",it);
-			for (u32 c=0; id[c]; c++) if (' '==id[c]) id[c] = '0';
-			res.w_float		("per_frame_stats",	id, 1.f / stat_table[it]);
-		}
-
-		Console->Execute	("quit");
-	}
 }
 
 #define FIX(a) while (a>=m_count) a-=m_count

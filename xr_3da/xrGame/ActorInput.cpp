@@ -209,7 +209,7 @@ void CActor::IR_OnKeyboardRelease(int cmd)
 				Level().Send(P);
 
 			}break;
-		case kDROP:		if(GAME_PHASE_INPROGRESS == Game().Phase()) g_PerformDrop();				break;
+		case kDROP:		g_PerformDrop();				break;
 		}
 	}
 }

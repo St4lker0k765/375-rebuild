@@ -89,25 +89,6 @@ static float Accel_mul = START_ACCEL;
 void CSpectator::IR_OnKeyboardPress(int cmd)
 {
 	if (Remote())												return;
-
-/*	if (kWPN_FIRE == cmd)
-	{
-		if ((GAME_PHASE_PENDING	== Game().phase) || 
-			(GAME_PHASE_INPROGRESS	== Game().phase && HUD().GetUI()->UIGame()->CanBeReady()))
-		{
-			NET_Packet			P;
-//			u_EventGen			(P,GEG_PLAYER_READY,ID());
-
-			u_EventGen		(P,GE_GAME_EVENT,ID()	);
-			P.w_u16(GAME_EVENT_PLAYER_READY);
-
-			u_EventSend			(P);
-			return;
-		}
-		else
-			return;
-	};
-*/
 	switch(cmd) 
 	{
 	case kACCEL:

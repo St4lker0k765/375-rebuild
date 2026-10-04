@@ -257,7 +257,7 @@ void CRenderDevice::FrameMove()
 
 void	CRenderDevice::Pause							(BOOL bOn)
 {
-	if (!g_bBenchmark)	g_pauseMngr.Pause(bOn);
+	g_pauseMngr.Pause(bOn);
 }
 
 void	CRenderDevice::PauseSound			(BOOL val)

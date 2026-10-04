@@ -11,7 +11,6 @@
 game_cl_GameState::game_cl_GameState()
 {
 	local_player				= 0;
-	m_game_type_name[0]			= 0;
 
 	shedule.t_min				= 5;
 	shedule.t_max				= 20;
@@ -51,14 +50,7 @@ void	game_cl_GameState::net_import_state	(NET_Packet& P)
 	// Generic
 	P.r_clientID	(local_svdpnid);
 	P.r_s32			(type);
-	
-	u16 ph;
-	P.r_u16			(ph);
-	
-	if(Phase()!=ph)
-		switch_Phase(ph);
-
-	P.r_s32			(round);
+		
 	P.r_u32			(start_time);
 	m_bVotingEnabled = !!P.r_u8();
 	m_bFriendlyIndicators = !!P.r_u8();
@@ -141,72 +133,6 @@ void	game_cl_GameState::net_import_update(NET_Packet& P)
 void	game_cl_GameState::net_signal		(NET_Packet& P)
 {
 }
-
-void game_cl_GameState::TranslateGameMessage	(u32 msg, NET_Packet& P)
-{
-
-	string512 Text;
-	char	Color_Main[]	= "%c192,192,192";
-	LPSTR	Color_Teams[3]	= {"%c255,240,190", "%c64,255,64", "%c64,64,255"};
-
-	switch (msg)
-	{
-	case GAME_EVENT_PLAYER_CONNECTED:
-		{
-			string64 PlayerName;
-			P.r_stringZ(PlayerName);
-			
-			sprintf(Text, "%s%s %sconnected",Color_Teams[0],PlayerName,Color_Main);
-			CommonMessageOut(Text);
-		}break;
-	case GAME_EVENT_PLAYER_DISCONNECTED:
-		{
-			string64 PlayerName;
-			P.r_stringZ(PlayerName);
-
-			sprintf(Text, "%s%s %sdisconnected",Color_Teams[0],PlayerName,Color_Main);
-			CommonMessageOut(Text);
-		}break;
-	case GAME_EVENT_PLAYER_ENTERED_GAME:
-		{
-			string64 PlayerName;
-			P.r_stringZ(PlayerName);
-
-			sprintf(Text, "%s%s %sentered the game",Color_Teams[0],PlayerName,Color_Main);
-			CommonMessageOut(Text);
-		}break;
-	case GAME_EVENT_ROUND_STARTED:
-		{
-			sprintf(Text, "%sRound started !!!",Color_Main);
-			CommonMessageOut(Text);
-		}break;
-	case GAME_EVENT_ROUND_END:
-		{
-			string64 reason;
-			P.r_stringZ(reason);
-
-			sprintf(Text, "%sRound Over (%s)", Color_Main, reason);
-			CommonMessageOut(Text);
-		}break;
-
-
-
-
-	default:
-		{
-			R_ASSERT2(0,"Unknown Game Message");
-		}break;
-	};
-
-}
-
-void	game_cl_GameState::OnGameMessage	(NET_Packet& P)
-{
-	u32 msg;
-	P.r_u32(msg);
-
-	TranslateGameMessage(msg, P);
-};
 
 game_PlayerState* game_cl_GameState::GetPlayerByGameID(u32 GameID)
 {

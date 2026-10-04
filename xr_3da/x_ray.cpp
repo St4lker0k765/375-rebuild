@@ -45,10 +45,6 @@ struct _SoundProcessor	: public pureFrame
 ENGINE_API	CApplication*	pApp			= NULL;
 static		HWND			logoWindow		= NULL;
 
-int				doLauncher					();
-void			doBenchmark					();
-ENGINE_API	bool			g_bBenchmark	= false;
-
 // -------------------------------------------
 // startup point
 void InitEngine		()
@@ -164,15 +160,11 @@ void Startup					( )
 	destroySound();
 	destroyInput();
 
-	if(!g_bBenchmark)
-		destroySettings();
+	destroySettings();
 
 	LALib.OnDestroy				( );
 	
-	if(!g_bBenchmark)
-		destroyConsole();
-	else
-		Console->Reset();
+	destroyConsole();
 
 	destroyEngine();
 
@@ -195,73 +187,7 @@ static BOOL CALLBACK logDlgProc( HWND hw, UINT msg, WPARAM wp, LPARAM lp )
 	}
 	return TRUE;
 }
-/*
-void	test_rtc	()
-{
-	CStatTimer		tMc,tM,tC,tD;
-	u32				bytes=0;
-	tMc.FrameStart	();
-	tM.FrameStart	();
-	tC.FrameStart	();
-	tD.FrameStart	();
-	::Random.seed	(0x12071980);
-	for		(u32 test=0; test<10000; test++)
-	{
-		u32			in_size			= ::Random.randI(1024,256*1024);
-		u32			out_size_max	= rtc_csize		(in_size);
-		u8*			p_in			= xr_alloc<u8>	(in_size);
-		u8*			p_in_tst		= xr_alloc<u8>	(in_size);
-		u8*			p_out			= xr_alloc<u8>	(out_size_max);
-		for (u32 git=0; git<in_size; git++)			p_in[git] = (u8)::Random.randI	(8);	// garbage
-		bytes		+= in_size;
-
-		tMc.Begin	();
-		memcpy		(p_in_tst,p_in,in_size);
-		tMc.End		();
-
-		tM.Begin	();
-		Memory.mem_copy(p_in_tst,p_in,in_size);
-		tM.End		();
-
-		tC.Begin	();
-		u32			out_size		= rtc_compress	(p_out,out_size_max,p_in,in_size);
-		tC.End		();
-
-		tD.Begin	();
-		u32			in_size_tst		= rtc_decompress(p_in_tst,in_size,p_out,out_size);
-		tD.End		();
-
-		// sanity check
-		R_ASSERT	(in_size == in_size_tst);
-		for (u32 tit=0; tit<in_size; tit++)			R_ASSERT(p_in[tit] == p_in_tst[tit]);	// garbage
-
-		xr_free		(p_out);
-		xr_free		(p_in_tst);
-		xr_free		(p_in);
-	}
-	tMc.FrameEnd	();	float rMc		= 1000.f*(float(bytes)/tMc.result)/(1024.f*1024.f);
-	tM.FrameEnd		(); float rM		= 1000.f*(float(bytes)/tM.result)/(1024.f*1024.f);
-	tC.FrameEnd		(); float rC		= 1000.f*(float(bytes)/tC.result)/(1024.f*1024.f);
-	tD.FrameEnd		(); float rD		= 1000.f*(float(bytes)/tD.result)/(1024.f*1024.f);
-	Msg				("* memcpy:        %5.2f M/s (%3.1f%%)",rMc,100.f*rMc/rMc);
-	Msg				("* mm-memcpy:     %5.2f M/s (%3.1f%%)",rM,100.f*rM/rMc);
-	Msg				("* compression:   %5.2f M/s (%3.1f%%)",rC,100.f*rC/rMc);
-	Msg				("* decompression: %5.2f M/s (%3.1f%%)",rD,100.f*rD/rMc);
-}
-*/
 extern void	testbed	(void);
-
-// video
-/*
-static	HINSTANCE	g_hInstance		;
-static	HINSTANCE	g_hPrevInstance	;
-static	int			g_nCmdShow		;
-void	__cdecl		intro_dshow_x	(void*)
-{
-	IntroDSHOW_wnd		(g_hInstance,g_hPrevInstance,"GameData\\Stalker_Intro.avi",g_nCmdShow);
-	g_bIntroFinished	= TRUE	;
-}
-*/
 
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -273,16 +199,6 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 	// AVI
 	g_bIntroFinished		= TRUE;
-	/*
-	if (!IsDebuggerPresent())
-	{
-		g_hInstance				= hInstance;
-		g_hPrevInstance			= hPrevInstance;
-		g_nCmdShow				= nCmdShow;
-		thread_spawn			(Intro_DSHOW,"intro",0,"GameData\\Stalker_Intro.avi");
-		Sleep					(100);
-	}
-	*/
 
 	// Core
 	Core._initialize		("xray",NULL);
@@ -300,25 +216,10 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	}
 	// auth end 
 
-//#ifdef DEBUG
-//	testbed	();
-//#endif
-
 	InitEngine				();
 	InitSettings			();
 	InitConsole				();
-	
-	if(strstr(lpCmdLine, "-batch_benchmark")){
-		doBenchmark();
-		return 0;
-	}
 
-	if (strstr(lpCmdLine,"-launcher")) 
-	{
-		int l_res = doLauncher();
-		if (l_res != 0)
-			return 0;
-	};
 	Engine.External.Initialize	( );
 	Startup	 					( );
 	Core._destroy				( );
@@ -486,11 +387,6 @@ void CApplication::LoadSwitch	()
 
 void CApplication::OnFrame	( )
 {
-	/*
-	CTimer	T;
-	T.Start	();
-	while	(T.GetElapsed_ms()<10);
-	*/
 	Engine.Event.OnFrame			();
 	g_SpatialSpace->update			();
 	g_SpatialSpacePhysic->update	();
@@ -503,24 +399,20 @@ void CApplication::Level_Scan()
 	R_ASSERT			(folder&&folder->size());
 	for (u32 i=0; i<folder->size(); i++)
 	{
-		string256	N1,N2,N3,N4;
+		string256	N1,N2,N3;
 		strconcat	(N1,(*folder)[i],"level");
 		strconcat	(N2,(*folder)[i],"level.ltx");
-		strconcat	(N3,(*folder)[i],"level.game");
-		strconcat	(N4,(*folder)[i],"level.cform");
+		strconcat	(N3,(*folder)[i],"level.cform");
 		if	(
 			FS.exist("content\\maps\\",N1)		&&
 			FS.exist("content\\maps\\",N2)		&&
-			FS.exist("content\\maps\\",N3)		&&
-			FS.exist("content\\maps\\",N4)	
+			FS.exist("content\\maps\\",N3)	
 			)
 		{
 			sLevelInfo			LI;
 			LI.folder			= xr_strdup((*folder)[i]);
 			LI.name				= 0;
 			Levels.push_back	(LI);
-		} else {
-			// Msg		("! Level not compiled: %s",(*folder)[i]);
 		}
 	}
 	FS.file_list_close	(folder);
@@ -545,81 +437,3 @@ int CApplication::Level_ID(LPCSTR name)
 	return -1;
 }
 
-
-//launcher stuff----------------------------
-extern "C"{
-	typedef int	 __cdecl LauncherFunc	(int);
-}
-HMODULE			hLauncher		= NULL;
-LauncherFunc*	pLauncher		= NULL;
-
-void InitLauncher(){
-	if(hLauncher)
-		return;
-	hLauncher	= LoadLibrary	("xrLauncher.dll");
-	if (0==hLauncher)	R_CHK			(GetLastError());
-	R_ASSERT2		(hLauncher,"xrLauncher DLL raised exception during loading or there is no xrLauncher.dll at all");
-
-	pLauncher = (LauncherFunc*)GetProcAddress(hLauncher,"RunXRLauncher");
-	R_ASSERT2		(pLauncher,"Cannot obtain RunXRLauncher function from xrLauncher.dll");
-};
-
-void FreeLauncher(){
-	if (hLauncher)	{ 
-		FreeLibrary(hLauncher); 
-		hLauncher = NULL; pLauncher = NULL; };
-}
-
-int doLauncher()
-{
-	execUserScript();
-	InitLauncher();
-	int res = pLauncher(0);
-	FreeLauncher();
-	if(res == 1) // do benchmark
-		g_bBenchmark = true;
-
-	if(g_bBenchmark){ //perform benchmark cycle
-		doBenchmark();
-	
-		// InitLauncher	();
-		// pLauncher	(2);	//show results
-		// FreeLauncher	();
-
-		Core._destroy			();
-		return					(1);
-
-	};
-	if(res==8){//Quit
-		Core._destroy			();
-		return					(1);
-	}
-	return 0;
-
-}
-
-void doBenchmark()
-{
-	g_bBenchmark = true;
-	string_path in_file;
-	FS.update_path(in_file,"$server_root$","tmp_benchmark.ini");
-	CInifile ini(in_file);
-	int test_count = ini.line_count("benchmark");
-	LPCSTR test_name,t;
-	shared_str test_command;
-	for(int i=0;i<test_count;++i){
-		ini.r_line( "benchmark", i, &test_name, &t);
-		
-		test_command = ini.r_string_wb("benchmark",test_name);
-		strlwr				(strcpy(Core.Params,*test_command));
-		
-		if(i){
-			ZeroMemory(&HW,sizeof(CHW));
-			InitEngine();
-		}
-
-		Engine.External.Initialize	( );
-		execUserScript();
-		Startup	 				();
-	}
-}

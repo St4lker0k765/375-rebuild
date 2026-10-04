@@ -240,8 +240,6 @@ BOOL IPureServer::Connect(LPCSTR options)
 	
 	config_Load		();
 
-	BannedList_Load	();
-
 	return	TRUE;
 }
 
@@ -458,20 +456,6 @@ void	IPureServer::SendBroadcast(ClientID exclude, NET_Packet& P, u32 dwFlags)
 
 u32	IPureServer::OnMessage	(NET_Packet& P, ClientID sender)	// Non-Zero means broadcasting with "flags" as returned
 {
-	/*
-	u16 m_type;
-	P.r_begin	(m_type);
-	switch (m_type)
-	{
-	case M_CHAT:
-		{
-			char	buffer[256];
-			P.r_string(buffer);
-			printf	("RECEIVE: %s\n",buffer);
-		}
-		break;
-	}
-	*/
 	return DPNSEND_GUARANTEED;
 }
 

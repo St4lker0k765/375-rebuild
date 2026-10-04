@@ -244,19 +244,6 @@ u32 xrServer::OnMessage	(NET_Packet& P, ClientID sender)			// Non-Zero means bro
 			SendTo	(clientID, P, net_flags(FALSE));
 		}break;
 		//-------------------------------------------------------------------
-	case M_CL_INPUT:
-		{
-			xrClientData* CL		= ID_to_client	(sender);
-			if (CL)	CL->net_Ready	= TRUE;
-			if (SV_Client) SendTo	(SV_Client->ID, P, net_flags(TRUE, TRUE));
-			VERIFY					(verify_entities());
-		}break;
-	case M_GAMEMESSAGE:
-		{
-			ClientID clientID;clientID.setBroadcast();
-			SendBroadcast			(clientID,P,net_flags(TRUE,TRUE));
-			VERIFY					(verify_entities());
-		}break;
 	case M_CLIENTREADY:
 		{
 			xrClientData* CL		= ID_to_client(sender);
@@ -310,24 +297,10 @@ u32 xrServer::OnMessage	(NET_Packet& P, ClientID sender)			// Non-Zero means bro
 			xrClientData* CL			= ID_to_client	(sender);
 			OnCL_Connected				(CL);
 		}break;
-	case M_CHAT_MESSAGE:
-		{
-			xrClientData *l_pC			= ID_to_client(sender);
-			OnChatMessage				(&P, l_pC);
-		}break;
 	case M_CHANGE_LEVEL_GAME:
 		{
 			ClientID CID; CID.set		(0xffffffff);
 			SendBroadcast				(CID,P,net_flags(TRUE,TRUE));
-		}break;
-	case M_CL_AUTH:
-		{
-			game->AddDelayedEvent		(P,GAME_EVENT_PLAYER_AUTH, 0, sender);
-		}break;
-	case M_PAUSE_GAME:
-		{
-			ClientID clientID;clientID.setBroadcast();
-			SendBroadcast			(clientID,P,net_flags(TRUE,TRUE));
 		}break;
 	}
 
@@ -449,33 +422,6 @@ CSE_Abstract*	xrServer::GetEntity			(u32 Num)
 	};
 	return NULL;
 };
-
-
-void		xrServer::OnChatMessage(NET_Packet* P, xrClientData* CL)
-{
-//	string256 ChatMsg;
-//	u16 PlayerID = P->r_u16();
-	s16 team = P->r_s16();
-//	P->r_stringZ(ChatMsg);
-	if (!CL->net_Ready) return;
-	game_PlayerState* Cps = CL->ps;
-	for (u32 client=0; client<net_Players.size(); ++client)
-	{
-		// Initialize process and check for available bandwidth
-		xrClientData*	Client		= (xrClientData*) net_Players	[client];
-		game_PlayerState* ps = Client->ps;
-		if (!Client->net_Ready) continue;
-		if (team != 0 && ps->team != team) continue;
-		if (Cps->testFlag(GAME_PLAYER_FLAG_VERY_VERY_DEAD) && !ps->testFlag(GAME_PLAYER_FLAG_VERY_VERY_DEAD))
-			continue;
-		SendTo(Client->ID, *P);
-	};
-};
-
-void		xrServer::BannedList_Load		()
-{
-	Console->ExecuteScript(GetBannedListName());
-}
 
 #ifdef DEBUG
 

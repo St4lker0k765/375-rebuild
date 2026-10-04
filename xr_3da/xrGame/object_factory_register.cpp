@@ -116,7 +116,6 @@
 #	include "radioactivezone.h"
 #	include "level_changer.h"
 #	include "script_zone.h"
-#	include "team_base_zone.h"
 #	include "torridZone.h"
 #	include "ZoneVisual.h"
 #	include "hairszone.h"
@@ -297,7 +296,6 @@ void CObjectFactory::register_classes	()
 	ADD(CLevelChanger			,CSE_ALifeLevelChanger			,CLSID_LEVEL_CHANGER			,"level_changer");
 	ADD(CScriptZone				,CSE_ALifeSpaceRestrictor		,CLSID_SCRIPT_ZONE				,"script_zone");
 	ADD(CScriptZone				,CSE_ALifeSmartZone				,CLSID_SMART_ZONE				,"smart_zone");
-	ADD(CTeamBaseZone			,CSE_ALifeTeamBaseZone			,CLSID_Z_TEAM_BASE				,"team_base_zone");
 	ADD(CTorridZone				,CSE_ALifeTorridZone			,CLSID_Z_TORRID					,"torrid_zone");
 	ADD(CSpaceRestrictor		,CSE_ALifeSpaceRestrictor		,CLSID_SPACE_RESTRICTOR			,"space_restrictor");
 	ADD(CAmebaZone				,CSE_ALifeZoneVisual			,CLSID_Z_AMEBA					,"ameba_zone");

@@ -61,16 +61,6 @@ extern ECORE_API xr_token rpoint_game_type[];
 #define NPC_POINT_CHUNK_DATA		0x0002
 //----------------------------------------------------
 /*
-- chunk RPOINT_CHUNK
-	- chunk #0
-        vector3	(PPosition);
-        vector3	(PRotation);
-        u8		(team_id);
-        u8		(type)
-        u16		(reserved)
-    ...
-    - chunk #n
-    
 - chunk WAY_PATH_CHUNK
 	- chunk #0
     	chunk WAYOBJECT_CHUNK_VERSION

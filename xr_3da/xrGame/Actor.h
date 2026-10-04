@@ -516,8 +516,6 @@ protected:
 	void					net_Import_Physic_proceed	( );
 	//---------------------------------------------
 	xr_deque<net_input>		NET_InputStack;
-	void					NetInput_Save			( );
-	void					NetInput_Send			( );
 	void					NetInput_Apply			(net_input* pNI);
 	void					NetInput_Update			( u32 Time );
 
@@ -667,10 +665,6 @@ protected:
 	virtual		bool			Check_for_BackStab_Bone			(u16 element);
 public:
 	virtual void				SetHitInfo						(CObject* who, CObject* weapon, s16 element);
-
-	virtual	void				OnCriticalHitHealthLoss			();
-	virtual	void				OnCriticalWoundHealthLoss		();
-	virtual void				OnCriticalRadiationHealthLoss	();
 public:	//. hack for MP test
 	ref_light					dbgmp_light						;
 };
