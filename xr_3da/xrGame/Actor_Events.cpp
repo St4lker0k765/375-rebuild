@@ -130,8 +130,6 @@ void CActor::OnEvent		(NET_Packet& P, u16 type)
 									
 			if (flags & CMD_START)
 			{
-				if (cmd == kWPN_ZOOM)
-					SetZoomRndSeed(ZoomRndSeed);
 				if (cmd == kWPN_FIRE)
 					SetShotRndSeed(ShotRndSeed);
 				IR_OnKeyboardPress(cmd);

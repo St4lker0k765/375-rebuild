@@ -10,7 +10,6 @@
 //	struct rq_result;
 //};
 // refs
-class CContextMenu;
 class CHUDCursor;
 
 struct CFontManager{

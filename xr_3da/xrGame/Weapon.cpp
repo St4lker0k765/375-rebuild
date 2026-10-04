@@ -682,41 +682,6 @@ bool CWeapon::Action(s32 cmd, u32 flags)
 					FireEnd();
 			} 
 			return true;
-		case kWPN_NEXT: 
-			{
-				//если оружие чем-то занято, то ничего не делать
-				if(IsPending()) return false;
-
-					
-				if(flags&CMD_START) 
-				{
-					u32 l_newType = m_ammoType;
-					do 
-					{
-						l_newType = (l_newType+1)%m_ammoTypes.size();
-					} while(l_newType != m_ammoType && 
-							!m_pInventory->GetAny(*m_ammoTypes[l_newType] ));
-				
-					if(l_newType != m_ammoType) 
-					{
-						m_ammoType = l_newType;
-						m_pAmmo = NULL;
-						Reload();
-					}
-				}
-			} 
-            return true;
-		case kWPN_ZOOM:
-			if(IsZoomEnabled())
-			{
-                if(flags&CMD_START && !IsPending())
-					OnZoomIn();
-                else if(IsZoomed())
-					OnZoomOut();
-				return true;
-			} 
-			else 
-				return false;
 	}
 	return false;
 }

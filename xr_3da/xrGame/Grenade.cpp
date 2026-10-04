@@ -252,35 +252,6 @@ bool CGrenade::Action(s32 cmd, u32 flags)
 
 	switch(cmd) 
 	{
-	//переключение типа гранаты
-	case kWPN_NEXT:
-		{
-            if(flags&CMD_START) 
-			{
-				if(m_pInventory)
-				{
-					//перебираем все предметы на поясе 
-					//пока не встретим гарнату другого типа
-					TIItemContainer::iterator it = m_pInventory->m_belt.begin();
-					while(m_pInventory->m_belt.end() != it) 
-					{
-						CGrenade *pGrenade = smart_cast<CGrenade*>(*it);
-						if(pGrenade && xr_strcmp(pGrenade->cNameSect(), cNameSect())) 
-						{
-							m_pInventory->Ruck(this);
-							m_pInventory->Belt(this);
-							m_pInventory->SetActiveSlot(NO_ACTIVE_SLOT);
-							m_pInventory->Slot(pGrenade);
-							//m_pInventory->Activate(pGrenade->m_slot);
-							return true;
-						}
-						++it;
-					}
-					return true;
-				}
-			}
-			return true;
-		};
 	case kDROP:
 		setup_throw_params();
 		return true;

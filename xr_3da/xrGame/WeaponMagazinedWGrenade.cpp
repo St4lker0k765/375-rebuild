@@ -218,17 +218,7 @@ void  CWeaponMagazinedWGrenade::PerformSwitch()
 bool CWeaponMagazinedWGrenade::Action(s32 cmd, u32 flags) 
 {
 	if(inherited::Action(cmd, flags)) return true;
-	
-	switch(cmd) 
-	{
-	case kWPN_ZOOM: 
-	case kWPN_FUNC: 
-			{
-                if(flags&CMD_START) 
-					SwitchState(eSwitch);// SwitchMode();
-				return true;
-			}
-	}
+
 	return false;
 }
 

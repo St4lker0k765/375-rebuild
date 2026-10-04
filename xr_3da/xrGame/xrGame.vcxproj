@@ -730,7 +730,6 @@
     <ClInclude Include="condition_state.h" />
     <ClInclude Include="condition_state_inline.h" />
     <ClInclude Include="console_registrator.h" />
-    <ClInclude Include="ContextMenu.h" />
     <ClInclude Include="controller_state_panic_inline.h" />
     <ClInclude Include="control_action.h" />
     <ClInclude Include="control_action_inline.h" />
@@ -1423,7 +1422,6 @@
     <ClInclude Include="UIFrameRect.h" />
     <ClInclude Include="UIGameCustom.h" />
     <ClInclude Include="UIGameSP.h" />
-    <ClInclude Include="UIGame_custom_script.h" />
     <ClInclude Include="UIHealth.h" />
     <ClInclude Include="UIListBox.h" />
     <ClInclude Include="UIStaticItem.h" />
@@ -1831,7 +1829,6 @@
     <ClCompile Include="ClimableObject.cpp" />
     <ClCompile Include="console_commands.cpp" />
     <ClCompile Include="console_registrator_script.cpp" />
-    <ClCompile Include="ContextMenu.cpp" />
     <ClCompile Include="cover_evaluators.cpp" />
     <ClCompile Include="cover_manager.cpp" />
     <ClCompile Include="cover_point_script.cpp" />
@@ -2445,7 +2442,6 @@
     <ClCompile Include="UIFrameRect.cpp" />
     <ClCompile Include="UIGameCustom.cpp" />
     <ClCompile Include="UIGameSP.cpp" />
-    <ClCompile Include="UIGame_custom_script.cpp" />
     <ClCompile Include="UIHealth.cpp" />
     <ClCompile Include="UIListBox.cpp" />
     <ClCompile Include="UIStaticItem.cpp" />

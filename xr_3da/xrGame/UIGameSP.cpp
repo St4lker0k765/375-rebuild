@@ -29,63 +29,7 @@ void CUIGameSP::SetClGame (game_cl_GameState* g)
 
 bool CUIGameSP::IR_OnKeyboardPress(int dik) 
 {
-	if(inherited::IR_OnKeyboardPress(dik)) return true;
-	
-	switch (key_binding[dik])
-	{
-	case kINVENTORY: 
-		if( !MainInputReceiver() || MainInputReceiver()==&InventoryMenu){
-			m_game->StartStopMenu(&InventoryMenu,true);
-			return true;
-		}break;
-
-	case kACTIVE_JOBS:
-		if( !MainInputReceiver() || MainInputReceiver()==&PdaMenu){
-			PdaMenu.SetActiveSubdialog(epsActiveJobs);
-			m_game->StartStopMenu(&PdaMenu,true);
-			return true;
-		}break;
-
-	case kMAP:
-		if( !MainInputReceiver() || MainInputReceiver()==&PdaMenu){
-			PdaMenu.SetActiveSubdialog(epsMap);
-			m_game->StartStopMenu(&PdaMenu,true);
-			return true;
-		}break;
-
-	case kCONTACTS:
-		if( !MainInputReceiver() || MainInputReceiver()==&PdaMenu){
-			PdaMenu.SetActiveSubdialog(epsContacts);
-			m_game->StartStopMenu(&PdaMenu,true);
-			return true;
-		}break;
-
-/*	case kQUIT:
-		if( MainInputReceiver() )//m_pUserMenu)
-		{
-			m_game->StartStopMenu(MainInputReceiver(), true);
-			return true;
-		}break;
-*/
-	}
-	
-	
-	//временно! пока, по убыванию сил до критического
-	//уровня персонаж не засыпает, а просто переходит
-	//в меню инвенторя
-	CActor *pActor = smart_cast<CActor*>(Level().CurrentEntity());
-	if(pActor && pActor->g_Alive() && !pActor->conditions().GetPower())
-	{
-			if( MainInputReceiver() == NULL)
-			{
-				//start the inventory menu
-				m_game->StartStopMenu(&InventoryMenu,true);
-				return true;
-			}
-	}
-	
-
-	return false;
+	return inherited::IR_OnKeyboardPress(dik);
 }
 
 bool CUIGameSP::IR_OnKeyboardRelease(int dik) 

@@ -2011,9 +2011,6 @@
     <Filter Include="UI\GameTypes\Single">
       <UniqueIdentifier>{82149273-d45f-4258-ae6d-3d9622be29d8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\GameTypes\Game_custom_script">
-      <UniqueIdentifier>{a70ae93e-9bb1-4928-be14-0b262a67b5d7}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mt_config.h">
@@ -5736,9 +5733,6 @@
     <ClInclude Include="ui\UIInteractiveBackground.h">
       <Filter>UI\UIWindows\InteractiveBackground</Filter>
     </ClInclude>
-    <ClInclude Include="ContextMenu.h">
-      <Filter>UI\HUD</Filter>
-    </ClInclude>
     <ClInclude Include="HUDCrosshair.h">
       <Filter>UI\HUD</Filter>
     </ClInclude>
@@ -5753,9 +5747,6 @@
     </ClInclude>
     <ClInclude Include="UIGameSP.h">
       <Filter>UI\GameTypes\Single</Filter>
-    </ClInclude>
-    <ClInclude Include="UIGame_custom_script.h">
-      <Filter>UI\GameTypes\Game_custom_script</Filter>
     </ClInclude>
     <ClInclude Include="NET_Queue.h">
       <Filter>Core\Common\NET Shared</Filter>
@@ -8315,9 +8306,6 @@
     <ClCompile Include="ui\UI_IB_Static.cpp">
       <Filter>UI\UIWindows\InteractiveBackground</Filter>
     </ClCompile>
-    <ClCompile Include="ContextMenu.cpp">
-      <Filter>UI\HUD</Filter>
-    </ClCompile>
     <ClCompile Include="HUDCrosshair.cpp">
       <Filter>UI\HUD</Filter>
     </ClCompile>
@@ -8332,9 +8320,6 @@
     </ClCompile>
     <ClCompile Include="UIGameSP.cpp">
       <Filter>UI\GameTypes\Single</Filter>
-    </ClCompile>
-    <ClCompile Include="UIGame_custom_script.cpp">
-      <Filter>UI\GameTypes\Game_custom_script</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

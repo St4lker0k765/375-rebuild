@@ -543,10 +543,6 @@ bool CInventory::Action(s32 cmd, u32 flags)
 			{
 				pActor->SetShotRndSeed();
 			}break;
-			case kWPN_ZOOM : 
-			{
-				pActor->SetZoomRndSeed();
-			}break;
 		};
 	};
 
@@ -572,18 +568,10 @@ bool CInventory::Action(s32 cmd, u32 flags)
 			{
 				SendActionEvent(cmd, flags);
 			}break;
-		case kWPN_FUNC:
 		case kWPN_1:
 		case kWPN_2:
 		case kWPN_3:
 		case kWPN_4:
-		case kWPN_5:
-		case kWPN_6:
-		case kTORCH:
-			{
-				SendActionEvent(cmd, flags);
-			}break;
-		case kWPN_ZOOM : 
 			{
 				SendActionEvent(cmd, flags);
 			}break;
@@ -601,16 +589,10 @@ bool CInventory::Action(s32 cmd, u32 flags)
 	case kWPN_2:
 	case kWPN_3:
 	case kWPN_4:
-	case kWPN_5:
-	case kWPN_6:
        {
 			if(flags&CMD_START)
 			{
-                if((int)m_iActiveSlot == cmd - kWPN_1 &&
-					m_slots[m_iActiveSlot].m_pIItem)
-					m_slots[m_iActiveSlot].m_pIItem->Action(kWPN_NEXT, CMD_START);
-				else 
-					Activate(cmd - kWPN_1);
+				Activate(cmd - kWPN_1);
 
 				return true;
 			}

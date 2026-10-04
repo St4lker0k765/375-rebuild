@@ -70,45 +70,10 @@ void CActor::IR_OnKeyboardPress(int cmd)
 	case kCAM_2:	cam_Set			(eacLookAt);				break;
 	case kCAM_3:	cam_Set			(eacFreeLook);				break;
 
-	case kNIGHT_VISION: {
-		PIItem I = CAttachmentOwner::attachedItem(CLSID_DEVICE_TORCH);
-		if (I){
-			CTorch* torch = smart_cast<CTorch*>(I);
-			if (torch) torch->SwitchNightVision();
-		}
-/*
-		PIItem I = inventory().Get(CLSID_DEVICE_TORCH, false); 
-		if (I){
-			CTorch* torch = smart_cast<CTorch*>(I);
-			if (torch) torch->SwitchNightVision();
-		}*/
-		}break;
-	case kTORCH:{ 
-		PIItem I = CAttachmentOwner::attachedItem(CLSID_DEVICE_TORCH);
-		if (I){
-			CTorch* torch = smart_cast<CTorch*>(I);
-			if (torch) torch->Switch();
-		}
-/*
-		PIItem I = inventory().Get(CLSID_DEVICE_TORCH, false); 
-		if (I){
-			CTorch* torch = smart_cast<CTorch*>(I);
-			if (torch) torch->Switch();
-		}*/
-		}break;
 	case kWPN_1:	
 	case kWPN_2:	
 	case kWPN_3:	
 	case kWPN_4:	
-	case kWPN_5:	
-	case kWPN_6:	
-	case kWPN_7:	
-	case kWPN_8:	
-	case kWPN_9:	
-		//Weapons->ActivateWeaponID	(cmd-kWPN_1);			
-		break;
-	case kBINOCULARS:
-		//Weapons->ActivateWeaponID	(Weapons->WeaponCount()-1);
 		break;
 	case kWPN_RELOAD:
 		//Weapons->Reload			();
@@ -120,32 +85,6 @@ void CActor::IR_OnKeyboardPress(int cmd)
 		b_DropActivated			= TRUE;
 		f_DropPower				= 0;
 		break;
-		//-----------------------------------------------------
-		/*
-	case kHyperJump:
-		{
-			Fvector pos	= Device.vCameraPosition;
-			Fvector dir = Device.vCameraDirection;
-
-			Level().CurrentControlEntity()->setEnabled(false);
-			collide::rq_result result;
-			BOOL reach_wall = Level().ObjectSpace.RayPick(pos, dir, 100.0f, 
-				collide::rqtBoth, result) && !result.O;
-			Level().CurrentControlEntity()->setEnabled(true);			
-			////////////////////////////////////
-			if (!reach_wall || result.range < 1) break;
-
-			dir.mul(result.range-0.5f);
-			Fmatrix	M = Level().CurrentControlEntity()->XFORM();
-			M.translate_add(dir);
-			Level().CurrentControlEntity()->ForceTransform(M);
-		}break;
-		*/
-	case kHyperKick:
-		{
-			m_dwStartKickTime = Level().timeServer();
-		}break;
-		//-----------------------------------------------------
 	}
 }
 
@@ -184,31 +123,6 @@ void CActor::IR_OnKeyboardRelease(int cmd)
 		case kJUMP:		mstate_wishful &=~mcJump;		break;
 		case kCROUCH:	mstate_wishful &=~mcCrouch;		break;
 
-		case kHyperKick:
-			{
-				u32 FullKickTime = Level().timeServer() - m_dwStartKickTime;
-				
-				collide::rq_result& RQ = HUD().GetCurrentRayQuery();
-				CActor* pActor = smart_cast<CActor*>(RQ.O);
-				if (!pActor || pActor->g_Alive()) break;
-
-				Fvector original_dir, position_in_bone_space;
-				original_dir.set(0, 1, 0);
-				position_in_bone_space.set(0, 1, 0);				
-
-				NET_Packet		P;
-				CGameObject::u_EventGen	(P,GE_HIT,RQ.O->ID());
-				P.w_u16			(ID());
-				P.w_u16			(ID());
-				P.w_dir			(original_dir);
-				P.w_float		(0);
-				P.w_s16			((s16)RQ.element);
-				P.w_vec3		(position_in_bone_space);
-				P.w_float		(float(FullKickTime)*10);
-				P.w_u16			(2);
-				Level().Send(P);
-
-			}break;
 		case kDROP:		g_PerformDrop();				break;
 		}
 	}

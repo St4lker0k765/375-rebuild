@@ -289,10 +289,6 @@ bool CWeaponKnife::Action(s32 cmd, u32 flags)
 	if(inherited::Action(cmd, flags)) return true;
 	switch(cmd) 
 	{
-		case kWPN_ZOOM : 
-			if(flags&CMD_START) Fire2Start();
-			else Fire2End();
-			return true;
 		case kDROP:
 			{
 				if (GameID() != GAME_SINGLE)

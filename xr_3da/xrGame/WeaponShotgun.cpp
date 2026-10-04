@@ -191,15 +191,6 @@ bool CWeaponShotgun::Action			(s32 cmd, u32 flags)
 	//если оружие чем-то занято, то ничего не делать
 	if(IsPending()) return false;
 
-	switch(cmd) 
-	{
-		case kWPN_ZOOM : 
-			{
-				if(flags&CMD_START) Fire2Start();
-				else Fire2End();
-			}
-			return true;
-	}
 	return false;
 }
 

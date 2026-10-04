@@ -98,7 +98,6 @@ void CSpectator::IR_OnKeyboardPress(int cmd)
 	case kCAM_1:	cam_Set			(eacFirstEye);				break;
 	case kCAM_2:	cam_Set			(eacLookAt);				break;
 	case kCAM_3:	cam_Set			(eacFreeLook);				break;
-	case kCAM_4:	cam_Set			(eacFreeFly);				break;
 	case kWPN_FIRE:	++look_idx;									break;
 	}
 }
