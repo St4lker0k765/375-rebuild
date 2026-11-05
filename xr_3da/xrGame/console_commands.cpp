@@ -20,7 +20,6 @@
 #include "script_engine_space.h"
 #include "script_process.h"
 #include "xrServer_Objects.h"
-#include "ui/UIMainIngameWnd.h"
 #include "PhysicsGamePars.h"
 #include "string_table.h"
 #include "autosave_manager.h"
@@ -30,7 +29,6 @@
 #include "mt_config.h"
 #ifdef DEBUG
 #include "PHDebug.h"
-#include "ui/UIDebugFonts.h" 
 #include "hudmanager.h"
 
 #endif
@@ -58,7 +56,6 @@ extern	float	g_fMaxReconSpeed;
 extern	int		x_m_x;
 extern	int		x_m_z;
 extern	BOOL	net_cl_inputguaranteed	;
-extern	BOOL	net_sv_control_hit		;
 extern	int		g_dwInputUpdateDelta	;
 extern	BOOL	g_ShowAnimationInfo		;
 extern	BOOL	g_b_COD_PickUpMode		;
@@ -1051,14 +1048,6 @@ public:
 	}
 };
 
-class CCC_DebugFonts : public IConsole_Command {
-public:
-	CCC_DebugFonts (LPCSTR N) : IConsole_Command(N) {bEmptyArgsHandled = true; }
-	virtual void Execute				(LPCSTR args) {
-		HUD().GetUI()->StartStopMenu( xr_new<CUIDebugFonts>(), true);		
-	}
-};
-
 class CCC_PostprocessTest : public IConsole_Command {
 public:
 	CCC_PostprocessTest(LPCSTR N) : IConsole_Command(N)  { };
@@ -1411,7 +1400,6 @@ void CCC_RegisterCommands()
 
 
 	CMD1(CCC_ShowMonsterInfo,	"ai_monster_info");
-	CMD1(CCC_DebugFonts,		"debug_fonts");
 	CMD1(CCC_PostprocessTest,	"pp_test");
 #endif // DEBUG
 	
@@ -1505,7 +1493,6 @@ void CCC_RegisterCommands()
 	CMD1(CCC_BanPlayer,	"sv_banplayer"					);
 	CMD1(CCC_ListPlayers,	"sv_listplayers"				);		
 
-	CMD4(CCC_SvControlHit,	"net_sv_control_hit",	&net_sv_control_hit,	0, 1)	;
 	CMD4(CCC_Integer,		"dbg_show_ani_info",	&g_ShowAnimationInfo,	0, 1)	;
 	CMD3(CCC_Mask,			"cl_dynamiccrosshair",	&psHUD_Flags,	HUD_CROSSHAIR_DYNAMIC);
 

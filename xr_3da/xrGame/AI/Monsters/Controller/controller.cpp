@@ -12,7 +12,6 @@
 #include "../../../level.h"
 #include "../../../sound_player.h"
 #include "../../../ai_monster_space.h"
-#include "../../../ui/UIMainIngameWnd.h"
 #include "../ai_monster_movement.h"
 #include "../ai_monster_movement_space.h"
 #include "../../../level_debug.h"

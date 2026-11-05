@@ -115,8 +115,7 @@ class_<CScriptGameObject> &script_register_game_object2(class_<CScriptGameObject
 		.enum_("EPdaMsg")
 		[
 			value("dialog_pda_msg",			int(ePdaMsgDialog)),
-			value("info_pda_msg",			int(ePdaMsgInfo)),
-			value("no_pda_msg",				int(ePdaMsgMax))
+			value("info_pda_msg",			int(ePdaMsgInfo))
 		]
 
 		.def("give_info_portion",			&CScriptGameObject::GiveInfoPortion)
@@ -150,7 +149,6 @@ class_<CScriptGameObject> &script_register_game_object2(class_<CScriptGameObject
 		.def("transfer_money",				&CScriptGameObject::TransferMoney)
 		.def("money",						&CScriptGameObject::Money)
 
-		.def("switch_to_trade",				&CScriptGameObject::SwitchToTrade)
 		.def("switch_to_talk",				&CScriptGameObject::SwitchToTalk)
 		.def("run_talk_dialog",				&CScriptGameObject::RunTalkDialog)
 		.def("actor_sleep",					&CScriptGameObject::ActorSleep)
@@ -202,11 +200,6 @@ class_<CScriptGameObject> &script_register_game_object2(class_<CScriptGameObject
 			value("relation_fight_help_monster",			int(RELATION_REGISTRY::FIGHT_HELP_MONSTER)),
 			value("relation_fight_help_human",				int(RELATION_REGISTRY::FIGHT_HELP_HUMAN)),
 			value("relation_kill",							int(RELATION_REGISTRY::KILL))
-		]
-
-		.enum_("CLSIDS")
-		[
-			value("no_pda_msg",				int(ePdaMsgMax))
 		]
 
 		//CustomZone

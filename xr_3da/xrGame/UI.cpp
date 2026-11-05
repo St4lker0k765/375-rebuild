@@ -3,11 +3,9 @@
 #include "../xr_IOConsole.h"
 #include "Entity.h"
 #include "HUDManager.h"
-#include "UIGameSP.h"
 #include "actor.h"
 #include "level.h"
 #include "game_cl_base.h"
-#include "ui/UIMainIngameWnd.h"
 
 #define MSGS_OFFS 510
 

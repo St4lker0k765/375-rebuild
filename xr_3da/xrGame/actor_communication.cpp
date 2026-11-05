@@ -4,7 +4,6 @@
 
 #include "actor.h"
 
-#include "UIGameSP.h"
 #include "UI.h"
 #include "PDA.h"
 #include "HUDManager.h"
@@ -29,25 +28,8 @@
 
 #include "map_manager.h"
 
-#include "ui/UIMainIngameWnd.h"
 #include "game_object_space.h"
 #include "script_callback_ex.h"
-
-//static LPCSTR	m_sMapSpotAnimEnemy = NULL;
-//static LPCSTR	m_sMapSpotAnimNeutral = NULL;
-//static LPCSTR	m_sMapSpotAnimFriend = NULL;
-
-/*
-void CActor::AddMapLocationsFromInfo(const CInfoPortion* info_portion) const
-{
-	VERIFY(info_portion);
-	//добавить отметки на карте
-	for(u32 i=0; i<info_portion->MapLocations().size(); i++)
-	{
-		const SMapLocation& map_location = info_portion->MapLocations()[i];
-		Level().AddMapLocation(map_location, eMapLocationInfoPortion);
-	}
-}*/
 
 class RemoveByIDPred
 {
@@ -97,24 +79,6 @@ void CActor::AddEncyclopediaArticle	 (const CInfoPortion* info_portion) const
 
 		article_vector.push_back(ARTICLE_DATA(*it, Level().GetGameTime(), article.data()->articleType));
 	}
-
-	if( HUD().GetUI() ){
-
-		CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-		if(pGameSP) 
-		{
-			if(actor_diary_article && pGameSP->PdaMenu.UIDiaryWnd.IsShown() &&
-				pGameSP->PdaMenu.UIDiaryWnd.UIActorDiaryWnd.IsShown())
-			{
-				pGameSP->PdaMenu.UIDiaryWnd.ReloadArticles();
-			}
-			
-			if(encyclopedia_article && pGameSP->PdaMenu.UIEncyclopediaWnd.IsShown())
-			{
-				pGameSP->PdaMenu.UIEncyclopediaWnd.ReloadArticles();
-			}
-		}
-	}
 }
 
 void CActor::AddGameTask			 (const CInfoPortion* info_portion) const
@@ -147,18 +111,6 @@ void CActor::AddGameTask			 (const CInfoPortion* info_portion) const
 	if(old_size != task_vector.size())
 		if(HUD().GetUI())
 			HUD().GetUI()->UIMainIngameWnd->SetFlashIconState(CUIMainIngameWnd::efiPdaTask, true);
-
-	if( HUD().GetUI() ){
-		CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-		if(pGameSP) 
-		{
-			if(pGameSP->PdaMenu.UIDiaryWnd.IsShown() &&
-				pGameSP->PdaMenu.UIDiaryWnd.UIJobsWnd.IsShown())
-			{
-				pGameSP->PdaMenu.UIDiaryWnd.UIJobsWnd.ReloadJobs();
-			}
-		}
-	}
 }
 
 
@@ -184,21 +136,6 @@ void  CActor::AddGameNews			 (GAME_NEWS_DATA& news_data)
 
 	if(HUD().GetUI())
 		HUD().GetUI()->UIMainIngameWnd->OnNewsReceived(news_data);
-
-	if( HUD().GetUI() ){
-		CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-		if(pGameSP) 
-		{
-			if(pGameSP->PdaMenu.UIDiaryWnd.IsShown() &&
-				pGameSP->PdaMenu.UIDiaryWnd.UINewsWnd.IsShown())
-			{
-				pGameSP->PdaMenu.UIDiaryWnd.UINewsWnd.AddNews();
-				pGameSP->PdaMenu.UIDiaryWnd.MarkNewsAsRead(true);
-			}
-			else
-				pGameSP->PdaMenu.UIDiaryWnd.MarkNewsAsRead(false);
-		}
-	}
 }
 
 
@@ -210,34 +147,10 @@ bool CActor::OnReceiveInfo(INFO_ID info_id) const
 	CInfoPortion info_portion;
 	info_portion.Load(info_id);
 
-//	AddMapLocationsFromInfo	(&info_portion);
 	AddEncyclopediaArticle	(&info_portion);
 	AddGameTask				(&info_portion);
 
 	callback(GameObject::eInventoryInfo)(lua_game_object(), *info_id);
-
-	if(!HUD().GetUI())
-		return false;
-	//только если находимся в режиме single
-	CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-	if(!pGameSP) return false;
-/*
-	//обновить отмеки на карте, если мы прямо в карте и находимся
-	if(pGameSP->PdaMenu.UIMapWnd.IsShown())
-	{
-		pGameSP->PdaMenu.UIMapWnd.InitGlobalMapObjectives	();
-		pGameSP->PdaMenu.UIMapWnd.InitLocalMapObjectives	();
-	}
-*/
-	if(pGameSP->TalkMenu.IsShown())
-	{
-		pGameSP->TalkMenu.NeedUpdateQuestions();
-	}
-	else if(pGameSP->PdaMenu.UIPdaCommunication.IsShown())
-	{
-		pGameSP->PdaMenu.UIPdaCommunication.NeedUpdateQuestions();
-	}
-
 
 	return true;
 }
@@ -245,33 +158,7 @@ bool CActor::OnReceiveInfo(INFO_ID info_id) const
 
 void CActor::OnDisableInfo(INFO_ID info_id)  const
 {
-//	Level().RemoveMapLocationByInfo(info_index);
 	CInventoryOwner::OnDisableInfo(info_id);
-
-	if(!HUD().GetUI())
-		return;
-
-	//только если находимся в режиме single
-	CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-	if(!pGameSP) return;
-
-/* 
-	//обновить отмеки на карте, если мы прямо в карте и находимся
-	if(pGameSP->PdaMenu.UIMapWnd.IsShown())
-	{
-		pGameSP->PdaMenu.UIMapWnd.InitGlobalMapObjectives	();
-		pGameSP->PdaMenu.UIMapWnd.InitLocalMapObjectives	();
-	}
-*/
-
-	if(pGameSP->TalkMenu.IsShown())
-	{
-		pGameSP->TalkMenu.NeedUpdateQuestions();
-	}
-	else if(pGameSP->PdaMenu.UIPdaCommunication.IsShown())
-	{
-		pGameSP->PdaMenu.UIPdaCommunication.NeedUpdateQuestions();
-	}
 }
 
 
@@ -303,20 +190,6 @@ void CActor::ReceivePdaMessage(u16 who, EPdaMsg msg, INFO_ID info_id)
 
 void  CActor::ReceivePhrase		(DIALOG_SHARED_PTR& phrase_dialog)
 {
-	//только если находимся в режиме single
-	CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-	if(!pGameSP) return;
-
-	if(pGameSP->TalkMenu.IsShown())
-	{
-		pGameSP->TalkMenu.NeedUpdateQuestions();
-	}
-	else if(pGameSP->PdaMenu.UIPdaCommunication.IsShown())
-	{
-		pGameSP->PdaMenu.UIPdaCommunication.NeedUpdateQuestions();
-	}
-
-
 	CPhraseDialogManager::ReceivePhrase(phrase_dialog);
 }
 

@@ -30,8 +30,6 @@
 
 #include "map_manager.h"
 #include "HUDManager.h"
-#include "ui/UIArtefactPanel.h"
-#include "ui/UIMainIngameWnd.h"
 
 
 int			g_cl_InterpolationType = 0;

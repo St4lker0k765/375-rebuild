@@ -6,7 +6,6 @@
 #include "../CameraBase.h"
 #include "Car.h"
 #include "HudManager.h"
-#include "UIGameSP.h"
 #include "inventory.h"
 #include "level.h"
 #include "game_cl_base.h"
@@ -219,23 +218,6 @@ void CActor::ActorUse()
 				TryToTalk();
 			}
 			//обыск трупа
-			else  if(!Level().IR_GetKeyState(DIK_LSHIFT))
-			{
-				//только если находимся в режиме single
-				CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-				if(pGameSP)pGameSP->StartCarBody(&inventory(), this,
-					&m_pPersonWeLookingAt->inventory(),
-					smart_cast<CGameObject*>(m_pPersonWeLookingAt));
-			}
-		}
-		else if(m_pVehicleWeLookingAt && smart_cast<CCar*>(m_pVehicleWeLookingAt) && Level().IR_GetKeyState(DIK_LSHIFT))
-		{
-			//только если находимся в режиме single
-			CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-			if(pGameSP)pGameSP->StartCarBody(&inventory(), this,
-				m_pVehicleWeLookingAt->GetInventory(),
-				smart_cast<CGameObject*>(m_pVehicleWeLookingAt));
-
 		}
 		collide::rq_result& RQ = HUD().GetCurrentRayQuery();
 		CPhysicsShellHolder* object = smart_cast<CPhysicsShellHolder*>(RQ.O);

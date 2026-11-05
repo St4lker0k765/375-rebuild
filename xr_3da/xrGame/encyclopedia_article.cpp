@@ -7,10 +7,7 @@
 #include "encyclopedia_article.h"
 #include "ui/xrXMLParser.h"
 #include "ui/UIXmlInit.h"
-#include "ui/UIInventoryUtilities.h"
 #include "object_broker.h"
-
-using namespace InventoryUtilities;
 
 void ARTICLE_DATA::load (IReader& stream) 
 {

@@ -13,7 +13,6 @@
 #include <luabind/operator.hpp>
 #include <luabind/out_value_policy.hpp>
 #include "xrMessages.h"
-#include "ui/UIInventoryUtilities.h"
 #include "xr_time.h"
 #include "../../xrNetServer/net_utils.h"
 
@@ -79,20 +78,5 @@ void game_sv_GameState::script_register(lua_State *L)
 	.def("get_option_i",		&game_sv_GameState::get_option_i)
 	.def("get_option_s",		&game_sv_GameState::get_option_s)
 	.def("u_EventSend",			&game_sv_GameState::u_EventSend)
-
-	.def("getRPcount",			&game_sv_GameState::getRPcount)
-	];
-	
-	module(L)
-	[
-	class_<enum_exporter<EGamePlayerFlags> >("game_player_flags")
-		.enum_("flags")
-		[
-			value("GAME_PLAYER_FLAG_LOCAL",						int(GAME_PLAYER_FLAG_LOCAL)),
-			value("GAME_PLAYER_FLAG_READY",						int(GAME_PLAYER_FLAG_READY)),
-			value("GAME_PLAYER_FLAG_VERY_VERY_DEAD",			int(GAME_PLAYER_FLAG_VERY_VERY_DEAD)),
-			value("GAME_PLAYER_FLAG_CS_SPECTATOR",				int(GAME_PLAYER_FLAG_CS_SPECTATOR)),
-			value("GAME_PLAYER_FLAG_SCRIPT_BEGINS_FROM",		int(GAME_PLAYER_FLAG_SCRIPT_BEGINS_FROM))
-		]
 	];
 }

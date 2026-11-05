@@ -13,8 +13,6 @@
 #include "../camerabase.h"
 #include "inventory.h"
 
-#include "ui/UIMainIngameWnd.h"
-
 static const float		TIME_2_HIDE				= 5.f;
 static const float		TORCH_INERTION_CLAMP	= PI_DIV_6;
 static const float		TORCH_INERTION_SPEED_MAX= 7.5f;

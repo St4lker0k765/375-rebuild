@@ -1900,53 +1900,17 @@
     <Filter Include="UI\Common">
       <UniqueIdentifier>{be19c194-fb4b-4ed0-8414-216e5af1e8df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\Common\InventoryWnd">
-      <UniqueIdentifier>{98455c66-1fb4-40be-a350-0607c6ffa252}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\TradeWnd">
-      <UniqueIdentifier>{aa794ee5-07f5-4ad7-a184-24140801df7b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\PdaWnd">
-      <UniqueIdentifier>{11d5097b-cf55-4fd1-9457-39d21cf7646f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\MapWnd">
-      <UniqueIdentifier>{3581b4b8-ef57-4768-860c-7336fad4b720}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\TalkWnd">
-      <UniqueIdentifier>{0b71878f-1521-415c-93b4-ead8d5280c6b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\CarBodyWnd">
-      <UniqueIdentifier>{b1b6f899-438d-426d-a1bc-92888f9624fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\Diary">
-      <UniqueIdentifier>{5d6661a9-959c-4f7d-ae49-ec66e584a931}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\MainIngame">
-      <UniqueIdentifier>{ea4e4568-3148-42d2-9f1a-3d378d371b21}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI\Common\Animations">
       <UniqueIdentifier>{d53e16be-bcb4-4a24-8169-b4467910778a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\Common\Statistics">
-      <UniqueIdentifier>{3a6919bb-0431-4b01-bc00-22f3db2f5e7a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI\Common\Lines">
       <UniqueIdentifier>{1eb61347-5ff0-47d0-b91c-007093c3a3da}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\Common\_Debug Fonts">
-      <UniqueIdentifier>{26936d93-4a18-4f82-8c0b-6a7ed3b5d98f}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\UIWindows">
       <UniqueIdentifier>{f1a26f5c-5d13-422b-8693-1d9f677569d3}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\UIWindows\XML">
       <UniqueIdentifier>{afb27825-d3cc-4bee-8ee1-7ec44549edd4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\UIWindows\MessageBox">
-      <UniqueIdentifier>{a6b10c05-8098-476f-8b7d-0151acbf07c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\UIWindows\PropertiesBox">
-      <UniqueIdentifier>{e0fd2acf-f352-41d7-823d-69640ce0b29f}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\UIWindows\ListBox">
       <UniqueIdentifier>{735bcfef-3e99-42ff-b0a4-b7c8938cfcef}</UniqueIdentifier>
@@ -1962,9 +1926,6 @@
     </Filter>
     <Filter Include="UI\UIWindows\ScrollBar">
       <UniqueIdentifier>{539716dc-6776-4a82-aa07-3883db78ce88}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\UIWindows\DragDrop">
-      <UniqueIdentifier>{e5eb154c-efe5-48d6-abc2-5fba5cd27a75}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\UIWindows\Static">
       <UniqueIdentifier>{71500a1e-0f5e-498a-9a37-170630afab4a}</UniqueIdentifier>
@@ -1984,32 +1945,17 @@
     <Filter Include="UI\UIWindows\TabControl">
       <UniqueIdentifier>{9f703e3a-ed5a-4502-905e-138635db07dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\UIWindows\TreeView">
-      <UniqueIdentifier>{142af586-e1dd-47a4-a484-2f80afb4f5e9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI\UIWindows\ScriptWnd">
       <UniqueIdentifier>{48c7dded-c2e8-422d-9858-f06fde6bc107}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\UIWindows\Buttons">
       <UniqueIdentifier>{1f91cfc6-3470-4924-8654-764a7f9e0211}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\UIWindows\ComboBox">
-      <UniqueIdentifier>{306347d0-4d95-4a31-85cf-d1daf21c4d25}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI\UIWindows\InteractiveBackground">
       <UniqueIdentifier>{88d8fc89-9f5a-471e-8a77-8a9c4c3e6c4c}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\HUD">
       <UniqueIdentifier>{6f2b9445-f7e8-4ea2-943e-78792069cc60}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\GameTypes">
-      <UniqueIdentifier>{acfb1b90-edca-4dae-914a-27b8197ded6f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\GameTypes\GameCustom">
-      <UniqueIdentifier>{021b5c96-b8d5-40c5-a046-64fde357a13d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\GameTypes\Single">
-      <UniqueIdentifier>{82149273-d45f-4258-ae6d-3d9622be29d8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -5457,143 +5403,11 @@
     <ClInclude Include="UIStaticItem.h">
       <Filter>UI\Custom</Filter>
     </ClInclude>
-    <ClInclude Include="ui\UIArtifactMergerWnd.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UICharacterInfo.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIInventoryUtilities.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIInventoryWnd.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIItemInfo.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIOutfitInfo.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIOutfitSlot.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UISleepWnd.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UITimeWnd.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIWpnDragDropItem.h">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UITradeWnd.h">
-      <Filter>UI\Common\TradeWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPdaAux.h">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPdaCommunication.h">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPdaContactsWnd.h">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPdaDialogWnd.h">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPdaListItem.h">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPdaWnd.h">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIGlobalMapLocation.h">
-      <Filter>UI\Common\MapWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIMapBackground.h">
-      <Filter>UI\Common\MapWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIMapSpot.h">
-      <Filter>UI\Common\MapWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIMapWnd.h">
-      <Filter>UI\Common\MapWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UITalkDialogWnd.h">
-      <Filter>UI\Common\TalkWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UITalkWnd.h">
-      <Filter>UI\Common\TalkWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UICarBodyWnd.h">
-      <Filter>UI\Common\CarBodyWnd</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIActorDiary.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIContracts.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIDiaryWnd.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIEncyclopediaCore.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIEncyclopediaWnd.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIIconedListItem.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIJobItem.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIJobsWnd.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UINewsWnd.h">
-      <Filter>UI\Common\Diary</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIArtefactPanel.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UICarPanel.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
-    <ClInclude Include="UIHealth.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIMainIngameWnd.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIMotionIcon.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPdaMsgListItem.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPointerGage.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
-    <ClInclude Include="UIZoneMap.h">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClInclude>
     <ClInclude Include="ui\UIColorAnimatorWrapper.h">
       <Filter>UI\Common\Animations</Filter>
     </ClInclude>
-    <ClInclude Include="ui\UIActorInfo.h">
-      <Filter>UI\Common\Statistics</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIStalkersRankingWnd.h">
-      <Filter>UI\Common\Statistics</Filter>
-    </ClInclude>
     <ClInclude Include="ui\UILines.h">
       <Filter>UI\Common\Lines</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIDebugFonts.h">
-      <Filter>UI\Common\_Debug Fonts</Filter>
     </ClInclude>
     <ClInclude Include="callback_info.h">
       <Filter>UI\UIWindows</Filter>
@@ -5615,12 +5429,6 @@
     </ClInclude>
     <ClInclude Include="ui\xrXMLParser.h">
       <Filter>UI\UIWindows\XML</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIMessageBox.h">
-      <Filter>UI\UIWindows\MessageBox</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIPropertiesBox.h">
-      <Filter>UI\UIWindows\PropertiesBox</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIInteractiveListItem.h">
       <Filter>UI\UIWindows\ListBox</Filter>
@@ -5651,12 +5459,6 @@
     </ClInclude>
     <ClInclude Include="ui\UIScrollBox.h">
       <Filter>UI\UIWindows\ScrollBar</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIDragDropItem.h">
-      <Filter>UI\UIWindows\DragDrop</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIDragDropList.h">
-      <Filter>UI\UIWindows\DragDrop</Filter>
     </ClInclude>
     <ClInclude Include="ui\UI3dStatic.h">
       <Filter>UI\UIWindows\Static</Filter>
@@ -5700,9 +5502,6 @@
     <ClInclude Include="ui\UITabControl.h">
       <Filter>UI\UIWindows\TabControl</Filter>
     </ClInclude>
-    <ClInclude Include="ui\UITreeViewItem.h">
-      <Filter>UI\UIWindows\TreeView</Filter>
-    </ClInclude>
     <ClInclude Include="ui\UIScriptWnd.h">
       <Filter>UI\UIWindows\ScriptWnd</Filter>
     </ClInclude>
@@ -5724,9 +5523,6 @@
     <ClInclude Include="ui\UIRadioGroup.h">
       <Filter>UI\UIWindows\Buttons</Filter>
     </ClInclude>
-    <ClInclude Include="ui\UIComboBox.h">
-      <Filter>UI\UIWindows\ComboBox</Filter>
-    </ClInclude>
     <ClInclude Include="ui\UI_IB_Static.h">
       <Filter>UI\UIWindows\InteractiveBackground</Filter>
     </ClInclude>
@@ -5741,12 +5537,6 @@
     </ClInclude>
     <ClInclude Include="HUDManager.h">
       <Filter>UI\HUD</Filter>
-    </ClInclude>
-    <ClInclude Include="UIGameCustom.h">
-      <Filter>UI\GameTypes\GameCustom</Filter>
-    </ClInclude>
-    <ClInclude Include="UIGameSP.h">
-      <Filter>UI\GameTypes\Single</Filter>
     </ClInclude>
     <ClInclude Include="NET_Queue.h">
       <Filter>Core\Common\NET Shared</Filter>
@@ -8012,164 +7802,17 @@
     <ClCompile Include="UIStaticItem.cpp">
       <Filter>UI\Custom</Filter>
     </ClCompile>
-    <ClCompile Include="ui\UIArtifactMergerWnd.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UICharacterInfo.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIInventoryUtilities.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIInventoryWnd.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\uiinventorywnd2.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIItemInfo.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIOutfitInfo.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIOutfitSlot.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UISleepWnd.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UITimeWnd.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIWpnDragDropItem.cpp">
-      <Filter>UI\Common\InventoryWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UITradeWnd.cpp">
-      <Filter>UI\Common\TradeWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPdaAux.cpp">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPdaCommunication.cpp">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPdaContactsWnd.cpp">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPdaDialogWnd.cpp">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPdaListItem.cpp">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPdaWnd.cpp">
-      <Filter>UI\Common\PdaWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIGlobalMapLocation.cpp">
-      <Filter>UI\Common\MapWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIMapBackground.cpp">
-      <Filter>UI\Common\MapWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIMapSpot.cpp">
-      <Filter>UI\Common\MapWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIMapWnd.cpp">
-      <Filter>UI\Common\MapWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UITalkDialogWnd.cpp">
-      <Filter>UI\Common\TalkWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UITalkWnd.cpp">
-      <Filter>UI\Common\TalkWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UICarBodyWnd.cpp">
-      <Filter>UI\Common\CarBodyWnd</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIActorDiary.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIContracts.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIDiaryWnd.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIEncyclopediaCore.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIEncyclopediaWnd.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIIconedListItem.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIJobItem.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIJobsWnd.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UINewsWnd.cpp">
-      <Filter>UI\Common\Diary</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIArtefactPanel.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UICarPanel.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
-    <ClCompile Include="UIHealth.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIMainIngameWnd.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIMotionIcon.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPdaMsgListItem.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPointerGage.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
-    <ClCompile Include="UIZoneMap.cpp">
-      <Filter>UI\Common\MainIngame</Filter>
-    </ClCompile>
     <ClCompile Include="ui\UIColorAnimatorWrapper.cpp">
       <Filter>UI\Common\Animations</Filter>
     </ClCompile>
-    <ClCompile Include="ui\UIActorInfo.cpp">
-      <Filter>UI\Common\Statistics</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIStalkersRankingWnd.cpp">
-      <Filter>UI\Common\Statistics</Filter>
-    </ClCompile>
     <ClCompile Include="ui\UILines.cpp">
       <Filter>UI\Common\Lines</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIDebugFonts.cpp">
-      <Filter>UI\Common\_Debug Fonts</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIWndCallback.cpp">
       <Filter>UI\UIWindows</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIXmlInit.cpp">
       <Filter>UI\UIWindows\XML</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIMessageBox.cpp">
-      <Filter>UI\UIWindows\MessageBox</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIMessageBox_script.cpp">
-      <Filter>UI\UIWindows\MessageBox</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPropertiesBox.cpp">
-      <Filter>UI\UIWindows\PropertiesBox</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIPropertiesBox_script.cpp">
-      <Filter>UI\UIWindows\PropertiesBox</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIInteractiveListItem.cpp">
       <Filter>UI\UIWindows\ListBox</Filter>
@@ -8203,12 +7846,6 @@
     </ClCompile>
     <ClCompile Include="ui\UIScrollBox.cpp">
       <Filter>UI\UIWindows\ScrollBar</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIDragDropItem.cpp">
-      <Filter>UI\UIWindows\DragDrop</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIDragDropList.cpp">
-      <Filter>UI\UIWindows\DragDrop</Filter>
     </ClCompile>
     <ClCompile Include="ui\UI3dStatic.cpp">
       <Filter>UI\UIWindows\Static</Filter>
@@ -8267,9 +7904,6 @@
     <ClCompile Include="ui\UITabControl_script.cpp">
       <Filter>UI\UIWindows\TabControl</Filter>
     </ClCompile>
-    <ClCompile Include="ui\UITreeViewItem.cpp">
-      <Filter>UI\UIWindows\TreeView</Filter>
-    </ClCompile>
     <ClCompile Include="ui\UIScriptWnd.cpp">
       <Filter>UI\UIWindows\ScriptWnd</Filter>
     </ClCompile>
@@ -8297,12 +7931,6 @@
     <ClCompile Include="ui\UIRadioGroup.cpp">
       <Filter>UI\UIWindows\Buttons</Filter>
     </ClCompile>
-    <ClCompile Include="ui\UIComboBox.cpp">
-      <Filter>UI\UIWindows\ComboBox</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIComboBox_script.cpp">
-      <Filter>UI\UIWindows\ComboBox</Filter>
-    </ClCompile>
     <ClCompile Include="ui\UI_IB_Static.cpp">
       <Filter>UI\UIWindows\InteractiveBackground</Filter>
     </ClCompile>
@@ -8314,12 +7942,6 @@
     </ClCompile>
     <ClCompile Include="HUDManager.cpp">
       <Filter>UI\HUD</Filter>
-    </ClCompile>
-    <ClCompile Include="UIGameCustom.cpp">
-      <Filter>UI\GameTypes\GameCustom</Filter>
-    </ClCompile>
-    <ClCompile Include="UIGameSP.cpp">
-      <Filter>UI\GameTypes\Single</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

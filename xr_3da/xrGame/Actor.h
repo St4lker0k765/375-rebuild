@@ -404,7 +404,6 @@ public:
 	void					g_sv_Orientate			(u32 mstate_rl, float dt);
 	void					g_Orientate				(u32 mstate_rl, float dt);
 	bool					g_LadderOrient			() ;
-	void					UpdateMotionIcon		(u32 mstate_rl);
 
 	bool					CanAccelerate			();
 	bool					CanJump					();

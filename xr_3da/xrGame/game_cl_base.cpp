@@ -2,11 +2,9 @@
 #include "hudmanager.h"
 #include "game_cl_base.h"
 #include "level.h"
-#include "UIGameCustom.h"
 #include "script_engine.h"
 #include "script_space.h"
 #include "xr_Level_controller.h"
-#include "ui/UIMainIngameWnd.h"
 
 game_cl_GameState::game_cl_GameState()
 {
@@ -16,10 +14,6 @@ game_cl_GameState::game_cl_GameState()
 	shedule.t_max				= 20;
 	m_game_ui_custom			= NULL;
 	shedule_register			();
-
-	m_bVotingEnabled			= false;	
-	m_bFriendlyIndicators		= false;
-	m_bServerControlHits		= true;
 }
 
 game_cl_GameState::~game_cl_GameState()
@@ -52,10 +46,6 @@ void	game_cl_GameState::net_import_state	(NET_Packet& P)
 	P.r_s32			(type);
 		
 	P.r_u32			(start_time);
-	m_bVotingEnabled = !!P.r_u8();
-	m_bFriendlyIndicators = !!P.r_u8();
-	m_bServerControlHits = !!P.r_u8();
-	m_u32ForceRespawn = P.r_u32();
 
 	// Players
 	u16	p_count;

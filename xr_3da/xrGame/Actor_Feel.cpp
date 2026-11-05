@@ -10,7 +10,6 @@
 #include "customzone.h"
 #include "level.h"
 #include "GameMtlLib.h"
-#include "ui/UIMainIngameWnd.h"
 #include "Grenade.h"
 #include "clsid_game.h"
 

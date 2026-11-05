@@ -227,10 +227,6 @@ bool CInventoryItem::Merge(PIItem /**pIItem/**/)
 void CInventoryItem::OnH_B_Independent	()
 {
 	m_eItemPlace = eItemPlaceUndefined ;
-	if (HUD().GetUI() && object().H_Parent() == Level().CurrentViewEntity())
-	{
-		HUD().GetUI()->UIGame()->ReInitInventoryWnd();
-	};
 }
 
 void CInventoryItem::OnH_A_Independent	()
@@ -245,10 +241,6 @@ void CInventoryItem::OnH_B_Chield		()
 
 void CInventoryItem::OnH_A_Chield		()
 {
-	if (HUD().GetUI() && object().H_Parent() == Level().CurrentViewEntity())
-	{
-		HUD().GetUI()->UIGame()->ReInitInventoryWnd();
-	};
 }
 
 void CInventoryItem::UpdateCL()

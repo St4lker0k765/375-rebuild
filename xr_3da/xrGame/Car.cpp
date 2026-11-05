@@ -13,7 +13,6 @@
 #include "xrserver_objects_alife_items.h"
 #include "../skeletonanimated.h"
 #include "level.h"
-#include "ui/UIMainIngameWnd.h"
 
 BONE_P_MAP CCar::bone_map=BONE_P_MAP();
 

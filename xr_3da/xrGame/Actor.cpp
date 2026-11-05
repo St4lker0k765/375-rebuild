@@ -66,8 +66,6 @@
 
 #include "material_manager.h"
 #include "IColisiondamageInfo.h"
-#include "ui/UIMainIngameWnd.h"
-#include "ui/UIArtefactPanel.h"
 
 #include "map_manager.h"
 
@@ -424,34 +422,6 @@ void CActor::Hit		(float iLost, Fvector &dir, CObject* who, s16 element,Fvector 
 		ref_sound& S = sndHit[hit_type][Random.randI(sndHit[hit_type].size())];
 		S.play_at_pos(this, Position());
 	}
-
-
-	if (GameID() != GAME_SINGLE)
-	{
-		game_PlayerState* ps = Game().GetPlayerByGameID(ID());
-		if (ps && ps->testFlag(GAME_PLAYER_FLAG_INVINCIBLE) && Device.dwFrame != last_hit_frame &&
-			element != -1)
-		{		
-			// вычислить позицию и направленность партикла
-			Fmatrix pos; 
-			
-			CParticlesPlayer::MakeXFORM(this,element,dir,position_in_bone_space,pos);
-
-			// установить particles
-			CParticlesObject* ps = NULL;
-
-			if (eacFirstEye == cam_active && this == Level().CurrentEntity())
-				ps = xr_new<CParticlesObject>(invincibility_fire_shield_1st);
-			else
-				ps = xr_new<CParticlesObject>(invincibility_fire_shield_3rd);
-
-			ps->UpdateParent(pos,Fvector().set(0.f,0.f,0.f));
-			Level().ps_needtoplay.push_back(ps);
-		};
-
-		last_hit_frame = Device.dwFrame;
-	};
-
 	
 	//slow actor, only when he gets hit
 	if(hit_type == ALife::eHitTypeWound || hit_type == ALife::eHitTypeStrike)
@@ -906,7 +876,6 @@ void CActor::shedule_Update	(u32 DT)
 		
 		g_cl_ValidateMState		(dt,mstate_wishful);
 		g_SetAnimation			(mstate_real);
-		UpdateMotionIcon		(mstate_real);
 
 		// Check for game-contacts
 		Fvector C; float R;		
@@ -1324,8 +1293,6 @@ void CActor::MoveArtefactBelt(const CArtefact* artefact, bool on_belt)
 		VERIFY(it != m_ArtefactsOnBelt.end());
 		m_ArtefactsOnBelt.erase(it);
 	}
-	if (Level().CurrentViewEntity() == this)
-		HUD().GetUI()->UIMainIngameWnd->m_artefactPanel->InitIcons(m_ArtefactsOnBelt);
 }
 #define ARTEFACTS_UPDATE_TIME 100
 //old==1000
@@ -1458,28 +1425,6 @@ void CActor::AnimTorsoPlayCallBack(CBlend* B)
 	CActor* actor		= (CActor*)B->CallbackParam;
 	actor->m_bAnimTorsoPlayed = FALSE;
 }
-
-void CActor::UpdateMotionIcon(u32 mstate_rl)
-{
-	CUIMotionIcon		&motion_icon=HUD().GetUI()->UIMainIngameWnd->MotionIcon();
-	if(mstate_rl&mcClimb)
-	{
-		motion_icon.ShowState(CUIMotionIcon::stClimb);
-	}
-	else
-	{
-		if(mstate_rl&mcCrouch)
-		{
-			if (!isActorAccelerated(mstate_rl, IsZoomAimingMode()))
-				motion_icon.ShowState(CUIMotionIcon::stCreep);
-			else
-				motion_icon.ShowState(CUIMotionIcon::stCrouch);
-		}
-		else 
-			motion_icon.ShowState(CUIMotionIcon::stNormal);
-	}
-}
-
 
 CPHDestroyable*	CActor::ph_destroyable	()
 {

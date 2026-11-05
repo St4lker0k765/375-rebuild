@@ -10,10 +10,6 @@ void UIRegistrator::script_register(lua_State *L)
 {
 	module(L)
 	[
-
-		class_<CUIInventoryWnd, CUIDialogWnd>("CUIInventoryWnd")
-		.def(					constructor<>()),
-
 		class_<CGameFont>("CGameFont")
 			.enum_("EAligment")
 			[

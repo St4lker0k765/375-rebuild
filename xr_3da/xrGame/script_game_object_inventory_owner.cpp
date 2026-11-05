@@ -637,19 +637,6 @@ void CScriptGameObject::SetGameTaskState	(ETaskState state, LPCSTR task_id, int 
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
 
-void  CScriptGameObject::SwitchToTrade		()
-{
-	CActor* pActor = smart_cast<CActor*>(&object());	if(!pActor) return;
-
-	//только если находимся в режиме single
-	CUIGameSP* pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-	if(!pGameSP) return;
-
-	if(pGameSP->TalkMenu.IsShown())
-	{
-		pGameSP->TalkMenu.SwitchToTrade();
-	}
-}
 void  CScriptGameObject::SwitchToTalk		()
 {
 	CActor* pActor = smart_cast<CActor*>(&object());	if(!pActor) return;

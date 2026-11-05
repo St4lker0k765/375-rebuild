@@ -180,25 +180,7 @@ void	CCustomOutfit::OnMoveToSlot		()
 		{
 			if (m_ActorVisual.size())
 			{
-				shared_str NewVisual = NULL;
-				char* TeamSection = Game().getTeamSection(pActor->g_Team());
-				if (TeamSection)
-				{
-					if (pSettings->line_exist(TeamSection, *cNameSect()))
-					{
-						NewVisual = pSettings->r_string(TeamSection, *cNameSect());
-						string256 SkinName;
-						std::strcpy(SkinName, pSettings->r_string("mp_skins_path", "skin_path"));
-						strcat(SkinName, *NewVisual);
-						strcat(SkinName, ".ogf");
-						NewVisual._set(SkinName);
-					}
-				}
-				
-				if (!NewVisual.size())
-					NewVisual = m_ActorVisual;
-
-				pActor->ChangeVisual(NewVisual);
+				pActor->ChangeVisual(m_ActorVisual);
 			}
 			m_boneProtection->reload( cNameSect(), smart_cast<CKinematics*>(pActor->Visual()) );
 		}

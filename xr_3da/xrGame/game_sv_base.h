@@ -19,9 +19,6 @@ class	game_sv_GameState	: public game_GameState
 protected:
 	xrServer*						m_server;
 	GameEventQueue*					m_event_queue;
-	bool							m_bVotingEnabled;
-	bool							m_bFriendlyIndicators;
-	u32								m_u32ForceRespawn;
 	
 	//Events
 	virtual		void				OnEvent					(NET_Packet &tNetPacket, u16 type, u32 time, ClientID sender );
@@ -30,23 +27,9 @@ public:
 #define		TEAM_COUNT 4
 
 	BOOL							sv_force_sync;
-	float							rpoints_MinDist [TEAM_COUNT];
-	xr_vector<RPoint>				rpoints	[TEAM_COUNT];
 	
 	// Вектор имен скинов комманды
 	DEF_DEQUE(MAP_ROTATION_LIST,	xr_string);
-
-public:
-	virtual		void				OnPlayerConnect			(ClientID id_who);
-	virtual		void				OnPlayerDisconnect		(ClientID id_who, LPSTR Name, u16 GameID);
-	virtual		void				OnPlayerReady			(ClientID id_who)							   {};
-	virtual		void				OnPlayerEnteredGame		(ClientID id_who)	{};
-	virtual		void				OnPlayerConnectFinished	(ClientID id_who)	{};
-
-	virtual		bool				IsVoteEnabled			()	{return m_bVotingEnabled;};
-	virtual		bool				IsVotingActive			()	{ return false; };
-	virtual		void				SetVotingActive			( bool Active )	{ };
-	virtual		void				OnVoteStop				()				{};
 
 public:
 									game_sv_GameState		();
@@ -61,15 +44,12 @@ public:
 	virtual		ClientID			get_it_2_id				(u32 it);
 	virtual		u32					get_players_count		();
 	virtual		CSE_Abstract*		get_entity_from_eid		(u16 id);
-				u32					getRPcount				(u16 team_idx);
 	// Signals
 	virtual		void				signal_Syncronize		();
-	virtual		void				assign_RP				(CSE_Abstract* E, game_PlayerState* ps_who);
 	
 	// Utilities
 	virtual		s32					get_option_i			(LPCSTR lst, LPCSTR name, s32 def = 0);
 	virtual		string64&			get_option_s			(LPCSTR lst, LPCSTR name, LPCSTR def = 0);
-	virtual		u32					get_alive_count			(u32 team);
 	virtual		xr_vector<u16>*		get_children			(ClientID id_who);
 	void							u_EventGen				(NET_Packet& P, u16 type, u16 dest	);
 	void							u_EventSend				(NET_Packet& P);
@@ -84,9 +64,6 @@ public:
 //	virtual		void				OnPlayerBuyFinished		(u32 id_who, NET_Packet& P)				{};
 
 
-
-	virtual		void				OnHit					(u16 id_hitter, u16 id_hitted, NET_Packet& P);	//кто-то получил Hit
-	virtual		void				OnPlayerHitPlayer		(u16 id_hitter, u16 id_hitted, NET_Packet& P){}; //игрок получил Hit
 
 	// Main
 	virtual		void				Create					(shared_str& options);

@@ -25,13 +25,6 @@ class	game_cl_GameState	: public game_GameState, public ISheduled
 {
 	typedef game_GameState	inherited;
 	CUIGameCustom*						m_game_ui_custom;
-//	bool								m_bCrosshair;	//был ли показан прицел-курсор HUD перед вызовом меню
-protected:
-	bool								m_bVotingEnabled;
-	bool								m_bFriendlyIndicators;
-	bool								m_bServerControlHits;
-	u32									m_u32ForceRespawn;
-
 public:
 	typedef xr_map<ClientID,game_PlayerState*> PLAYERS_MAP;
 	typedef PLAYERS_MAP::iterator PLAYERS_MAP_IT;
@@ -68,8 +61,6 @@ public:
 	virtual		bool				OnKeyboardPress			(int key){return false;};
 	virtual		bool				OnKeyboardRelease		(int key){return false;};
 
-	virtual		char*				getTeamSection			(int Team){return NULL;};
-
 				game_PlayerState*	GetPlayerByGameID		(u32 GameID);
 				game_PlayerState*	GetPlayerByOrderID		(u32 id);
 				ClientID			GetClientIDByOrderID	(u32 id);
@@ -84,13 +75,7 @@ public:
 	void							u_EventGen				(NET_Packet& P, u16 type, u16 dest);
 	void							u_EventSend				(NET_Packet& P);
 
-	virtual		bool				IsVoteEnabled			()	{return m_bVotingEnabled;};
-	virtual		bool				IsVotingActive			()	{ return false; };
-	virtual		void				SetVotingActive			( bool Active )	{ };
-	virtual		void				OnVoteStop				(NET_Packet& P)	{};
-
 	virtual		void				OnRender				()	{};
-	virtual		bool				IsServerControlHits		()	{return m_bServerControlHits;};
 	virtual		bool				IsEnemy					(game_PlayerState* ps)	{return false;};
 	virtual		bool				PlayerCanSprint			(CActor* pActor) {return true;};
 };

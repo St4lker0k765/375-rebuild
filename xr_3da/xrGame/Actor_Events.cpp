@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "actor.h"
 #include "customdetector.h"
-#include "uigamesp.h"
 #include "hudmanager.h"
 #include "weapon.h"
 #include "artifact.h"
@@ -50,39 +49,6 @@ void CActor::OnEvent		(NET_Packet& P, u16 type)
 			if(inventory().Take(smart_cast<CGameObject*>(O), false, true)) 
 			{
 				O->H_SetParent(smart_cast<CObject*>(this));
-				
-
-				//добавить новый артефакт в меню, если
-				//мы работали с устройством сочетания 
-				CUIGameSP* pGameSP = NULL;
-				CUI* ui = HUD().GetUI();
-				if( ui&&ui->UIGame() )
-					pGameSP = smart_cast<CUIGameSP*>(HUD().GetUI()->UIGame());
-				
-/*				CArtefact* pArtefact = smart_cast<CArtefact*>(O);
-				if(pGameSP && pArtefact)
-				{
-					if(pGameSP->MainInputReceiver() == &pGameSP->InventoryMenu &&
-						pGameSP->InventoryMenu.IsArtefactMergeShown())
-					{
-						pGameSP->InventoryMenu.AddArtefactToMerger(pArtefact);
-					}
-				}
-*/
-
-
-/*				CScope* pScope = smart_cast<CScope*>(O);
-				CSilencer* pSilencer = smart_cast<CSilencer*>(O);
-				CGrenadeLauncher* pGrenadeLauncher = smart_cast<CGrenadeLauncher*>(O);
-*/
-				//добавить отсоединенный аддон в инвентарь
-				if(pGameSP/* && (pScope || pSilencer || pGrenadeLauncher)*/)
-				{
-					if(pGameSP->MainInputReceiver() == &pGameSP->InventoryMenu)
-					{
-						pGameSP->InventoryMenu.AddItemToBag(smart_cast<CInventoryItem*>(O));
-					}
-				}
 				
 				CWeapon* pWeapon = smart_cast<CWeapon*>(O);
 				if (pWeapon) SelectBestWeapon();

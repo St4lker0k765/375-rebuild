@@ -327,31 +327,7 @@ void CShootingObject::RenderLight()
 
 bool CShootingObject::SendHitAllowed		(CObject* pUser)
 {
-	if (Game().IsServerControlHits())
-		return OnServer();
-
-	if (OnServer())
-	{
-		if (pUser->CLS_ID == CLSID_OBJECT_ACTOR)
-		{
-			if (Level().CurrentControlEntity() != pUser)
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-	else
-	{
-		if (pUser->CLS_ID == CLSID_OBJECT_ACTOR)
-		{
-			if (Level().CurrentControlEntity() == pUser)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+	return OnServer();
 };
 
 void CShootingObject::FireBullet(const Fvector& pos, 

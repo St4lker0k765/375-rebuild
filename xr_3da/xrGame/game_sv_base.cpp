@@ -11,10 +11,6 @@
 #include "game_sv_event_queue.h"
 #include "../XR_IOConsole.h"
 
-//#define		MAPROT_LIST				"maprot_list.ltx"
-string_path		MAPROT_LIST		= "";
-BOOL	net_sv_control_hit	= TRUE		;
-
 // Main
 game_PlayerState*	game_sv_GameState::get_it					(u32 it)
 {
@@ -81,19 +77,6 @@ CSE_Abstract*		game_sv_GameState::get_entity_from_eid		(u16 id)
 	return				m_server->ID_to_entity(id);
 }
 
-// Utilities
-u32					game_sv_GameState::get_alive_count			(u32 team)
-{
-	u32		cnt		= get_players_count	();
-	u32		alive	= 0;
-	for		(u32 it=0; it<cnt; ++it)	
-	{
-		game_PlayerState*	ps	=	get_it	(it);
-		if (u32(ps->team) == team)	alive	+=	(ps->testFlag(GAME_PLAYER_FLAG_VERY_VERY_DEAD))?0:1;
-	}
-	return alive;
-}
-
 xr_vector<u16>*		game_sv_GameState::get_children				(ClientID id)
 {
 	xrClientData*	C	= (xrClientData*)m_server->ID_to_client	(id);
@@ -142,10 +125,6 @@ void game_sv_GameState::net_Export_State						(NET_Packet& P, ClientID to)
 	P.w_clientID	(to);
 	P.w_s32			(type);
 	P.w_u32			(start_time);
-	P.w_u8			(u8(m_bVotingEnabled));
-	P.w_u8			(u8(m_bFriendlyIndicators));
-	P.w_u8			(u8(net_sv_control_hit));
-	P.w_u32			(m_u32ForceRespawn);
 
 	// Players
 //	u32	p_count			= get_players_count() - ((g_pGamePersistent->bDedicatedServer)? 1 : 0);
@@ -228,17 +207,6 @@ void game_sv_GameState::net_Export_GameTime						(NET_Packet& P)
 	P.w_float(GetEnvironmentGameTimeFactor());
 };
 
-
-void game_sv_GameState::OnPlayerConnect			(ClientID /**id_who/**/)
-{
-	signal_Syncronize	();
-}
-
-void game_sv_GameState::OnPlayerDisconnect		(ClientID /**id_who/**/, LPSTR, u16 )
-{
-	signal_Syncronize	();
-}
-
 void game_sv_GameState::Create					(shared_str &options)
 {
 	string256	fn_game;	
@@ -253,63 +221,6 @@ void game_sv_GameState::Create					(shared_str &options)
 
 	xr_delete					(l_tpIniFile);
 
-	//---------------------------------------------------------------------
-	
-	strcpy( MAPROT_LIST, get_option_s(*options, "maprot"));
-	if (MAPROT_LIST[0])
-	{
-		Console->ExecuteScript(MAPROT_LIST);
-	};
-
-	m_bVotingEnabled = get_option_i(*options,"vote",0) != 0;
-	m_bFriendlyIndicators = get_option_i(*options,"fi",0) != 0;
-
-	m_u32ForceRespawn = get_option_i(*options, "frcrspwn", 0) * 1000;
-}
-
-void	game_sv_GameState::assign_RP				(CSE_Abstract* E, game_PlayerState* ps_who)
-{
-	VERIFY				(E);
-
-	u8					l_uc_team = u8(-1);
-	CSE_Spectator		*tpSpectator = smart_cast<CSE_Spectator*>(E);
-	if (tpSpectator)
-		l_uc_team = tpSpectator->g_team();
-	else {
-		CSE_ALifeCreatureAbstract	*tpTeamed = smart_cast<CSE_ALifeCreatureAbstract*>(E);
-		if (tpTeamed)
-			l_uc_team = tpTeamed->g_team();
-		else
-			R_ASSERT2(tpTeamed,"Non-teamed object is assigning to respawn point!");
-	}
-	xr_vector<RPoint>&	rp	= rpoints[l_uc_team];
-	//-----------------------------------------------------------
-	xr_vector<u32>	xrp;//	= rpoints[l_uc_team];
-	for (u32 i=0; i<rp.size(); i++)
-	{
-		if (rp[i].TimeToUnfreeze < Level().timeServer())
-			xrp.push_back(i);
-	}
-	u32 rpoint = 0;
-	if (xrp.size() && !tpSpectator)
-	{
-		rpoint = xrp[::Random.randI((int)xrp.size())];
-	}
-	else
-	{
-		if (!tpSpectator)
-		{
-			for (u32 i=0; i<rp.size(); i++)
-			{
-				rp[i].TimeToUnfreeze = 0;
-			};
-		};
-		rpoint = ::Random.randI((int)rp.size());
-	}
-	//-----------------------------------------------------------
-	RPoint&				r	= rp[rpoint];
-	E->o_Position.set	(r.P);
-	E->o_Angle.set		(r.A);
 }
 
 void game_sv_GameState::u_EventGen(NET_Packet& P, u16 type, u16 dest)
@@ -345,8 +256,6 @@ game_sv_GameState::game_sv_GameState()
 	m_server					= Level().Server;
 
 	m_event_queue = xr_new<GameEventQueue>();
-
-	for (int i=0; i<TEAM_COUNT; i++) rpoints_MinDist[i] = 1000.0f;
 }
 
 game_sv_GameState::~game_sv_GameState()
@@ -377,22 +286,6 @@ void game_sv_GameState::switch_distance (NET_Packet &net_packet, ClientID sender
 {
 }
 
-void game_sv_GameState::OnHit (u16 id_hitter, u16 id_hitted, NET_Packet& P)
-{
-	CSE_Abstract*		e_hitter		= get_entity_from_eid	(id_hitter	);
-	CSE_Abstract*		e_hitted		= get_entity_from_eid	(id_hitted	);
-	if (!e_hitter || !e_hitted) return;
-
-	CSE_Abstract*		a_hitter		= smart_cast <CSE_ALifeCreatureActor*> (e_hitter);
-	CSE_Abstract*		a_hitted		= smart_cast <CSE_ALifeCreatureActor*> (e_hitted);
-
-	if (a_hitted && a_hitter)
-	{
-		OnPlayerHitPlayer(id_hitter, id_hitted, P);
-		return;
-	};
-};
-
 void game_sv_GameState::OnEvent (NET_Packet &tNetPacket, u16 type, u32 time, ClientID sender )
 {
 	switch	(type)
@@ -403,7 +296,6 @@ void game_sv_GameState::OnEvent (NET_Packet &tNetPacket, u16 type, u32 time, Cli
 			u16     id_src  = tNetPacket.r_u16();
 			CSE_Abstract*	e_src	= get_entity_from_eid	(id_src	);
 			if(!e_src) break;
-			OnHit(id_src, id_dest, tNetPacket);
 			ClientID clientID;clientID.setBroadcast();
 			m_server->SendBroadcast		(clientID,tNetPacket,net_flags(TRUE,TRUE));
 		}break	;
@@ -436,14 +328,6 @@ void game_sv_GameState::ProcessDelayedEvent		()
 		OnEvent(ge->P,ge->type,ge->time,ge->sender);
 		m_event_queue->Release();
 	}
-}
-
-u32 game_sv_GameState::getRPcount (u16 team_idx)
-{
-	if ( !(team_idx<TEAM_COUNT) )
-		return 0;
-	else
-		return rpoints[team_idx].size();
 }
 
 void game_sv_GameState::teleport_object	(NET_Packet &packet, u16 id)

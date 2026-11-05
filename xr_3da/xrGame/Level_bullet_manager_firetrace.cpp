@@ -200,20 +200,9 @@ void CBulletManager::DynamicObjectHit (SBullet* bullet, const Fvector& end_point
 //	if(R.O->ID() == bullet->parent_id &&  bullet->fly_dist<PARENT_IGNORE_DIST)
 //		return;
 
-	bool NeedShootmark = true;
-	
-	if (R.O->CLS_ID == CLSID_OBJECT_ACTOR)
-	{
-		game_PlayerState* ps = Game().GetPlayerByGameID(R.O->ID());
-		if (ps && ps->testFlag(GAME_PLAYER_FLAG_INVINCIBLE))
-		{
-			NeedShootmark = false;
-		};
-	}
-	
 	//визуальное обозначение попадание на объекте
 	Fvector hit_normal;
-	FireShotmark(bullet, bullet->dir, end_point, R, target_material, hit_normal, NeedShootmark);
+	FireShotmark(bullet, bullet->dir, end_point, R, target_material, hit_normal, true);
 	
 	Fvector original_dir = bullet->dir;
 	float power, impulse;
