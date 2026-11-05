@@ -11,12 +11,7 @@
 
 class NET_Packet;
 
-#ifndef AI_COMPILER
-	#include "specific_character.h"
-#endif
-
 #ifdef XRGAME_EXPORTS
-	#include "PhraseDialogDefs.h"
 	#include "character_community.h"
 	#include "character_rank.h"
 	#include "character_reputation.h"
@@ -30,10 +25,6 @@ struct SCharacterProfile : CSharedResource
 {
 	SCharacterProfile ();
 	virtual ~SCharacterProfile ();
-
-    //если задано, то выбирается именно такой профиль,
-	//иначе ищется случайно,удовлетворяющее шаблону
-	SPECIFIC_CHARACTER_ID		m_CharacterId;	
 
 	//требуемые параметры персонажа
 	CHARACTER_CLASS					m_Class;
@@ -67,11 +58,6 @@ public:
 #ifdef XRGAME_EXPORTS
 	void load	(IReader&);
 	void save	(NET_Packet&);
-
-	//инициализация профиля подразумевает
-	//загрузку соответствующего CSpecificCharacter, по 
-	//указанному индексу
-	void InitSpecificCharacter (SPECIFIC_CHARACTER_ID new_id);
 #endif
 
 protected:
@@ -87,17 +73,6 @@ protected:
 	//индекс загруженного профиля
 	PROFILE_ID m_ProfileId;
 	
-	//индекс данных о конкретном персонаже, который
-	//используется в данном экземпляре класса
-	SPECIFIC_CHARACTER_ID m_SpecificCharacterId;
-
-#ifdef XRGAME_EXPORTS
-	PHRASE_DIALOG_ID m_StartDialog;
-
-	//загруженная информация о конкретном персонаже
-	CSpecificCharacter m_SpecificCharacter;
-#endif
-
 public:
 
 
@@ -122,9 +97,6 @@ public:
 	int		TradeIconY	()	const;
 //	int		MapIconX	()	const;
 //	int		MapIconY	()	const;
-
-	PHRASE_DIALOG_ID			StartDialog	()	const;
-	const DIALOG_ID_VECTOR&		ActorDialogs()	const;
 #endif
 
 protected:

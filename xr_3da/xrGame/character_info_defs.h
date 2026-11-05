@@ -10,9 +10,6 @@
 typedef shared_str			PROFILE_ID;
 #define DEFAULT_PROFILE		"escape_trader"
 
-
-typedef shared_str				SPECIFIC_CHARACTER_ID;
-
 //личное отношение (благосклонность) одного персонажа к другому - 
 //величина от -100< (крайне враждебное) до >100 (очень дрюжелюбное)
 typedef int					CHARACTER_GOODWILL;

@@ -18,7 +18,6 @@
 #include "level.h"
 #include "xr_level_controller.h"
 #include "game_cl_base.h"
-#include "infoportion.h"
 #include "alife_registry_wrappers.h"
 #include "../skeletonanimated.h"
 #include "client_spawn_manager.h"
@@ -572,18 +571,13 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	//-------------------------------------
 	// инициализация реестров, используемых актером
 	contacts_registry->registry().init(ID());
-	encyclopedia_registry->registry().init(ID());
 	game_task_registry->registry().init(ID());
-	game_news_registry->registry().init(ID());
 
 	if (!CInventoryOwner::net_Spawn(DC)) return FALSE;
 	if (!inherited::net_Spawn(DC))	return FALSE;
 
 	//убрать все артефакты с пояса
-	m_ArtefactsOnBelt.clear();
-	if (Level().CurrentViewEntity() == this)
-		HUD().GetUI()->UIMainIngameWnd->m_artefactPanel->InitIcons(m_ArtefactsOnBelt);
-		
+	m_ArtefactsOnBelt.clear();		
 
 	ROS()->force_mode	(IRender_ObjectSpecific::TRACE_ALL);
 
@@ -675,21 +669,6 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	m_iCurWeaponHideState = 0;
 	inventory().SetPrevActiveSlot(NO_ACTIVE_SLOT);
 	//--------------------------------------------------------------
-/*
-	//добавить отметки на карте, которые актер помнит в info_portions
-	if(m_known_info_registry->registry().objects_ptr())
-	{
-		Level().RemoveMapLocations();
-		const KNOWN_INFO_VECTOR& know_info = *m_known_info_registry->registry().objects_ptr();
-		for(KNOWN_INFO_VECTOR::const_iterator it = know_info.begin();
-					know_info.end() != it; it++)
-		{
-			CInfoPortion info_portion;
-			info_portion.Load((*it).id);
-			AddMapLocationsFromInfo(&info_portion);
-		}
-	}
-*/
 
 	//-------------------------------------
 	m_States.empty();

@@ -15,11 +15,9 @@
 #include "character_info.h"
 #include "script_game_object.h"
 #include "script_engine.h"
-#include "AI_PhraseDialogManager.h"
 #include "level.h"
 #include "game_base_space.h"
 #include "script_space.h"
-#include "PhraseDialog.h"
 #include "xrserver.h"
 #include "xrServer_Objects_ALife_Monsters.h"
 #include "alife_registry_wrappers.h"
@@ -41,8 +39,6 @@ CInventoryOwner::CInventoryOwner			()
 	
 	EnableTalk();
 	EnableTrade();
-	
-	m_known_info_registry		= xr_new<CInfoPortionWrapper>();
 }
 
 DLL_Pure *CInventoryOwner::_construct		()
@@ -88,50 +84,7 @@ BOOL CInventoryOwner::net_Spawn		(CSE_Abstract* DC)
 	CGameObject			*pThis = smart_cast<CGameObject*>(this);
 	if(!pThis) return FALSE;
 	CSE_Abstract* E	= (CSE_Abstract*)(DC);
-	if (GameID() == GAME_SINGLE)
-	{
-		CSE_ALifeTraderAbstract* pTrader = NULL;
-		if(E) pTrader = smart_cast<CSE_ALifeTraderAbstract*>(E);
-		if(!pTrader) return FALSE;
 
-//		R_ASSERT(NO_PROFILE != pTrader->character_profile());
-		R_ASSERT( pTrader->character_profile().size() );
-
-		//синхронизируем параметры персонажа с серверным объектом
-		CharacterInfo().m_CurrentCommunity.set(pTrader->m_community_index);
-		CharacterInfo().m_CurrentRank.set(pTrader->m_rank);
-		CharacterInfo().m_CurrentReputation.set(pTrader->m_reputation);
-
-
-		CharacterInfo().Load(pTrader->character_profile());
-		CharacterInfo().InitSpecificCharacter (pTrader->specific_character());
-
-		//-------------------------------------
-		m_known_info_registry->registry().init(E->ID);
-		//-------------------------------------
-
-
-		CAI_PhraseDialogManager* dialog_manager = smart_cast<CAI_PhraseDialogManager*>(this);
-		if( dialog_manager && !dialog_manager->GetStartDialog().size() )
-		{
-//			PHRASE_DIALOG_ID dialog_id = CPhraseDialog::IndexToId(CharacterInfo().StartDialog());
-			dialog_manager->SetStartDialog(CharacterInfo().StartDialog());
-			dialog_manager->SetDefaultStartDialog(CharacterInfo().StartDialog());
-		}
-	}
-	else
-	{
-		CharacterInfo().m_SpecificCharacter.Load(DEFAULT_PROFILE);
-		CharacterInfo().InitSpecificCharacter (DEFAULT_PROFILE);
-		CharacterInfo().m_SpecificCharacter.data()->m_sGameName = (E->name_replace()[0]) ? E->name_replace() : *pThis->cName();
-		CEntity* pEntity = smart_cast<CEntity*>(pThis); VERIFY(pEntity);
-		CharacterInfo().m_SpecificCharacter.data()->m_iIconX = pEntity->GetTradeIconX();
-		CharacterInfo().m_SpecificCharacter.data()->m_iIconY = pEntity->GetTradeIconY();
-
-//		CharacterInfo().m_SpecificCharacter.data()->m_iMapIconX = pEntity->GetMapIconX();
-//		CharacterInfo().m_SpecificCharacter.data()->m_iMapIconY = pEntity->GetMapIconY();
-	}
-	
 	if(!pThis->Local())  return TRUE;
 
 
@@ -209,49 +162,6 @@ bool CInventoryOwner::IsActivePDA() const
 		return true;
 	else
 		return false;
-}
-
-//виртуальная функция обработки сообщений
-//who - id PDA от которого пришло сообщение
-void CInventoryOwner::ReceivePdaMessage(u16 who, EPdaMsg msg, INFO_ID info_id)
-{
-	if(msg == ePdaMsgInfo)
-	{
-		//переслать себе же полученную информацию
-		TransferInfo(info_id, true);
-	}
-
-
-	//Запустить скриптовый callback
-	CGameObject* pThisGameObject = cast_game_object();
-	VERIFY(pThisGameObject);
-	CPda* pWhoPda = smart_cast<CPda*>(Level().Objects.net_Find(who));
-	VERIFY(pWhoPda);
-	CGameObject* pWho = smart_cast<CGameObject*>(pWhoPda->H_Parent());
-
-
-	/*Msg("who pda %d, who parent %d, we pda %d, we parent %d", who, 
-		pWho->ID(),
-		GetPDA()->ID(),
-		GetPDA()->GetOriginalOwnerID());*/
-
-	pThisGameObject->callback(GameObject::eInventoryPda)(
-		pThisGameObject->lua_game_object(),
-		pWho->lua_game_object(), 
-		(int)msg,
-		info_id
-	);
-
-}
-
-
-
-//who - id PDA которому отправляем сообщение
-void CInventoryOwner::SendPdaMessage(u16 who, EPdaMsg msg, INFO_ID info_id)
-{
-	if(!GetPDA() || !GetPDA()->IsActive()) return;
-
-	GetPDA()->SendMessageID(who, msg, info_id);
 }
 
 CTrade* CInventoryOwner::GetTrade() 
@@ -453,11 +363,6 @@ CHARACTER_REPUTATION_VALUE	CInventoryOwner::Rank		() const
 CHARACTER_REPUTATION_VALUE	CInventoryOwner::Reputation	() const
 {
 	return CharacterInfo().Reputation().value();
-}
-
-const CSpecificCharacter&	CInventoryOwner::SpecificCharacter	() const
-{
-	return CharacterInfo().m_SpecificCharacter;
 }
 
 void CInventoryOwner::OnItemDrop			(CInventoryItem *inventory_item)

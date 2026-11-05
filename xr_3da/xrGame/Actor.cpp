@@ -54,7 +54,6 @@
 #include "game_cl_base.h"
 #include "xrmessages.h"
 
-#include "string_table.h"
 #include "usablescriptobject.h"
 #include "../cl_intersect.h"
 #include "ExtendedGeom.h"
@@ -105,9 +104,6 @@ CActor::CActor() : CEntityAlive()
 	//.
 
 	contacts_registry		= xr_new<CKnownContactsRegistryWrapper	>();
-	encyclopedia_registry	= xr_new<CEncyclopediaRegistryWrapper	>();
-	game_task_registry		= xr_new<CGameTaskRegistryWrapper		>();
-	game_news_registry		= xr_new<CGameNewsRegistryWrapper		>();
 	// Cameras
 	cameras[eacFirstEye]	= xr_new<CCameraFirstEye>	(this, pSettings, "actor_firsteye_cam", 0);
 	cameras[eacLookAt]		= xr_new<CCameraLook>		(this, pSettings, "actor_look_cam",		0);
@@ -201,9 +197,6 @@ CActor::~CActor()
 	dbgmp_light.destroy		();	//.
 
 	xr_delete				(contacts_registry);
-	xr_delete				(encyclopedia_registry);
-	xr_delete				(game_task_registry);
-	xr_delete				(game_news_registry);
 	xr_delete				(m_material_manager);
 #ifdef DEBUG
 	Device.seqRender.Remove(this);
@@ -393,11 +386,10 @@ void CActor::Load	(LPCSTR section )
 	m_AutoPickUp_AABB				= READ_IF_EXISTS(pSettings,r_fvector3,section,"AutoPickUp_AABB",Fvector().set(0.02f, 0.02f, 0.02f));
 	m_AutoPickUp_AABB_Offset		= READ_IF_EXISTS(pSettings,r_fvector3,section,"AutoPickUp_AABB_offs",Fvector().set(0, 0, 0));
 
-	CStringTable string_table;
-	m_sCharacterUseAction			= string_table("character_use");
-	m_sDeadCharacterUseAction		= string_table("dead_character_use");
-	m_sCarCharacterUseAction		= string_table("car_character_use");
-	m_sInventoryItemUseAction		= string_table("inventory_item_use");
+	m_sCharacterUseAction			= "character_use";
+	m_sDeadCharacterUseAction		= "dead_character_use";
+	m_sCarCharacterUseAction		= "car_character_use";
+	m_sInventoryItemUseAction		= "inventory_item_use";
 
 }
 
@@ -990,7 +982,6 @@ void CActor::shedule_Update	(u32 DT)
 		
 		if (GameID() == GAME_SINGLE )
 		{
-//			CStringTable string_table;
 			// Анализируем какой объект мы видим, и назначаем соответсвующее
 			// действие по умолчанию, которое будет определять всплывающую 
 			// подсказку
@@ -1001,16 +992,16 @@ void CActor::shedule_Update	(u32 DT)
 			else
 			{
 				if (m_pPersonWeLookingAt && pEntityAlive->g_Alive())
-					m_sDefaultObjAction = m_sCharacterUseAction;//string_table("character_use");
+					m_sDefaultObjAction = m_sCharacterUseAction;
 
 				else if (pEntityAlive && !pEntityAlive->g_Alive())
-					m_sDefaultObjAction = m_sDeadCharacterUseAction;//string_table("dead_character_use");
+					m_sDefaultObjAction = m_sDeadCharacterUseAction;
 
 				else if (m_pVehicleWeLookingAt)
-					m_sDefaultObjAction = m_sCarCharacterUseAction;//string_table("car_character_use");
+					m_sDefaultObjAction = m_sCarCharacterUseAction;
 
 				else if (inventory().m_pTarget)
-					m_sDefaultObjAction = m_sInventoryItemUseAction;//string_table("inventory_item_use");
+					m_sDefaultObjAction = m_sInventoryItemUseAction;
 				else 
 					m_sDefaultObjAction = NULL;
 			}

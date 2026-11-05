@@ -20,7 +20,6 @@
 #include "relation_registry.h"
 #include "character_info.h"
 
-#include "string_table.h"
 #include "entity_alive.h"
 
 #include "inventory_item.h"
@@ -181,9 +180,8 @@ void CHUDCursor::Render()
 					CInventoryOwner* others_inv_owner	= smart_cast<CInventoryOwner*>(E);
 
 					if(our_inv_owner && others_inv_owner){
-						CStringTable	strtbl		;
-						sprintf			(name_buf, "%s, %s", *strtbl(others_inv_owner->CharacterInfo().Community().id()), 
-							*strtbl(others_inv_owner->Name()));
+						sprintf			(name_buf, "%s, %s", others_inv_owner->CharacterInfo().Community().id(), 
+							others_inv_owner->Name());
 						object_name		= name_buf	;
 
 						switch(RELATION_REGISTRY().GetRelationType(others_inv_owner, our_inv_owner))

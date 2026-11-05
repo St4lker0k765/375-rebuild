@@ -24,7 +24,6 @@ class CUIListWnd;
 class CUITabControl;
 class CUIFrameLineWnd;
 class CUITextBanner;
-class CUIMultiTextStatic;
 class CUIAnimatedStatic;
 class CUIArtefactPanel;
 
@@ -51,7 +50,6 @@ static bool InitFont				(CUIXml &xml_doc, const char *path, int index, u32 &colo
 static bool InitColor				(CUIXml &xml_doc, XML_NODE* node, u32 &color);
 static bool InitTabControl			(CUIXml &xml_doc, const char *path,	int index, CUITabControl *pWnd);
 static bool InitTextBanner			(CUIXml &xml_doc, const char *path,	int index, CUITextBanner *pBnr);
-static bool InitMultiTextStatic		(CUIXml &xml_doc, const char *path,	int index, CUIMultiTextStatic *pWnd);
 static bool InitAnimatedStatic		(CUIXml &xml_doc, const char *path,	int index, CUIAnimatedStatic *pWnd);
 static bool InitTextureOffset		(CUIXml &xml_doc, const char *path, int index, CUIStatic* pWnd);
 static bool InitSound				(CUIXml &xml_doc, const char *path, int index, CUI3tButton* pWnd);

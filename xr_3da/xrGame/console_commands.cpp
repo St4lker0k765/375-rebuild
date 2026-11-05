@@ -21,7 +21,6 @@
 #include "script_process.h"
 #include "xrServer_Objects.h"
 #include "PhysicsGamePars.h"
-#include "string_table.h"
 #include "autosave_manager.h"
 #include "ai_space.h"
 #include "ai/monsters/BaseMonster/base_monster.h"
@@ -1386,7 +1385,6 @@ void CCC_RegisterCommands()
 	CMD3(CCC_Mask,				"ai_dbg_serialize",		&psAI_Flags,	aiSerialize);
 	CMD3(CCC_Mask,				"ai_dbg_dialogs",		&psAI_Flags,	aiDialogs);
 	CMD3(CCC_Mask,				"ai_dbg_sectors",		&psAI_Flags,	aiSectors);
-	CMD3(CCC_Mask,				"ai_dbg_infoportion",	&psAI_Flags,	aiInfoPortion);
 
 	CMD4(CCC_Integer,			"ai_dbg_inactive_time",	&g_AI_inactive_time, 0, 1000000);
 	
@@ -1424,13 +1422,6 @@ void CCC_RegisterCommands()
 
 	CMD3(CCC_Mask,		"g_unlimitedammo",			&psActorFlags,	AF_UNLIMITEDAMMO);
 	CMD3(CCC_Mask,		"g_autopickup",				&psActorFlags,	AF_AUTOPICKUP);
-
-	// adjust mode support
-	CMD4(CCC_Integer,	"hud_adjust_mode",			&g_bHudAdjustMode,	0, 4);
-	CMD4(CCC_Float,		"hud_adjust_value",			&g_fHudAdjustValue,	0.0f, 1.0f);
-
-	// Enable/disable news
-	CMD4(CCC_Integer,	"hud_news_disable",			&g_bNewsDisable,	0, 1);
 
 	// Network
 	CMD4(CCC_Integer,	"net_cl_update_rate",	&psNET_ClientUpdate,1,		100				);
@@ -1479,14 +1470,6 @@ void CCC_RegisterCommands()
 	CMD3(CCC_Mask,		"dbg_draw_ph_explosion_position",&ph_dbg_draw_mask,	phDbgDrawExplosionPos);
 	CMD3(CCC_Mask,		"dbg_draw_ph_statistics"		,&ph_dbg_draw_mask,	phDbgDrawObjectStatistics);
 	CMD4(CCC_DbgBullets,"dbg_draw_bullet_hit",			&g_bDrawBulletHit,	0, 1)	;
-#endif
-
-
-
-#ifdef DEBUG
-	CMD4(CCC_Integer,	"string_table_error_msg",	&CStringTable::m_bWriteErrorsToLog,	0,	1);
-
-	CMD1(CCC_DumpInfos,				"dump_infos");
 #endif
 
 	CMD1(CCC_KickPlayer,	"sv_kick"					);		

@@ -33,8 +33,6 @@ SERVER_ENTITY_DECLARE_BEGIN0(CSE_ALifeTraderAbstract)
 #ifndef  AI_COMPILER
 	PROFILE_ID						character_profile		();
 	void							set_character_profile	(PROFILE_ID);
-	SPECIFIC_CHARACTER_ID			specific_character		();
-	void							set_specific_character	(SPECIFIC_CHARACTER_ID);
 #endif
 
 	CHARACTER_COMMUNITY_INDEX		m_community_index;
@@ -55,11 +53,6 @@ private:
 #endif
 
 	PROFILE_ID						m_sCharacterProfile;
-	SPECIFIC_CHARACTER_ID			m_SpecificCharacter;
-
-	//буферный вектор проверенных персонажей
-	xr_vector<SPECIFIC_CHARACTER_ID> m_CheckedCharacters;
-	xr_vector<SPECIFIC_CHARACTER_ID> m_DefaultCharacters;
 
 public:	
 									CSE_ALifeTraderAbstract(LPCSTR caSection);

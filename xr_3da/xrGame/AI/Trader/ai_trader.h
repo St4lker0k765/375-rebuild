@@ -13,8 +13,6 @@
 #include "../../script_entity.h"
 #include "../monsters/ai_monster_bones.h"
 #include "../../sound_player.h"
-#include "../../AI_PhraseDialogManager.h"
-#include "../../script_task.h"
 
 namespace MonsterSpace {
 	enum EMonsterHeadAnimType;
@@ -28,8 +26,7 @@ class CSoundPlayer;
 
 class CAI_Trader : public CEntityAlive, 
 				   public CInventoryOwner, 
-				   public CScriptEntity,
-				   public CAI_PhraseDialogManager
+				   public CScriptEntity
 {
 private:
 	typedef CEntityAlive inherited;

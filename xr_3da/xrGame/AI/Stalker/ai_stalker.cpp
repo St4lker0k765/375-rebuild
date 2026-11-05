@@ -278,17 +278,10 @@ BOOL CAI_Stalker::net_Spawn			(CSE_Abstract* DC)
 	m_fRankVisibility = novice_rank_visibility + (expirienced_rank_visibility - novice_rank_visibility) * rank_k;
 	m_fRankDisperison = novice_rank_immunity + (expirienced_rank_dispersion - novice_rank_dispersion) * rank_k;
 
-	if (!fis_zero(SpecificCharacter().panic_threshold()))
-		m_panic_threshold						= SpecificCharacter().panic_threshold();
-	else
-		m_panic_threshold						= pSettings->r_float(cNameSect(),"panic_threshold");
+	m_panic_threshold						= pSettings->r_float(cNameSect(),"panic_threshold");
 
 	//загрузка спецевической звуковой схемы для сталкера согласно m_SpecificCharacter
-	LPCSTR snd_sound_sect = SpecificCharacter().SndConfigSect();
-	if (snd_sound_sect && pSettings->section_exist(snd_sound_sect))
-		LoadSounds	(snd_sound_sect);
-	else
-		LoadSounds	(*cNameSect());
+	LoadSounds	(*cNameSect());
 
 	return							(TRUE);
 }
@@ -371,8 +364,6 @@ void CAI_Stalker::net_Export		(NET_Packet& P)
 	P.w								(&task_state,sizeof(task_state));
 	P.w_u32							(0);
 	P.w_u32							(0);
-
-	P.w_stringZ						(m_sStartDialog);
 }
 
 void CAI_Stalker::net_Import		(NET_Packet& P)
@@ -418,8 +409,6 @@ void CAI_Stalker::net_Import		(NET_Packet& P)
 	P.r								(&task_state,sizeof(task_state));
 	P.r_u32							();
 	P.r_u32							();
-
-	P.r_stringZ						(m_sStartDialog);
 
 	setVisible						(TRUE);
 	setEnabled						(TRUE);

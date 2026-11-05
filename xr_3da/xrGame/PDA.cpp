@@ -15,11 +15,6 @@
 #include "xrServer_Objects_ALife_Items.h"
 #include "level.h"
 
-#include "specific_character.h"
-
-
-
-
 CPda::CPda(void)						
 {										
 	m_fRadius = 10.0f;
@@ -30,9 +25,6 @@ CPda::CPda(void)
 	m_ruck = true;
 
 	m_idOriginalOwner		= 0xffff;
-	m_SpecificChracterOwner = NULL;
-	m_InfoPortion			= NULL;
-
 
 	m_bPassiveMode = false;
 	
@@ -54,8 +46,6 @@ BOOL CPda::net_Spawn(CSE_Abstract* DC)
 	CSE_ALifeItemPDA	*pda = smart_cast<CSE_ALifeItemPDA*>(abstract);
 	R_ASSERT			(pda);
 	m_idOriginalOwner			= pda->m_original_owner;
-	m_SpecificChracterOwner		= pda->m_specific_character;
-	m_InfoPortion				= pda->m_info_portion;
 
 	m_sFullName.clear();
 	
@@ -201,24 +191,6 @@ void CPda::OnH_A_Chield()
 	//включить PDA только если оно находится у первого владельца
 	if(H_Parent()->ID() == m_idOriginalOwner)
 		TurnOn					();
-
-	//передать информацию содержащуюся в pda
-	//объекту, который его поднял
-	CActor* actor = smart_cast<CActor*>(H_Parent());
-	if(!actor) return;
-
-	//создать и отправить пакет о получении новой информации
-	if(m_InfoPortion.size())
-	{
-		NET_Packet		P;
-		u_EventGen		(P,GE_INFO_TRANSFER, H_Parent()->ID());
-		P.w_u16			(ID());						//отправитель
-		P.w_stringZ		(m_InfoPortion);			//сообщение
-		P.w_u8			(1);						//добавление сообщения
-		u_EventSend		(P);
-	}
-
-
 
 	inherited::OnH_A_Chield		();
 }
@@ -402,36 +374,9 @@ bool CPda::WaitForReply(u32 pda_ID)
 
 }
 
-void		CPda::SetInfoPortion (INFO_ID info)
-{
-	CSE_Abstract* e_entity		= Level().Server->game->get_entity_from_eid	(ID()); VERIFY(e_entity);
-	CSE_ALifeItemPDA* pda		= smart_cast<CSE_ALifeItemPDA*>(e_entity);
-	if(!pda) return;
-	pda->m_info_portion = info;
-	m_InfoPortion = info;
-}
-INFO_ID	CPda::GetInfoPortion ()
-{
-	return m_InfoPortion;
-}
-
-
 LPCSTR		CPda::Name				()
 {
-	if( !m_SpecificChracterOwner.size() )
-		return inherited::Name();
-
-	if(m_sFullName.empty())
-	{
-		m_sFullName.assign(inherited::Name());
-		
-		CSpecificCharacter spec_char;
-		spec_char.Load(m_SpecificChracterOwner);
-		m_sFullName += " ";
-		m_sFullName += xr_string(spec_char.Name());
-	}
-	
-	return m_sFullName.c_str();
+	return inherited::Name();
 }
 LPCSTR		CPda::NameComplex		()
 {

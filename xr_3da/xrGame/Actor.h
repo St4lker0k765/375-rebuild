@@ -16,19 +16,13 @@
 #include "PhysicsShell.h"
 #include "InventoryOwner.h"
 #include "StatGraph.h"
-#include "PhraseDialogManager.h"
 #include "CharacterPhysicsSupport.h"
 
 using namespace ACTOR_DEFS;
 
-class CInfoPortion;
-struct GAME_NEWS_DATA;
 class CActorCondition;
 
 class CKnownContactsRegistryWrapper;
-class CEncyclopediaRegistryWrapper;
-class CGameTaskRegistryWrapper;
-class CGameNewsRegistryWrapper;
 class CCharacterPhysicsSupport;
 // refs
 class ENGINE_API CCameraBase;
@@ -57,8 +51,7 @@ class	CActor:
 	public CEntityAlive, 
 	public IInputReceiver,
 	public Feel::Touch,
-	public CInventoryOwner,
-	public CPhraseDialogManager
+	public CInventoryOwner
 #ifdef DEBUG
 	,public pureRender
 #endif
@@ -104,50 +97,13 @@ public:
 	/////////////////////////////////////////////////////////////////
 	// Inventory Owner 
 
-public:
-	//information receive & dialogs
-	virtual bool OnReceiveInfo		(INFO_ID info_id) const;
-	virtual void OnDisableInfo		(INFO_ID info_id) const;
-	virtual void ReceivePdaMessage	(u16 who, EPdaMsg msg, INFO_ID info_id);
-
-	virtual void	 NewPdaContact		(CInventoryOwner*);
-	virtual void	 LostPdaContact		(CInventoryOwner*);
-
-protected:
-//	virtual void AddMapLocationsFromInfo (const CInfoPortion* info_portion) const;
-	virtual void AddEncyclopediaArticle	 (const CInfoPortion* info_portion) const;
-	virtual void AddGameTask			 (const CInfoPortion* info_portion) const;
-
-protected:
-struct SDefNewsMsg{
-		GAME_NEWS_DATA*	news_data;
-		u32				time;
-		bool operator < (const SDefNewsMsg& other){return time>other.time;}
-	};
-	xr_vector<SDefNewsMsg> m_defferedMessages;
-	void UpdateDefferedMessages();	
 public:	
-	void			AddGameNews_deffered	 (GAME_NEWS_DATA& news_data, u32 delay);
-	virtual void	AddGameNews				 (GAME_NEWS_DATA& news_data);
-	
-public:
-	virtual void StartTalk			(CInventoryOwner* talk_partner);
-	virtual	void UpdateContact		(u16 contact_id);
-	virtual	void RunTalkDialog		(CInventoryOwner* talk_partner);
-	
 	CKnownContactsRegistryWrapper	*contacts_registry;
-	CEncyclopediaRegistryWrapper	*encyclopedia_registry;
-	CGameTaskRegistryWrapper		*game_task_registry;
-	CGameNewsRegistryWrapper		*game_news_registry;
 	CCharacterPhysicsSupport		*m_pPhysics_support;
 	//игровое имя 
 	virtual LPCSTR	Name        () const {return CInventoryOwner::Name();}
 
 public:
-	//PhraseDialogManager
-	virtual void ReceivePhrase			(DIALOG_SHARED_PTR& phrase_dialog);
-	virtual void UpdateAvailableDialogs	(CPhraseDialogManager* partner);
-	virtual void TryToTalk				();
 
 	virtual void reinit			();
 	virtual void reload			(LPCSTR section);

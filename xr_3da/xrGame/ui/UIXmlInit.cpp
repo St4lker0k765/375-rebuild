@@ -10,7 +10,6 @@
 #include "../level.h"
 #include "../UICustomItem.h"
 
-#include "../string_table.h"
 #include "UIFrameWindow.h"
 #include "UIStatic.h"
 #include "UIButton.h"
@@ -191,8 +190,7 @@ bool CUIXmlInit::InitText(CUIXml& xml_doc, LPCSTR path, int index, CUIStatic* pW
 	pWnd->SetTextX(text_x);
 	pWnd->SetTextY(text_y);
 
-	CStringTable st;
-	pWnd->SetText(*st(*text));
+	pWnd->SetText(*text);
 
 	
 	int flag = xml_doc.ReadAttribInt(path, 0, "heading");
@@ -626,50 +624,6 @@ bool CUIXmlInit::InitTextBanner(CUIXml &xml_doc, const char *path, int index, CU
 	xml_doc.SetLocalRoot(old_node);
 
 	return true;
-}
-
-//////////////////////////////////////////////////////////////////////////
-
-bool CUIXmlInit::InitMultiTextStatic(CUIXml &xml_doc, const char *path, int index, CUIMultiTextStatic *pWnd)
-{
-	R_ASSERT3(xml_doc.NavigateToNode(path,index), "XML node not found", path);
-
-	bool status = true;
-	string128	buf;
-
-	status &= InitStatic(xml_doc, path, index, pWnd);
-	int phrasesCount = xml_doc.GetNodesNum(path, index, "phrase");
-
-	strconcat(buf, path, ":phrase");
-	XML_NODE* tab_node = xml_doc.NavigateToNode(path,index);
-	xml_doc.SetLocalRoot(tab_node);
-
-	CUIMultiTextStatic::SinglePhrase * p;
-	u32	argb = 0;
-	const char * const ph = "phrase";
-
-	for (int i = 0; i < phrasesCount; ++i)
-	{
-		p = pWnd->AddPhrase();
-
-		status			&= InitTextBanner(xml_doc, ph, i, &p->effect);
-		p->outX			= static_cast<float>(xml_doc.ReadAttribInt(ph, i, "x", 0));
-		p->outY			= static_cast<float>(xml_doc.ReadAttribInt(ph, i, "y", 0));
-		p->maxWidth		= xml_doc.ReadAttribInt(ph, i, "width", -1);
-
-		CGameFont *pFont;
-		InitFont(xml_doc, ph, i, argb, pFont);
-        p->effect.SetFont(pFont);
-		p->effect.SetTextColor(argb);
-
-		CStringTable st;
-
-		p->str =  st(xml_doc.Read(ph, i));
-	}
-
-	xml_doc.SetLocalRoot(xml_doc.GetRoot());
-
-	return status;
 }
 
 //////////////////////////////////////////////////////////////////////////

@@ -1150,12 +1150,6 @@
     <Filter Include="AI\AScript\ScriptClasses\ScriptSoundType">
       <UniqueIdentifier>{c647946d-3be6-49de-afda-e15b344e8a2c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\ScriptTask">
-      <UniqueIdentifier>{72c8e8dd-c596-4a6e-8e39-561bc75b7eb4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AI\AScript\ScriptClasses\ScriptStringTable">
-      <UniqueIdentifier>{c6d4cf13-4cc0-46c2-bbb4-7b6175627bff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AI\AScript\ScriptClasses\UI">
       <UniqueIdentifier>{b399c114-68cb-433d-8f89-97ea777859a8}</UniqueIdentifier>
     </Filter>
@@ -1612,29 +1606,11 @@
     <Filter Include="Core\Client\Objects\_lamp">
       <UniqueIdentifier>{a59114a4-4a17-4b59-ab10-e1ed91fa8536}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\_actor_demo">
-      <UniqueIdentifier>{d3a8f520-d33b-4d7e-a818-cc3a1745fd00}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Searchlight">
       <UniqueIdentifier>{e745edc7-4836-4739-98c9-235757011949}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\Info &amp; Dialogs">
       <UniqueIdentifier>{64370367-f301-4599-8637-e1b7a6a6a381}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Info &amp; Dialogs\game tasks">
-      <UniqueIdentifier>{c47075c7-cbb1-4852-b797-8fe38d6ecd9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Info &amp; Dialogs\encyclopedia">
-      <UniqueIdentifier>{c8957b36-e172-4bc9-b176-0445b019c6fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Info &amp; Dialogs\dialogs">
-      <UniqueIdentifier>{3199aea6-f646-42e7-87d2-29dca91c9c61}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Info &amp; Dialogs\news">
-      <UniqueIdentifier>{8438e391-b31f-4400-aed8-1ec8cdd4df21}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Info &amp; Dialogs\map">
-      <UniqueIdentifier>{d349c5fb-60e1-48b2-843d-bc7b5eadef0f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\GamePhysics">
       <UniqueIdentifier>{15dd861c-1159-44b4-9ef3-7f4b70496845}</UniqueIdentifier>
@@ -1725,9 +1701,6 @@
     </Filter>
     <Filter Include="Core\Common\SmartCast">
       <UniqueIdentifier>{081f5015-f9da-45c6-8a7e-b96e21cfa57b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Common\StringTable">
-      <UniqueIdentifier>{0c58b8bc-2864-4d24-ae8c-51dff30ac1fa}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Server">
       <UniqueIdentifier>{73204ac6-d7b7-40b0-a1cd-5caf8cb946bd}</UniqueIdentifier>
@@ -1956,6 +1929,9 @@
     </Filter>
     <Filter Include="UI\HUD">
       <UniqueIdentifier>{6f2b9445-f7e8-4ea2-943e-78792069cc60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Client\Objects\Info &amp; Dialogs\map">
+      <UniqueIdentifier>{d349c5fb-60e1-48b2-843d-bc7b5eadef0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4173,12 +4149,6 @@
     <ClInclude Include="script_sound_type.h">
       <Filter>AI\AScript\ScriptClasses\ScriptSoundType</Filter>
     </ClInclude>
-    <ClInclude Include="script_task.h">
-      <Filter>AI\AScript\ScriptClasses\ScriptTask</Filter>
-    </ClInclude>
-    <ClInclude Include="script_string_table.h">
-      <Filter>AI\AScript\ScriptClasses\ScriptStringTable</Filter>
-    </ClInclude>
     <ClInclude Include="script_ui_registrator.h">
       <Filter>AI\AScript\ScriptClasses\UI</Filter>
     </ClInclude>
@@ -4524,9 +4494,6 @@
     <ClInclude Include="monster_community.h">
       <Filter>Core\Client\Objects\Inventory\InventoryOwner\character_info</Filter>
     </ClInclude>
-    <ClInclude Include="specific_character.h">
-      <Filter>Core\Client\Objects\Inventory\InventoryOwner\character_info</Filter>
-    </ClInclude>
     <ClInclude Include="relation_registry.h">
       <Filter>Core\Client\Objects\Inventory\InventoryOwner\relation registry</Filter>
     </ClInclude>
@@ -4839,47 +4806,8 @@
     <ClInclude Include="searchlight.h">
       <Filter>Core\Client\Objects\Searchlight</Filter>
     </ClInclude>
-    <ClInclude Include="InfoPortion.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="InfoPortionDefs.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="xml_str_id_loader.h">
       <Filter>Core\Client\Objects\Info &amp; Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTask.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\game tasks</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTaskDefs.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\game tasks</Filter>
-    </ClInclude>
-    <ClInclude Include="encyclopedia_article.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\encyclopedia</Filter>
-    </ClInclude>
-    <ClInclude Include="encyclopedia_article_defs.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\encyclopedia</Filter>
-    </ClInclude>
-    <ClInclude Include="AI_PhraseDialogManager.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="Phrase.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="PhraseDialog.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="PhraseDialogDefs.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="PhraseDialogManager.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="PhraseScript.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="game_news.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\news</Filter>
     </ClInclude>
     <ClInclude Include="map_location.h">
       <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
@@ -5039,12 +4967,6 @@
     </ClInclude>
     <ClInclude Include="smart_cast_impl2.h">
       <Filter>Core\Common\SmartCast</Filter>
-    </ClInclude>
-    <ClInclude Include="string_table.h">
-      <Filter>Core\Common\StringTable</Filter>
-    </ClInclude>
-    <ClInclude Include="string_table_defs.h">
-      <Filter>Core\Common\StringTable</Filter>
     </ClInclude>
     <ClInclude Include="xrServer.h">
       <Filter>Core\Server</Filter>
@@ -5427,9 +5349,6 @@
     <ClInclude Include="ui\UIXmlInit.h">
       <Filter>UI\UIWindows\XML</Filter>
     </ClInclude>
-    <ClInclude Include="ui\xrXMLParser.h">
-      <Filter>UI\UIWindows\XML</Filter>
-    </ClInclude>
     <ClInclude Include="ui\UIInteractiveListItem.h">
       <Filter>UI\UIWindows\ListBox</Filter>
     </ClInclude>
@@ -5464,9 +5383,6 @@
       <Filter>UI\UIWindows\Static</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIAnimatedStatic.h">
-      <Filter>UI\UIWindows\Static</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIMultiTextStatic.h">
       <Filter>UI\UIWindows\Static</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIStatic.h">
@@ -6602,18 +6518,6 @@
     <ClCompile Include="script_sound_type_script.cpp">
       <Filter>AI\AScript\ScriptClasses\ScriptSoundType</Filter>
     </ClCompile>
-    <ClCompile Include="script_task.cpp">
-      <Filter>AI\AScript\ScriptClasses\ScriptTask</Filter>
-    </ClCompile>
-    <ClCompile Include="script_task_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\ScriptTask</Filter>
-    </ClCompile>
-    <ClCompile Include="script_string_table.cpp">
-      <Filter>AI\AScript\ScriptClasses\ScriptStringTable</Filter>
-    </ClCompile>
-    <ClCompile Include="script_string_table_script.cpp">
-      <Filter>AI\AScript\ScriptClasses\ScriptStringTable</Filter>
-    </ClCompile>
     <ClCompile Include="ui_export_script.cpp">
       <Filter>AI\AScript\ScriptClasses\UI</Filter>
     </ClCompile>
@@ -6746,9 +6650,6 @@
     <ClCompile Include="Level_load.cpp">
       <Filter>Core\Client\Level</Filter>
     </ClCompile>
-    <ClCompile Include="level_map_locations.cpp">
-      <Filter>Core\Client\Level</Filter>
-    </ClCompile>
     <ClCompile Include="Level_network.cpp">
       <Filter>Core\Client\Level</Filter>
     </ClCompile>
@@ -6819,9 +6720,6 @@
       <Filter>Core\Client\Level Debug</Filter>
     </ClCompile>
     <ClCompile Include="Actor.cpp">
-      <Filter>Core\Client\Objects\_actor</Filter>
-    </ClCompile>
-    <ClCompile Include="actor_communication.cpp">
       <Filter>Core\Client\Objects\_actor</Filter>
     </ClCompile>
     <ClCompile Include="Actor_Events.cpp">
@@ -6917,9 +6815,6 @@
     <ClCompile Include="inventory_item_object.cpp">
       <Filter>Core\Client\Objects\Inventory\InventoryItemObject</Filter>
     </ClCompile>
-    <ClCompile Include="inventory_owner_info.cpp">
-      <Filter>Core\Client\Objects\Inventory\InventoryOwner</Filter>
-    </ClCompile>
     <ClCompile Include="InventoryOwner.cpp">
       <Filter>Core\Client\Objects\Inventory\InventoryOwner</Filter>
     </ClCompile>
@@ -6936,9 +6831,6 @@
       <Filter>Core\Client\Objects\Inventory\InventoryOwner\character_info</Filter>
     </ClCompile>
     <ClCompile Include="monster_community.cpp">
-      <Filter>Core\Client\Objects\Inventory\InventoryOwner\character_info</Filter>
-    </ClCompile>
-    <ClCompile Include="specific_character.cpp">
       <Filter>Core\Client\Objects\Inventory\InventoryOwner\character_info</Filter>
     </ClCompile>
     <ClCompile Include="relation_registry.cpp">
@@ -7310,41 +7202,8 @@
     <ClCompile Include="HangingLamp.cpp">
       <Filter>Core\Client\Objects\_lamp</Filter>
     </ClCompile>
-    <ClCompile Include="DemoActor.cpp">
-      <Filter>Core\Client\Objects\_actor_demo</Filter>
-    </ClCompile>
-    <ClCompile Include="DemoActorCameras.cpp">
-      <Filter>Core\Client\Objects\_actor_demo</Filter>
-    </ClCompile>
     <ClCompile Include="searchlight.cpp">
       <Filter>Core\Client\Objects\Searchlight</Filter>
-    </ClCompile>
-    <ClCompile Include="InfoPortion.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTask.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\game tasks</Filter>
-    </ClCompile>
-    <ClCompile Include="encyclopedia_article.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\encyclopedia</Filter>
-    </ClCompile>
-    <ClCompile Include="AI_PhraseDialogManager.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="Phrase.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="PhraseDialog.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="PhraseDialogManager.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="PhraseScript.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="game_news.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\news</Filter>
     </ClCompile>
     <ClCompile Include="map_location.cpp">
       <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
@@ -7435,9 +7294,6 @@
     </ClCompile>
     <ClCompile Include="smart_cast_stats.cpp">
       <Filter>Core\Common\SmartCast</Filter>
-    </ClCompile>
-    <ClCompile Include="string_table.cpp">
-      <Filter>Core\Common\StringTable</Filter>
     </ClCompile>
     <ClCompile Include="xrServer.cpp">
       <Filter>Core\Server</Filter>
@@ -7853,9 +7709,6 @@
     <ClCompile Include="ui\UIAnimatedStatic.cpp">
       <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
-    <ClCompile Include="ui\UIMultiTextStatic.cpp">
-      <Filter>UI\UIWindows\Static</Filter>
-    </ClCompile>
     <ClCompile Include="ui\UIStatic.cpp">
       <Filter>UI\UIWindows\Static</Filter>
     </ClCompile>
@@ -7953,9 +7806,6 @@
     </CustomBuild>
     <CustomBuild Include="Explosive.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Explosives</Filter>
-    </CustomBuild>
-    <CustomBuild Include="DemoActor.h">
-      <Filter>Core\Client\Objects\_actor_demo</Filter>
     </CustomBuild>
     <CustomBuild Include="dRayMotions.h">
       <Filter>Physics\Colliders\RayMotions-Collider</Filter>

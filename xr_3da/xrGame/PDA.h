@@ -12,7 +12,6 @@
 #include "../feel_touch.h"
 #include "inventory_item_object.h"
 
-#include "InfoPortionDefs.h"
 #include "character_info_defs.h"
 
 #include "PdaMsg.h"
@@ -91,9 +90,6 @@ public:
 	//получить последнее сообщение из лога  (false - если лог пуст)
 	bool GetLastMessageFromLog(u32 pda_ID,  SPdaMessage& pda_message);
 
-	virtual void		SetInfoPortion (INFO_ID);
-	virtual INFO_ID		GetInfoPortion ();
-
 	virtual LPCSTR		Name			();
 	virtual LPCSTR		NameComplex		();
 
@@ -101,18 +97,11 @@ protected:
 	//поступление нового сообщения на PDA
 	bool m_bNewMessage;
 
-	void PdaEventSend(u32 pda_ID, EPdaMsg msg, INFO_ID info_id);
-	void AddMessageToLog(u32 pda_ID, EPdaMsg msg, INFO_ID info_id, bool receive);
-
-
 	//радиус обнаружения других PDA
 	float m_fRadius;
 
 	//первый владелец PDA
 	u16 m_idOriginalOwner;
-	SPECIFIC_CHARACTER_ID m_SpecificChracterOwner;
-	//присоединенный info portion
-	INFO_ID		m_InfoPortion;
 	//полное название PDA с именем владельца
 	xr_string m_sFullName;
 

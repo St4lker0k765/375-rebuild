@@ -7,7 +7,6 @@
 #pragma once
 
 #include "inventory_item_object.h"
-#include "InfoPortionDefs.h"
 
 class CInfoDocument: public CInventoryItemObject {
 private:

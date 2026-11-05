@@ -11,7 +11,6 @@
 #include "alife_simulator.h"
 #include "alife_object_registry.h"
 #include "ai_space.h"
-#include "specific_character.h"
 #include "alife_artefact_order.h"
 #include "ai_debug.h"
 
@@ -106,41 +105,6 @@ void CSE_ALifeTraderAbstract::spawn_supplies	()
 	CSE_ALifeItemPDA			*pda = smart_cast<CSE_ALifeItemPDA*>(abstract);
 	pda->m_original_owner		= base()->ID;
 
-#ifdef XRGAME_EXPORTS
-	character_profile();
-	pda->m_specific_character = specific_character();
-#endif
-
-	if(m_SpecificCharacter.size())
-	{
-		//если в custom data объекта есть
-		//секция [dont_spawn_character_supplies]
-		//то не вызывать spawn из selected_char.SupplySpawn()
-		bool specific_character_supply = true;	
-
-		if (xr_strlen(dynamic_object->m_ini_string))
-		{
-#pragma warning(push)
-#pragma warning(disable:4238)
-			CInifile					ini(
-				&IReader				(
-				(void*)(*dynamic_object->m_ini_string),
-				xr_strlen(dynamic_object->m_ini_string)
-				)
-				);
-#pragma warning(pop)
-
-			if (ini.section_exist("dont_spawn_character_supplies")) 
-				specific_character_supply = false;
-		}
-
-		if(specific_character_supply)
-		{
-			CSpecificCharacter selected_char;
-			selected_char.Load(m_SpecificCharacter);
-			dynamic_object->spawn_supplies(selected_char.SupplySpawn());
-		}
-	}
 }
 
 void CSE_ALifeTraderAbstract::vfInitInventory()

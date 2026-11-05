@@ -10,7 +10,6 @@
 
 #include "../../CustomMonster.h"
 #include "../../object_handler.h"
-#include "../../AI_PhraseDialogManager.h"
 #include "../../step_manager.h"
 #include "../../script_export_space.h"
 
@@ -56,7 +55,6 @@ class CAI_Stalker;
 class CAI_Stalker : 
 	public CCustomMonster, 
 	public CObjectHandler,
-	public CAI_PhraseDialogManager,
 	public CStepManager
 {
 private:
@@ -193,10 +191,6 @@ public:
 
 	virtual bool						useful								(const CItemManager *manager, const CGameObject *object) const;
 	virtual	float						evaluate							(const CItemManager *manager, const CGameObject *object) const;
-	
-	// PDA && Dialogs
-	virtual void						ReceivePdaMessage					(u16 who, EPdaMsg msg, INFO_ID info_id);
-	virtual void						UpdateAvailableDialogs				(CPhraseDialogManager* partner);
 
 	// scripts
 	virtual void						UseObject				(const CObject			*tpObject);

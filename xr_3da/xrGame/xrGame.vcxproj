@@ -602,7 +602,6 @@
     <ClInclude Include="ai_object_location.h" />
     <ClInclude Include="ai_object_location_impl.h" />
     <ClInclude Include="ai_object_location_inline.h" />
-    <ClInclude Include="AI_PhraseDialogManager.h" />
     <ClInclude Include="ai_sounds.h" />
     <ClInclude Include="ai_space.h" />
     <ClInclude Include="ai_space_inline.h" />
@@ -781,12 +780,6 @@
     <ClInclude Include="data_storage_single_linked_list_inline.h" />
     <ClInclude Include="date_time.h" />
     <ClInclude Include="dCylinder\dCylinder.h" />
-    <CustomBuild Include="DemoActor.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </CustomBuild>
     <ClInclude Include="DestroyablePhysicsObject.h" />
     <ClInclude Include="detail_path_builder.h" />
     <ClInclude Include="detail_path_manager.h" />
@@ -813,8 +806,6 @@
     <ClInclude Include="ef_storage_inline.h" />
     <ClInclude Include="ElectricBall.h" />
     <ClInclude Include="ElevatorState.h" />
-    <ClInclude Include="encyclopedia_article.h" />
-    <ClInclude Include="encyclopedia_article_defs.h" />
     <ClInclude Include="enemy_manager.h" />
     <ClInclude Include="enemy_manager_inline.h" />
     <ClInclude Include="Entity.h" />
@@ -849,8 +840,6 @@
     <ClInclude Include="GameSpy\Qr2\qr2.h" />
     <ClInclude Include="GameSpy\Qr2\qr2regkeys.h" />
     <ClInclude Include="GameSpy\stringutil.h" />
-    <ClInclude Include="GameTask.h" />
-    <ClInclude Include="GameTaskDefs.h" />
     <ClInclude Include="game_base.h" />
     <ClInclude Include="game_base_space.h" />
     <ClInclude Include="game_cl_base.h" />
@@ -862,7 +851,6 @@
     <ClInclude Include="game_level_cross_table_inline.h" />
     <ClInclude Include="game_location_selector.h" />
     <ClInclude Include="game_location_selector_inline.h" />
-    <ClInclude Include="game_news.h" />
     <ClInclude Include="game_object_space.h" />
     <ClInclude Include="game_path_manager.h" />
     <ClInclude Include="game_path_manager_inline.h" />
@@ -905,8 +893,6 @@
     <ClInclude Include="IColisiondamageInfo.h" />
     <ClInclude Include="id_generator.h" />
     <ClInclude Include="InfoDocument.h" />
-    <ClInclude Include="InfoPortion.h" />
-    <ClInclude Include="InfoPortionDefs.h" />
     <ClInclude Include="ini_id_loader.h" />
     <ClInclude Include="ini_table_loader.h" />
     <ClInclude Include="intrusive_ptr.h" />
@@ -1119,11 +1105,6 @@
     <ClInclude Include="PHMoveStorage.h" />
     <ClInclude Include="PHNetState.h" />
     <ClInclude Include="PHObject.h" />
-    <ClInclude Include="Phrase.h" />
-    <ClInclude Include="PhraseDialog.h" />
-    <ClInclude Include="PhraseDialogDefs.h" />
-    <ClInclude Include="PhraseDialogManager.h" />
-    <ClInclude Include="PhraseScript.h" />
     <ClInclude Include="PHReqComparer.h" />
     <ClInclude Include="PHScriptCall.h" />
     <ClInclude Include="PHShell.h" />
@@ -1273,8 +1254,6 @@
     <ClInclude Include="script_storage.h" />
     <ClInclude Include="script_storage_inline.h" />
     <ClInclude Include="script_storage_space.h" />
-    <ClInclude Include="script_string_table.h" />
-    <ClInclude Include="script_task.h" />
     <ClInclude Include="script_thread.h" />
     <ClInclude Include="script_thread_inline.h" />
     <ClInclude Include="script_token_list.h" />
@@ -1342,7 +1321,6 @@
     <ClInclude Include="space_restriction_shape_inline.h" />
     <ClInclude Include="space_restrictor.h" />
     <ClInclude Include="space_restrictor_inline.h" />
-    <ClInclude Include="specific_character.h" />
     <ClInclude Include="Spectator.h" />
     <ClInclude Include="squad_hierarchy_holder.h" />
     <ClInclude Include="squad_hierarchy_holder_inline.h" />
@@ -1392,8 +1370,6 @@
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="step_manager.h" />
     <ClInclude Include="step_manager_defs.h" />
-    <ClInclude Include="string_table.h" />
-    <ClInclude Include="string_table_defs.h" />
     <ClInclude Include="team_hierarchy_holder.h" />
     <ClInclude Include="team_hierarchy_holder_inline.h" />
     <ClInclude Include="TeleWhirlwind.h" />
@@ -1446,7 +1422,6 @@
     <ClInclude Include="ui\UIListWndEx.h" />
     <ClInclude Include="ui\UIListWnd_inline.h" />
     <ClInclude Include="ui\UIMessages.h" />
-    <ClInclude Include="ui\UIMultiTextStatic.h" />
     <ClInclude Include="ui\UIProgressBar.h" />
     <ClInclude Include="ui\UIRadioButton.h" />
     <ClInclude Include="ui\UIRadioGroup.h" />
@@ -1463,7 +1438,6 @@
     <ClInclude Include="ui\UIWndCallback.h" />
     <ClInclude Include="ui\UIXmlInit.h" />
     <ClInclude Include="ui\UI_IB_Static.h" />
-    <ClInclude Include="ui\xrXMLParser.h" />
     <ClInclude Include="UsableScriptObject.h" />
     <ClInclude Include="vehicle_helicopter.h" />
     <ClInclude Include="vehicle_helicopter_inline.h" />
@@ -1545,7 +1519,6 @@
     <ClCompile Include="ActorInput.cpp" />
     <ClCompile Include="ActorMountedWeapon.cpp" />
     <ClCompile Include="ActorVehicle.cpp" />
-    <ClCompile Include="actor_communication.cpp" />
     <ClCompile Include="Actor_Events.cpp" />
     <ClCompile Include="Actor_Feel.cpp" />
     <ClCompile Include="Actor_Movement.cpp" />
@@ -1689,7 +1662,6 @@
     <ClCompile Include="Ai\Stalker\ai_stalker_script.cpp" />
     <ClCompile Include="ai\stalker\ai_stalker_script_entity.cpp" />
     <ClCompile Include="Ai\Trader\ai_trader.cpp" />
-    <ClCompile Include="AI_PhraseDialogManager.cpp" />
     <ClCompile Include="ai_sounds.cpp" />
     <ClCompile Include="ai_space.cpp" />
     <ClCompile Include="ai_stalker_alife.cpp" />
@@ -1796,18 +1768,6 @@
     <ClCompile Include="date_time.cpp" />
     <ClCompile Include="dbg_draw_frustum.cpp" />
     <ClCompile Include="dCylinder\dCylinder.cpp" />
-    <ClCompile Include="DemoActor.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="DemoActorCameras.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="DestroyablePhysicsObject.cpp" />
     <ClCompile Include="detail_path_manager.cpp" />
     <ClCompile Include="detail_path_manager_smooth.cpp" />
@@ -1831,7 +1791,6 @@
     <ClCompile Include="ef_storage_script.cpp" />
     <ClCompile Include="ElectricBall.cpp" />
     <ClCompile Include="ElevatorState.cpp" />
-    <ClCompile Include="encyclopedia_article.cpp" />
     <ClCompile Include="enemy_manager.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityCondition.cpp" />
@@ -1996,13 +1955,11 @@
       </PrecompiledHeader>
       <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
     </ClCompile>
-    <ClCompile Include="GameTask.cpp" />
     <ClCompile Include="game_base.cpp" />
     <ClCompile Include="game_base_script.cpp" />
     <ClCompile Include="game_cl_base.cpp" />
     <ClCompile Include="game_cl_base_script.cpp" />
     <ClCompile Include="game_cl_single.cpp" />
-    <ClCompile Include="game_news.cpp" />
     <ClCompile Include="game_sv_base.cpp" />
     <ClCompile Include="game_sv_base_script.cpp" />
     <ClCompile Include="game_sv_event_queue.cpp" />
@@ -2033,12 +1990,10 @@
     <ClCompile Include="HudSound.cpp" />
     <ClCompile Include="hud_item_object.cpp" />
     <ClCompile Include="InfoDocument.cpp" />
-    <ClCompile Include="InfoPortion.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryOwner.cpp" />
     <ClCompile Include="inventory_item.cpp" />
     <ClCompile Include="inventory_item_object.cpp" />
-    <ClCompile Include="inventory_owner_info.cpp" />
     <ClCompile Include="ItemHealth.cpp" />
     <ClCompile Include="item_manager.cpp" />
     <ClCompile Include="key_binding_registrator_script.cpp" />
@@ -2055,7 +2010,6 @@
     <ClCompile Include="level_graph_vertex.cpp" />
     <ClCompile Include="Level_input.cpp" />
     <ClCompile Include="Level_load.cpp" />
-    <ClCompile Include="level_map_locations.cpp" />
     <ClCompile Include="level_navigation_graph.cpp" />
     <ClCompile Include="level_navigation_graph_debug.cpp" />
     <ClCompile Include="Level_network.cpp" />
@@ -2149,10 +2103,6 @@
     <ClCompile Include="PHMoveStorage.cpp" />
     <ClCompile Include="PHNetState.cpp" />
     <ClCompile Include="PHObject.cpp" />
-    <ClCompile Include="Phrase.cpp" />
-    <ClCompile Include="PhraseDialog.cpp" />
-    <ClCompile Include="PhraseDialogManager.cpp" />
-    <ClCompile Include="PhraseScript.cpp" />
     <ClCompile Include="PHScriptCall.cpp" />
     <ClCompile Include="PHShell.cpp" />
     <ClCompile Include="PHShellActivate.cpp" />
@@ -2272,10 +2222,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="script_storage.cpp" />
-    <ClCompile Include="script_string_table.cpp" />
-    <ClCompile Include="script_string_table_script.cpp" />
-    <ClCompile Include="script_task.cpp" />
-    <ClCompile Include="script_task_script.cpp" />
     <ClCompile Include="script_thread.cpp" />
     <ClCompile Include="script_token_list.cpp" />
     <ClCompile Include="script_token_list_script.cpp" />
@@ -2316,7 +2262,6 @@
     <ClCompile Include="space_restriction_manager.cpp" />
     <ClCompile Include="space_restriction_shape.cpp" />
     <ClCompile Include="space_restrictor.cpp" />
-    <ClCompile Include="specific_character.cpp" />
     <ClCompile Include="Spectator.cpp" />
     <ClCompile Include="squad_hierarchy_holder.cpp" />
     <ClCompile Include="StalkerOutfit.cpp" />
@@ -2358,7 +2303,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="step_manager.cpp" />
-    <ClCompile Include="string_table.cpp" />
     <ClCompile Include="team_hierarchy_holder.cpp" />
     <ClCompile Include="TeleWhirlwind.cpp" />
     <ClCompile Include="ThornArtifact.cpp" />
@@ -2413,7 +2357,6 @@
     <ClCompile Include="ui\UIListWndEx.cpp" />
     <ClCompile Include="ui\UIListWndEx_script.cpp" />
     <ClCompile Include="ui\UIListWnd_script.cpp" />
-    <ClCompile Include="ui\UIMultiTextStatic.cpp" />
     <ClCompile Include="ui\UIProgressBar.cpp" />
     <ClCompile Include="ui\UIProgressBar_script.cpp" />
     <ClCompile Include="ui\UIRadioButton.cpp" />

@@ -17,7 +17,6 @@ const LPCSTR GAMEDATA_PATH			= "content\\";
 const LPCSTR CONFIG_PATH			= "$game_config$";
 const LPCSTR UI_PATH				= "ui";
 const LPCSTR GAME_PATH				= "gameplay";
-const LPCSTR STRING_TABLE_PATH		= "text";
 
 
 

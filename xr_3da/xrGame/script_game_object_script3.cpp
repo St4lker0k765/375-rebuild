@@ -110,48 +110,12 @@ class_<CScriptGameObject> &script_register_game_object2(class_<CScriptGameObject
 
 		//////////////////////////////////////////////////////////////////////////
 		//inventory owner
-		//////////////////////////////////////////////////////////////////////////
-
-		.enum_("EPdaMsg")
-		[
-			value("dialog_pda_msg",			int(ePdaMsgDialog)),
-			value("info_pda_msg",			int(ePdaMsgInfo))
-		]
-
-		.def("give_info_portion",			&CScriptGameObject::GiveInfoPortion)
-		.def("give_info_portion_via_pda",	&CScriptGameObject::GiveInfoPortionViaPda)
-		.def("disable_info_portion",		&CScriptGameObject::DisableInfoPortion)
-		.def("give_game_news",				&CScriptGameObject::GiveGameNews)
-		.def("set_news_show_time",			&CScriptGameObject::SetNewsShowTime)
-		
-
-		.def("has_info",					&CScriptGameObject::HasInfo)
-		.def("dont_has_info",				&CScriptGameObject::DontHasInfo)
-		.def("get_info_time",				&CScriptGameObject::GetInfoTime)
-
-		.def("get_task_state",				&CScriptGameObject::GetGameTaskState)
-		.def("set_task_state",				&CScriptGameObject::SetGameTaskState)
-
-		.def("send_pda_message",			&CScriptGameObject::SendPdaMessage)
-
-		.def("is_talking",					&CScriptGameObject::IsTalking)
-		.def("stop_talk",					&CScriptGameObject::StopTalk)
-		.def("enable_talk",					&CScriptGameObject::EnableTalk)
-		.def("disable_talk",				&CScriptGameObject::DisableTalk)
-		.def("is_talk_enabled",				&CScriptGameObject::IsTalkEnabled)
-		.def("enable_trade",				&CScriptGameObject::EnableTrade)
-		.def("disable_trade",				&CScriptGameObject::DisableTrade)
-		.def("is_trade_enabled",			&CScriptGameObject::IsTradeEnabled)
-
+		//////////////////////////////////////////////////////////////////////////		
 		.def("inventory_for_each",			&CScriptGameObject::ForEachInventoryItems)
 		.def("drop_item",					&CScriptGameObject::DropItem)
 		.def("transfer_item",				&CScriptGameObject::TransferItem)
 		.def("transfer_money",				&CScriptGameObject::TransferMoney)
 		.def("money",						&CScriptGameObject::Money)
-
-		.def("switch_to_talk",				&CScriptGameObject::SwitchToTalk)
-		.def("run_talk_dialog",				&CScriptGameObject::RunTalkDialog)
-		.def("actor_sleep",					&CScriptGameObject::ActorSleep)
 		
 		.def("hide_weapon",					&CScriptGameObject::HideWeapon)
 		.def("restore_weapon",				&CScriptGameObject::RestoreWeapon)

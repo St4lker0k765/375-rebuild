@@ -33,8 +33,6 @@
 #include "script_engine.h"
 #include "script_engine_space.h"
 
-#include "infoportion.h"
-
 #include "patrol_path_storage.h"
 #include "date_time.h"
 

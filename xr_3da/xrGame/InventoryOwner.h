@@ -4,7 +4,6 @@
 //////////////////////////////////////////////////////
 
 #pragma once
-#include "InfoPortionDefs.h"
 #include "pda_space.h"
 #include "attachment_owner.h"
 #include "script_space_forward.h"
@@ -19,11 +18,9 @@ class CPda;
 class CGameObject;
 class CEntityAlive;
 class CCustomZone;
-class CInfoPortionWrapper;
 class NET_Packet;
 
 class CCharacterInfo;
-class CSpecificCharacter;
 
 
 class CInventoryOwner : public CAttachmentOwner {							
@@ -60,13 +57,6 @@ public:
 
 	CPda* GetPDA		() const;
 	bool IsActivePDA	() const;
-
-	//функци€ через которую
-	//другие персонажи отправл€ют объекту PDA сообщение.
-	//должна быть переопределена в порожеденных классах
-	virtual void ReceivePdaMessage(u16 who, EPdaMsg msg, INFO_ID info_id);
-	//отправка сообщени€ другому владельцу PDA
-	virtual void SendPdaMessage(u16 who, EPdaMsg msg, INFO_ID info_id);
 
 	// инвентарь
 	CInventory	*m_inventory;			
@@ -127,8 +117,6 @@ public:
 	void CInventoryOwner::DumpInfo() const;
 	#endif
 
-	CInfoPortionWrapper			*m_known_info_registry;
-
 	//////////////////////////////////////////////////////////////////////////
 	// инвентарь 
 public:
@@ -149,7 +137,6 @@ public:
 	//игровые характеристики персонажа
 public:
 	virtual CCharacterInfo&				CharacterInfo		() const {VERIFY(m_pCharacterInfo); return *m_pCharacterInfo;}
-	virtual const CSpecificCharacter&	SpecificCharacter	() const;
 
 	//установка группировки на клиентском и серверном объкте
 	virtual void			SetCommunity	(CHARACTER_COMMUNITY_INDEX);

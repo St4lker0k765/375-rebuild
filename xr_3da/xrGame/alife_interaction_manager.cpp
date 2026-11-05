@@ -16,8 +16,6 @@
 //news notify for actor
 #include "level.h"
 #include "actor.h"
-#include "game_news.h"
-
 
 using namespace ALife;
 
@@ -205,16 +203,6 @@ public:
 						default			: NODEFAULT;
 					}
 					ALife::_NEWS_ID news_id = manager->news().add	(news);
-
-					if (strstr(Core.Params,"-anews")) {
-						//сообщить актеру, о том что пришла новость с симуляции
-						CActor* pActor = smart_cast<CActor*>(Level().CurrentEntity());
-						if (pActor) {
-							GAME_NEWS_DATA		news_data;
-							news_data.news_id	=  news_id;
-							pActor->AddGameNews	(news_data);
-						}
-					}
 				}
 				manager->vfFinishCombat	(l_tCombatResult);
 				break;

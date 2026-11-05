@@ -13,7 +13,6 @@
 #include "script_export_space.h"
 #include "xr_time.h"
 #include "character_info_defs.h"
-#include "GameTaskDefs.h"
 
 enum EPdaMsg;
 enum ESoundTypes;
@@ -185,31 +184,6 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 	// CInventoryOwner
 	
-	//передача порции информации InventoryOwner
-			bool				GiveInfoPortion		(LPCSTR info_id);
-			bool				DisableInfoPortion	(LPCSTR info_id);
-			bool				GiveInfoPortionViaPda	(LPCSTR info_id, CScriptGameObject* pFromWho);
-			bool				GiveGameNews		(LPCSTR news, LPCSTR texture_name, int x1, int y1, int x2, int y2, u32 delay);
-			void				SetNewsShowTime		(LPCSTR news, int show_time);
-	//предикаты наличия/отсутствия порции информации у персонажа
-			bool				HasInfo				(LPCSTR info_id);
-			bool				DontHasInfo			(LPCSTR info_id);
-			xrTime				GetInfoTime			(LPCSTR info_id);
-	//работа с заданиями
-			ETaskState			GetGameTaskState	(LPCSTR task_id, int objective_num);
-			void				SetGameTaskState	(ETaskState state, LPCSTR task_id, int objective_num);
-
-			bool				SendPdaMessage		(EPdaMsg pda_msg, CScriptGameObject* pForWho);
-			
-			bool				IsTalking			();
-			void				StopTalk			();
-			void				EnableTalk			();	
-			void				DisableTalk			();
-			bool				IsTalkEnabled		();
-
-			void				EnableTrade			();	
-			void				DisableTrade		();
-			bool				IsTradeEnabled		();
 
 			void				DropItem			(CScriptGameObject* pItem, Fvector pos);
 			void				ForEachInventoryItems(const luabind::functor<void> &functor);
@@ -229,15 +203,6 @@ public:
 			void				SetCommunityGoodwill	(int goodwill, CScriptGameObject* pWhoToSet);
 			void				ChangeCommunityGoodwill	(int delta_goodwill, CScriptGameObject* pWhoToSet);
 
-
-			void				SetStartDialog		(LPCSTR dialog_id);
-			void				GetStartDialog		();
-			void				RestoreDefaultStartDialog();
-
-			void				SwitchToTrade		();
-			void				SwitchToTalk		();	
-			void				RunTalkDialog		(CScriptGameObject* pToWho);
-			void				ActorSleep			(int hours, int minutes);
 
 			void				HideWeapon			();
 			void				RestoreWeapon		();
@@ -418,12 +383,6 @@ public:
 			//////////////////////////////////////////////////////////////////////////
 			void				enable_attachable_item	(bool value);
 			bool				attachable_item_enabled	() const;
-			//////////////////////////////////////////////////////////////////////////
-			// для подключения info_portion для pda
-			void				set_character_pda_info (LPCSTR info_id);
-			LPCSTR				get_character_pda_info ();
-			void				set_pda_info		   (LPCSTR info_id);
-			LPCSTR				get_pda_info		   ();
 			//////////////////////////////////////////////////////////////////////////
 			// CustomZone
 			void				EnableAnomaly			();

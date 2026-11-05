@@ -16,11 +16,9 @@
 #include "Level.h"
 #include "game_cl_base.h"
 #include "Actor.h"
-#include "string_table.h"
 #include "../skeletoncustom.h"
 #include "ai_object_location.h"
 #include "HUDManager.h"
-#include "UIGameCustom.h"
 
 #define ITEM_REMOVE_TIME		30000
 
@@ -101,7 +99,7 @@ void CInventoryItem::Load(LPCSTR section)
 
 	// Description
 	if (pSettings->line_exist(section, "description"))
-		m_Description = CStringTable()(pSettings->r_string(section, "description"));
+		m_Description = pSettings->r_string(section, "description");
 
 	if(pSettings->line_exist(section, "belt"))
 		m_belt = !!pSettings->r_bool(section, "belt");

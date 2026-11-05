@@ -17,7 +17,6 @@
 #ifndef AI_COMPILER
 #	include "ai_space.h"
 #	include "character_info.h"
-#	include "specific_character.h"
 #endif
 
 #ifdef XRGAME_EXPORTS
@@ -118,7 +117,6 @@ CSE_ALifeTraderAbstract::CSE_ALifeTraderAbstract(LPCSTR caSection)
 
 //	m_iCharacterProfile			= DEFAULT_PROFILE;
 	m_sCharacterProfile			= "default";
-	m_SpecificCharacter			= NULL;
 
 #ifdef XRGAME_EXPORTS
 //	m_character_profile_init	= false;
@@ -153,13 +151,6 @@ void CSE_ALifeTraderAbstract::STATE_Write	(NET_Packet &tNetPacket)
 {
 	save_data					(m_tpEvents,tNetPacket);
 	tNetPacket.w_u32			(m_dwMoney);
-
-#ifdef XRGAME_EXPORTS
-	tNetPacket.w_stringZ		(m_SpecificCharacter);
-#else
-	shared_str s;
-	tNetPacket.w_stringZ		(s);
-#endif
 	tNetPacket.w_u32			(m_trader_flags.get());
 //	tNetPacket.w_s32			(m_iCharacterProfile);
 	tNetPacket.w_stringZ		(m_sCharacterProfile);
@@ -188,17 +179,7 @@ void CSE_ALifeTraderAbstract::STATE_Read	(NET_Packet &tNetPacket, u16 size)
 		if ((m_wVersion > 75) && (m_wVersion < 98)){
 			int tmp;
 			tNetPacket.r_s32	(tmp);
-#ifndef AI_COMPILER
-			if(tmp!=-1)
-				m_SpecificCharacter = CSpecificCharacter::IndexToId(tmp);
-			else
-				m_SpecificCharacter = NULL;
-
-#else
-			m_SpecificCharacter = NULL;
-#endif
-		}else
-			tNetPacket.r_stringZ	(m_SpecificCharacter);
+		}
 
 		if (m_wVersion > 77)
 			m_trader_flags.assign(tNetPacket.r_u32());
@@ -236,147 +217,6 @@ void CSE_ALifeTraderAbstract::STATE_Read	(NET_Packet &tNetPacket, u16 size)
 #include "Level.h"
 
 #endif
-
-SPECIFIC_CHARACTER_ID CSE_ALifeTraderAbstract::specific_character()
-{
-#ifdef XRGAME_EXPORTS
-#pragma todo("Dima to Yura, MadMax : Remove that hacks, please!")
-	if (Level().game && (GameID() != GAME_SINGLE)) return m_SpecificCharacter;
-#endif
-
-	if(m_SpecificCharacter.size()) 
-		return m_SpecificCharacter;
-
-
-	CCharacterInfo char_info;
-	char_info.Load(character_profile());
-
-
-	//профиль задан индексом
-	if(char_info.data()->m_CharacterId.size() )
-	{
-		set_specific_character(char_info.data()->m_CharacterId);
-		return m_SpecificCharacter;
-	}
-	//профиль задан шаблоном
-	//
-	//проверяем все информации о персонаже, запоминаем подходящие,
-	//а потом делаем случайный выбор
-	else
-	{	
-		m_CheckedCharacters.clear();
-		m_DefaultCharacters.clear();
-
-		for(int i=0; i<=CSpecificCharacter::GetMaxIndex(); i++)
-		{
-			CSpecificCharacter spec_char;
-			SPECIFIC_CHARACTER_ID id = CSpecificCharacter::IndexToId(i);
-			spec_char.Load(id);
-
-			if(spec_char.data()->m_bNoRandom) continue;
-
-			bool class_found = false;
-			for(std::size_t j=0; j<spec_char.data()->m_Classes.size(); j++)
-			{
-				if(char_info.data()->m_Class == spec_char.data()->m_Classes[j])
-				{
-					class_found = true;
-					break;
-				}
-			}
-			if(!char_info.data()->m_Class.size() || class_found)
-			{
-				//запомнить пподходящий персонаж с флажком m_bDefaultForCommunity
-				if(spec_char.data()->m_bDefaultForCommunity)
-					m_DefaultCharacters.push_back(id);
-
-				if(char_info.data()->m_Rank == NO_RANK || _abs(spec_char.Rank() - char_info.data()->m_Rank)<RANK_DELTA)
-				{
-					if(char_info.data()->m_Reputation == NO_REPUTATION || _abs(spec_char.Reputation() - char_info.data()->m_Reputation)<REPUTATION_DELTA)
-					{
-#ifdef XRGAME_EXPORTS
-						int* count = NULL;
-						if(ai().get_alife())
-							count = ai().alife().registry(specific_characters).object(id, true);
-						//если индекс еще не был использован
-						if(NULL == count)
-#endif
-							m_CheckedCharacters.push_back(id);
-					}
-				}
-			}
-		}
-		R_ASSERT3(!m_DefaultCharacters.empty(), 
-			"no default specific character set for class", *char_info.data()->m_Class);
-
-#ifdef XRGAME_EXPORTS
-		if(m_CheckedCharacters.empty())
-			char_info.m_SpecificCharacterId = m_DefaultCharacters[Random.randI(m_DefaultCharacters.size())];
-		else
-			char_info.m_SpecificCharacterId = m_CheckedCharacters[Random.randI(m_CheckedCharacters.size())];
-#else
-			char_info.m_SpecificCharacterId = m_DefaultCharacters[Random.randI(m_DefaultCharacters.size())];
-#endif
-
-		set_specific_character(char_info.m_SpecificCharacterId);
-		return m_SpecificCharacter;
-	}
-}
-
-void CSE_ALifeTraderAbstract::set_specific_character	(SPECIFIC_CHARACTER_ID new_spec_char)
-{
-	R_ASSERT(new_spec_char.size());
-
-#ifdef XRGAME_EXPORTS
-	//убрать предыдущий номер из реестра
-	if ( m_SpecificCharacter.size() ) 
-	{
-		if(ai().get_alife())
-			ai().alife().registry(specific_characters).remove(m_SpecificCharacter, true);
-	}
-#endif
-	m_SpecificCharacter = new_spec_char;
-
-
-#ifdef XRGAME_EXPORTS
-	if(ai().get_alife())
-	{
-		//запомнить, то что мы использовали индекс
-		int a = 1;
-		ai().alife().registry(specific_characters).add(m_SpecificCharacter, a, true);
-	}
-#endif
-
-	CSpecificCharacter selected_char;
-	selected_char.Load(m_SpecificCharacter);
-	if(selected_char.Visual())
-	{
-		CSE_Visual* visual = smart_cast<CSE_Visual*>(base()); VERIFY(visual);
-		if(xr_strlen(selected_char.Visual())>0)
-			visual->set_visual(selected_char.Visual());
-	}
-
-#ifdef XRGAME_EXPORTS
-
-	if(NO_COMMUNITY_INDEX == m_community_index)
-	{
-		m_community_index = selected_char.Community().index();
-		CSE_ALifeCreatureAbstract* creature = smart_cast<CSE_ALifeCreatureAbstract*>(base());
-		if (creature)
-			creature->s_team = selected_char.Community().team();
-	}
-
-	if(NO_RANK == m_rank)
-		m_rank = selected_char.Rank();
-
-	if(NO_REPUTATION == m_reputation)
-		m_rank = selected_char.Reputation();
-
-#else
-	//в редакторе специфический профиль оставляем не заполненым
-	m_SpecificCharacter = NULL;
-#endif
-}
 
 void CSE_ALifeTraderAbstract::set_character_profile(PROFILE_ID new_profile)
 {
