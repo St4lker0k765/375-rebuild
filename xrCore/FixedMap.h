@@ -32,7 +32,7 @@ private:
 		VERIFY(newNodes);
 
 		ZeroMemory(newNodes, Size(newLimit));
-		if (limit) PSGP.memCopy(newNodes, nodes, Size(limit));
+		if (limit) CopyMemory(newNodes, nodes, Size(limit));
 
 		for (u32 I=0; I<pool; I++)
 		{

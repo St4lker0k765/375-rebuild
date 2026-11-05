@@ -674,7 +674,6 @@ void CBoneDataAnimated::Calculate(CKinematics* _K, Fmatrix *parent)
 				}else{
 	                D->T.set	(M._initT);
                 }
-//                PSGP.blerp				(D,&K1,&K2,delta);
             }
 
             // Blend them together

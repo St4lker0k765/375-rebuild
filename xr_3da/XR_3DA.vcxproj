@@ -421,7 +421,6 @@
     <ClInclude Include="vis_common.h" />
     <ClInclude Include="WaveForm.h" />
     <ClInclude Include="xrCDB.h" />
-    <ClInclude Include="xrCPU_Pipe.h" />
     <ClInclude Include="xrImage_Resampler.h" />
     <ClInclude Include="xrLevel.h" />
     <ClInclude Include="xrSheduler.h" />

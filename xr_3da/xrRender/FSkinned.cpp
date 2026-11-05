@@ -10,7 +10,6 @@
 #pragma warning(default:4995)
 
 #include "../fmesh.h"
-#include "../xrCPU_Pipe.h"
 #include "FSkinned.h"
 
 //////////////////////////////////////////////////////////////////////

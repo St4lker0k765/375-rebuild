@@ -13,11 +13,131 @@
 #include "SkeletonX.h"
 #include "SkeletonCustom.h"
 #include "fmesh.h"
-#include "xrCPU_Pipe.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
+
+void xrSkin1W(vertRender* D,
+	vertBoned1W* S,
+	u32				vCount,
+	CBoneInstance* Bones)
+{
+	//	return;
+		// Prepare
+	int U_Count = vCount / 8;
+	vertBoned1W* V = S;
+	vertBoned1W* E = V + U_Count * 8;
+
+	// Unrolled loop
+	for (; S != E; )
+	{
+		Fmatrix& M0 = Bones[S->matrix].mRenderTransform;
+		M0.transform_tiny(D->P, S->P);
+		M0.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+
+		Fmatrix& M1 = Bones[S->matrix].mRenderTransform;
+		M1.transform_tiny(D->P, S->P);
+		M1.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+
+		Fmatrix& M2 = Bones[S->matrix].mRenderTransform;
+		M2.transform_tiny(D->P, S->P);
+		M2.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+
+		Fmatrix& M3 = Bones[S->matrix].mRenderTransform;
+		M3.transform_tiny(D->P, S->P);
+		M3.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+
+		Fmatrix& M4 = Bones[S->matrix].mRenderTransform;
+		M4.transform_tiny(D->P, S->P);
+		M4.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+
+		Fmatrix& M5 = Bones[S->matrix].mRenderTransform;
+		M5.transform_tiny(D->P, S->P);
+		M5.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+
+		Fmatrix& M6 = Bones[S->matrix].mRenderTransform;
+		M6.transform_tiny(D->P, S->P);
+		M6.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+
+		Fmatrix& M7 = Bones[S->matrix].mRenderTransform;
+		M7.transform_tiny(D->P, S->P);
+		M7.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+	}
+
+	// The end part
+	vertBoned1W* E2 = V + vCount;
+	for (; S != E2; )
+	{
+		Fmatrix& M = Bones[S->matrix].mRenderTransform;
+		M.transform_tiny(D->P, S->P);
+		M.transform_dir(D->N, S->N);
+		D->u = S->u;
+		D->v = S->v;
+		S++; D++;
+	}
+}
+
+void xrSkin2W(vertRender* D,
+	vertBoned2W* S,
+	u32				vCount,
+	CBoneInstance* Bones)
+{
+	// Prepare
+	int U_Count = vCount;
+	vertBoned2W* V = S;
+	vertBoned2W* E = V + U_Count;
+	Fvector			P0, N0, P1, N1;
+
+	// NON-Unrolled loop
+	for (; S != E; ) {
+		if (S->matrix1 != S->matrix0) {
+			Fmatrix& M0 = Bones[S->matrix0].mRenderTransform;
+			Fmatrix& M1 = Bones[S->matrix1].mRenderTransform;
+			M0.transform_tiny(P0, S->P);
+			M0.transform_dir(N0, S->N);
+			M1.transform_tiny(P1, S->P);
+			M1.transform_dir(N1, S->N);
+			D->P.lerp(P0, P1, S->w);
+			D->N.lerp(N0, N1, S->w);
+			D->u = S->u;
+			D->v = S->v;
+		}
+		else {
+			Fmatrix& M0 = Bones[S->matrix0].mRenderTransform;
+			M0.transform_tiny(D->P, S->P);
+			M0.transform_dir(D->N, S->N);
+			D->u = S->u;
+			D->v = S->v;
+		}
+		S++; D++;
+	}
+}
+
 static	shared_str	sbones_array;
 
 #pragma pack(push,1)
@@ -220,14 +340,14 @@ void CSkeletonX::_Render_soft	(ref_geom& hGeom, u32 vCount, u32 iOffset, u32 pCo
 		Device.Statistic.RenderDUMP_SKIN.Begin	();
 		if (*Vertices1W)
 		{
-			PSGP.skin1W(
+			xrSkin1W(
 				Dest,										// dest
 				*Vertices1W,								// source
 				vCount,										// count
 				Parent->bone_instances						// bones
 				);
 		} else {
-			PSGP.skin2W(
+			xrSkin2W(
 				Dest,										// dest
 				*Vertices2W,								// source
 				vCount,										// count
