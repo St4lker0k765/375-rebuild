@@ -34,11 +34,6 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(IRender_Visual *pVisual, Fve
 	if (pVisual->vis.marker	==	RI.marker)	return	;
 	pVisual->vis.marker		=	RI.marker			;
 
-#if RENDER==R_R1
-	if (RI.o.vis_intersect &&	(pVisual->vis.accept_frame!=Device.dwFrame))	return;
-	pVisual->vis.accept_frame	=	Device.dwFrame	;
-#endif
-
 	float distSQ			;
 	float SSA				=	CalcSSA		(distSQ,Center,pVisual);
 	if (SSA<=r_ssaDISCARD)		return;
@@ -78,9 +73,6 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(IRender_Visual *pVisual, Fve
 	}
 
 	// Shadows registering
-#if RENDER==R_R1
-	RI.L_Shadows->add_element	(item);
-#endif
 	if (RI.val_bInvisible)		return;
 
 	// strict-sorting selection
@@ -94,7 +86,6 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(IRender_Visual *pVisual, Fve
 		return;
 	}
 
-#if RENDER==R_R2
 	// Emissive geometry should be marked and R2 special-cases it
 	// a) Allow to skeep already lit pixels
 	// b) Allow to make them 100% lit and really bright
@@ -108,7 +99,6 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(IRender_Visual *pVisual, Fve
 		N->val.Matrix			= *RI.val_pTransform;
 		N->val.se				= &*pVisual->shader->E[4];		// 4=L_special
 	}
-#endif
 
 	// the most common node
 	SPass&						pass	= *sh->passes.front	();
@@ -134,14 +124,12 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(IRender_Visual *pVisual, Fve
 	if (SSA>Nvs->val.ssa)		{ Nvs->val.ssa = SSA;
 	} } } } }
 
-#if RENDER==R_R2
 	if (val_recorder)			{
 		Fbox3		temp		;
 		Fmatrix&	xf			= *RI.val_pTransform;
 		temp.xform	(pVisual->vis.box,xf);
 		val_recorder->push_back	(temp);
 	}
-#endif
 }
 
 void R_dsgraph_structure::r_dsgraph_insert_static	(IRender_Visual *pVisual)
@@ -150,11 +138,6 @@ void R_dsgraph_structure::r_dsgraph_insert_static	(IRender_Visual *pVisual)
 
 	if (pVisual->vis.marker		==	RI.marker)	return	;
 	pVisual->vis.marker			=	RI.marker			;
-
-#if RENDER==R_R1
-	if (RI.o.vis_intersect &&	(pVisual->vis.accept_frame!=Device.dwFrame))	return;
-	pVisual->vis.accept_frame	=	Device.dwFrame		;
-#endif
 
 	float distSQ;
 	float SSA					=	CalcSSA		(distSQ,pVisual->vis.sphere.P,pVisual);
@@ -189,7 +172,6 @@ void R_dsgraph_structure::r_dsgraph_insert_static	(IRender_Visual *pVisual)
 		return;
 	}
 
-#if RENDER==R_R2
 	// Emissive geometry should be marked and R2 special-cases it
 	// a) Allow to skeep already lit pixels
 	// b) Allow to make them 100% lit and really bright
@@ -203,7 +185,6 @@ void R_dsgraph_structure::r_dsgraph_insert_static	(IRender_Visual *pVisual)
 		N->val.Matrix			= Fidentity;
 		N->val.se				= &*pVisual->shader->E[4];		// 4=L_special
 	}
-#endif
 
 	if	(val_feedback && counter_S==val_feedback_breakp)	val_feedback->rfeedback_static(pVisual);
 
@@ -232,11 +213,9 @@ void R_dsgraph_structure::r_dsgraph_insert_static	(IRender_Visual *pVisual)
 	if (SSA>Nvs->val.ssa)		{ Nvs->val.ssa = SSA;
 	} } } } }
 
-#if RENDER==R_R2
 	if (val_recorder)			{
 		val_recorder->push_back	(pVisual->vis.box	);
 	}
-#endif
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

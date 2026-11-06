@@ -399,11 +399,9 @@ void	R_dsgraph_structure::r_dsgraph_render_sorted	()
 // strict-sorted render
 void	R_dsgraph_structure::r_dsgraph_render_emissive	()
 {
-#if	RENDER==R_R2
 	// Sorted (back to front)
 	mapEmissive.traverseLR	(sorted_L1);
 	mapEmissive.clear		();
-#endif
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -481,10 +479,8 @@ void	R_dsgraph_structure::r_dsgraph_render_subspace	(IRender_Sector* _sector, CF
 				renderable->renderable_Render	();
 			}
 		}
-#if RENDER==R_R2
 		if (g_pGameLevel && RImplementation.phase == CRender::PHASE_SMAP)
 			g_pGameLevel->pHUD->Render_Actor_Shadow(); // R2 actor Shadow
-#endif
 	}
 
 	// Restore

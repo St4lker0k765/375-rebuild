@@ -43,6 +43,7 @@ namespace CDB
 				u32		sector:16;			// 
 			};
 		};
+		u32 dummy2;
 	public:
 		IC u32			IDvert	(u32 ID)		{ return verts[ID];	}
 	};

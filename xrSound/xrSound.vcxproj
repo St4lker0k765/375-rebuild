@@ -277,7 +277,6 @@
     <ClInclude Include="SoundRender_TargetD.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="xrCDB.h" />
-    <ClInclude Include="xrLevel.h" />
     <ClInclude Include="xr_cda.h" />
     <ClInclude Include="xr_streamsnd.h" />
   </ItemGroup>

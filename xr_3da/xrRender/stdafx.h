@@ -13,10 +13,6 @@
 #pragma warning( 4 : 4018 )
 #pragma warning( 4 : 4244 )
 
-#define		R_R1	1
-#define		R_R2	2
-#define		RENDER	R_R2
-
 #include "..\resourcemanager.h"
 #include "..\vis_common.h"
 #include "..\render.h"

@@ -26,7 +26,6 @@
 
 #include "ShootingObject.h"
 
-//#include "LevelFogOfWar.h"
 #include "Level_Bullet_Manager.h"
 
 #include "script_process.h"
@@ -82,10 +81,6 @@ CLevel::CLevel():IPureClient(Device.GetTimerGlobal())
 	eEnvironment				= Engine.Event.Handler_Attach	("LEVEL:Environment",this);
 
 	eEntitySpawn				= Engine.Event.Handler_Attach	("LEVEL:spawn",this);
-
-	//by Dandy
-//	m_pFogOfWar					= NULL;
-//	m_pFogOfWar					= xr_new<CFogOfWar>();
 
 	m_pBulletManager			= xr_new<CBulletManager>();
 	m_map_manager				= xr_new<CMapManager>();
@@ -179,9 +174,6 @@ CLevel::~CLevel()
 	xr_delete					(game_events);
 
 
-	//by Dandy
-	//destroy fog of war
-//	xr_delete					(m_pFogOfWar);
 	//destroy bullet manager
 	xr_delete					(m_pBulletManager);
 	//-----------------------------------------------------------

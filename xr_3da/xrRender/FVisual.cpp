@@ -59,7 +59,6 @@ void Fvisual::Load		(const char* N, IReader *data, u32 dwFlags)
 		pIndices			= RImplementation.getIB		(ID);
 		pIndices->AddRef	();
 #endif
-#if RENDER==R_R2
 		// check for fast-vertices
 		if (data->find_chunk(OGF_FASTPATH))		{
 			destructor<IReader>	geomdef	(data->open_chunk		(OGF_FASTPATH));
@@ -88,7 +87,6 @@ void Fvisual::Load		(const char* N, IReader *data, u32 dwFlags)
 			// geom
 			m_fast->geom.create			(fmt,m_fast->pVertices,m_fast->pIndices);
 		}
-#endif
 	}
 
 	// read vertices
@@ -156,7 +154,6 @@ void Fvisual::Load		(const char* N, IReader *data, u32 dwFlags)
 
 void Fvisual::Render		(float LOD)
 {
-#if RENDER==R_R2
 	if (m_fast && RImplementation.phase==CRender::PHASE_SMAP)
 	{
 		RCache.set_Geometry		(m_fast->geom);
@@ -165,10 +162,6 @@ void Fvisual::Render		(float LOD)
 		RCache.set_Geometry		(geom);
 		RCache.Render			(D3DPT_TRIANGLELIST,vBase,0,vCount,iBase,dwPrimitives);
 	}
-#else
-	RCache.set_Geometry		(geom);
-	RCache.Render			(D3DPT_TRIANGLELIST,vBase,0,vCount,iBase,dwPrimitives);
-#endif
 }
 
 #define PCOPY(a)	a = pFrom->a

@@ -48,9 +48,6 @@
     <ClInclude Include="xrCDB.h">
       <Filter>Kernel</Filter>
     </ClInclude>
-    <ClInclude Include="xrLevel.h">
-      <Filter>Kernel</Filter>
-    </ClInclude>
     <ClInclude Include="SoundRender_Core.h">
       <Filter>Core</Filter>
     </ClInclude>

@@ -33,11 +33,7 @@ CROS_impl::CROS_impl	()
 	sun_value			= 0.2f;
 	sun_smooth			= 0.2f;
 
-#if RENDER==R_R1
-	MODE				= IRender_ObjectSpecific::TRACE_ALL											;
-#else
 	MODE				= IRender_ObjectSpecific::TRACE_HEMI + IRender_ObjectSpecific::TRACE_SUN	;
-#endif
 }
 
 void	CROS_impl::add		(light* source)
@@ -116,11 +112,7 @@ void	CROS_impl::update	(IRenderable* O)
 			position.mad(direction,0.25f*radius);
 
 	// sun-tracing
-#if RENDER==R_R1
-	light*	sun		=		(light*)RImplementation.L_DB->sun_original._get()	;
-#else
 	light*	sun		=		(light*)RImplementation.Lights.sun_adapted._get()	;
-#endif
 	if	(MODE & IRender_ObjectSpecific::TRACE_SUN)	{
 		if  (--result_sun	< 0)	{
 			result_sun		+=		::Random.randI(lt_hemisamples/4,lt_hemisamples/2)	;

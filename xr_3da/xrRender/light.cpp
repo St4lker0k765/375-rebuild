@@ -17,7 +17,6 @@ light::light		(void)	: ISpatial(g_SpatialSpace)
 
 	frame_render	= 0;
 
-#if RENDER==R_R2
 	ZeroMemory		(omnipart,sizeof(omnipart));
 	s_spot			= NULL;
 	s_point			= NULL;
@@ -26,18 +25,14 @@ light::light		(void)	: ISpatial(g_SpatialSpace)
 	vis.query_order	= 0;
 	vis.visible		= true;
 	vis.pending		= false;
-#endif
 }
 
 light::~light	()
 {
-#if RENDER==R_R2 
 	for (int f=0; f<6; f++)	xr_delete(omnipart[f]);
-#endif
 	set_active	(false);
 }
 
-#if RENDER==R_R2 
 void light::set_texture		(LPCSTR name)
 {
 	if ((0==name) || (0==name[0]))
@@ -53,13 +48,6 @@ void light::set_texture		(LPCSTR name)
 	s_spot.create			(RImplementation.Target->b_accum_spot,strconcat(temp,"r2\\accum_spot_",name),name);
 	s_spot.create			(RImplementation.Target->b_accum_spot,strconcat(temp,"r2\\accum_spot_",name),name);
 }
-#endif
-
-#if RENDER==R_R1
-void light::set_texture		(LPCSTR name)
-{
-}
-#endif
 
 void light::set_active		(bool a)
 {
@@ -144,10 +132,8 @@ void	light::spatial_move			()
 	// update spatial DB
 	ISpatial::spatial_move			();
 
-#if RENDER==R_R2
 	if (flags.bActive) gi_generate	();
 	svis.invalidate					();
-#endif
 }
 
 vis_data&	light::get_homdata		()
@@ -165,7 +151,6 @@ Fvector	light::spatial_sector_point	()
 }
 
 //////////////////////////////////////////////////////////////////////////
-#if RENDER==R_R2
 // Xforms
 void	light::xform_calc			()
 {
@@ -257,4 +242,3 @@ void	light::_export		(light_Package& package)
 	}
 }
 
-#endif

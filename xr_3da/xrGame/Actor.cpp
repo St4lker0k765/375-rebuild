@@ -45,7 +45,6 @@
 #include "ai_space.h"
 
 #include "trade.h"
-//#include "LevelFogOfWar.h"
 
 #include "inventory.h"
 
@@ -759,13 +758,6 @@ void CActor::UpdateCL	()
 	//. *** dbgmp end
 
 	if (g_Alive()) 
-	{
-		//update the fog of war
-//		Level().FogOfWar().UpdateFog(Position(), CFogOfWar::ACTOR_FOG_REMOVE_RADIUS);
-		//-------------------------------------------------------------------------------
-
-		//if(m_PhysicMovementControl->CharacterExist())
-		//			m_PhysicMovementControl->InterpolatePosition(Position());
 		//обновить информацию о предметах лежащих рядом с актером
 		PickupModeUpdate	();	
 

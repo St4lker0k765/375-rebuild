@@ -40,9 +40,7 @@ public:
 	R_dsgraph::mapLOD_T											mapLOD;
 	R_dsgraph::mapSorted_T										mapDistort;
 
-#if RENDER==R_R2
 	R_dsgraph::mapSorted_T										mapEmissive;
-#endif
 
 	// Runtime structures 
 	xr_vector<R_dsgraph::mapNormalVS::TNode*>					nrmVS;

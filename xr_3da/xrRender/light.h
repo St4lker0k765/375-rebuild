@@ -1,11 +1,9 @@
 #pragma once
 
 #include "..\ispatial.h"
-#if RENDER==R_R2
-	#include "light_package.h"
-	#include "light_smapvis.h"
-	#include "light_GI.h"
-#endif
+#include "light_package.h"
+#include "light_smapvis.h"
+#include "light_GI.h"
 
 class	light		:	public IRender_Light, public ISpatial
 {
@@ -26,7 +24,6 @@ public:
 	vis_data		hom			;
 	u32				frame_render;
 
-#if RENDER==R_R2
 	light*						omnipart	[6]	;
 	xr_vector<light_indirect>	indirect		;
 	u32							indirect_photons;
@@ -71,7 +68,6 @@ public:
 			BOOL						transluent	;
 		}	S;
 	}	X;
-#endif
 
 public:
 	virtual void	set_type				(LT type)						{ flags.type = type;		}
@@ -96,13 +92,11 @@ public:
 	virtual IRender_Light*	dcast_Light		()	{ return this; }
 
 	vis_data&		get_homdata				();
-#if RENDER==R_R2
 	void			gi_generate				();
 	void			xform_calc				();
 	void			vis_prepare				();
 	void			vis_update				();
 	void			_export 					(light_Package& dest);
-#endif
 
 	light();
 	virtual ~light();
