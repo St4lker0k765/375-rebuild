@@ -205,14 +205,6 @@ public:
 	// car usage
 	/////////////////////////////////////////////////////////
 public:
-	void					detach_Vehicle			();
-	void					steer_Vehicle			(float angle);
-	void					attach_Vehicle			(CHolderCustom* vehicle);
-protected:
-	CHolderCustom*			m_holder;
-	u16						m_holderID;
-	bool					use_Vehicle				(CPhysicsShellHolder* object);
-	bool					use_MountedWeapon		(CPhysicsShellHolder* object);
 	void					ActorUse				();
 
 
@@ -572,7 +564,6 @@ private:
 	/////////////////////////////////////////
 	// DEBUG INFO
 protected:
-		CStatGraph				*pStatGraph;
 		u32						m_dwStartKickTime;
 
 		shared_str				m_DefaultVisualOutfit;

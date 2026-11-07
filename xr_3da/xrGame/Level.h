@@ -9,7 +9,6 @@
 #include "../igame_level.h"
 #include "../../xrNetServer/NET_Client.h"
 #include "script_export_space.h"
-#include "StatGraph.h"
 #include "xrMessages.h"
 
 class	CHUDManager;
@@ -33,7 +32,6 @@ const int maxRP					= 64;
 const int maxTeams				= 32;
 
 class CBulletManager;
-class CMapManager;
 
 class CLevel					: public IGame_Level, public IPureClient
 {
@@ -67,8 +65,6 @@ protected:
 	EVENT						eEnvironment;
 	EVENT						eEntitySpawn;
 
-	CStatGraph					*pStatGraph;
-	
 public:
 	
 #ifdef DEBUG
@@ -218,10 +214,6 @@ public:
 	float				GetGameDayTimeSec();
 	float				GetEnvironmentGameDayTimeSec();
 
-protected:	
-	CMapManager *			m_map_manager;
-public:
-	CMapManager&			MapManager					() {return *m_map_manager;}
 	//работа с пулями
 protected:	
 	CBulletManager*		m_pBulletManager;

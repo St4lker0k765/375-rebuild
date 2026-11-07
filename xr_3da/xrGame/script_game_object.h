@@ -66,7 +66,6 @@ class CAbstractVertexEvaluator;
 class CCoverPoint;
 class CScriptIniFile;
 class CPhysicsShell;
-class CHelicopter;
 class CHangingLamp;
 class CHolderCustom;
 struct ScriptCallbackInfo;
@@ -177,9 +176,6 @@ public:
 
 			template <typename T>
 			IC		T	*motivation_action_manager();
-
-	// CProjector
-			Fvector				GetCurrentDirection		();
 
 	//////////////////////////////////////////////////////////////////////////
 	// CInventoryOwner
@@ -391,8 +387,6 @@ public:
 			void				SetAnomalyPower			(float p);
 			
 	
-			// HELICOPTER
-			CHelicopter*		get_helicopter			();
 			//LAMP
 			CHangingLamp*		get_hanging_lamp		();
 			CHolderCustom*		get_custom_holder		();

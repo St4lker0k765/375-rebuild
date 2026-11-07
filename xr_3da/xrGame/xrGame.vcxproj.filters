@@ -1255,9 +1255,6 @@
     <Filter Include="Core\Client\Level">
       <UniqueIdentifier>{528a968b-a889-4a53-ba58-6acb06b051a9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Level\Map Fog Of War">
-      <UniqueIdentifier>{dfb593bc-c963-4d74-bcdd-70e663f58f17}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Level\Bullet Manager">
       <UniqueIdentifier>{45606f56-e819-4349-8ba0-39053e11c81b}</UniqueIdentifier>
     </Filter>
@@ -1513,50 +1510,17 @@
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Devices">
       <UniqueIdentifier>{9da5e09b-65a8-44b7-809e-f1e73f7c020a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Devices\Detectors">
-      <UniqueIdentifier>{d1f27757-b15c-4c29-ae35-922e63ba50b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Devices\Detectors\Simple Detector">
-      <UniqueIdentifier>{a0e66954-2e8c-43fe-95f8-34ee3e4cdf13}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Devices\Torch">
       <UniqueIdentifier>{d7796a3a-649f-4fd1-a113-646b5724b734}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Devices\ArtifactMerger">
-      <UniqueIdentifier>{611b30ff-a648-4ed4-9cec-1f788ecf2f56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\PDA &amp; information">
-      <UniqueIdentifier>{43e848ef-584f-4057-a78f-1d918130847e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs">
       <UniqueIdentifier>{a384d92a-3e43-4b43-99ff-af2a7be737d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Outfit">
-      <UniqueIdentifier>{9fbe6add-ebb3-465b-93b2-a164cc153b28}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Documents">
-      <UniqueIdentifier>{b2eca156-4400-4a21-b35a-f867c353fdd1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\HudItem">
       <UniqueIdentifier>{a3a459f8-e004-4e95-899f-b927e71d4da2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Explosives">
       <UniqueIdentifier>{18d565ad-700a-49d2-b7f1-af3dc2f86294}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Vehicles">
-      <UniqueIdentifier>{ca7bcc55-3416-4e4b-8d83-aa94dd3cbc9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Vehicles\helicopter">
-      <UniqueIdentifier>{39265266-f22b-4d68-94a1-ea4ee13b21cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Vehicles\_helicopter">
-      <UniqueIdentifier>{ac6ab143-214b-4404-92dd-68d45e04a454}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Vehicles\Car">
-      <UniqueIdentifier>{ec3741a7-5388-4735-aca5-3b084b6e3fb9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Vehicles\heli">
-      <UniqueIdentifier>{cfbaed0b-e13f-4b8b-8304-f190d5379b38}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\Zones">
       <UniqueIdentifier>{b3ce64cc-3614-4ce7-8828-b053b3f28174}</UniqueIdentifier>
@@ -1588,9 +1552,6 @@
     <Filter Include="Core\Client\Objects\Zones\ScriptZone">
       <UniqueIdentifier>{fc6e21d1-81da-40aa-b1fe-3ab46a43d721}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\Zones\TorridZone">
-      <UniqueIdentifier>{21f1a3f2-9b33-4b4b-a7cf-a999a962fd82}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Zones\SpaceRestrictor">
       <UniqueIdentifier>{21ec8e13-d1d0-4d0d-84b7-a78186cef375}</UniqueIdentifier>
     </Filter>
@@ -1605,12 +1566,6 @@
     </Filter>
     <Filter Include="Core\Client\Objects\_lamp">
       <UniqueIdentifier>{a59114a4-4a17-4b59-ab10-e1ed91fa8536}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Searchlight">
-      <UniqueIdentifier>{e745edc7-4836-4739-98c9-235757011949}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Info &amp; Dialogs">
-      <UniqueIdentifier>{64370367-f301-4599-8637-e1b7a6a6a381}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\GamePhysics">
       <UniqueIdentifier>{15dd861c-1159-44b4-9ef3-7f4b70496845}</UniqueIdentifier>
@@ -1644,12 +1599,6 @@
     </Filter>
     <Filter Include="Core\Client\Particles">
       <UniqueIdentifier>{26393fc0-752e-40b1-bddc-ac8ea896495e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Spectator">
-      <UniqueIdentifier>{957c6156-a60c-4486-9131-3ca6b96ffe48}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\StatGraph">
-      <UniqueIdentifier>{307269d7-4e66-470d-adc3-1222fc3dafd8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Common">
       <UniqueIdentifier>{20d8cc68-f788-49dc-b57a-ba701c1c46ef}</UniqueIdentifier>
@@ -1725,15 +1674,6 @@
     </Filter>
     <Filter Include="Core\Server\Games\server\single">
       <UniqueIdentifier>{f242ad25-a1fb-4027-9ec4-9bc68dea0ae5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Server\GameSpy">
-      <UniqueIdentifier>{c2330833-c838-4d89-a15e-1515ff0a76d1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Server\GameSpy\QR2">
-      <UniqueIdentifier>{0ed5cdac-f7f1-4c77-a8da-5077f6170ea3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Server\GameSpy\CDKey">
-      <UniqueIdentifier>{dea7f223-1d4a-43ea-9c24-f22a393f22e7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Server\ID_Generator">
       <UniqueIdentifier>{2edd75b5-2815-4d4c-862e-81bdfcddd267}</UniqueIdentifier>
@@ -1891,9 +1831,6 @@
     <Filter Include="UI\UIWindows\ListBox\Ex">
       <UniqueIdentifier>{8f0a0b51-5065-49ad-ab2e-05c0a3808911}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\UIWindows\ListBox\Multiplayer_list_item">
-      <UniqueIdentifier>{4baf0304-b451-4a60-ab0e-b3531f25253f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI\UIWindows\ListBox\Save_Load_list_item">
       <UniqueIdentifier>{30b7b62f-115a-4b95-ae14-ca45020c41b9}</UniqueIdentifier>
     </Filter>
@@ -1929,9 +1866,6 @@
     </Filter>
     <Filter Include="UI\HUD">
       <UniqueIdentifier>{6f2b9445-f7e8-4ea2-943e-78792069cc60}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Info &amp; Dialogs\map">
-      <UniqueIdentifier>{d349c5fb-60e1-48b2-843d-bc7b5eadef0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -4317,9 +4251,6 @@
     <ClInclude Include="LevelGameDef.h">
       <Filter>Core\Client\Level</Filter>
     </ClInclude>
-    <ClInclude Include="LevelFogOfWar.h">
-      <Filter>Core\Client\Level\Map Fog Of War</Filter>
-    </ClInclude>
     <ClInclude Include="Level_Bullet_Manager.h">
       <Filter>Core\Client\Level\Bullet Manager</Filter>
     </ClInclude>
@@ -4671,26 +4602,8 @@
     <ClInclude Include="GalantineArtifact.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\GalantineArtifact</Filter>
     </ClInclude>
-    <ClInclude Include="CustomDetector.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\Detectors</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleDetector.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\Detectors\Simple Detector</Filter>
-    </ClInclude>
     <ClInclude Include="Torch.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\Torch</Filter>
-    </ClInclude>
-    <ClInclude Include="ArtifactMerger.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\ArtifactMerger</Filter>
-    </ClInclude>
-    <ClInclude Include="PDA.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\PDA &amp; information</Filter>
-    </ClInclude>
-    <ClInclude Include="pda_space.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\PDA &amp; information</Filter>
-    </ClInclude>
-    <ClInclude Include="PdaMsg.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\PDA &amp; information</Filter>
     </ClInclude>
     <ClInclude Include="antirad.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
@@ -4701,29 +4614,8 @@
     <ClInclude Include="FoodItem.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
     </ClInclude>
-    <ClInclude Include="ItemHealth.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
-    </ClInclude>
     <ClInclude Include="medkit.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
-    </ClInclude>
-    <ClInclude Include="CustomOutfit.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClInclude>
-    <ClInclude Include="ExoOutfit.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClInclude>
-    <ClInclude Include="MilitaryOutfit.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClInclude>
-    <ClInclude Include="ScientificOutfit.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClInclude>
-    <ClInclude Include="StalkerOutfit.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClInclude>
-    <ClInclude Include="InfoDocument.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Documents</Filter>
     </ClInclude>
     <ClInclude Include="hud_item_object.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\HudItem</Filter>
@@ -4736,27 +4628,6 @@
     </ClInclude>
     <ClInclude Include="ExplosiveItem.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Explosives</Filter>
-    </ClInclude>
-    <ClInclude Include="vehicle_helicopter.h">
-      <Filter>Core\Client\Objects\Vehicles\helicopter</Filter>
-    </ClInclude>
-    <ClInclude Include="vehicle_helicopter_inline.h">
-      <Filter>Core\Client\Objects\Vehicles\helicopter</Filter>
-    </ClInclude>
-    <ClInclude Include="Flyer.h">
-      <Filter>Core\Client\Objects\Vehicles\_helicopter</Filter>
-    </ClInclude>
-    <ClInclude Include="Car.h">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClInclude>
-    <ClInclude Include="CarDamageParticles.h">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClInclude>
-    <ClInclude Include="CarLights.h">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClInclude>
-    <ClInclude Include="helicopter.h">
-      <Filter>Core\Client\Objects\Vehicles\heli</Filter>
     </ClInclude>
     <ClInclude Include="CustomZone.h">
       <Filter>Core\Client\Objects\Zones\CustomZone</Filter>
@@ -4782,9 +4653,6 @@
     <ClInclude Include="script_zone.h">
       <Filter>Core\Client\Objects\Zones\ScriptZone</Filter>
     </ClInclude>
-    <ClInclude Include="TorridZone.h">
-      <Filter>Core\Client\Objects\Zones\TorridZone</Filter>
-    </ClInclude>
     <ClInclude Include="space_restrictor.h">
       <Filter>Core\Client\Objects\Zones\SpaceRestrictor</Filter>
     </ClInclude>
@@ -4802,24 +4670,6 @@
     </ClInclude>
     <ClInclude Include="HangingLamp.h">
       <Filter>Core\Client\Objects\_lamp</Filter>
-    </ClInclude>
-    <ClInclude Include="searchlight.h">
-      <Filter>Core\Client\Objects\Searchlight</Filter>
-    </ClInclude>
-    <ClInclude Include="xml_str_id_loader.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="map_location.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
-    </ClInclude>
-    <ClInclude Include="map_location_defs.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
-    </ClInclude>
-    <ClInclude Include="map_manager.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
-    </ClInclude>
-    <ClInclude Include="map_spot.h">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
     </ClInclude>
     <ClInclude Include="PHSkeleton.h">
       <Filter>Core\Client\Objects\GamePhysics\PHSkeleton</Filter>
@@ -4856,12 +4706,6 @@
     </ClInclude>
     <ClInclude Include="PSObject.h">
       <Filter>Core\Client\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="Spectator.h">
-      <Filter>Core\Client\Spectator</Filter>
-    </ClInclude>
-    <ClInclude Include="StatGraph.h">
-      <Filter>Core\Client\StatGraph</Filter>
     </ClInclude>
     <ClInclude Include="date_time.h">
       <Filter>Core\Common\DateTime</Filter>
@@ -5021,33 +4865,6 @@
     </ClInclude>
     <ClInclude Include="game_sv_single.h">
       <Filter>Core\Server\Games\server\single</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\available.h">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\gsiDebug.h">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\md5.h">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\nonport.h">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\stringutil.h">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\Qr2\qr2.h">
-      <Filter>Core\Server\GameSpy\QR2</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\Qr2\qr2regkeys.h">
-      <Filter>Core\Server\GameSpy\QR2</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\CDKey\gcdkeyc.h">
-      <Filter>Core\Server\GameSpy\CDKey</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSpy\CDKey\gcdkeys.h">
-      <Filter>Core\Server\GameSpy\CDKey</Filter>
     </ClInclude>
     <ClInclude Include="id_generator.h">
       <Filter>Core\Server\ID_Generator</Filter>
@@ -5349,9 +5166,6 @@
     <ClInclude Include="ui\UIXmlInit.h">
       <Filter>UI\UIWindows\XML</Filter>
     </ClInclude>
-    <ClInclude Include="ui\UIInteractiveListItem.h">
-      <Filter>UI\UIWindows\ListBox</Filter>
-    </ClInclude>
     <ClInclude Include="ui\UIListItem.h">
       <Filter>UI\UIWindows\ListBox</Filter>
     </ClInclude>
@@ -5366,9 +5180,6 @@
     </ClInclude>
     <ClInclude Include="ui\UIListWndEx.h">
       <Filter>UI\UIWindows\ListBox\Ex</Filter>
-    </ClInclude>
-    <ClInclude Include="ui\UIListItemMP.h">
-      <Filter>UI\UIWindows\ListBox\Multiplayer_list_item</Filter>
     </ClInclude>
     <ClInclude Include="ui\UIListItemPair.h">
       <Filter>UI\UIWindows\ListBox\Save_Load_list_item</Filter>
@@ -6680,9 +6491,6 @@
     <ClCompile Include="LevelGameDef.cpp">
       <Filter>Core\Client\Level</Filter>
     </ClCompile>
-    <ClCompile Include="LevelFogOfWar.cpp">
-      <Filter>Core\Client\Level\Map Fog Of War</Filter>
-    </ClCompile>
     <ClCompile Include="Level_Bullet_Manager.cpp">
       <Filter>Core\Client\Level\Bullet Manager</Filter>
     </ClCompile>
@@ -6756,9 +6564,6 @@
       <Filter>Core\Client\Objects\_actor</Filter>
     </ClCompile>
     <ClCompile Include="ActorMountedWeapon.cpp">
-      <Filter>Core\Client\Objects\_actor</Filter>
-    </ClCompile>
-    <ClCompile Include="ActorVehicle.cpp">
       <Filter>Core\Client\Objects\_actor</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
@@ -7019,26 +6824,8 @@
     <ClCompile Include="GalantineArtifact.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\GalantineArtifact</Filter>
     </ClCompile>
-    <ClCompile Include="CustomDetector.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\Detectors</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleDetector.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\Detectors\Simple Detector</Filter>
-    </ClCompile>
     <ClCompile Include="Torch.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\Torch</Filter>
-    </ClCompile>
-    <ClCompile Include="artifact_merger_script.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\ArtifactMerger</Filter>
-    </ClCompile>
-    <ClCompile Include="ArtifactMerger.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\ArtifactMerger</Filter>
-    </ClCompile>
-    <ClCompile Include="ArtifactMerger2.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\ArtifactMerger</Filter>
-    </ClCompile>
-    <ClCompile Include="PDA.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\PDA &amp; information</Filter>
     </ClCompile>
     <ClCompile Include="antirad.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
@@ -7049,29 +6836,8 @@
     <ClCompile Include="FoodItem.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
     </ClCompile>
-    <ClCompile Include="ItemHealth.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
-    </ClCompile>
     <ClCompile Include="medkit.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomOutfit.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClCompile>
-    <ClCompile Include="ExoOutfit.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClCompile>
-    <ClCompile Include="MilitaryOutfit.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClCompile>
-    <ClCompile Include="ScientificOutfit.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClCompile>
-    <ClCompile Include="StalkerOutfit.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Outfit</Filter>
-    </ClCompile>
-    <ClCompile Include="InfoDocument.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Documents</Filter>
     </ClCompile>
     <ClCompile Include="hud_item_object.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\HudItem</Filter>
@@ -7090,72 +6856,6 @@
     </ClCompile>
     <ClCompile Include="ExplosiveScript.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Explosives</Filter>
-    </ClCompile>
-    <ClCompile Include="vehicle_helicopter.cpp">
-      <Filter>Core\Client\Objects\Vehicles\helicopter</Filter>
-    </ClCompile>
-    <ClCompile Include="vehicle_helicopter_cameras.cpp">
-      <Filter>Core\Client\Objects\Vehicles\helicopter</Filter>
-    </ClCompile>
-    <ClCompile Include="vehicle_helicopter_input.cpp">
-      <Filter>Core\Client\Objects\Vehicles\helicopter</Filter>
-    </ClCompile>
-    <ClCompile Include="vehicle_helicopter_movement.cpp">
-      <Filter>Core\Client\Objects\Vehicles\helicopter</Filter>
-    </ClCompile>
-    <ClCompile Include="Flyer.cpp">
-      <Filter>Core\Client\Objects\Vehicles\_helicopter</Filter>
-    </ClCompile>
-    <ClCompile Include="FlyerCameras.cpp">
-      <Filter>Core\Client\Objects\Vehicles\_helicopter</Filter>
-    </ClCompile>
-    <ClCompile Include="FlyerInput.cpp">
-      <Filter>Core\Client\Objects\Vehicles\_helicopter</Filter>
-    </ClCompile>
-    <ClCompile Include="Car.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarCameras.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarDamageParticles.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarDoors.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarExhaust.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarInput.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarLights.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarScript.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarSound.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="CarWheels.cpp">
-      <Filter>Core\Client\Objects\Vehicles\Car</Filter>
-    </ClCompile>
-    <ClCompile Include="Helicopter.cpp">
-      <Filter>Core\Client\Objects\Vehicles\heli</Filter>
-    </ClCompile>
-    <ClCompile Include="Helicopter2.cpp">
-      <Filter>Core\Client\Objects\Vehicles\heli</Filter>
-    </ClCompile>
-    <ClCompile Include="helicopter_script.cpp">
-      <Filter>Core\Client\Objects\Vehicles\heli</Filter>
-    </ClCompile>
-    <ClCompile Include="HelicopterMovementManager.cpp">
-      <Filter>Core\Client\Objects\Vehicles\heli</Filter>
-    </ClCompile>
-    <ClCompile Include="HelicopterWeapon.cpp">
-      <Filter>Core\Client\Objects\Vehicles\heli</Filter>
     </ClCompile>
     <ClCompile Include="CustomZone.cpp">
       <Filter>Core\Client\Objects\Zones\CustomZone</Filter>
@@ -7184,9 +6884,6 @@
     <ClCompile Include="script_zone_script.cpp">
       <Filter>Core\Client\Objects\Zones\ScriptZone</Filter>
     </ClCompile>
-    <ClCompile Include="TorridZone.cpp">
-      <Filter>Core\Client\Objects\Zones\TorridZone</Filter>
-    </ClCompile>
     <ClCompile Include="space_restrictor.cpp">
       <Filter>Core\Client\Objects\Zones\SpaceRestrictor</Filter>
     </ClCompile>
@@ -7201,18 +6898,6 @@
     </ClCompile>
     <ClCompile Include="HangingLamp.cpp">
       <Filter>Core\Client\Objects\_lamp</Filter>
-    </ClCompile>
-    <ClCompile Include="searchlight.cpp">
-      <Filter>Core\Client\Objects\Searchlight</Filter>
-    </ClCompile>
-    <ClCompile Include="map_location.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
-    </ClCompile>
-    <ClCompile Include="map_manager.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
-    </ClCompile>
-    <ClCompile Include="map_spot.cpp">
-      <Filter>Core\Client\Objects\Info &amp; Dialogs\map</Filter>
     </ClCompile>
     <ClCompile Include="PHSkeleton.cpp">
       <Filter>Core\Client\Objects\GamePhysics\PHSkeleton</Filter>
@@ -7252,12 +6937,6 @@
     </ClCompile>
     <ClCompile Include="PSObject.cpp">
       <Filter>Core\Client\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="Spectator.cpp">
-      <Filter>Core\Client\Spectator</Filter>
-    </ClCompile>
-    <ClCompile Include="StatGraph.cpp">
-      <Filter>Core\Client\StatGraph</Filter>
     </ClCompile>
     <ClCompile Include="xrGame.cpp">
       <Filter>Core\Common</Filter>
@@ -7330,33 +7009,6 @@
     </ClCompile>
     <ClCompile Include="game_sv_single.cpp">
       <Filter>Core\Server\Games\server\single</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\available.c">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\gsiDebug.c">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\md5c.c">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\nonport.c">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\stringutil.c">
-      <Filter>Core\Server\GameSpy</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\Qr2\qr2.c">
-      <Filter>Core\Server\GameSpy\QR2</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\Qr2\qr2regkeys.c">
-      <Filter>Core\Server\GameSpy\QR2</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\CDKey\gcdkeyc.c">
-      <Filter>Core\Server\GameSpy\CDKey</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSpy\CDKey\gcdkeys.c">
-      <Filter>Core\Server\GameSpy\CDKey</Filter>
     </ClCompile>
     <ClCompile Include="xrServer_CL_connect.cpp">
       <Filter>Core\Server\ServerConnect</Filter>
@@ -7670,9 +7322,6 @@
     <ClCompile Include="ui\UIXmlInit.cpp">
       <Filter>UI\UIWindows\XML</Filter>
     </ClCompile>
-    <ClCompile Include="ui\UIInteractiveListItem.cpp">
-      <Filter>UI\UIWindows\ListBox</Filter>
-    </ClCompile>
     <ClCompile Include="ui\UIListItem.cpp">
       <Filter>UI\UIWindows\ListBox</Filter>
     </ClCompile>
@@ -7690,9 +7339,6 @@
     </ClCompile>
     <ClCompile Include="ui\UIListWndEx_script.cpp">
       <Filter>UI\UIWindows\ListBox\Ex</Filter>
-    </ClCompile>
-    <ClCompile Include="ui\UIListItemMP.cpp">
-      <Filter>UI\UIWindows\ListBox\Multiplayer_list_item</Filter>
     </ClCompile>
     <ClCompile Include="ui\UIListItemPair.cpp">
       <Filter>UI\UIWindows\ListBox\Save_Load_list_item</Filter>

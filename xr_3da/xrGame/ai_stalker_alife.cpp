@@ -135,13 +135,6 @@ u32 CAI_Stalker::fill_items						(CInventory &inventory, CGameObject *old_owner,
 		if (!(*I)->useful_for_NPC())
 			continue;
 
-		if (CLSID_DEVICE_PDA == (*I)->object().CLS_ID) {
-			CPda				*pda = smart_cast<CPda*>(*I);
-			VERIFY				(pda);
-			if (pda->GetOriginalOwnerID() == old_owner->ID())
-				continue;
-		}
-		
 		m_temp_items.push_back	(CTradeItem(*I,old_owner->ID(),new_owner_id));
 		result					+= (*I)->Cost();
 	}
@@ -325,34 +318,6 @@ void CAI_Stalker::choose_medikit					()
 	}
 }
 
-void CAI_Stalker::choose_detector					()
-{
-	CTradeItem					*best_detector	= 0;
-	float						best_value		= -1.f;
-	ai().ef_storage().non_alife().member()	= this;
-	xr_vector<CTradeItem>::iterator	I = m_temp_items.begin();
-	xr_vector<CTradeItem>::iterator	E = m_temp_items.end();
-	for ( ; I != E; ++I) {
-		if (m_total_money < (*I).m_item->Cost())
-			continue;
-
-		CCustomDetector			*detector = smart_cast<CCustomDetector*>((*I).m_item);
-		if (!detector)
-			continue;
-
-		// evaluating item
-		ai().ef_storage().non_alife().member_item() = detector;
-		float					current_value = ai().ef_storage().m_pfEquipmentType->ffGetValue();
-		// choosing the best item
-		if ((current_value > best_value)) {
-			best_detector		= &*I;
-			best_value			= current_value;
-		}
-	}
-	if (best_detector)
-		buy_item_virtual		(*best_detector);
-}
-
 void CAI_Stalker::choose_equipment					()
 {
 	// stalker cannot change their equipment due to the game design :-(((
@@ -367,7 +332,6 @@ void CAI_Stalker::select_items						()
 	choose_weapon		(ALife::eWeaponPriorityTypePrimary);
 	choose_weapon		(ALife::eWeaponPriorityTypeGrenade);
 	choose_medikit		();
-	choose_detector		();
 	choose_equipment	();
 }
 

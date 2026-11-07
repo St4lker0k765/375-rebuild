@@ -55,9 +55,6 @@ public:
 	// свойства
 	u32					m_dwMoney;
 
-	CPda* GetPDA		() const;
-	bool IsActivePDA	() const;
-
 	// инвентарь
 	CInventory	*m_inventory;			
 	
@@ -99,23 +96,6 @@ protected:
 	bool				m_bAllowTalk;
 	bool				m_bAllowTrade;
 
-
-	//////////////////////////////////////////////////////////////////////////
-	// сюжетная информация
-public:
-	//персонаж получил новую порцию информации
-	virtual bool OnReceiveInfo	(INFO_ID info_id) const;
-	//убрать информацию
-	virtual void OnDisableInfo	(INFO_ID info_id) const;
-	//передать/удалить информацию через сервер
-	virtual void TransferInfo	(INFO_ID info_id, bool add_info) const;
-	//есть ли информация у персонажа
-	virtual bool				HasInfo		(INFO_ID info_id) const;
-	virtual bool				GetInfo		(INFO_ID info_id, INFO_DATA&) const;
-
-	#ifdef DEBUG
-	void CInventoryOwner::DumpInfo() const;
-	#endif
 
 	//////////////////////////////////////////////////////////////////////////
 	// инвентарь 

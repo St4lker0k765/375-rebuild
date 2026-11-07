@@ -169,9 +169,6 @@ class_<CScriptGameObject> &script_register_game_object1(class_<CScriptGameObject
 		// inventory owner
 		.def("get_current_outfit",			&CScriptGameObject::GetCurrentOutfit)
 
-		// searchlight
-		.def("get_current_direction",		&CScriptGameObject::GetCurrentDirection)
-
 		// movement manager
 		.def("set_body_state",				&CScriptGameObject::set_body_state			)
 		.def("set_movement_type",			&CScriptGameObject::set_movement_type		)

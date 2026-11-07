@@ -8,7 +8,6 @@
 
 #include "stdafx.h"
 #include "object_factory.h"
-#include "ui/xrXMLParser.h"
 #include "xr_level_controller.h"
 #include "profiler.h"
 #include "ai_space.h"
@@ -46,8 +45,6 @@ BOOL APIENTRY DllMain(HANDLE hModule, u32 ul_reason_for_call, LPVOID lpReserved)
 			CCC_RegisterCommands();
 			// keyboard binding
 			CCC_RegisterInput			();
-			// xml parser options
-			XML_DisableStringCaching	();
 #ifdef DEBUG
 			g_profiler			= xr_new<CProfiler>();
 #endif

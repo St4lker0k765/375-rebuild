@@ -688,7 +688,6 @@
     <ClInclude Include="animation_action_inline.h" />
     <ClInclude Include="antirad.h" />
     <ClInclude Include="Artifact.h" />
-    <ClInclude Include="ArtifactMerger.h" />
     <ClInclude Include="attachable_item.h" />
     <ClInclude Include="attachable_item_inline.h" />
     <ClInclude Include="attachment_owner.h" />
@@ -712,9 +711,6 @@
     <ClInclude Include="CameraEffector.h" />
     <ClInclude Include="CameraFirstEye.h" />
     <ClInclude Include="cameralook.h" />
-    <ClInclude Include="Car.h" />
-    <ClInclude Include="CarDamageParticles.h" />
-    <ClInclude Include="CarLights.h" />
     <ClInclude Include="CharacterPhysicsSupport.h" />
     <ClInclude Include="character_community.h" />
     <ClInclude Include="character_info.h" />
@@ -738,10 +734,8 @@
     <ClInclude Include="cover_manager_inline.h" />
     <ClInclude Include="cover_point.h" />
     <ClInclude Include="cover_point_inline.h" />
-    <ClInclude Include="CustomDetector.h" />
     <ClInclude Include="CustomMonster.h" />
     <ClInclude Include="CustomMonster_inline.h" />
-    <ClInclude Include="CustomOutfit.h" />
     <ClInclude Include="CustomRocket.h" />
     <ClInclude Include="CustomZone.h" />
     <ClInclude Include="CycleConstStorage.h" />
@@ -812,7 +806,6 @@
     <ClInclude Include="EntityCondition.h" />
     <ClInclude Include="entity_alive.h" />
     <ClInclude Include="entity_alive_inline.h" />
-    <ClInclude Include="ExoOutfit.h" />
     <ClInclude Include="explode_effector.h" />
     <CustomBuild Include="Explosive.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -823,7 +816,6 @@
     <ClInclude Include="F1.h" />
     <ClInclude Include="FadedBall.h" />
     <ClInclude Include="FastDelegate.h" />
-    <ClInclude Include="Flyer.h" />
     <ClInclude Include="FoodItem.h" />
     <ClInclude Include="FryupZone.h" />
     <ClInclude Include="fs_registrator.h" />
@@ -831,15 +823,6 @@
     <ClInclude Include="GameMtlLib.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePersistent.h" />
-    <ClInclude Include="GameSpy\available.h" />
-    <ClInclude Include="GameSpy\CDKey\gcdkeyc.h" />
-    <ClInclude Include="GameSpy\CDKey\gcdkeys.h" />
-    <ClInclude Include="GameSpy\gsiDebug.h" />
-    <ClInclude Include="GameSpy\md5.h" />
-    <ClInclude Include="GameSpy\nonport.h" />
-    <ClInclude Include="GameSpy\Qr2\qr2.h" />
-    <ClInclude Include="GameSpy\Qr2\qr2regkeys.h" />
-    <ClInclude Include="GameSpy\stringutil.h" />
     <ClInclude Include="game_base.h" />
     <ClInclude Include="game_base_space.h" />
     <ClInclude Include="game_cl_base.h" />
@@ -877,7 +860,6 @@
     <ClInclude Include="group_hierarchy_holder_inline.h" />
     <ClInclude Include="HairsZone.h" />
     <ClInclude Include="HangingLamp.h" />
-    <ClInclude Include="helicopter.h" />
     <ClInclude Include="HitMarker.h" />
     <ClInclude Include="hit_immunity.h" />
     <ClInclude Include="hit_immunity_space.h" />
@@ -892,7 +874,6 @@
     <ClInclude Include="hud_item_object.h" />
     <ClInclude Include="IColisiondamageInfo.h" />
     <ClInclude Include="id_generator.h" />
-    <ClInclude Include="InfoDocument.h" />
     <ClInclude Include="ini_id_loader.h" />
     <ClInclude Include="ini_table_loader.h" />
     <ClInclude Include="intrusive_ptr.h" />
@@ -904,13 +885,11 @@
     <ClInclude Include="inventory_item_object.h" />
     <ClInclude Include="inventory_owner_inline.h" />
     <ClInclude Include="inventory_space.h" />
-    <ClInclude Include="ItemHealth.h" />
     <ClInclude Include="ItemListTypes.h" />
     <ClInclude Include="item_manager.h" />
     <ClInclude Include="item_manager_inline.h" />
     <ClInclude Include="key_binding_registrator.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="LevelFogOfWar.h" />
     <ClInclude Include="LevelGameDef.h" />
     <ClInclude Include="Level_Bullet_Manager.h" />
     <ClInclude Include="level_changer.h" />
@@ -934,10 +913,6 @@
     <ClInclude Include="MainUI.h" />
     <ClInclude Include="manager_builder_allocator_constructor.h" />
     <ClInclude Include="manager_builder_allocator_constructor_inline.h" />
-    <ClInclude Include="map_location.h" />
-    <ClInclude Include="map_location_defs.h" />
-    <ClInclude Include="map_manager.h" />
-    <ClInclude Include="map_spot.h" />
     <ClInclude Include="material_manager.h" />
     <ClInclude Include="material_manager_inline.h" />
     <ClInclude Include="MathUtils.h" />
@@ -953,7 +928,6 @@
     <ClInclude Include="memory_space.h" />
     <ClInclude Include="memory_space_impl.h" />
     <ClInclude Include="MercuryBall.h" />
-    <ClInclude Include="MilitaryOutfit.h" />
     <ClInclude Include="Mincer.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="monster_community.h" />
@@ -1073,9 +1047,6 @@
     <ClInclude Include="patrol_path_storage_inline.h" />
     <ClInclude Include="patrol_point.h" />
     <ClInclude Include="patrol_point_inline.h" />
-    <ClInclude Include="PDA.h" />
-    <ClInclude Include="PdaMsg.h" />
-    <ClInclude Include="pda_space.h" />
     <ClInclude Include="PHActorCharacter.h" />
     <ClInclude Include="PHActorCharacterInline.h" />
     <ClInclude Include="PHAICharacter.h" />
@@ -1159,7 +1130,6 @@
     <ClInclude Include="RustyHairArtifact.h" />
     <ClInclude Include="safe_map_iterator.h" />
     <ClInclude Include="safe_map_iterator_inline.h" />
-    <ClInclude Include="ScientificOutfit.h" />
     <ClInclude Include="Scope.h" />
     <ClInclude Include="script_abstract_action.h" />
     <ClInclude Include="script_abstract_action_inline.h" />
@@ -1267,7 +1237,6 @@
     <ClInclude Include="script_world_property_inline.h" />
     <ClInclude Include="script_world_state.h" />
     <ClInclude Include="script_zone.h" />
-    <ClInclude Include="searchlight.h" />
     <ClInclude Include="selector_manager.h" />
     <ClInclude Include="selector_manager_inline.h" />
     <ClInclude Include="seniority_hierarchy_holder.h" />
@@ -1291,7 +1260,6 @@
     <ClInclude Include="sight_manager_inline.h" />
     <ClInclude Include="sight_manager_space.h" />
     <ClInclude Include="Silencer.h" />
-    <ClInclude Include="SimpleDetector.h" />
     <ClInclude Include="SleepEffector.h" />
     <ClInclude Include="smart_cast.h" />
     <ClInclude Include="smart_cast_impl0.h" />
@@ -1321,10 +1289,8 @@
     <ClInclude Include="space_restriction_shape_inline.h" />
     <ClInclude Include="space_restrictor.h" />
     <ClInclude Include="space_restrictor_inline.h" />
-    <ClInclude Include="Spectator.h" />
     <ClInclude Include="squad_hierarchy_holder.h" />
     <ClInclude Include="squad_hierarchy_holder_inline.h" />
-    <ClInclude Include="StalkerOutfit.h" />
     <ClInclude Include="stalker_alife_actions.h" />
     <ClInclude Include="stalker_alife_dialog_actions.h" />
     <ClInclude Include="stalker_alife_dialog_planner.h" />
@@ -1366,7 +1332,6 @@
     <ClInclude Include="stalker_sound_data_visitor.h" />
     <ClInclude Include="stalker_sound_data_visitor_inline.h" />
     <ClInclude Include="stalker_squad_action.h" />
-    <ClInclude Include="StatGraph.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="step_manager.h" />
     <ClInclude Include="step_manager_defs.h" />
@@ -1375,7 +1340,6 @@
     <ClInclude Include="TeleWhirlwind.h" />
     <ClInclude Include="ThornArtifact.h" />
     <ClInclude Include="Torch.h" />
-    <ClInclude Include="TorridZone.h" />
     <ClInclude Include="Tracer.h" />
     <ClInclude Include="trade.h" />
     <ClInclude Include="tri-colliderKNoOPC\dcTriListCollider.h" />
@@ -1412,11 +1376,9 @@
     <ClInclude Include="ui\UIFrameLineWnd.h" />
     <ClInclude Include="ui\UIFrameWindow.h" />
     <ClInclude Include="ui\UIInteractiveBackground.h" />
-    <ClInclude Include="ui\UIInteractiveListItem.h" />
     <ClInclude Include="ui\UILines.h" />
     <ClInclude Include="ui\UIListItem.h" />
     <ClInclude Include="ui\UIListItemEx.h" />
-    <ClInclude Include="ui\UIListItemMP.h" />
     <ClInclude Include="ui\UIListItemPair.h" />
     <ClInclude Include="ui\UIListWnd.h" />
     <ClInclude Include="ui\UIListWndEx.h" />
@@ -1439,8 +1401,6 @@
     <ClInclude Include="ui\UIXmlInit.h" />
     <ClInclude Include="ui\UI_IB_Static.h" />
     <ClInclude Include="UsableScriptObject.h" />
-    <ClInclude Include="vehicle_helicopter.h" />
-    <ClInclude Include="vehicle_helicopter_inline.h" />
     <ClInclude Include="vertex_allocator_fixed.h" />
     <ClInclude Include="vertex_allocator_fixed_inline.h" />
     <ClInclude Include="vertex_allocator_generic.h" />
@@ -1487,7 +1447,6 @@
     <ClInclude Include="Wound.h" />
     <ClInclude Include="wrapper_abstract.h" />
     <ClInclude Include="wrapper_abstract_inline.h" />
-    <ClInclude Include="xml_str_id_loader.h" />
     <ClInclude Include="xrCDB.h" />
     <ClInclude Include="xrEProps.h" />
     <ClInclude Include="xrMessages.h" />
@@ -1518,7 +1477,6 @@
     <ClCompile Include="ActorEffector.cpp" />
     <ClCompile Include="ActorInput.cpp" />
     <ClCompile Include="ActorMountedWeapon.cpp" />
-    <ClCompile Include="ActorVehicle.cpp" />
     <ClCompile Include="Actor_Events.cpp" />
     <ClCompile Include="Actor_Feel.cpp" />
     <ClCompile Include="Actor_Movement.cpp" />
@@ -1713,9 +1671,6 @@
     <ClCompile Include="antirad.cpp" />
     <ClCompile Include="artefact_script.cpp" />
     <ClCompile Include="Artifact.cpp" />
-    <ClCompile Include="ArtifactMerger.cpp" />
-    <ClCompile Include="ArtifactMerger2.cpp" />
-    <ClCompile Include="artifact_merger_script.cpp" />
     <ClCompile Include="attachable_item.cpp" />
     <ClCompile Include="attachment_owner.cpp" />
     <ClCompile Include="autosave_manager.cpp" />
@@ -1729,16 +1684,6 @@
     <ClCompile Include="CameraEffector.cpp" />
     <ClCompile Include="CameraFirstEye.cpp" />
     <ClCompile Include="cameralook.cpp" />
-    <ClCompile Include="Car.cpp" />
-    <ClCompile Include="CarCameras.cpp" />
-    <ClCompile Include="CarDamageParticles.cpp" />
-    <ClCompile Include="CarDoors.cpp" />
-    <ClCompile Include="CarExhaust.cpp" />
-    <ClCompile Include="CarInput.cpp" />
-    <ClCompile Include="CarLights.cpp" />
-    <ClCompile Include="CarScript.cpp" />
-    <ClCompile Include="CarSound.cpp" />
-    <ClCompile Include="CarWheels.cpp" />
     <ClCompile Include="CharacterPhysicsSupport.cpp" />
     <ClCompile Include="character_community.cpp" />
     <ClCompile Include="character_info.cpp" />
@@ -1752,10 +1697,8 @@
     <ClCompile Include="cover_evaluators.cpp" />
     <ClCompile Include="cover_manager.cpp" />
     <ClCompile Include="cover_point_script.cpp" />
-    <ClCompile Include="CustomDetector.cpp" />
     <ClCompile Include="CustomMonster.cpp" />
     <ClCompile Include="CustomMonster_VCPU.cpp" />
-    <ClCompile Include="CustomOutfit.cpp" />
     <ClCompile Include="CustomRocket.cpp" />
     <ClCompile Include="CustomZone.cpp" />
     <ClCompile Include="DamagableItem.cpp" />
@@ -1795,7 +1738,6 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityCondition.cpp" />
     <ClCompile Include="entity_alive.cpp" />
-    <ClCompile Include="ExoOutfit.cpp" />
     <ClCompile Include="explode_effector.cpp" />
     <ClCompile Include="Explosive.cpp" />
     <ClCompile Include="ExplosiveItem.cpp" />
@@ -1803,24 +1745,6 @@
     <ClCompile Include="ExplosiveScript.cpp" />
     <ClCompile Include="F1.cpp" />
     <ClCompile Include="FadedBall.cpp" />
-    <ClCompile Include="Flyer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="FlyerCameras.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="FlyerInput.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="FoodItem.cpp" />
     <ClCompile Include="FryupZone.cpp" />
     <ClCompile Include="fs_registrator_script.cpp" />
@@ -1829,132 +1753,6 @@
     <ClCompile Include="GameMtlLib_Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePersistent.cpp" />
-    <ClCompile Include="GameSpy\available.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
-    <ClCompile Include="GameSpy\CDKey\gcdkeyc.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
-    <ClCompile Include="GameSpy\CDKey\gcdkeys.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
-    <ClCompile Include="GameSpy\gsiDebug.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
-    <ClCompile Include="GameSpy\md5c.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
-    <ClCompile Include="GameSpy\nonport.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
-    <ClCompile Include="GameSpy\Qr2\qr2.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
-    <ClCompile Include="GameSpy\Qr2\qr2regkeys.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
-    <ClCompile Include="GameSpy\stringutil.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">Level2</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
-    </ClCompile>
     <ClCompile Include="game_base.cpp" />
     <ClCompile Include="game_base_script.cpp" />
     <ClCompile Include="game_cl_base.cpp" />
@@ -1973,11 +1771,6 @@
     <ClCompile Include="group_hierarchy_holder.cpp" />
     <ClCompile Include="HairsZone.cpp" />
     <ClCompile Include="HangingLamp.cpp" />
-    <ClCompile Include="Helicopter.cpp" />
-    <ClCompile Include="Helicopter2.cpp" />
-    <ClCompile Include="HelicopterMovementManager.cpp" />
-    <ClCompile Include="HelicopterWeapon.cpp" />
-    <ClCompile Include="helicopter_script.cpp" />
     <ClCompile Include="HitMarker.cpp" />
     <ClCompile Include="hit_immunity.cpp" />
     <ClCompile Include="hit_memory_manager.cpp" />
@@ -1989,16 +1782,13 @@
     <ClCompile Include="HUDManager.cpp" />
     <ClCompile Include="HudSound.cpp" />
     <ClCompile Include="hud_item_object.cpp" />
-    <ClCompile Include="InfoDocument.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="InventoryOwner.cpp" />
     <ClCompile Include="inventory_item.cpp" />
     <ClCompile Include="inventory_item_object.cpp" />
-    <ClCompile Include="ItemHealth.cpp" />
     <ClCompile Include="item_manager.cpp" />
     <ClCompile Include="key_binding_registrator_script.cpp" />
     <ClCompile Include="Level.cpp" />
-    <ClCompile Include="LevelFogOfWar.cpp" />
     <ClCompile Include="LevelGameDef.cpp" />
     <ClCompile Include="Level_Bullet_Manager.cpp" />
     <ClCompile Include="Level_bullet_manager_firetrace.cpp" />
@@ -2024,16 +1814,12 @@
     <ClCompile Include="location_manager.cpp" />
     <ClCompile Include="magic_box3.cpp" />
     <ClCompile Include="MainUI.cpp" />
-    <ClCompile Include="map_location.cpp" />
-    <ClCompile Include="map_manager.cpp" />
-    <ClCompile Include="map_spot.cpp" />
     <ClCompile Include="material_manager.cpp" />
     <ClCompile Include="medkit.cpp" />
     <ClCompile Include="member_order.cpp" />
     <ClCompile Include="memory_manager.cpp" />
     <ClCompile Include="memory_space_script.cpp" />
     <ClCompile Include="MercuryBall.cpp" />
-    <ClCompile Include="MilitaryOutfit.cpp" />
     <ClCompile Include="Mincer.cpp" />
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="monster_community.cpp" />
@@ -2075,7 +1861,6 @@
     <ClCompile Include="patrol_path_params_script.cpp" />
     <ClCompile Include="patrol_path_storage.cpp" />
     <ClCompile Include="patrol_point.cpp" />
-    <ClCompile Include="PDA.cpp" />
     <ClCompile Include="PHActorCharacter.cpp" />
     <ClCompile Include="PHAICharacter.cpp" />
     <ClCompile Include="PHCapture.cpp" />
@@ -2141,7 +1926,6 @@
     <ClCompile Include="RGD5.cpp" />
     <ClCompile Include="RocketLauncher.cpp" />
     <ClCompile Include="RustyHairArtifact.cpp" />
-    <ClCompile Include="ScientificOutfit.cpp" />
     <ClCompile Include="Scope_impl.cpp" />
     <ClCompile Include="script_abstract_action.cpp" />
     <ClCompile Include="script_action_condition.cpp" />
@@ -2231,7 +2015,6 @@
     <ClCompile Include="script_world_state_script.cpp" />
     <ClCompile Include="script_zone.cpp" />
     <ClCompile Include="script_zone_script.cpp" />
-    <ClCompile Include="searchlight.cpp" />
     <ClCompile Include="selector_manager.cpp" />
     <ClCompile Include="seniority_hierarchy_holder.cpp" />
     <ClCompile Include="server_entity_wrapper.cpp" />
@@ -2242,7 +2025,6 @@
     <ClCompile Include="sight_action.cpp" />
     <ClCompile Include="sight_manager.cpp" />
     <ClCompile Include="Silencer.cpp" />
-    <ClCompile Include="SimpleDetector.cpp" />
     <ClCompile Include="SleepEffector.cpp" />
     <ClCompile Include="smart_cast.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Use</PrecompiledHeader>
@@ -2262,9 +2044,7 @@
     <ClCompile Include="space_restriction_manager.cpp" />
     <ClCompile Include="space_restriction_shape.cpp" />
     <ClCompile Include="space_restrictor.cpp" />
-    <ClCompile Include="Spectator.cpp" />
     <ClCompile Include="squad_hierarchy_holder.cpp" />
-    <ClCompile Include="StalkerOutfit.cpp" />
     <ClCompile Include="stalker_alife_actions.cpp" />
     <ClCompile Include="stalker_alife_dialog_actions.cpp" />
     <ClCompile Include="stalker_alife_dialog_planner.cpp" />
@@ -2295,7 +2075,6 @@
     <ClCompile Include="stalker_sound_data.cpp" />
     <ClCompile Include="stalker_sound_data_visitor.cpp" />
     <ClCompile Include="stalker_squad_action.cpp" />
-    <ClCompile Include="StatGraph.cpp" />
     <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -2307,7 +2086,6 @@
     <ClCompile Include="TeleWhirlwind.cpp" />
     <ClCompile Include="ThornArtifact.cpp" />
     <ClCompile Include="Torch.cpp" />
-    <ClCompile Include="TorridZone.cpp" />
     <ClCompile Include="Tracer.cpp" />
     <ClCompile Include="trade.cpp" />
     <ClCompile Include="trade2.cpp" />
@@ -2347,11 +2125,9 @@
     <ClCompile Include="ui\UIFrameLine.cpp" />
     <ClCompile Include="ui\UIFrameLineWnd.cpp" />
     <ClCompile Include="ui\UIFrameWindow.cpp" />
-    <ClCompile Include="ui\UIInteractiveListItem.cpp" />
     <ClCompile Include="ui\UILines.cpp" />
     <ClCompile Include="ui\UIListItem.cpp" />
     <ClCompile Include="ui\UIListItemEx.cpp" />
-    <ClCompile Include="ui\UIListItemMP.cpp" />
     <ClCompile Include="ui\UIListItemPair.cpp" />
     <ClCompile Include="ui\UIListWnd.cpp" />
     <ClCompile Include="ui\UIListWndEx.cpp" />
@@ -2380,10 +2156,6 @@
     <ClCompile Include="ui\UI_IB_Static.cpp" />
     <ClCompile Include="ui_export_script.cpp" />
     <ClCompile Include="UsableScriptObject.cpp" />
-    <ClCompile Include="vehicle_helicopter.cpp" />
-    <ClCompile Include="vehicle_helicopter_cameras.cpp" />
-    <ClCompile Include="vehicle_helicopter_input.cpp" />
-    <ClCompile Include="vehicle_helicopter_movement.cpp" />
     <ClCompile Include="visual_memory_manager.cpp" />
     <ClCompile Include="visual_memory_params.cpp" />
     <ClCompile Include="Weapon.cpp" />

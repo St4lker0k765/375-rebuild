@@ -172,8 +172,6 @@ class_<CScriptGameObject> &script_register_game_object2(class_<CScriptGameObject
 		.def("get_anomaly_power",			&CScriptGameObject::GetAnomalyPower)
 		.def("set_anomaly_power",			&CScriptGameObject::SetAnomalyPower)
 
-		//HELICOPTER
-		.def("get_helicopter",              &CScriptGameObject::get_helicopter)
 		.def("get_hanging_lamp",            &CScriptGameObject::get_hanging_lamp)
 		.def("get_physics_shell",			&CScriptGameObject::get_physics_shell)
 		.def("get_holder_class",			&CScriptGameObject::get_custom_holder)

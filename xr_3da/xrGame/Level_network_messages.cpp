@@ -74,13 +74,6 @@ void CLevel::ClientReceive()
 
 				O->CrPr_SetActivationStep(u32(ph_world->m_steps_num) - NumSteps);
 				AddActor_To_Actors4CrPr(O);
-
-				if (pStatGraph)
-				{
-					pStatGraph->AppendItem(float(Ping), 0xff00ff00, 2);
-					pStatGraph->AppendItem(float(dTime), 0xffffff00, 1);
-					pStatGraph->AppendItem(float(NumSteps*20), 0xffff00ff, 0);
-				}
 			}break;
 		//---------------------------------------------------
 		case M_CL_PING_CHALLENGE:

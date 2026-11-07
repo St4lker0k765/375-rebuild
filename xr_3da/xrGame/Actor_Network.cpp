@@ -27,7 +27,6 @@
 
 #include "actor_anim_defs.h"
 
-#include "map_manager.h"
 #include "HUDManager.h"
 
 
@@ -285,45 +284,6 @@ void		CActor::net_Import_Base				( NET_Packet& P)
 	P.r_u32				(N.dwTimeStamp	);
 	
 	//---------------------------------------------
-	if (pStatGraph) 
-	{
-		pStatGraph->SetMinMax(-0.0f, 100.0f, 300);
-		pStatGraph->SetGrid(0, 0.0f, 10, 10.0f, 0xff808080, 0xffffffff);
-		pStatGraph->SetStyle(CStatGraph::stBar);
-		pStatGraph->SetStyle(CStatGraph::stBar, 1);
-		pStatGraph->SetStyle(CStatGraph::stBar, 2);
-
-		float dTime = 0;
-		if (Level().timeServer() < N.dwTimeStamp)
-			dTime =  -float(N.dwTimeStamp - Level().timeServer());
-		else
-			dTime = float(Level().timeServer() - N.dwTimeStamp);
-
-		if (OnServer())
-		{
-			
-			for (u32 I=0; I<Level().Server->client_Count(); ++I)	
-			{
-				game_PlayerState*	ps = Level().Server->game->get_it(I);
-				if (!ps || ps->GameID != ID()) continue;
-				IClient*	C = Level().Server->client_Get(I);
-				if (!C) continue;
-				pStatGraph->AppendItem(float(C->stats.getPing()), 0xff00ff00, 2);
-				pStatGraph->AppendItem(float(Level().timeServer() - P.timeReceive + C->stats.getPing()), 0xffffff00, 0);
-			};
-		}
-		else
-		{
-			pStatGraph->SetStyle(CStatGraph::stBar);
-			pStatGraph->SetStyle(CStatGraph::stBar, 1);
-			pStatGraph->SetStyle(CStatGraph::stBar, 2);
-
-			IClientStatistic pStat = Level().GetStatistic();
-			pStatGraph->AppendItem(float(pStat.getPing()), 0xff00ff00, 2);
-			pStatGraph->AppendItem(float(Level().timeServer() - P.timeReceive + pStat.getPing()), 0xffffff00, 0);
-		};
-	};
-	//---------------------------------------------
 
 	P.r_u8				(flags			);
 	P.r_vec3			(N.p_pos		);
@@ -571,7 +531,6 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	//-------------------------------------
 	// инициализация реестров, используемых актером
 	contacts_registry->registry().init(ID());
-	game_task_registry->registry().init(ID());
 
 	if (!CInventoryOwner::net_Spawn(DC)) return FALSE;
 	if (!inherited::net_Spawn(DC))	return FALSE;
@@ -637,28 +596,6 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	LastPosH.clear();
 	LastPosL.clear();
 #endif
-//*
-	
-//	if (OnServer())// && E->s_flags.is(M_SPAWN_OBJECT_LOCAL))
-	/*
-	if (OnClient())
-	{
-		if (!pStatGraph)
-		{
-		static g_Y = 100;
-		pStatGraph = xr_new<CStatGraph>();
-		pStatGraph->SetRect(0, g_Y, 1024, 100, 0xff000000, 0xff000000);
-		g_Y += 110;
-		if (g_Y > 700) g_Y = 100;
-		pStatGraph->SetGrid(0, 0.0f, 10, 1.0f, 0xff808080, 0xffffffff);
-		pStatGraph->SetMinMax(-PI, PI, 300);
-
-		}
-	}
-	*/
-//	if (m_DefaultVisualOutfit == NULL)
-//		m_DefaultVisualOutfit = cNameVisual();
-//	if (!GetDefaultVisualOutfit())
 	SetDefaultVisualOutfit(cNameVisual());
 
 	VERIFY(m_pActorEffector == NULL);
@@ -712,18 +649,12 @@ BOOL CActor::net_Spawn		(CSE_Abstract* DC)
 	m_pLastHittingWeapon = NULL;
 	m_s16LastHittedElement = -1;
 
-	Level().MapManager().initialize(ID());
-
-	if (GameID() == GAME_SINGLE)
-		Level().MapManager().AddMapLocation("actor_location",ID());
 	return					TRUE;
 }
 
 void CActor::net_Destroy	()
 {
 	inherited::net_Destroy	();
-
-	Level().MapManager().RemoveMapLocationByObjectID(ID());
 
 #pragma todo("Dima to MadMax : do not comment inventory owner net_Destroy!!!")
 	CInventoryOwner::net_Destroy();
@@ -735,7 +666,6 @@ void CActor::net_Destroy	()
 	};
 	m_pPhysics_support->in_NetDestroy	();
 
-	xr_delete	(pStatGraph);
 	xr_delete	(m_pActorEffector);
 	pCamBobbing = NULL;
 	
@@ -746,12 +676,8 @@ void CActor::net_Destroy	()
 #endif
 
 	processing_deactivate();
-	m_holder=NULL;
-	m_holderID=u16(-1);
 	
 	m_ArtefactsOnBelt.clear();
-	if (Level().CurrentViewEntity() == this)
-		HUD().GetUI()->UIMainIngameWnd->m_artefactPanel->InitIcons(m_ArtefactsOnBelt);	
 
 	SetDefaultVisualOutfit(NULL);
 }

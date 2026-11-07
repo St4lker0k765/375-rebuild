@@ -357,28 +357,12 @@ void CEntityCondition::Sleep(float hours)
 
 float CEntityCondition::HitOutfitEffect(float hit_power, ALife::EHitType hit_type, s16 element)
 {
-    CInventoryOwner* pInvOwner = smart_cast<CInventoryOwner*>(m_object);
-	if(!pInvOwner) return hit_power;
-
-	CCustomOutfit* pOutfit = (CCustomOutfit*)pInvOwner->inventory().m_slots[OUTFIT_SLOT].m_pIItem;
-	if(!pOutfit) return hit_power;
-	float new_hit_power = hit_power*pOutfit->GetHitTypeProtection(hit_type,element);
-	//увеличить изношенность костюма
-	pOutfit->Hit(hit_power, hit_type);
-
-	return new_hit_power;
+	return hit_power;
 }
 
 float CEntityCondition::HitPowerEffect(float power_loss)
 {
-	CInventoryOwner* pInvOwner = smart_cast<CInventoryOwner*>(m_object);
-	if(!pInvOwner) return power_loss;
-
-	CCustomOutfit* pOutfit = (CCustomOutfit*)pInvOwner->inventory().m_slots[OUTFIT_SLOT].m_pIItem;
-	if(!pOutfit) return power_loss;
-	float new_power_loss = power_loss*pOutfit->GetPowerLoss();
-
-	return new_power_loss;
+	return power_loss;
 }
 
 CWound* CEntityCondition::AddWound(float hit_power, ALife::EHitType hit_type, u16 element)

@@ -145,8 +145,6 @@ CActor::CActor() : CEntityAlive()
 
 
 
-	m_holder				=	NULL;
-	m_holderID				=	u16(-1);
 	m_pPhysics_support		=	xr_new<CCharacterPhysicsSupport>(CCharacterPhysicsSupport::EType::etActor,this);
 
 #ifdef DEBUG
@@ -160,10 +158,6 @@ CActor::CActor() : CEntityAlive()
 	m_pVehicleWeLookingAt	= NULL;
 	m_pObjectWeLookingAt	= NULL;
 	m_bPickupMode			= false;
-
-	////////////////////////////////////
-	pStatGraph = NULL;
-//	dDesyncVec.set(0, 0, 0);
 
 	m_pActorEffector = NULL;
 
@@ -422,19 +416,6 @@ void CActor::Hit		(float iLost, Fvector &dir, CObject* who, s16 element,Fvector 
 	}
 	else
 		hit_slowmo = 0.f;
-	//---------------------------------------------------------------
-	if (Level().CurrentViewEntity() == this){
-		if (g_bShowHitSectors){
-			if (who && !Level().MapManager().HasMapLocation(ENEMY_HIT_SPOT, who->ID())){
-				Level().MapManager().RemoveMapLocation(ENEMY_HIT_SPOT, who->ID());
-			}
-			if (who && who != this){
-				CEntityAlive* pEntityAlive = smart_cast<CEntityAlive*>(who);
-				if (pEntityAlive)
-					Level().MapManager().AddMapLocation(ENEMY_HIT_SPOT, who->ID());
-			}
-		};
-	};
 
 	if (mstate_real & mcSprint && Level().CurrentControlEntity() == this)
 	{
@@ -577,9 +558,6 @@ void CActor::Die	(CObject* who)
 		}
 		else
 		{
-			CCustomOutfit *pOutfit = smart_cast<CCustomOutfit *> ((*I).m_pIItem);
-			if (pOutfit) continue;
-
 			if((*I).m_pIItem) inventory().Ruck((*I).m_pIItem);
 		};
 	};

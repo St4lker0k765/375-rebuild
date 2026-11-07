@@ -183,18 +183,6 @@ void CActor::ActorUse()
 {
 	mstate_real = 0;
 	PickupModeOn();
-
-		
-	if (m_holder)
-	{
-		CGameObject* holder			= smart_cast<CGameObject*>(m_holder);
-		if(smart_cast<CCar*>(holder)) if(use_Vehicle(0))return;
-		switch (holder->CLS_ID)
-		{
-		//case CLSID_CAR:					if(use_Vehicle(0))			return;	break;
-		case CLSID_OBJECT_W_MOUNTED:	if(use_MountedWeapon(0))	return;	break;
-		}
-	}
 				
 	if(m_PhysicMovementControl->PHCapture())
 		m_PhysicMovementControl->PHReleaseObject();
@@ -206,19 +194,6 @@ void CActor::ActorUse()
 
 	if(!m_pUsableObject||m_pUsableObject->nonscript_usable())
 	{
-		if(m_pPersonWeLookingAt)
-		{
-			CEntityAlive* pEntityAliveWeLookingAt = 
-				smart_cast<CEntityAlive*>(m_pPersonWeLookingAt);
-
-			VERIFY(pEntityAliveWeLookingAt);
-
-			if(pEntityAliveWeLookingAt->g_Alive())
-			{
-				TryToTalk();
-			}
-			//обыск трупа
-		}
 		collide::rq_result& RQ = HUD().GetCurrentRayQuery();
 		CPhysicsShellHolder* object = smart_cast<CPhysicsShellHolder*>(RQ.O);
 		u16 element = BI_NONE;
@@ -232,19 +207,6 @@ void CActor::ActorUse()
 			{
 				m_PhysicMovementControl->PHCaptureObject(object,element);
 			
-			}
-
-		}
-		else
-		{
-			if (object)
-			{
-				if(smart_cast<CCar*>(object)) if(use_Vehicle(object))			return;
-				switch (object->CLS_ID)
-				{
-				//case CLSID_CAR:					if(use_Vehicle(object))			return;	break;
-				case CLSID_OBJECT_W_MOUNTED:	if(use_MountedWeapon(object))	return;	break;
-				}
 			}
 
 		}

@@ -245,17 +245,6 @@ void SActorVehicleAnims::SOneTypeCollection::Create(CSkeletonAnimated* V,u16 num
 	}
 }
 
-void CActor::steer_Vehicle(float angle)	
-{
-	if(!m_holder)		return;
-	CCar*	car			= smart_cast<CCar*>(m_holder);
-	u16 anim_type       = car->DriverAnimationType();
-	SActorVehicleAnims::SOneTypeCollection& anims=m_vehicle_anims->m_vehicles_type_collections[anim_type];
-	if(angle==0.f) 		smart_cast<CSkeletonAnimated*>	(Visual())->PlayCycle(anims.idles[0]);
-	else if(angle>0.f)	smart_cast<CSkeletonAnimated*>	(Visual())->PlayCycle(anims.steer_right);
-	else				smart_cast<CSkeletonAnimated*>	(Visual())->PlayCycle(anims.steer_left);
-}
-
 void legs_play_callback		(CBlend *blend)
 {
 	CActor					*object = (CActor*)blend->CallbackParam;

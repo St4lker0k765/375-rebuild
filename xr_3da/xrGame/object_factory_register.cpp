@@ -22,7 +22,6 @@
 #	include "gamepersistent.h"
 #	include "hudmanager.h"
 #	include "actor.h"
-#	include "spectator.h"
 
 #	include "ai/rat/ai_rat.h"
 #	include "ai/monsters/flesh/flesh.h"
@@ -47,9 +46,6 @@
 #	include "ai/trader/ai_trader.h"
 
 #	include "ai/crow/ai_crow.h"
-#	include "car.h"
-
-#	include "helicopter.h"
 
 #	include "MercuryBall.h"
 #	include "BlackDrops.h"
@@ -96,13 +92,7 @@
 #	include "bottleitem.h"
 #	include "explosiveitem.h"
 
-#	include "infodocument.h"
 #	include "attachable_item.h"
-
-#	include "ScientificOutfit.h"
-#	include "StalkerOutfit.h"
-#	include "MilitaryOutfit.h"
-#	include "ExoOutfit.h"
 
 #	include "f1.h"
 #	include "rgd5.h"
@@ -116,19 +106,12 @@
 #	include "radioactivezone.h"
 #	include "level_changer.h"
 #	include "script_zone.h"
-#	include "torridZone.h"
 #	include "ZoneVisual.h"
 #	include "hairszone.h"
 #	include "amebazone.h"
 
-//#	include "trigger.h"
-#	include "simpledetector.h"
-
 #	include "torch.h"
-#	include "pda.h"
-#	include "artifactmerger.h"
 
-#	include "searchlight.h"
 #	include "WeaponMounted.h"
 
 #	include "HangingLamp.h"
@@ -141,7 +124,6 @@
 #	include "game_sv_single.h"
 #	include "game_cl_single.h"
 
-#	include "UIGameSP.h"
 #	include	"climableobject.h"
 #	include "space_restrictor.h"
 #endif
@@ -165,9 +147,6 @@ void CObjectFactory::register_classes	()
 	//Client Game type
 	add<game_cl_Single>											(CLSID_CL_GAME_SINGLE			,"game_cl_single");
 
-	//Game UI type
-	add<CUIGameSP>												(CLSID_GAME_UI_SINGLE			,"game_ui_single");
-
 #endif
 
 	// server entities
@@ -179,7 +158,6 @@ void CObjectFactory::register_classes	()
 
 	// client and server entities
 	ADD(CActor					,CSE_ALifeCreatureActor			,CLSID_OBJECT_ACTOR				,"actor");
-	ADD(CSpectator				,CSE_Spectator					,CLSID_SPECTATOR				,"spectator");
 
 	ADD(CAI_Rat					,CSE_ALifeMonsterRat			,CLSID_AI_RAT					,"rat");
 	ADD(CAI_Flesh				,CSE_ALifeMonsterBase			,CLSID_AI_FLESH					,"flesh");
@@ -206,9 +184,6 @@ void CObjectFactory::register_classes	()
 	ADD(CAI_Trader				,CSE_ALifeTrader				,CLSID_AI_TRADER				,"trader");
 
 	ADD(CAI_Crow				,CSE_ALifeCreatureCrow			,CLSID_AI_CROW					,"crow");
-	ADD(CCar					,CSE_ALifeCar					,CLSID_CAR						,"car");
-
-	ADD(CHelicopter				,CSE_ALifeHelicopter			,CLSID_VEHICLE_HELICOPTER		,"helicopter");
 
 	// Artefacts
 	ADD(CMercuryBall			,CSE_ALifeItemArtefact			,CLSID_AF_MERCURY_BALL			,"art_mercury_ball");
@@ -265,15 +240,7 @@ void CObjectFactory::register_classes	()
 	ADD(CBottleItem				,CSE_ALifeItem					,CLSID_IITEM_BOTTLE				,"obj_bottle");
 	ADD(CExplosiveItem			,CSE_ALifeItemExplosive			,CLSID_IITEM_EXPLOSIVE			,"obj_explosive");
 	
-	//Info Document
-	ADD(CInfoDocument			,CSE_ALifeItemDocument			,CLSID_IITEM_DOCUMENT			,"obj_document");
 	ADD(CAttachableItem			,CSE_ALifeItem					,CLSID_IITEM_ATTACH				,"obj_attachable");
-
-	//Equipment outfit
-	ADD(CScientificOutfit		,CSE_ALifeItemCustomOutfit		,CLSID_EQUIPMENT_SCIENTIFIC		,"equ_scientific");
-	ADD(CStalkerOutfit			,CSE_ALifeItemCustomOutfit		,CLSID_EQUIPMENT_STALKER		,"equ_stalker");
-	ADD(CMilitaryOutfit			,CSE_ALifeItemCustomOutfit		,CLSID_EQUIPMENT_MILITARY		,"equ_military");
-	ADD(CExoOutfit				,CSE_ALifeItemCustomOutfit		,CLSID_EQUIPMENT_EXO			,"equ_exo");
 
 	// Grenades
 	ADD(CF1						,CSE_ALifeItemGrenade			,CLSID_GRENADE_F1				,"wpn_grenade_f1");
@@ -296,21 +263,14 @@ void CObjectFactory::register_classes	()
 	ADD(CLevelChanger			,CSE_ALifeLevelChanger			,CLSID_LEVEL_CHANGER			,"level_changer");
 	ADD(CScriptZone				,CSE_ALifeSpaceRestrictor		,CLSID_SCRIPT_ZONE				,"script_zone");
 	ADD(CScriptZone				,CSE_ALifeSmartZone				,CLSID_SMART_ZONE				,"smart_zone");
-	ADD(CTorridZone				,CSE_ALifeTorridZone			,CLSID_Z_TORRID					,"torrid_zone");
 	ADD(CSpaceRestrictor		,CSE_ALifeSpaceRestrictor		,CLSID_SPACE_RESTRICTOR			,"space_restrictor");
 	ADD(CAmebaZone				,CSE_ALifeZoneVisual			,CLSID_Z_AMEBA					,"ameba_zone");
-	// Detectors
-	ADD(CSimpleDetector			,CSE_ALifeItemDetector			,CLSID_DETECTOR_SIMPLE			,"device_detector_simple");
 
 	// Devices
 	ADD(CTorch					,CSE_ALifeItemTorch				,CLSID_DEVICE_TORCH				,"device_torch");
-	ADD(CPda					,CSE_ALifeItemPDA				,CLSID_DEVICE_PDA				,"device_pda");
-	ADD(CArtefactMerger			,CSE_ALifeItem					,CLSID_DEVICE_AF_MERGER			,"device_art_merger");
 
 	// objects
-	ADD(CProjector				,CSE_ALifeObjectProjector		,CLSID_OBJECT_PROJECTOR			,"projector");
 	ADD(CWeaponMounted			,CSE_ALifeMountedWeapon			,CLSID_OBJECT_W_MOUNTED			,"wpn_mounted");
-//	ADD(CTrigger				,CSE_Trigger					,CLSID_OBJECT_TRIGGER			,"trigger");
 
 	// entity
 	ADD(CHangingLamp			,CSE_ALifeObjectHangingLamp		,CLSID_OBJECT_HLAMP				,"hanging_lamp");

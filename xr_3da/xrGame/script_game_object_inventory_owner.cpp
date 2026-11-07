@@ -7,7 +7,6 @@
 #include "script_game_object.h"
 #include "script_game_object_impl.h"
 #include "InventoryOwner.h"
-#include "Pda.h"
 #include "xrMessages.h"
 #include "character_info.h"
 #include "actor.h"

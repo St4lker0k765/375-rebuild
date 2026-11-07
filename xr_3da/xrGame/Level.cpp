@@ -46,7 +46,6 @@
 #include "level_navigation_graph.h"
 
 #include "phcommander.h"
-#include "map_manager.h"
 
 #ifdef DEBUG
 #include "level_debug.h"
@@ -83,7 +82,6 @@ CLevel::CLevel():IPureClient(Device.GetTimerGlobal())
 	eEntitySpawn				= Engine.Event.Handler_Attach	("LEVEL:spawn",this);
 
 	m_pBulletManager			= xr_new<CBulletManager>();
-	m_map_manager				= xr_new<CMapManager>();
 
 //----------------------------------------------------
 	m_bNeed_CrPr					= false;
@@ -109,8 +107,6 @@ CLevel::CLevel():IPureClient(Device.GetTimerGlobal())
 #ifdef DEBUG
 	m_bSynchronization			= false;
 #endif	
-	//---------------------------------------------------------
-	pStatGraph = NULL;
 	//---------------------------------------------------------
 	pObjects4CrPr.clear();
 	pActors4CrPr.clear();
@@ -176,8 +172,6 @@ CLevel::~CLevel()
 
 	//destroy bullet manager
 	xr_delete					(m_pBulletManager);
-	//-----------------------------------------------------------
-	xr_delete					(pStatGraph);
 
 	//-----------------------------------------------------------
 	xr_delete					(m_ph_commander);
@@ -202,7 +196,6 @@ CLevel::~CLevel()
 	xr_delete					(m_level_debug);
 #endif
 	//-----------------------------------------------------------
-	xr_delete					(m_map_manager);
 }
 
 // Game interface ////////////////////////////////////////////////////
@@ -307,7 +300,6 @@ void CLevel::OnFrame	()
 	if (!ai().get_alife())
 		Device.Statistic.TEST2.End();
 
-	MapManager().Update		();
 	// Inherited update
 	inherited::OnFrame		();
 

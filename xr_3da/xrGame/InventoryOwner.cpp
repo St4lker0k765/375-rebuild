@@ -142,28 +142,6 @@ void CInventoryOwner::UpdateInventoryOwner(u32 deltaT)
 	}
 }
 
-
-//достать PDA из специального слота инвентаря
-CPda* CInventoryOwner::GetPDA() const
-{
-//	CEntityAlive* pEntityAlive = smart_cast<CEntityAlive*>(this);
-	
-//	if(!pEntityAlive || !pEntityAlive->g_Alive()) return NULL; 
-
-	/*R_ASSERT2(inventory().m_slots[PDA_SLOT].m_pIItem, 
-			"PDA for character does not init yet");*/
-	
-	return static_cast<CPda*>(inventory().m_slots[PDA_SLOT].m_pIItem);
-}
-
-bool CInventoryOwner::IsActivePDA() const
-{
-	if(GetPDA() && GetPDA()->IsActive())
-		return true;
-	else
-		return false;
-}
-
 CTrade* CInventoryOwner::GetTrade() 
 {
 	R_ASSERT2(m_pTrade, "trade for object does not init yet");

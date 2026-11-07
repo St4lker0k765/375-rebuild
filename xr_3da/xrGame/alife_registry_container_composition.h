@@ -36,10 +36,4 @@ add_to_registry_type_list(CKnownContactsRegistry);
 #define known_contacts define_constant(CKnownContactsRegistry) 
 #define registry_type_list save_registry_type_list(CKnownContactsRegistry)
 
-
-//map locations for actor
-add_to_registry_type_list(CMapLocationRegistry);
-#define map_locations define_constant(CMapLocationRegistry) 
-#define registry_type_list save_registry_type_list(CMapLocationRegistry)
-
 #pragma warning(pop)
