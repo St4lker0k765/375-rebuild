@@ -241,11 +241,6 @@ bool CAI_Stalker::bfAssignObject(CScriptEntityAction *tpEntityAction)
 			break;
 		}
 		case eObjectActionActivate : {
-			CTorch			*torch = smart_cast<CTorch*>(l_tObjectAction.m_tpObject);
-			if (torch) {
-				torch->Switch(true);
-				break;
-			}
 			CObjectHandler::set_goal	(eObjectActionIdle,l_tpInventoryItem);
 //				inventory().Slot(l_tpInventoryItem);
 //				inventory().Activate(l_tpInventoryItem->GetSlot());
@@ -257,11 +252,6 @@ bool CAI_Stalker::bfAssignObject(CScriptEntityAction *tpEntityAction)
 			break;
 		}
 		case eObjectActionDeactivate : {
-			CTorch			*torch = smart_cast<CTorch*>(l_tObjectAction.m_tpObject);
-			if (torch) {
-				torch->Switch(false);
-				break;
-			}
 //				inventory().Activate(u32(-1));
 			CObjectHandler::set_goal	(eObjectActionIdle);
 			return	((l_tObjectAction.m_bCompleted = (CObjectHandler::goal_reached())) == false);

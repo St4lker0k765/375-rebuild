@@ -164,10 +164,6 @@
 #		undef cast_type_list
 #		define cast_type_list save_cast_list	(CParticlesPlayer,	CGameObject)
 
-		DECLARE_SPECIALIZATION	(CArtefact,			CGameObject,	cast_artefact);
-#		undef cast_type_list
-#		define cast_type_list save_cast_list	(CArtefact,			CGameObject)
-
 		DECLARE_SPECIALIZATION	(CCustomMonster,	CGameObject,	cast_custom_monster);
 #		undef cast_type_list
 #		define cast_type_list save_cast_list	(CCustomMonster,	CGameObject)

@@ -25,7 +25,6 @@ class CPhysicsShellHolder;
 class CParticlesPlayer;
 class CCustomZone;
 class IInputReceiver;
-class CArtefact;
 class CCustomMonster;
 class CAI_Stalker;
 class CScriptEntity;
@@ -72,7 +71,6 @@ public:
 	virtual CPhysicsShellHolder*		cast_physics_shell_holder	()						{return NULL;}
 	virtual IInputReceiver*				cast_input_receiver			()						{return NULL;}
 	virtual CParticlesPlayer*			cast_particles_player		()						{return NULL;}
-	virtual CArtefact*					cast_artefact				()						{return NULL;}
 	virtual CCustomMonster*				cast_custom_monster			()						{return NULL;}
 	virtual CAI_Stalker*				cast_stalker				()						{return NULL;}
 	virtual CScriptEntity*				cast_script_entity			()						{return NULL;}

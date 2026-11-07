@@ -77,9 +77,6 @@ void CObjectHandler::OnItemTake		(CInventoryItem *inventory_item)
 {
 	inherited::OnItemTake		(inventory_item);
 	planner().add_item			(inventory_item);
-
-	if (planner().object().g_Alive())
-		switch_torch			(inventory_item,true);
 }
 
 void CObjectHandler::OnItemDrop		(CInventoryItem *inventory_item)
@@ -93,8 +90,6 @@ void CObjectHandler::OnItemDrop		(CInventoryItem *inventory_item)
 	}
 
 	planner().remove_item		(inventory_item);
-
-	switch_torch				(inventory_item,false);
 }
 
 void CObjectHandler::OnItemDropUpdate	()
@@ -243,22 +238,13 @@ bool CObjectHandler::weapon_unstrapped	(CWeapon *weapon) const
 	return						(!weapon->strapped_mode());
 }
 
-IC	void CObjectHandler::switch_torch	(CInventoryItem *inventory_item, bool value)
-{
-	CTorch						*torch = smart_cast<CTorch*>(inventory_item);
-	if (torch && attached(torch))
-		torch->Switch			(value);
-}
-
 void CObjectHandler::attach				(CInventoryItem *inventory_item)
 {
 	inherited::attach			(inventory_item);
-	switch_torch				(inventory_item,true);
 }
 
 void CObjectHandler::detach				(CInventoryItem *inventory_item)
 {
-	switch_torch				(inventory_item,false);
 	if	(
 			planner().initialized() &&
 			(inventory_item->object().ID() == planner().current_action_object_id()) && 

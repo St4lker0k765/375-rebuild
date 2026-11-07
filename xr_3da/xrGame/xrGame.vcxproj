@@ -596,7 +596,6 @@
     <ClInclude Include="ai\stalker\ai_stalker_impl.h" />
     <ClInclude Include="ai\stalker\ai_stalker_inline.h" />
     <ClInclude Include="Ai\Stalker\ai_stalker_space.h" />
-    <ClInclude Include="Ai\Trader\ai_trader.h" />
     <ClInclude Include="ai_debug.h" />
     <ClInclude Include="ai_monster_space.h" />
     <ClInclude Include="ai_object_location.h" />
@@ -683,11 +682,9 @@
     <ClInclude Include="alife_trader_registry_inline.h" />
     <ClInclude Include="alife_update_manager.h" />
     <ClInclude Include="alife_update_manager_inline.h" />
-    <ClInclude Include="AmebaZone.h" />
     <ClInclude Include="animation_action.h" />
     <ClInclude Include="animation_action_inline.h" />
     <ClInclude Include="antirad.h" />
-    <ClInclude Include="Artifact.h" />
     <ClInclude Include="attachable_item.h" />
     <ClInclude Include="attachable_item_inline.h" />
     <ClInclude Include="attachment_owner.h" />
@@ -698,11 +695,7 @@
     <ClInclude Include="a_star_inline.h" />
     <ClInclude Include="base_client_classes.h" />
     <ClInclude Include="base_client_classes_wrappers.h" />
-    <ClInclude Include="BastArtifact.h" />
-    <ClInclude Include="BlackDrops.h" />
-    <ClInclude Include="BlackGraviArtifact.h" />
     <ClInclude Include="BlockAllocator.h" />
-    <ClInclude Include="Bolt.h" />
     <ClInclude Include="BottleItem.h" />
     <ClInclude Include="BreakableObject.h" />
     <ClInclude Include="builder_allocator_constructor.h" />
@@ -736,8 +729,6 @@
     <ClInclude Include="cover_point_inline.h" />
     <ClInclude Include="CustomMonster.h" />
     <ClInclude Include="CustomMonster_inline.h" />
-    <ClInclude Include="CustomRocket.h" />
-    <ClInclude Include="CustomZone.h" />
     <ClInclude Include="CycleConstStorage.h" />
     <ClInclude Include="DamagableItem.h" />
     <ClInclude Include="DamageSource.h" />
@@ -784,7 +775,6 @@
     <ClInclude Include="DisablingParams.h" />
     <ClInclude Include="DrawUtils.h" />
     <CustomBuild Include="dRayMotions.h" />
-    <ClInclude Include="DummyArtifact.h" />
     <ClInclude Include="DynamicHeightMap.h" />
     <ClInclude Include="eatable_item.h" />
     <ClInclude Include="eatable_item_object.h" />
@@ -798,7 +788,6 @@
     <ClInclude Include="ef_primary.h" />
     <ClInclude Include="ef_storage.h" />
     <ClInclude Include="ef_storage_inline.h" />
-    <ClInclude Include="ElectricBall.h" />
     <ClInclude Include="ElevatorState.h" />
     <ClInclude Include="enemy_manager.h" />
     <ClInclude Include="enemy_manager_inline.h" />
@@ -811,15 +800,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </CustomBuild>
     <ClInclude Include="ExplosiveItem.h" />
-    <ClInclude Include="ExplosiveRocket.h" />
     <ClInclude Include="ExtendedGeom.h" />
-    <ClInclude Include="F1.h" />
-    <ClInclude Include="FadedBall.h" />
     <ClInclude Include="FastDelegate.h" />
     <ClInclude Include="FoodItem.h" />
-    <ClInclude Include="FryupZone.h" />
     <ClInclude Include="fs_registrator.h" />
-    <ClInclude Include="GalantineArtifact.h" />
     <ClInclude Include="GameMtlLib.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePersistent.h" />
@@ -850,15 +834,11 @@
     <ClInclude Include="graph_engine_space.h" />
     <ClInclude Include="graph_vertex.h" />
     <ClInclude Include="graph_vertex_inline.h" />
-    <ClInclude Include="GraviArtifact.h" />
-    <ClInclude Include="GraviZone.h" />
     <ClInclude Include="greeting_manager.h" />
     <ClInclude Include="greeting_manager_inline.h" />
-    <ClInclude Include="Grenade.h" />
     <ClInclude Include="GrenadeLauncher.h" />
     <ClInclude Include="group_hierarchy_holder.h" />
     <ClInclude Include="group_hierarchy_holder_inline.h" />
-    <ClInclude Include="HairsZone.h" />
     <ClInclude Include="HangingLamp.h" />
     <ClInclude Include="HitMarker.h" />
     <ClInclude Include="hit_immunity.h" />
@@ -892,7 +872,6 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="LevelGameDef.h" />
     <ClInclude Include="Level_Bullet_Manager.h" />
-    <ClInclude Include="level_changer.h" />
     <ClInclude Include="level_debug.h" />
     <ClInclude Include="level_graph.h" />
     <ClInclude Include="level_graph_inline.h" />
@@ -927,11 +906,7 @@
     <ClInclude Include="memory_manager_inline.h" />
     <ClInclude Include="memory_space.h" />
     <ClInclude Include="memory_space_impl.h" />
-    <ClInclude Include="MercuryBall.h" />
-    <ClInclude Include="Mincer.h" />
-    <ClInclude Include="Missile.h" />
     <ClInclude Include="monster_community.h" />
-    <ClInclude Include="MosquitoBald.h" />
     <ClInclude Include="motivation.h" />
     <ClInclude Include="motivation_action.h" />
     <ClInclude Include="motivation_action_inline.h" />
@@ -952,7 +927,6 @@
     <ClInclude Include="movement_manager_space.h" />
     <ClInclude Include="mslotutils.h" />
     <ClInclude Include="mt_config.h" />
-    <ClInclude Include="Needles.h" />
     <ClInclude Include="NET_Queue.h" />
     <ClInclude Include="night_vision_effector.h" />
     <ClInclude Include="object_action.h" />
@@ -1117,7 +1091,6 @@
     <ClInclude Include="PSObject.h" />
     <ClInclude Include="quadtree.h" />
     <ClInclude Include="quadtree_inline.h" />
-    <ClInclude Include="RadioactiveZone.h" />
     <ClInclude Include="random32.h" />
     <ClInclude Include="relation_registry.h" />
     <ClInclude Include="relation_registry_defs.h" />
@@ -1125,9 +1098,6 @@
     <ClInclude Include="restricted_object.h" />
     <ClInclude Include="restricted_object_inline.h" />
     <ClInclude Include="restriction_space.h" />
-    <ClInclude Include="RGD5.h" />
-    <ClInclude Include="RocketLauncher.h" />
-    <ClInclude Include="RustyHairArtifact.h" />
     <ClInclude Include="safe_map_iterator.h" />
     <ClInclude Include="safe_map_iterator_inline.h" />
     <ClInclude Include="Scope.h" />
@@ -1236,7 +1206,6 @@
     <ClInclude Include="script_world_property.h" />
     <ClInclude Include="script_world_property_inline.h" />
     <ClInclude Include="script_world_state.h" />
-    <ClInclude Include="script_zone.h" />
     <ClInclude Include="selector_manager.h" />
     <ClInclude Include="selector_manager_inline.h" />
     <ClInclude Include="seniority_hierarchy_holder.h" />
@@ -1338,10 +1307,7 @@
     <ClInclude Include="team_hierarchy_holder.h" />
     <ClInclude Include="team_hierarchy_holder_inline.h" />
     <ClInclude Include="TeleWhirlwind.h" />
-    <ClInclude Include="ThornArtifact.h" />
-    <ClInclude Include="Torch.h" />
     <ClInclude Include="Tracer.h" />
-    <ClInclude Include="trade.h" />
     <ClInclude Include="tri-colliderKNoOPC\dcTriListCollider.h" />
     <ClInclude Include="tri-colliderknoopc\dSortTriPrimitive.h" />
     <ClInclude Include="tri-colliderknoopc\dTriBox.h" />
@@ -1420,30 +1386,9 @@
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="WeaponAK74.h" />
     <ClInclude Include="WeaponAmmo.h" />
-    <ClInclude Include="WeaponBinoculars.h" />
-    <ClInclude Include="weaponBM16.h" />
-    <ClInclude Include="WeaponCustomPistol.h" />
-    <ClInclude Include="WeaponFN2000.h" />
-    <ClInclude Include="WeaponFORT.h" />
-    <ClInclude Include="WeaponGroza.h" />
-    <ClInclude Include="WeaponHPSA.h" />
     <ClInclude Include="WeaponHUD.h" />
-    <ClInclude Include="WeaponKnife.h" />
-    <ClInclude Include="WeaponLR300.h" />
     <ClInclude Include="WeaponMagazined.h" />
     <ClInclude Include="WeaponMagazinedWGrenade.h" />
-    <ClInclude Include="WeaponMounted.h" />
-    <ClInclude Include="WeaponPistol.h" />
-    <ClInclude Include="WeaponPM.h" />
-    <ClInclude Include="WeaponRG6.h" />
-    <ClInclude Include="WeaponRPG7.h" />
-    <ClInclude Include="WeaponShotgun.h" />
-    <ClInclude Include="WeaponSVD.h" />
-    <ClInclude Include="WeaponSVU.h" />
-    <ClInclude Include="WeaponUSP45.h" />
-    <ClInclude Include="WeaponVal.h" />
-    <ClInclude Include="WeaponVintorez.h" />
-    <ClInclude Include="WeaponWalther.h" />
     <ClInclude Include="Wound.h" />
     <ClInclude Include="wrapper_abstract.h" />
     <ClInclude Include="wrapper_abstract_inline.h" />
@@ -1462,9 +1407,7 @@
     <ClInclude Include="xrServer_Space.h" />
     <ClInclude Include="xr_level_controller.h" />
     <ClInclude Include="xr_time.h" />
-    <ClInclude Include="ZoneVisual.h" />
     <ClInclude Include="zone_effector.h" />
-    <ClInclude Include="ZudaArtifact.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="action_base_script.cpp" />
@@ -1476,7 +1419,6 @@
     <ClCompile Include="ActorCondition.cpp" />
     <ClCompile Include="ActorEffector.cpp" />
     <ClCompile Include="ActorInput.cpp" />
-    <ClCompile Include="ActorMountedWeapon.cpp" />
     <ClCompile Include="Actor_Events.cpp" />
     <ClCompile Include="Actor_Feel.cpp" />
     <ClCompile Include="Actor_Movement.cpp" />
@@ -1619,7 +1561,6 @@
     <ClCompile Include="Ai\Stalker\ai_stalker_misc.cpp" />
     <ClCompile Include="Ai\Stalker\ai_stalker_script.cpp" />
     <ClCompile Include="ai\stalker\ai_stalker_script_entity.cpp" />
-    <ClCompile Include="Ai\Trader\ai_trader.cpp" />
     <ClCompile Include="ai_sounds.cpp" />
     <ClCompile Include="ai_space.cpp" />
     <ClCompile Include="ai_stalker_alife.cpp" />
@@ -1666,19 +1607,12 @@
     <ClCompile Include="alife_trader.cpp" />
     <ClCompile Include="alife_trader_registry.cpp" />
     <ClCompile Include="alife_update_manager.cpp" />
-    <ClCompile Include="AmebaZone.cpp" />
     <ClCompile Include="animation_action.cpp" />
     <ClCompile Include="antirad.cpp" />
-    <ClCompile Include="artefact_script.cpp" />
-    <ClCompile Include="Artifact.cpp" />
     <ClCompile Include="attachable_item.cpp" />
     <ClCompile Include="attachment_owner.cpp" />
     <ClCompile Include="autosave_manager.cpp" />
     <ClCompile Include="base_client_classes_script.cpp" />
-    <ClCompile Include="BastArtifact.cpp" />
-    <ClCompile Include="BlackDrops.cpp" />
-    <ClCompile Include="BlackGraviArtifact.cpp" />
-    <ClCompile Include="Bolt.cpp" />
     <ClCompile Include="BottleItem.cpp" />
     <ClCompile Include="BreakableObject.cpp" />
     <ClCompile Include="CameraEffector.cpp" />
@@ -1699,8 +1633,6 @@
     <ClCompile Include="cover_point_script.cpp" />
     <ClCompile Include="CustomMonster.cpp" />
     <ClCompile Include="CustomMonster_VCPU.cpp" />
-    <ClCompile Include="CustomRocket.cpp" />
-    <ClCompile Include="CustomZone.cpp" />
     <ClCompile Include="DamagableItem.cpp" />
     <ClCompile Include="damage_manager.cpp" />
     <ClCompile Include="danger_cover_location.cpp" />
@@ -1716,7 +1648,6 @@
     <ClCompile Include="detail_path_manager_smooth.cpp" />
     <ClCompile Include="DisablingParams.cpp" />
     <ClCompile Include="dRayMotions.cpp" />
-    <ClCompile Include="DummyArtifact.cpp" />
     <ClCompile Include="DynamicHeightMap.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -1732,7 +1663,6 @@
     <ClCompile Include="ef_primary.cpp" />
     <ClCompile Include="ef_storage.cpp" />
     <ClCompile Include="ef_storage_script.cpp" />
-    <ClCompile Include="ElectricBall.cpp" />
     <ClCompile Include="ElevatorState.cpp" />
     <ClCompile Include="enemy_manager.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -1741,14 +1671,9 @@
     <ClCompile Include="explode_effector.cpp" />
     <ClCompile Include="Explosive.cpp" />
     <ClCompile Include="ExplosiveItem.cpp" />
-    <ClCompile Include="ExplosiveRocket.cpp" />
     <ClCompile Include="ExplosiveScript.cpp" />
-    <ClCompile Include="F1.cpp" />
-    <ClCompile Include="FadedBall.cpp" />
     <ClCompile Include="FoodItem.cpp" />
-    <ClCompile Include="FryupZone.cpp" />
     <ClCompile Include="fs_registrator_script.cpp" />
-    <ClCompile Include="GalantineArtifact.cpp" />
     <ClCompile Include="GameMtlLib.cpp" />
     <ClCompile Include="GameMtlLib_Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -1763,13 +1688,9 @@
     <ClCompile Include="game_sv_event_queue.cpp" />
     <ClCompile Include="game_sv_single.cpp" />
     <ClCompile Include="Geometry.cpp" />
-    <ClCompile Include="GraviArtifact.cpp" />
-    <ClCompile Include="GraviZone.cpp" />
     <ClCompile Include="greeting_manager.cpp" />
-    <ClCompile Include="Grenade.cpp" />
     <ClCompile Include="GrenadeLauncher.cpp" />
     <ClCompile Include="group_hierarchy_holder.cpp" />
-    <ClCompile Include="HairsZone.cpp" />
     <ClCompile Include="HangingLamp.cpp" />
     <ClCompile Include="HitMarker.cpp" />
     <ClCompile Include="hit_immunity.cpp" />
@@ -1792,7 +1713,6 @@
     <ClCompile Include="LevelGameDef.cpp" />
     <ClCompile Include="Level_Bullet_Manager.cpp" />
     <ClCompile Include="Level_bullet_manager_firetrace.cpp" />
-    <ClCompile Include="level_changer.cpp" />
     <ClCompile Include="level_debug.cpp" />
     <ClCompile Include="level_graph.cpp" />
     <ClCompile Include="level_graph_debug.cpp" />
@@ -1819,11 +1739,7 @@
     <ClCompile Include="member_order.cpp" />
     <ClCompile Include="memory_manager.cpp" />
     <ClCompile Include="memory_space_script.cpp" />
-    <ClCompile Include="MercuryBall.cpp" />
-    <ClCompile Include="Mincer.cpp" />
-    <ClCompile Include="Missile.cpp" />
     <ClCompile Include="monster_community.cpp" />
-    <ClCompile Include="MosquitoBald.cpp" />
     <ClCompile Include="motivation_action_manager_script.cpp" />
     <ClCompile Include="motivation_action_manager_stalker.cpp" />
     <ClCompile Include="motivation_action_script.cpp" />
@@ -1835,7 +1751,6 @@
     <ClCompile Include="movement_manager_level.cpp" />
     <ClCompile Include="movement_manager_patrol.cpp" />
     <ClCompile Include="movement_manager_physic.cpp" />
-    <ClCompile Include="Needles.cpp" />
     <ClCompile Include="night_vision_effector.cpp" />
     <ClCompile Include="object_action.cpp" />
     <ClCompile Include="object_actions.cpp" />
@@ -1917,15 +1832,11 @@
     <ClCompile Include="property_evaluator_script.cpp" />
     <ClCompile Include="property_storage_script.cpp" />
     <ClCompile Include="PSObject.cpp" />
-    <ClCompile Include="RadioactiveZone.cpp" />
     <ClCompile Include="random32.cpp" />
     <ClCompile Include="relation_registry.cpp" />
     <ClCompile Include="relation_registry_actions.cpp" />
     <ClCompile Include="relation_registry_fights.cpp" />
     <ClCompile Include="restricted_object.cpp" />
-    <ClCompile Include="RGD5.cpp" />
-    <ClCompile Include="RocketLauncher.cpp" />
-    <ClCompile Include="RustyHairArtifact.cpp" />
     <ClCompile Include="Scope_impl.cpp" />
     <ClCompile Include="script_abstract_action.cpp" />
     <ClCompile Include="script_action_condition.cpp" />
@@ -2013,8 +1924,6 @@
     <ClCompile Include="script_watch_action_script.cpp" />
     <ClCompile Include="script_world_property_script.cpp" />
     <ClCompile Include="script_world_state_script.cpp" />
-    <ClCompile Include="script_zone.cpp" />
-    <ClCompile Include="script_zone_script.cpp" />
     <ClCompile Include="selector_manager.cpp" />
     <ClCompile Include="seniority_hierarchy_holder.cpp" />
     <ClCompile Include="server_entity_wrapper.cpp" />
@@ -2084,11 +1993,7 @@
     <ClCompile Include="step_manager.cpp" />
     <ClCompile Include="team_hierarchy_holder.cpp" />
     <ClCompile Include="TeleWhirlwind.cpp" />
-    <ClCompile Include="ThornArtifact.cpp" />
-    <ClCompile Include="Torch.cpp" />
     <ClCompile Include="Tracer.cpp" />
-    <ClCompile Include="trade.cpp" />
-    <ClCompile Include="trade2.cpp" />
     <ClCompile Include="tri-colliderknoopc\dcTriListCollider.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoExceptions|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -2161,32 +2066,11 @@
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WeaponAK74.cpp" />
     <ClCompile Include="WeaponAmmo.cpp" />
-    <ClCompile Include="WeaponBinoculars.cpp" />
-    <ClCompile Include="weaponBM16.cpp" />
-    <ClCompile Include="WeaponCustomPistol.cpp" />
     <ClCompile Include="WeaponDispersion.cpp" />
     <ClCompile Include="WeaponFire.cpp" />
-    <ClCompile Include="WeaponFN2000.cpp" />
-    <ClCompile Include="WeaponFORT.cpp" />
-    <ClCompile Include="WeaponGroza.cpp" />
-    <ClCompile Include="WeaponHPSA.cpp" />
     <ClCompile Include="WeaponHUD.cpp" />
-    <ClCompile Include="WeaponKnife.cpp" />
-    <ClCompile Include="WeaponLR300.cpp" />
     <ClCompile Include="WeaponMagazined.cpp" />
     <ClCompile Include="WeaponMagazinedWGrenade.cpp" />
-    <ClCompile Include="WeaponMounted.cpp" />
-    <ClCompile Include="WeaponPistol.cpp" />
-    <ClCompile Include="WeaponPM.cpp" />
-    <ClCompile Include="WeaponRG6.cpp" />
-    <ClCompile Include="WeaponRPG7.cpp" />
-    <ClCompile Include="WeaponShotgun.cpp" />
-    <ClCompile Include="WeaponSVD.cpp" />
-    <ClCompile Include="WeaponSVU.cpp" />
-    <ClCompile Include="WeaponUSP45.cpp" />
-    <ClCompile Include="WeaponVal.cpp" />
-    <ClCompile Include="WeaponVintorez.cpp" />
-    <ClCompile Include="WeaponWalther.cpp" />
     <ClCompile Include="Wound.cpp" />
     <ClCompile Include="xrGame.cpp" />
     <ClCompile Include="xrgame_dll_detach.cpp" />
@@ -2228,9 +2112,7 @@
     <ClCompile Include="xrServer_sls_clear.cpp" />
     <ClCompile Include="xr_level_controller.cpp" />
     <ClCompile Include="xr_time.cpp" />
-    <ClCompile Include="ZoneVisual.cpp" />
     <ClCompile Include="zone_effector.cpp" />
-    <ClCompile Include="ZudaArtifact.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\xrCDB\xrCDB.vcxproj">

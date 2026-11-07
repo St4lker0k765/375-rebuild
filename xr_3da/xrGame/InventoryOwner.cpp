@@ -7,9 +7,7 @@
 #include "stdafx.h"
 #include "InventoryOwner.h"
 #include "entity_alive.h"
-#include "pda.h"
 #include "actor.h"
-#include "trade.h"
 #include "inventory.h"
 #include "xrserver_objects_alife_items.h"
 #include "character_info.h"
@@ -32,27 +30,20 @@
 CInventoryOwner::CInventoryOwner			()
 {
 	m_pCharacterInfo			= NULL;
-	m_pTrade					= NULL;
 	
 	m_inventory					= xr_new<CInventory>();
 	m_pCharacterInfo			= xr_new<CCharacterInfo>();
-	
-	EnableTalk();
-	EnableTrade();
 }
 
 DLL_Pure *CInventoryOwner::_construct		()
 {
-	m_pTrade					= xr_new<CTrade>(this);
 	return						(0);
 }
 
 CInventoryOwner::~CInventoryOwner			() 
 {
 	xr_delete					(m_inventory);
-	xr_delete					(m_pTrade);
 	xr_delete					(m_pCharacterInfo);
-	xr_delete					(m_known_info_registry);
 }
 
 void CInventoryOwner::Load					(LPCSTR section)
@@ -66,8 +57,6 @@ void CInventoryOwner::reload				(LPCSTR section)
 	inventory().SetSlotsUseful (true);
 
 	m_dwMoney					= 0;
-	m_bTalking					= false;
-	m_pTalkPartner				= NULL;
 
 	CAttachmentOwner::reload	(section);
 }
@@ -124,79 +113,6 @@ void	CInventoryOwner::load	(IReader &input_packet)
 void CInventoryOwner::UpdateInventoryOwner(u32 deltaT)
 {
 	inventory().Update();
-	if(m_pTrade) m_pTrade->UpdateTrade();
-
-	if(IsTalking())
-	{
-		//если наш собеседник перестал говорить с нами,
-		//то и нам нечего ждать.
-		if(!m_pTalkPartner->IsTalking())
-		{
-			StopTalk();
-		}
-
-		//если мы умерли, то тоже не говорить
-		CEntityAlive* pOurEntityAlive = smart_cast<CEntityAlive*>(this);
-		R_ASSERT(pOurEntityAlive);
-		if(!pOurEntityAlive->g_Alive()) StopTalk();
-	}
-}
-
-CTrade* CInventoryOwner::GetTrade() 
-{
-	R_ASSERT2(m_pTrade, "trade for object does not init yet");
-	return m_pTrade;
-}
-
-
-//состояние диалога
-
-//нам предлагают поговорить,
-//проверяем наше отношение 
-//и если не враг начинаем разговор
-bool CInventoryOwner::OfferTalk(CInventoryOwner* talk_partner)
-{
-	if(!IsTalkEnabled()) return false;
-
-	//проверить отношение к собеседнику
-	CEntityAlive* pOurEntityAlive = smart_cast<CEntityAlive*>(this);
-	R_ASSERT(pOurEntityAlive);
-
-	CEntityAlive* pPartnerEntityAlive = smart_cast<CEntityAlive*>(talk_partner);
-	R_ASSERT(pPartnerEntityAlive);
-	
-//	ALife::ERelationType relation = RELATION_REGISTRY().GetRelationType(this, talk_partner);
-//	if(relation == ALife::eRelationTypeEnemy) return false;
-
-	if(!pOurEntityAlive->g_Alive() || !pPartnerEntityAlive->g_Alive()) return false;
-
-	StartTalk(talk_partner);
-
-	return true;
-}
-
-
-void CInventoryOwner::StartTalk(CInventoryOwner* talk_partner, bool start_trade)
-{
-	m_bTalking = true;
-	m_pTalkPartner = talk_partner;
-
-	//тут же включаем торговлю
-	if(start_trade)
-		GetTrade()->StartTrade(talk_partner);
-}
-
-void CInventoryOwner::StopTalk()
-{
-	m_pTalkPartner = NULL;
-	m_bTalking = false;
-
-	//выключаем торговлю
-	GetTrade()->StopTrade();
-}
-bool CInventoryOwner::IsTalking()
-{
-	return m_bTalking;
 }
 
 void CInventoryOwner::renderable_Render		()
@@ -252,24 +168,6 @@ void CInventoryOwner::spawn_supplies		()
 LPCSTR	CInventoryOwner::Name () const
 {
 	return CharacterInfo().Name();
-}
-
-
-
-//для детекторов
-void CInventoryOwner::FoundZone	(CCustomZone*)
-{
-}
-void CInventoryOwner::LostZone	(CCustomZone*)
-{
-}
-
-
-void CInventoryOwner::NewPdaContact		(CInventoryOwner* pInvOwner)
-{
-}
-void CInventoryOwner::LostPdaContact	(CInventoryOwner* pInvOwner)
-{
 }
 
 //////////////////////////////////////////////////////////////////////////

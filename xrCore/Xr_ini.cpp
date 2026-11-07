@@ -402,8 +402,7 @@ BOOL	CInifile::r_bool( LPCSTR S, LPCSTR L )
 }
 CLASS_ID CInifile::r_clsid( LPCSTR S, LPCSTR L)
 {
-	LPCSTR		C = r_string(S,L);
-	return		TEXT2CLSID(C);
+	return r_string(S,L);
 }
 int		CInifile::r_token	( LPCSTR S, LPCSTR L, const xr_token *token_list)
 {

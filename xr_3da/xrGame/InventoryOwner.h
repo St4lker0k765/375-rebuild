@@ -13,7 +13,6 @@
 class CSE_Abstract;
 class CInventory;
 class CInventoryItem;
-class CTrade;
 class CPda;
 class CGameObject;
 class CEntityAlive;
@@ -57,46 +56,11 @@ public:
 
 	// инвентарь
 	CInventory	*m_inventory;			
-	
-	////////////////////////////////////
-	//торговля и общение с персонажем
-
-	virtual bool	AllowItemToTrade 	(CInventoryItem const * item, EItemPlace place) const {return true;};
-
-	//инициализация объекта торговли
-	CTrade* GetTrade();
-
-	//для включения разговора
-	virtual bool OfferTalk		(CInventoryOwner* talk_partner);
-	virtual void StartTalk		(CInventoryOwner* talk_partner, bool start_trade = true);
-	virtual void StopTalk		();
-	virtual bool IsTalking		();
-	
-	virtual void EnableTalk		()		{m_bAllowTalk = true;}
-	virtual void DisableTalk	()		{m_bAllowTalk = false;}
-	virtual bool IsTalkEnabled	()		{ return m_bAllowTalk;}
-
-	void EnableTrade			()		{m_bAllowTrade = true;}
-	void DisableTrade			()		{m_bAllowTrade = false;}
-	bool IsTradeEnabled			()		{ return m_bAllowTrade;}
-
-	CInventoryOwner* GetTalkPartner()	{return m_pTalkPartner;}
-	virtual void	 NewPdaContact		(CInventoryOwner*);
-	virtual void	 LostPdaContact		(CInventoryOwner*);
 
 	//игровое имя 
 	virtual LPCSTR	Name        () const;
 
 protected:
-	// торговля
-	CTrade*				m_pTrade;
-	bool				m_bTalking; 
-	CInventoryOwner*	m_pTalkPartner;
-
-	bool				m_bAllowTalk;
-	bool				m_bAllowTrade;
-
-
 	//////////////////////////////////////////////////////////////////////////
 	// инвентарь 
 public:
@@ -107,11 +71,6 @@ public:
 	virtual float GetWeaponAccuracy			() const;
 	//максимальный переносимы вес
 	virtual float MaxCarryWeight			() const;
-
-	//////////////////////////////////////////////////////////////////////////
-	// работа с детекторами
-	virtual void FoundZone				(CCustomZone*);
-	virtual void LostZone				(CCustomZone*);
 
 	//////////////////////////////////////////////////////////////////////////
 	//игровые характеристики персонажа

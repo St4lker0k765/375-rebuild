@@ -763,9 +763,6 @@
     <Filter Include="AI\AMonsters\humans">
       <UniqueIdentifier>{7ea80726-ffa0-4a8c-91e7-10df74f05260}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AI\AMonsters\humans\trader">
-      <UniqueIdentifier>{801168f3-a94c-4113-bf49-9ec0f5262f9a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AI\AMonsters\humans\stalker">
       <UniqueIdentifier>{c29df96a-d8e1-48e4-a787-e2363be164bb}</UniqueIdentifier>
     </Filter>
@@ -1348,9 +1345,6 @@
     <Filter Include="Core\Client\Objects\Inventory\PhysicItem">
       <UniqueIdentifier>{0ffe83ea-bd47-4c94-b669-c2b3cdfd3c9f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\Inventory\Trade">
-      <UniqueIdentifier>{3693d0cd-4101-452e-b0f0-25b3114e0823}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons">
       <UniqueIdentifier>{e1ca75a6-fa08-453a-ac40-94181707b3e8}</UniqueIdentifier>
     </Filter>
@@ -1365,12 +1359,6 @@
     </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Ammo">
       <UniqueIdentifier>{aa432f46-8f98-434b-98f3-f3a022ec8c83}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Pistol">
-      <UniqueIdentifier>{00fe0b24-a496-45f6-b885-0adc9ea0a350}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Grenades &amp; Missiles">
-      <UniqueIdentifier>{bb29774b-ab73-4c20-998a-ae409af26e02}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Automatic">
       <UniqueIdentifier>{eaee1a95-7a4f-4ad6-889b-2afcb0c47d00}</UniqueIdentifier>
@@ -1387,131 +1375,14 @@
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Addons\GrenadeLauncher">
       <UniqueIdentifier>{606eb5fc-9edf-40b9-80b0-a705f4d23ba9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\RocketLauncher">
-      <UniqueIdentifier>{dc8eab2e-9f79-42d7-8e96-2a6d670f27f2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons">
       <UniqueIdentifier>{9ee28635-ccfe-476a-8fe9-3cba0a019af5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Walther 99">
-      <UniqueIdentifier>{d0e94afb-6519-4a9d-be9b-116b81cde241}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Vintorez">
-      <UniqueIdentifier>{a7a28faf-c372-40ab-ac65-a77322006579}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Knife">
-      <UniqueIdentifier>{c9fa54fa-d51c-4d5c-b2bc-7796dd933403}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Groza">
-      <UniqueIdentifier>{ea33d92e-d7a8-41c0-a0c2-a95acf7860f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\RGD5">
-      <UniqueIdentifier>{2208ab9a-81ae-414a-b806-a7f3feb7d8ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Val">
-      <UniqueIdentifier>{9d5e8475-451c-4e62-97a8-f94e7827e21a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon USP45">
-      <UniqueIdentifier>{89a1dae8-5be6-4ce7-88e7-7a26b9ceba42}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Bolt">
-      <UniqueIdentifier>{4cd53903-4d76-4b83-8488-9cc97657a6c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\SVU">
-      <UniqueIdentifier>{dd6bc5ef-65b6-46f5-be3a-21ffc4ed73c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\RPG7">
-      <UniqueIdentifier>{201dc79f-5322-41a4-9326-f4570ac51ecb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Grenade F1">
-      <UniqueIdentifier>{5a364ace-dc3f-4a31-aeff-435d81f3f528}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\SVD">
-      <UniqueIdentifier>{7c1d0e96-f9c0-4b0c-84f5-b5f6f2de28b2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon AK74">
       <UniqueIdentifier>{4b09469f-ecec-474b-8983-a82b1e95ffd7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\LR300">
-      <UniqueIdentifier>{2ee8d933-601e-40ed-baf9-01cbf3893a4a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\FN2000">
-      <UniqueIdentifier>{7a2446b9-3619-48b7-9f15-da9abb9dd4dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\HPSA">
-      <UniqueIdentifier>{63e04a41-b326-476b-842b-99d510322b13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\PM">
-      <UniqueIdentifier>{4f989cf2-3f2c-418a-a934-ba224a622bff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Binocular">
-      <UniqueIdentifier>{00ed8eb9-6a40-4fff-b923-966591dbead7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Shotgun">
-      <UniqueIdentifier>{50a2d9fa-8915-4d13-9e56-8edd9e9d3826}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\FORT">
-      <UniqueIdentifier>{2b192cdc-0c8e-4880-82cc-ea86f01222d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon RG6">
-      <UniqueIdentifier>{e4ba2d76-fc23-44b9-922a-f61e89223f79}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\BM-16">
-      <UniqueIdentifier>{60b82621-53bc-487c-b54a-a3d30cd59a8b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\HUD">
       <UniqueIdentifier>{5d33bb09-62eb-4273-b527-184989f92b1f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Weapons\Mounted Weapon">
-      <UniqueIdentifier>{eca9fb76-8b85-4f59-8df0-8bc8ec6e7c85}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts">
-      <UniqueIdentifier>{7b7b14ed-84f4-43df-baf3-d0e2a9afe91e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\Mercury Ball">
-      <UniqueIdentifier>{5b8735b8-3a2a-4b8a-8e8b-9db41bf046cb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\GraviArtifact">
-      <UniqueIdentifier>{421fba5f-6d1c-47ab-83e9-14be422abcc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\BlackDrops">
-      <UniqueIdentifier>{3208b87c-90ce-438e-aa72-986e96d36d56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\Needles">
-      <UniqueIdentifier>{10812d53-86d5-4187-92a3-604680f94138}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\BastArtifact">
-      <UniqueIdentifier>{1b5722aa-1297-4027-9b31-62e61b66cce5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\BlackGraviArtifact">
-      <UniqueIdentifier>{b4485630-645d-4d8e-b415-993ad24b3cea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\DummyArtifact">
-      <UniqueIdentifier>{4448ee5a-e964-4b21-9024-0082a681d5a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\ZudaArtifact">
-      <UniqueIdentifier>{52af7147-10f0-45f4-8ea9-20cfbc3af0e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\ThornArtifact">
-      <UniqueIdentifier>{33732e60-6654-4be7-bfd6-bd962a3b7998}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\Faded Ball">
-      <UniqueIdentifier>{f37e67dc-cb23-4443-85d6-97b776c5ea72}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\Electric Ball">
-      <UniqueIdentifier>{f6c9c098-bef7-47b1-9608-d0594db1a20c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\RustyHairArtifact">
-      <UniqueIdentifier>{cf0b01f3-0a68-41a6-ab99-a31db1c012c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Artifacts\GalantineArtifact">
-      <UniqueIdentifier>{3b81fd96-0c27-43e5-baed-e52c11522c11}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Devices">
-      <UniqueIdentifier>{9da5e09b-65a8-44b7-809e-f1e73f7c020a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Items &amp; Weapons\Devices\Torch">
-      <UniqueIdentifier>{d7796a3a-649f-4fd1-a113-646b5724b734}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs">
       <UniqueIdentifier>{a384d92a-3e43-4b43-99ff-af2a7be737d7}</UniqueIdentifier>
@@ -1525,44 +1396,8 @@
     <Filter Include="Core\Client\Objects\Zones">
       <UniqueIdentifier>{b3ce64cc-3614-4ce7-8828-b053b3f28174}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Client\Objects\Zones\AcidFog">
-      <UniqueIdentifier>{72ece8d0-9d27-4ebe-8b47-a798eff177f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\CustomZone">
-      <UniqueIdentifier>{bf4a5a52-0ae8-4a83-89c3-b1a53adc4959}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\FryUpZone">
-      <UniqueIdentifier>{1754340b-4bc5-436f-aa1e-d1bfed140f58}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\GraviZone">
-      <UniqueIdentifier>{ce7c7d51-fcd5-47ba-a1b1-08f038f8084a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\LevelChanger">
-      <UniqueIdentifier>{0738fedb-5610-4878-960b-9cda79d6cedb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\Mincer">
-      <UniqueIdentifier>{bd2ae94d-47ce-4817-afd3-d81b540968f1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\MosquitoBald">
-      <UniqueIdentifier>{bfd2f95c-c0ec-4f8e-8437-5c46e57f58a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\RadioactiveZone">
-      <UniqueIdentifier>{a89e048c-5e26-4417-b6c6-5d3815750b99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\ScriptZone">
-      <UniqueIdentifier>{fc6e21d1-81da-40aa-b1fe-3ab46a43d721}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Client\Objects\Zones\SpaceRestrictor">
       <UniqueIdentifier>{21ec8e13-d1d0-4d0d-84b7-a78186cef375}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\ZoneVisual">
-      <UniqueIdentifier>{77ad0497-0c76-4502-b0bd-ce3541d540ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\HairsZone">
-      <UniqueIdentifier>{f2ba7df1-991d-40c5-b2d1-bf563f499eac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Client\Objects\Zones\AmebaZone">
-      <UniqueIdentifier>{b7a12dfc-b9e3-46f1-9889-aaa94f2eb9e1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Client\Objects\_lamp">
       <UniqueIdentifier>{a59114a4-4a17-4b59-ab10-e1ed91fa8536}</UniqueIdentifier>
@@ -3414,9 +3249,6 @@
     <ClInclude Include="ai\Monsters\Dog\dog_state_manager.h">
       <Filter>AI\AMonsters\monsters\Dog</Filter>
     </ClInclude>
-    <ClInclude Include="Ai\Trader\ai_trader.h">
-      <Filter>AI\AMonsters\humans\trader</Filter>
-    </ClInclude>
     <ClInclude Include="Ai\Stalker\ai_stalker.h">
       <Filter>AI\AMonsters\humans\stalker</Filter>
     </ClInclude>
@@ -4440,9 +4272,6 @@
     <ClInclude Include="physic_item_inline.h">
       <Filter>Core\Client\Objects\Inventory\PhysicItem</Filter>
     </ClInclude>
-    <ClInclude Include="trade.h">
-      <Filter>Core\Client\Objects\Inventory\Trade</Filter>
-    </ClInclude>
     <ClInclude Include="ShootingObject.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Weapon Generic</Filter>
     </ClInclude>
@@ -4451,18 +4280,6 @@
     </ClInclude>
     <ClInclude Include="WeaponAmmo.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Ammo</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponCustomPistol.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Pistol</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponPistol.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Pistol</Filter>
-    </ClInclude>
-    <ClInclude Include="Grenade.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Grenades &amp; Missiles</Filter>
-    </ClInclude>
-    <ClInclude Include="Missile.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Grenades &amp; Missiles</Filter>
     </ClInclude>
     <ClInclude Include="WeaponMagazined.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Automatic</Filter>
@@ -4479,131 +4296,11 @@
     <ClInclude Include="GrenadeLauncher.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Addons\GrenadeLauncher</Filter>
     </ClInclude>
-    <ClInclude Include="CustomRocket.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\RocketLauncher</Filter>
-    </ClInclude>
-    <ClInclude Include="ExplosiveRocket.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\RocketLauncher</Filter>
-    </ClInclude>
-    <ClInclude Include="RocketLauncher.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\RocketLauncher</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponWalther.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Walther 99</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponVintorez.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Vintorez</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponKnife.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Knife</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponGroza.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Groza</Filter>
-    </ClInclude>
-    <ClInclude Include="RGD5.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\RGD5</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponVal.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Val</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponUSP45.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon USP45</Filter>
-    </ClInclude>
-    <ClInclude Include="Bolt.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Bolt</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponSVU.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\SVU</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponRPG7.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\RPG7</Filter>
-    </ClInclude>
-    <ClInclude Include="F1.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Grenade F1</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponSVD.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\SVD</Filter>
-    </ClInclude>
     <ClInclude Include="WeaponAK74.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon AK74</Filter>
     </ClInclude>
-    <ClInclude Include="WeaponLR300.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\LR300</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponFN2000.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\FN2000</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponHPSA.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\HPSA</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponPM.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\PM</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponBinoculars.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Binocular</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponShotgun.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Shotgun</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponFORT.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\FORT</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponRG6.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon RG6</Filter>
-    </ClInclude>
-    <ClInclude Include="weaponBM16.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\BM-16</Filter>
-    </ClInclude>
     <ClInclude Include="WeaponHUD.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\HUD</Filter>
-    </ClInclude>
-    <ClInclude Include="WeaponMounted.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Mounted Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="Artifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts</Filter>
-    </ClInclude>
-    <ClInclude Include="MercuryBall.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\Mercury Ball</Filter>
-    </ClInclude>
-    <ClInclude Include="GraviArtifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\GraviArtifact</Filter>
-    </ClInclude>
-    <ClInclude Include="BlackDrops.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\BlackDrops</Filter>
-    </ClInclude>
-    <ClInclude Include="Needles.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\Needles</Filter>
-    </ClInclude>
-    <ClInclude Include="BastArtifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\BastArtifact</Filter>
-    </ClInclude>
-    <ClInclude Include="BlackGraviArtifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\BlackGraviArtifact</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyArtifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\DummyArtifact</Filter>
-    </ClInclude>
-    <ClInclude Include="ZudaArtifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\ZudaArtifact</Filter>
-    </ClInclude>
-    <ClInclude Include="ThornArtifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\ThornArtifact</Filter>
-    </ClInclude>
-    <ClInclude Include="FadedBall.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\Faded Ball</Filter>
-    </ClInclude>
-    <ClInclude Include="ElectricBall.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\Electric Ball</Filter>
-    </ClInclude>
-    <ClInclude Include="RustyHairArtifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\RustyHairArtifact</Filter>
-    </ClInclude>
-    <ClInclude Include="GalantineArtifact.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\GalantineArtifact</Filter>
-    </ClInclude>
-    <ClInclude Include="Torch.h">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\Torch</Filter>
     </ClInclude>
     <ClInclude Include="antirad.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
@@ -4629,44 +4326,11 @@
     <ClInclude Include="ExplosiveItem.h">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Explosives</Filter>
     </ClInclude>
-    <ClInclude Include="CustomZone.h">
-      <Filter>Core\Client\Objects\Zones\CustomZone</Filter>
-    </ClInclude>
-    <ClInclude Include="FryupZone.h">
-      <Filter>Core\Client\Objects\Zones\FryUpZone</Filter>
-    </ClInclude>
-    <ClInclude Include="GraviZone.h">
-      <Filter>Core\Client\Objects\Zones\GraviZone</Filter>
-    </ClInclude>
-    <ClInclude Include="level_changer.h">
-      <Filter>Core\Client\Objects\Zones\LevelChanger</Filter>
-    </ClInclude>
-    <ClInclude Include="Mincer.h">
-      <Filter>Core\Client\Objects\Zones\Mincer</Filter>
-    </ClInclude>
-    <ClInclude Include="MosquitoBald.h">
-      <Filter>Core\Client\Objects\Zones\MosquitoBald</Filter>
-    </ClInclude>
-    <ClInclude Include="RadioactiveZone.h">
-      <Filter>Core\Client\Objects\Zones\RadioactiveZone</Filter>
-    </ClInclude>
-    <ClInclude Include="script_zone.h">
-      <Filter>Core\Client\Objects\Zones\ScriptZone</Filter>
-    </ClInclude>
     <ClInclude Include="space_restrictor.h">
       <Filter>Core\Client\Objects\Zones\SpaceRestrictor</Filter>
     </ClInclude>
     <ClInclude Include="space_restrictor_inline.h">
       <Filter>Core\Client\Objects\Zones\SpaceRestrictor</Filter>
-    </ClInclude>
-    <ClInclude Include="ZoneVisual.h">
-      <Filter>Core\Client\Objects\Zones\ZoneVisual</Filter>
-    </ClInclude>
-    <ClInclude Include="HairsZone.h">
-      <Filter>Core\Client\Objects\Zones\HairsZone</Filter>
-    </ClInclude>
-    <ClInclude Include="AmebaZone.h">
-      <Filter>Core\Client\Objects\Zones\AmebaZone</Filter>
     </ClInclude>
     <ClInclude Include="HangingLamp.h">
       <Filter>Core\Client\Objects\_lamp</Filter>
@@ -5993,9 +5657,6 @@
     <ClCompile Include="ai\Monsters\Dog\dog_script.cpp">
       <Filter>AI\AMonsters\monsters\Dog\Script</Filter>
     </ClCompile>
-    <ClCompile Include="Ai\Trader\ai_trader.cpp">
-      <Filter>AI\AMonsters\humans\trader</Filter>
-    </ClCompile>
     <ClCompile Include="Ai\Stalker\ai_stalker.cpp">
       <Filter>AI\AMonsters\humans\stalker</Filter>
     </ClCompile>
@@ -6563,9 +6224,6 @@
     <ClCompile Include="ActorInput.cpp">
       <Filter>Core\Client\Objects\_actor</Filter>
     </ClCompile>
-    <ClCompile Include="ActorMountedWeapon.cpp">
-      <Filter>Core\Client\Objects\_actor</Filter>
-    </ClCompile>
     <ClCompile Include="Entity.cpp">
       <Filter>Core\Client\Objects\Basic\Entity</Filter>
     </ClCompile>
@@ -6650,12 +6308,6 @@
     <ClCompile Include="physic_item.cpp">
       <Filter>Core\Client\Objects\Inventory\PhysicItem</Filter>
     </ClCompile>
-    <ClCompile Include="trade.cpp">
-      <Filter>Core\Client\Objects\Inventory\Trade</Filter>
-    </ClCompile>
-    <ClCompile Include="trade2.cpp">
-      <Filter>Core\Client\Objects\Inventory\Trade</Filter>
-    </ClCompile>
     <ClCompile Include="ShootingObject.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Weapon Generic</Filter>
     </ClCompile>
@@ -6670,18 +6322,6 @@
     </ClCompile>
     <ClCompile Include="WeaponAmmo.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Ammo</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponCustomPistol.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Pistol</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponPistol.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Pistol</Filter>
-    </ClCompile>
-    <ClCompile Include="Grenade.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Grenades &amp; Missiles</Filter>
-    </ClCompile>
-    <ClCompile Include="Missile.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Grenades &amp; Missiles</Filter>
     </ClCompile>
     <ClCompile Include="WeaponMagazined.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Automatic</Filter>
@@ -6698,134 +6338,11 @@
     <ClCompile Include="GrenadeLauncher.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\Addons\GrenadeLauncher</Filter>
     </ClCompile>
-    <ClCompile Include="CustomRocket.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\RocketLauncher</Filter>
-    </ClCompile>
-    <ClCompile Include="ExplosiveRocket.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\RocketLauncher</Filter>
-    </ClCompile>
-    <ClCompile Include="RocketLauncher.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Custom Weapon\RocketLauncher</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponWalther.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Walther 99</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponVintorez.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Vintorez</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponKnife.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Knife</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponGroza.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Groza</Filter>
-    </ClCompile>
-    <ClCompile Include="RGD5.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\RGD5</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponVal.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Val</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponUSP45.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon USP45</Filter>
-    </ClCompile>
-    <ClCompile Include="Bolt.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Bolt</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponSVU.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\SVU</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponRPG7.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\RPG7</Filter>
-    </ClCompile>
-    <ClCompile Include="F1.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Grenade F1</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponSVD.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\SVD</Filter>
-    </ClCompile>
     <ClCompile Include="WeaponAK74.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon AK74</Filter>
     </ClCompile>
-    <ClCompile Include="WeaponLR300.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\LR300</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponFN2000.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\FN2000</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponHPSA.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\HPSA</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponPM.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\PM</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponBinoculars.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Binocular</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponShotgun.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon Shotgun</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponFORT.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\FORT</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponRG6.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\Weapon RG6</Filter>
-    </ClCompile>
-    <ClCompile Include="weaponBM16.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Various weapons\BM-16</Filter>
-    </ClCompile>
     <ClCompile Include="WeaponHUD.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\HUD</Filter>
-    </ClCompile>
-    <ClCompile Include="WeaponMounted.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Weapons\Mounted Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="artefact_script.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts</Filter>
-    </ClCompile>
-    <ClCompile Include="Artifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts</Filter>
-    </ClCompile>
-    <ClCompile Include="MercuryBall.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\Mercury Ball</Filter>
-    </ClCompile>
-    <ClCompile Include="GraviArtifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\GraviArtifact</Filter>
-    </ClCompile>
-    <ClCompile Include="BlackDrops.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\BlackDrops</Filter>
-    </ClCompile>
-    <ClCompile Include="Needles.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\Needles</Filter>
-    </ClCompile>
-    <ClCompile Include="BastArtifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\BastArtifact</Filter>
-    </ClCompile>
-    <ClCompile Include="BlackGraviArtifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\BlackGraviArtifact</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyArtifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\DummyArtifact</Filter>
-    </ClCompile>
-    <ClCompile Include="ZudaArtifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\ZudaArtifact</Filter>
-    </ClCompile>
-    <ClCompile Include="ThornArtifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\ThornArtifact</Filter>
-    </ClCompile>
-    <ClCompile Include="FadedBall.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\Faded Ball</Filter>
-    </ClCompile>
-    <ClCompile Include="ElectricBall.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\Electric Ball</Filter>
-    </ClCompile>
-    <ClCompile Include="RustyHairArtifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\RustyHairArtifact</Filter>
-    </ClCompile>
-    <ClCompile Include="GalantineArtifact.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Artifacts\GalantineArtifact</Filter>
-    </ClCompile>
-    <ClCompile Include="Torch.cpp">
-      <Filter>Core\Client\Objects\Items &amp; Weapons\Devices\Torch</Filter>
     </ClCompile>
     <ClCompile Include="antirad.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Food &amp; Drugs</Filter>
@@ -6857,44 +6374,8 @@
     <ClCompile Include="ExplosiveScript.cpp">
       <Filter>Core\Client\Objects\Items &amp; Weapons\Explosives</Filter>
     </ClCompile>
-    <ClCompile Include="CustomZone.cpp">
-      <Filter>Core\Client\Objects\Zones\CustomZone</Filter>
-    </ClCompile>
-    <ClCompile Include="FryupZone.cpp">
-      <Filter>Core\Client\Objects\Zones\FryUpZone</Filter>
-    </ClCompile>
-    <ClCompile Include="GraviZone.cpp">
-      <Filter>Core\Client\Objects\Zones\GraviZone</Filter>
-    </ClCompile>
-    <ClCompile Include="level_changer.cpp">
-      <Filter>Core\Client\Objects\Zones\LevelChanger</Filter>
-    </ClCompile>
-    <ClCompile Include="Mincer.cpp">
-      <Filter>Core\Client\Objects\Zones\Mincer</Filter>
-    </ClCompile>
-    <ClCompile Include="MosquitoBald.cpp">
-      <Filter>Core\Client\Objects\Zones\MosquitoBald</Filter>
-    </ClCompile>
-    <ClCompile Include="RadioactiveZone.cpp">
-      <Filter>Core\Client\Objects\Zones\RadioactiveZone</Filter>
-    </ClCompile>
-    <ClCompile Include="script_zone.cpp">
-      <Filter>Core\Client\Objects\Zones\ScriptZone</Filter>
-    </ClCompile>
-    <ClCompile Include="script_zone_script.cpp">
-      <Filter>Core\Client\Objects\Zones\ScriptZone</Filter>
-    </ClCompile>
     <ClCompile Include="space_restrictor.cpp">
       <Filter>Core\Client\Objects\Zones\SpaceRestrictor</Filter>
-    </ClCompile>
-    <ClCompile Include="ZoneVisual.cpp">
-      <Filter>Core\Client\Objects\Zones\ZoneVisual</Filter>
-    </ClCompile>
-    <ClCompile Include="HairsZone.cpp">
-      <Filter>Core\Client\Objects\Zones\HairsZone</Filter>
-    </ClCompile>
-    <ClCompile Include="AmebaZone.cpp">
-      <Filter>Core\Client\Objects\Zones\AmebaZone</Filter>
     </ClCompile>
     <ClCompile Include="HangingLamp.cpp">
       <Filter>Core\Client\Objects\_lamp</Filter>

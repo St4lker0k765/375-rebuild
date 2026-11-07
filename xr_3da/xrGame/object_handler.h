@@ -50,9 +50,6 @@ protected:
 	bool							m_infinite_ammo;
 	CObjectHandlerPlanner			*m_planner;
 
-protected:
-	IC		void					switch_torch		(CInventoryItem *inventory_item, bool value);
-
 public:
 									CObjectHandler		();
 	virtual							~CObjectHandler		();

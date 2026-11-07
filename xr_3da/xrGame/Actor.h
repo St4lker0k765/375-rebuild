@@ -40,7 +40,6 @@ class  CSleepEffectorPP;
 class  CActorEffector;
 
 class	CHudItem;
-class   CArtefact;
 
 struct SActorMotions;
 struct SActorVehicleAnims;
@@ -142,16 +141,10 @@ public:
 	//сон
 			void		UpdateSleep			();
 
-	//свойства артефактов
-	virtual void		UpdateArtefactsOnBelt	();
-	virtual void		MoveArtefactBelt		(const CArtefact* artefact, bool on_belt);
-	virtual float		HitArtefactsOnBelt		(float hit_power, ALife::EHitType hit_type);
 protected:
 	//звук т€желого дыхани€
 	ref_sound			m_HeavyBreathSnd;
 	bool				m_bHeavyBreathSndPlaying;
-
-	xr_vector<const CArtefact*> m_ArtefactsOnBelt;
 
 protected:
 	//Sleep params

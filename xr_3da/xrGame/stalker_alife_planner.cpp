@@ -123,12 +123,4 @@ void CStalkerALifePlanner::add_actions		()
 	add_condition			(action,eWorldPropertyHumanToDialog,false);
 	add_effect				(action,eWorldPropertyReachedCustomerLocation,true);
 	add_operator			(eWorldOperatorReachCustomerLocation,action);
-	
-	action					= xr_new<CStalkerActionCommunicateWithCustomer>	(m_object,"statisfy_customer");
-	add_condition			(action,eWorldPropertyALife,		true);
-	add_condition			(action,eWorldPropertyItems,		false);
-	add_condition			(action,eWorldPropertyReachedCustomerLocation,true);
-	add_condition			(action,eWorldPropertyCustomerSatisfied,false);
-	add_effect				(action,eWorldPropertyCustomerSatisfied,true);
-	add_operator			(eWorldOperatorCommunicateWithCustomer,		action);
 }

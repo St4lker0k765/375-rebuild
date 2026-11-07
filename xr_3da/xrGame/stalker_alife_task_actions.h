@@ -10,8 +10,6 @@
 
 #include "stalker_base_action.h"
 
-class CAI_Trader;
-
 //////////////////////////////////////////////////////////////////////////
 // CStalkerActionReachTaskLocation
 //////////////////////////////////////////////////////////////////////////
@@ -56,24 +54,6 @@ protected:
 
 public:
 						CStalkerActionReachCustomerLocation(CAI_Stalker *object, LPCSTR action_name = "");
-	virtual void		initialize					();
-	virtual void		execute						();
-	virtual void		finalize					();
-};
-
-//////////////////////////////////////////////////////////////////////////
-// CStalkerActionFollowCustomer
-//////////////////////////////////////////////////////////////////////////
-
-class CStalkerActionCommunicateWithCustomer : public CStalkerActionBase {
-protected:
-	typedef CStalkerActionBase inherited;
-
-private:
-	CAI_Trader			*m_trader;
-
-public:
-						CStalkerActionCommunicateWithCustomer(CAI_Stalker *object, LPCSTR action_name = "");
 	virtual void		initialize					();
 	virtual void		execute						();
 	virtual void		finalize					();
